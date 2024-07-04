@@ -1,9 +1,12 @@
 'use client';
 
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 export default function SearchResults() {
+  const router = useRouter();
+
   const [searchTerm, setSearchTerm] = useState('');
   const [results, setResults] = useState(null);
   const [error, setError] = useState(null);
@@ -22,6 +25,10 @@ export default function SearchResults() {
       setError(error.message);
     }
   };
+
+  const handleClick = (id) => {
+    router.push(`/search/${id}`);
+  }
 
   return (
     <div>
@@ -42,7 +49,7 @@ export default function SearchResults() {
           <h2>Results:</h2>
           <ul>
             {results.map((result, index) => (
-              <li key={index} className='flex'>
+              <li key={index} className='flex' onClick={() => handleClick(result.id)}>
                 <div>
                   <Image src={`https://www.doesthedogdie.com/content/200/0/${result.posterImage}`} width={200} height={350} alt={result.name} />
                 </div>

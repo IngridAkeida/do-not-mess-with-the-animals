@@ -1,10 +1,16 @@
-const serachPage = () => {
+import { useRouter } from 'next/navigation';
+
+const SearchPage = () => {
+  const router = useRouter();
+  const { id } = router.query;
+
   return (
     <div>
-      Search
+      <h1>Search Result Details</h1>
+      <p>ID: {id}</p>
     </div>
   );
 }
 
-export default serachPage;
+export default SearchPage;
 
