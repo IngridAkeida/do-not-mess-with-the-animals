@@ -1,6 +1,7 @@
 import Header from '../components/Header/Header';
 import Main from '../components/Main/Main';
 import Footer from '../components/Footer/Footer';
+import Component from '../components/Component';
 
 
 export default function Home() {
@@ -9,6 +10,7 @@ export default function Home() {
       <Header />
       <Main />
       <Footer />
+      <Component />
     </div>
   );
 }
