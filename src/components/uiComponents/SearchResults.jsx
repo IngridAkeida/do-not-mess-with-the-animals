@@ -42,9 +42,17 @@ export default function SearchResults() {
           <h2>Results:</h2>
           <ul>
             {results.map((result, index) => (
-              <li key={index}>
-                <div>{result.name}</div>
-                <Image src={`https://www.doesthedogdie.com/content/200/0/${result.backgroundImage}`} width={200} height={350} alt="" />
+              <li key={index} className='flex'>
+                <div>
+                  <Image src={`https://www.doesthedogdie.com/content/200/0/${result.posterImage}`} width={200} height={350} alt={result.name} />
+                </div>
+                <div>
+                  <h2>{result.name}</h2>
+                  <p>{result.releaseYear}</p>
+                  <p>{result.genre}</p>
+                  <p>{result.overview}</p>
+                </div>
+                
               </li>
             ))}
           </ul>
