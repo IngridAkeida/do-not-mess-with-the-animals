@@ -1,7 +1,8 @@
 import Header from '../components/Header/Header';
 import Main from '../components/Main/Main';
 import Footer from '../components/Footer/Footer';
-import Component from '../components/Component';
+import ComponentQuery from '../components/testApi/ComponentQuery';
+import ComponentId from '../components/testApi/ComponentId';
 
 
 export default function Home() {
@@ -10,7 +11,8 @@ export default function Home() {
       <Header />
       <Main />
       <Footer />
-      <Component />
+      <ComponentQuery />
+      <ComponentId />
     </div>
   );
 }

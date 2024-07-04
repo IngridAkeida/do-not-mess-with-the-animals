@@ -10,7 +10,7 @@ export default function MyComponent() {
   const handleSearch = async () => {
     try {
       const encodedTerm = encodeURIComponent(searchTerm);
-      const response = await fetch(`/api/serverDataDDD?query=${encodedTerm}`);
+      const response = await fetch(`/api/serverDataDDDQuery?query=${encodedTerm}`);
       if (!response.ok) {
         throw new Error('Failed to fetch data');
       }
@@ -23,6 +23,7 @@ export default function MyComponent() {
 
   return (
     <div>
+      <h1>Search query</h1>
       <input
         className='text-black'
         type="text"
