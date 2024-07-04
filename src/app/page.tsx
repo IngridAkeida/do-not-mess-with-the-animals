@@ -3,6 +3,7 @@ import Main from '../components/Main/Main';
 import Footer from '../components/Footer/Footer';
 import ComponentQuery from '../components/testApi/ComponentQuery';
 import ComponentId from '../components/testApi/ComponentId';
+import SearchResults from '../components/uiComponents/SearchResults';
 
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <Footer />
       <ComponentQuery />
       <ComponentId />
+      <SearchResults />
     </div>
   );
 }
