@@ -37,7 +37,7 @@ export default function SearchResults() {
     router.push(`/search/${id}`);
   }
 
-  const maxLength = 50;
+  const maxLength = 200;
 
   return (
     <div>
