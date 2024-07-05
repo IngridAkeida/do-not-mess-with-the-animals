@@ -4,6 +4,13 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
+function reduceText(text, maxLength) {
+  if (!text || text.length <= maxLength) {
+    return text;
+  }
+  return text.slice(0, maxLength) + '...';
+};
+
 export default function SearchResults() {
   const router = useRouter();
 
@@ -30,6 +37,8 @@ export default function SearchResults() {
     router.push(`/search/${id}`);
   }
 
+  const maxLength = 50;
+
   return (
     <div>
       <h1>Search query</h1>
@@ -51,13 +60,13 @@ export default function SearchResults() {
             {results.map((result, index) => (
               <li key={index} className='flex' onClick={() => handleClick(result.id)}>
                 <div>
-                  <Image src={`https://www.doesthedogdie.com/content/200/0/${result.posterImage}`} width={200} height={350} alt={result.name} />
+                  <Image className='w-96 h-auto' src={`https://www.doesthedogdie.com/content/200/0/${result.posterImage}`} width={400} height={300} alt={result.name} />
                 </div>
                 <div>
                   <h2>{result.name}</h2>
                   <p>{result.releaseYear}</p>
                   <p>{result.genre}</p>
-                  <p>{result.overview}</p>
+                  <p key={index}>{reduceText(result.overview, maxLength)}</p>
                 </div>
                 
               </li>
@@ -73,3 +82,4 @@ export default function SearchResults() {
     </div>
   );
 }
+
