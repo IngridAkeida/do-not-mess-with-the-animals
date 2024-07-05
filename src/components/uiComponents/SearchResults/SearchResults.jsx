@@ -55,20 +55,19 @@ export default function SearchResults() {
       
       {results && results.length > 0 && (
         <div>
-          <h2>Results:</h2>
-          <ul>
+          <h2>Results: {searchTerm}</h2>
+          <ul className='flex flex-col gap-2'>
             {results.map((result, index) => (
-              <li key={index} className='flex' onClick={() => handleClick(result.id)}>
-                <div>
-                  <Image className='w-96 h-auto' src={`https://www.doesthedogdie.com/content/200/0/${result.posterImage}`} width={400} height={300} alt={result.name} />
+              <li key={index} className='flex gap-4 border-2 border-red-300 border-solid' onClick={() => handleClick(result.id)}>
+                <div className='w-1/6'>
+                  <Image className='w-20 h-auto' src={`https://www.doesthedogdie.com/content/200/0/${result.posterImage}`} width={300} height={300} alt={result.name} />
                 </div>
-                <div>
+                <div className='w-5/6'>
                   <h2>{result.name}</h2>
                   <p>{result.releaseYear}</p>
                   <p>{result.genre}</p>
                   <p key={index}>{reduceText(result.overview, maxLength)}</p>
                 </div>
-                
               </li>
             ))}
           </ul>
