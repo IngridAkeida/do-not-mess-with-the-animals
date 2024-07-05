@@ -3,6 +3,7 @@ import Main from '../components/Main/Main';
 import Footer from '../components/Footer/Footer';
 import ComponentQuery from '../components/testApi/ComponentQuery';
 import ComponentId from '../components/testApi/ComponentId';
+import ComponentIdTMDB from '../components/testApi/ComponentIdTMDB';
 import SearchResults from '../components/uiComponents/SearchResults/SearchResults';
 
 
@@ -14,6 +15,7 @@ export default function Home() {
       <Footer />
       {/* <ComponentQuery />
       <ComponentId /> */}
+      <ComponentIdTMDB />
       <SearchResults />
     </div>
   );
