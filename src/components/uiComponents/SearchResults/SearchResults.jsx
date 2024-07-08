@@ -9,7 +9,7 @@ function reduceText(text, maxLength) {
   if (!text || text.length <= maxLength) {
     return text;
   }
-  return text.slice(0, maxLength) + '...';
+  return text.slice(0, maxLength) + '...(See More)';
 };
 
 export default function SearchResults() {
@@ -109,7 +109,7 @@ export default function SearchResults() {
                   )}
                   
                   <div className='flex'>
-                    {/* {result.additionalData[0].topics?.concat(result.additionalData[4]?.topics || []).map((topic, index) => {
+                    {result.additionalData[0].topics?.concat(result.additionalData[4]?.topics || []).map((topic, index) => {
                       return (
                         <div key={index}>
                           <h2>{topic.doesName}?</h2>
@@ -123,7 +123,7 @@ export default function SearchResults() {
                             )}
                         </div>
                       );
-                    })} */}
+                    })}
                   </div>
                   <p>Overview: {reduceText(result.overview, maxLength)}</p>
                 </div>
