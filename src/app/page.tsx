@@ -3,7 +3,7 @@ import Main from '../components/Main/Main';
 import Footer from '../components/Footer/Footer';
 import ComponentQuery from '../components/testApi/ComponentQuery';
 import ComponentId from '../components/testApi/ComponentId';
-// import ComponentIdTMDB from '../components/testApi/ComponentIdTMDB';
+import ComponentIdTMDB from '../components/testApi/ComponentIdTMDB';
 import SearchResults from '../components/uiComponents/SearchResults/SearchResults';
 
 
@@ -13,8 +13,8 @@ export default function Home() {
       <Header />
       <Main />
       <Footer />
-      {/* <ComponentQuery />
-      <ComponentId /> */}
+      {/* <ComponentQuery /> */}
+      {/* <ComponentId />  */}
       {/* <ComponentIdTMDB /> */}
       <SearchResults />
     </div>
