@@ -45,26 +45,36 @@ export default function SearchResults() {
         throw new Error('Failed to fetch data');
       }
       const dataQuery = await response1.json();
-      const id = dataQuery.items[0].id;
-      console.log(dataQuery.items[0].id)
-      // setResults(data.items);
-
-      if(!id){
+      const ids = dataQuery.items.map(item => item.id);
+      if(!ids || ids.length === 0){
         throw new Error('ID not found in the first API response');
       }
 
-      //second api call idApi
-      const response2 = await fetch(`/api/serverDataDDDId?id=${id}`);
-      if (!response2.ok) {
-        throw new Error('Failed to fetch data');
-      }
-      const dataId = await response2.json();
-      console.log(dataId);
+      const fetchingResultsIds = async (ids) => {
+        const resultsIDs = {}
+        for (const id of ids) {
+          try {
+            const response2 = await fetch(`/api/serverDataDDDId?id=${id}`);
+            if (!response2.ok) {
+              throw new Error('Failed to fetch data');
+            }
+            const dataId = await response2.json();
+            resultsIDs[id] = dataId.allGroups;
+          } catch (error) {
+            console.error(`Error fetching data for ID ${id}:`, error);
+          }
+        }
+        console.log(resultsIDs);
+        return resultsIDs;
+        
+      };
+      const resultsIds = await fetchingResultsIds(ids);
+  
 
       //conbine both responses
       const combinedData = dataQuery.items.map((itemQuery) => ({
         ...itemQuery,
-        additionalData: dataId.allGroups
+        additionalData: resultsIds[itemQuery.id]
       }));
 
       setResults(combinedData);
@@ -94,7 +104,7 @@ export default function SearchResults() {
       <button onClick={handleSearch}>Search</button>
 
       {error && <div>Error: {error}</div>}
-      
+
       {results && results.length > 0 && (
         <div>
           <h2>Results: {searchTerm}</h2>
@@ -112,9 +122,19 @@ export default function SearchResults() {
                   <h2>{result.name}</h2>
                   <p>{result.releaseYear}</p>
                   <p>{result.genre}</p>
-                  {/* <p>animal violence? Yes: {totalYes}, No: {totalNo}</p> */}
+                  {/* <p>animal violence? Yes: {totalYes}, No: {totalNo}</p>  */}
                   {/* <p>{result.stats}</p> */}
-                  <p>{result.stats}</p>
+                  <p>{result.additionalData[0].topics?.concat(result.additionalData[4]?.topics || []).map((topic, index) => {
+                    return (
+                      <div key={index}>
+                      <h2>{topic.doesName}?</h2>
+                      <div className='flex'>
+                        <p className='bg-red-800'>{topic.yesSum}</p>
+                        <p className='bg-green-800'>{topic.noSum}</p></div>
+                      </div>
+                    )
+                  })}</p>
+
                   <p>{reduceText(result.overview, maxLength)}</p>
                 </div>
               </li>

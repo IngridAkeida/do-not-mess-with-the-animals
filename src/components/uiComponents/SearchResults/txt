@@ -100,3 +100,20 @@
     "365": {"definitelyYes": 0, "definitelyNo": 0}
   }
 }
+
+
+<p>{result.additionalData.map((aData, index) =>{
+  return (
+    <div key={index} className=''>
+      <h1 className='text-red-500'>{aData.name}</h1>
+      {/* <p>{aData.topics.map((topic, index) => {
+        return (
+          <div key={index} className=''>
+            <p>{topic.doesName}</p>
+          </div>
+        )
+      })}</p> */}
+
+    </div>
+  )
+})}</p>
