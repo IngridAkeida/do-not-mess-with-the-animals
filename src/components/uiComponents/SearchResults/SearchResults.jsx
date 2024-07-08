@@ -12,8 +12,6 @@ function reduceText(text, maxLength) {
   return text.slice(0, maxLength) + '...';
 };
 
-
-
 export default function SearchResults() {
   const router = useRouter();
 
@@ -96,7 +94,11 @@ export default function SearchResults() {
             {results.map((result, index) => {
               return (
               <li key={index} className='p-2 flex flex-col items-center justify-center md:flex-row gap-4 border-2 border-red-300 border-solid' >
-                <Image className='w-64 md:w-20 h-auto' src={`https://www.doesthedogdie.com/content/200/0/${result.posterImage}`} width={300} height={300} alt={result.name} />
+                {result.posterImage === null ? (
+                  <Image className='w-64 md:w-20 h-auto' src='/assets/movie-nf.png' width={300} height={300} alt={result.name} />
+                ) : (
+                  <Image className='w-64 md:w-20 h-auto' src={`https://www.doesthedogdie.com/content/200/0/${result.posterImage}`} width={300} height={300} alt={result.name} />
+                )}
                 <div className=''>
                   <h2 className='text-base text-center font-bold'>{result.name}</h2>
                   <p>Release data: {result.releaseYear}</p>
