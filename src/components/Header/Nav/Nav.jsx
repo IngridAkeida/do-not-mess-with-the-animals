@@ -1,40 +1,99 @@
 'use client';
 
-import Image from "next/image";
-import { useState } from "react";
+import Image from 'next/image';
+import { useState, useEffect } from 'react';
 
-const Nav = () => { 
-  const [isOpen, setIsOpen] = useState(false);
+const Nav = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeHeader, setActiveHeader] = useState(false);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
+  const navigation = [
+    { name: 'Movies', href: '/' },
+    { name: 'TV Shows', href: '/' },
+    { name: 'People', href: '/' },
+    { name: 'Language', href: '/' },
+    { name: 'Search', href: '/' },
+    { name: 'Account', href: '/' }
+  ];
+
+  useEffect(() => {
+    const handleScroll = () => setActiveHeader(window.scrollY > 10);
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <nav className='flex justify-between items-center h-24 bg-blue-800 px-10 gap-6'>
-      <div>
-        <Image src="/assets/logo2SemFundo.png" alt="Logo" width={70} height={40} style={{objectFit: "contain"}}/>
-      </div>
-      <div className="md:hidden" onClick={toggleMenu}>
-        <div className="space-y-2 cursor-pointer">
-          <div className="w-8 h-1 bg-white"></div>
-          <div className="w-8 h-1 bg-white"></div>
-          <div className="w-8 h-1 bg-white"></div>
+    <header className={`sticky top-0 z-50 mx-auto bg-blue-800 shadow-sm ${activeHeader ? 'bg-opacity-90' : ''}`}>
+      <nav className='flex items-center justify-between px-4 lg:px-10' aria-label='Global'>
+        <div className='flex lg:flex-1'>
+          <a href='#' className='pt-2'>
+            <span className='sr-only'>Logo</span>
+            <Image src='/assets/logo2SemFundo.png' alt='Logo' width={70} height={40} style={{ objectFit: 'contain' }} />
+          </a>
         </div>
-      </div>
-      <div className={`flex-col md:flex md:flex-row md:items-center ${isOpen ? "flex" : "hidden"} md:gap-6`}>
-        <ul className='flex flex-col md:flex-row md:gap-6'>
-          <li><a href="/">Movies</a></li>
-          <li><a href="/">TV Shows</a></li>
-          <li><a href="/">People</a></li>
-        </ul>
-        <ul className='flex flex-col md:flex-row md:gap-6'>
-          <li><a href="/">Language</a></li>
-          <li><a href="/">Search</a></li>
-          <li><a href="/">Account</a></li>
-        </ul>
-      </div>
-    </nav>
+        <div className='flex md:hidden'>
+          <button
+            type='button'
+            className='inline-flex items-center justify-center rounded-md text-white'
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            <span className='sr-only'>Open main menu</span>
+            <div className='flex flex-col gap-1'>
+              <div className={`w-6 h-0.5 bg-white rounded-sm transition-transform ${mobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></div>
+              <div className={`w-6 h-0.5 bg-white rounded-sm transition-opacity ${mobileMenuOpen ? 'opacity-0' : ''}`}></div>
+              <div className={`w-6 h-0.5 bg-white rounded-sm transition-transform ${mobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></div>
+            </div>
+          </button>
+        </div>
+        <div className='hidden md:flex lg:gap-x-12'>
+          {navigation.slice(0, 3).map((item) => (
+            <a key={item.name} href={item.href} className='text-sm font-semibold leading-6 text-white'>
+              {item.name}
+            </a>
+          ))}
+        </div>
+        <div className='hidden md:flex lg:gap-x-12'>
+          {navigation.slice(3).map((item) => (
+            <a key={item.name} href={item.href} className='text-sm font-semibold leading-6 text-white'>
+              {item.name}
+            </a>
+          ))}
+        </div>
+      </nav>
+      {mobileMenuOpen && (
+        <div className='lg:hidden fixed inset-0 z-50 w-full bg-blue-800 px-6 py-6'>
+          <div className='flex items-center justify-between mb-6'>
+            <a href='#' className='-m-1.5 p-1.5'>
+              <span className='sr-only'>Logo</span>
+              <Image src='/assets/logo2SemFundo.png' alt='Logo' width={70} height={40} style={{ objectFit: 'contain' }} />
+            </a>
+            <button
+              type='button'
+              className='-m-2.5 rounded-md p-2.5 text-white'
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span className='sr-only'>Close menu</span>
+              <div className='hover:bg-black'>
+                <div className='w-6 h-0.5 bg-white rounded-sm rotate-45 translate-y-0.5'></div>
+                <div className='w-6 h-0.5 bg-white rounded-sm -rotate-45 translate-y-0'></div>
+              </div>
+            </button>
+          </div>
+          <div className='space-y-2'>
+            {navigation.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-blue-700'
+              >
+                {item.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </header>
   );
 };
 
