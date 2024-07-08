@@ -124,19 +124,27 @@ export default function SearchResults() {
                   <p>{result.genre}</p>
                   {/* <p>animal violence? Yes: {totalYes}, No: {totalNo}</p>  */}
                   {/* <p>{result.stats}</p> */}
-                  <p>{result.additionalData[0].topics?.concat(result.additionalData[4]?.topics || []).map((topic, index) => {
-                    return (
-                      <div key={index}>
-                      <h2>{topic.doesName}?</h2>
-                      <div className='flex'>
-                        <p className='bg-red-800'>{topic.yesSum}</p>
-                        <p className='bg-green-800'>{topic.noSum}</p></div>
-                      </div>
-                    )
-                  })}</p>
+                  <div className='flex'>
+                    {result.additionalData[0].topics?.concat(result.additionalData[4]?.topics || []).map((topic, index) => {
+                      return (
+                        <div key={index}>
+                          <h2>{topic.doesName}?</h2>
+                          {topic.yesSum === 0 && topic.noSum === 0 ? (
+                            'no data'
+                          ) : (
+                              <div className='flex'>
+                                <p className='bg-red-800'>{topic.yesSum}</p>
+                                <p className='bg-green-800'>{topic.noSum}</p>
+                              </div>
+                            )}
+                        </div>
+                      );
+                    })}
+                  </div>
 
                   <p>{reduceText(result.overview, maxLength)}</p>
                 </div>
+              
               </li>
             )})}
           </ul>
