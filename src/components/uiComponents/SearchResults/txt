@@ -117,3 +117,28 @@
     </div>
   )
 })}</p>
+
+//Sumirize the stats
+// function summarizeStats(stats) {
+//   let totalYes = 0;
+//   let totalNo = 0;
+
+//   for (const key in stats.topics) {
+//     const topic = stats.topics[key];
+//     if (topic.definitelyYes === 1) {
+//       totalYes += 1;
+//     }
+//     if (topic.definitelyNo === 1) {
+//       totalNo += 1;
+//     }
+//   }
+
+//   return { totalYes, totalNo };
+// }
+
+
+{/* const { totalYes, totalNo } = summarizeStats(result.stats); */}
+
+
+{/* <p>animal violence? Yes: {totalYes}, No: {totalNo}</p>  */}
+                  {/* <p>{result.stats}</p> */}

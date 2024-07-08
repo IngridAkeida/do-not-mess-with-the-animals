@@ -12,23 +12,7 @@ function reduceText(text, maxLength) {
   return text.slice(0, maxLength) + '...';
 };
 
-//Sumirize the stats
-// function summarizeStats(stats) {
-//   let totalYes = 0;
-//   let totalNo = 0;
 
-//   for (const key in stats.topics) {
-//     const topic = stats.topics[key];
-//     if (topic.definitelyYes === 1) {
-//       totalYes += 1;
-//     }
-//     if (topic.definitelyNo === 1) {
-//       totalNo += 1;
-//     }
-//   }
-
-//   return { totalYes, totalNo };
-// }
 
 export default function SearchResults() {
   const router = useRouter();
@@ -110,9 +94,6 @@ export default function SearchResults() {
           <h2>Results: {searchTerm}</h2>
           <ul className='flex flex-col gap-2'>
             {results.map((result, index) => {
-
-              {/* const { totalYes, totalNo } = summarizeStats(result.stats); */}
-
               return (
               <li key={index} className='flex gap-4 border-2 border-red-300 border-solid' >
                 <div className=''>
@@ -122,8 +103,7 @@ export default function SearchResults() {
                   <h2>{result.name}</h2>
                   <p>{result.releaseYear}</p>
                   <p>{result.genre}</p>
-                  {/* <p>animal violence? Yes: {totalYes}, No: {totalNo}</p>  */}
-                  {/* <p>{result.stats}</p> */}
+                  
                   <div className='flex'>
                     {result.additionalData[0].topics?.concat(result.additionalData[4]?.topics || []).map((topic, index) => {
                       return (
@@ -133,18 +113,16 @@ export default function SearchResults() {
                             'no data'
                           ) : (
                               <div className='flex'>
-                                <p className='bg-red-800'>{topic.yesSum}</p>
-                                <p className='bg-green-800'>{topic.noSum}</p>
+                                <p className='bg-red-800'> Yes {topic.yesSum}</p>
+                                <p className='bg-green-800'> No {topic.noSum}</p>
                               </div>
                             )}
                         </div>
                       );
                     })}
                   </div>
-
                   <p>{reduceText(result.overview, maxLength)}</p>
                 </div>
-              
               </li>
             )})}
           </ul>
