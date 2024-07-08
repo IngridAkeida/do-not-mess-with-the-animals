@@ -1,5 +1,6 @@
 'use client';
 
+import { Chela_One } from 'next/font/google';
 import { useState } from 'react';
 
 export default function MyComponent() {
@@ -14,6 +15,7 @@ export default function MyComponent() {
       }
       const data = await response.json();
       setResult(data);
+      console.log(data)
     } catch (error) {
       setError(error.message);
     }
@@ -22,6 +24,9 @@ export default function MyComponent() {
   const handleClick = () => {
     fetchData(10752); 
   };
+
+  console.log(setResult)
+  
 
   return (
     <div>

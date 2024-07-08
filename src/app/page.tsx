@@ -13,7 +13,7 @@ export default function Home() {
       <Header />
       <Main />
       <Footer />
-      {/* <ComponentQuery /> */}
+      {/* <ComponentQuery />  */}
       {/* <ComponentId />  */}
       {/* <ComponentIdTMDB /> */}
       <SearchResults />

@@ -40,21 +40,44 @@ export default function SearchResults() {
   const handleSearch = async () => {
     try {
       const encodedTerm = encodeURIComponent(searchTerm);
-      const response = await fetch(`/api/serverDataDDDQuery?query=${encodedTerm}`);
-      if (!response.ok) {
+      const response1 = await fetch(`/api/serverDataDDDQuery?query=${encodedTerm}`);
+      if (!response1.ok) {
         throw new Error('Failed to fetch data');
       }
-      const data = await response.json();
-      setResults(data.items);
+      const dataQuery = await response1.json();
+      const id = dataQuery.items[0].id;
+      console.log(dataQuery.items[0].id)
+      // setResults(data.items);
+
+      if(!id){
+        throw new Error('ID not found in the first API response');
+      }
+
+      //second api call idApi
+      const response2 = await fetch(`/api/serverDataDDDId?id=${id}`);
+      if (!response2.ok) {
+        throw new Error('Failed to fetch data');
+      }
+      const dataId = await response2.json();
+      console.log(dataId);
+
+      //conbine both responses
+      const combinedData = dataQuery.items.map((itemQuery) => ({
+        ...itemQuery,
+        additionalData: dataId.allGroups
+      }));
+
+      setResults(combinedData);
+      console.log(combinedData)
 
     } catch (error) {
       setError(error.message);
     }
   };
 
-  const handleClick = (id) => {
-    router.push(`/search/${id}`);
-  }
+  // const handleClick = (id) => {
+  //   router.push(`/search/${id}`);
+  // }
 
   const maxLength = 200;
 
@@ -91,7 +114,8 @@ export default function SearchResults() {
                   <p>{result.genre}</p>
                   {/* <p>animal violence? Yes: {totalYes}, No: {totalNo}</p> */}
                   {/* <p>{result.stats}</p> */}
-                  <p key={index}>{reduceText(result.overview, maxLength)}</p>
+                  <p>{result.stats}</p>
+                  <p>{reduceText(result.overview, maxLength)}</p>
                 </div>
               </li>
             )})}
