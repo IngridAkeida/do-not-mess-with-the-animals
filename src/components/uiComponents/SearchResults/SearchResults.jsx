@@ -95,17 +95,19 @@ export default function SearchResults() {
           <ul className='flex flex-col gap-2'>
             {results.map((result, index) => {
               return (
-              <li key={index} className='flex gap-4 border-2 border-red-300 border-solid' >
+              <li key={index} className='p-2 flex flex-col items-center justify-center md:flex-row gap-4 border-2 border-red-300 border-solid' >
+                <Image className='w-64 md:w-20 h-auto' src={`https://www.doesthedogdie.com/content/200/0/${result.posterImage}`} width={300} height={300} alt={result.name} />
                 <div className=''>
-                  <Image className='w-20 h-auto' src={`https://www.doesthedogdie.com/content/200/0/${result.posterImage}`} width={300} height={300} alt={result.name} />
-                </div>
-                <div className=''>
-                  <h2>{result.name}</h2>
-                  <p>{result.releaseYear}</p>
-                  <p>{result.genre}</p>
+                  <h2 className='text-base text-center font-bold'>{result.name}</h2>
+                  <p>Release data: {result.releaseYear}</p>
+                  {result.genre === null ? (
+                    ''
+                  ) : (
+                    <p>Genre: {result.genre}</p>
+                  )}
                   
                   <div className='flex'>
-                    {result.additionalData[0].topics?.concat(result.additionalData[4]?.topics || []).map((topic, index) => {
+                    {/* {result.additionalData[0].topics?.concat(result.additionalData[4]?.topics || []).map((topic, index) => {
                       return (
                         <div key={index}>
                           <h2>{topic.doesName}?</h2>
@@ -119,9 +121,9 @@ export default function SearchResults() {
                             )}
                         </div>
                       );
-                    })}
+                    })} */}
                   </div>
-                  <p>{reduceText(result.overview, maxLength)}</p>
+                  <p>Overview: {reduceText(result.overview, maxLength)}</p>
                 </div>
               </li>
             )})}
