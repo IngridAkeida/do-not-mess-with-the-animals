@@ -115,7 +115,7 @@ export default function SearchResults() {
                           data.topics.map((topic, topicIndex) => (
                             topic.doesName === 'Does an animal die' && (
                               <div key={`${index}-${topicIndex}`}>
-                                <h2>{topic. === null ? 'Does an animal die? no data' : `${topic.doesName}?`}</h2>
+                                <h2>{topic.doesName}</h2>
                                 {topic.yesSum === 0 && topic.noSum === 0 ? (
                                   'no data'
                                 ) : (
