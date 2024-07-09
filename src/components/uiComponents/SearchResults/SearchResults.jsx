@@ -109,21 +109,27 @@ export default function SearchResults() {
                   )}
                   
                   <div className='flex'>
-                    {result.additionalData[0].topics?.concat(result.additionalData[4]?.topics || []).map((topic, index) => {
-                      return (
-                        <div key={index}>
-                          <h2>{topic.doesName}?</h2>
-                          {topic.yesSum === 0 && topic.noSum === 0 ? (
-                            'no data'
-                          ) : (
-                              <div className='flex'>
-                                <p className='bg-red-800'> Yes {topic.yesSum}</p>
-                                <p className='bg-green-800'> No {topic.noSum}</p>
+                    {result.additionalData && result.additionalData.length > 0 &&
+                      result.additionalData.map((data, index) => (
+                        data.name === 'Animal' && data.topics && data.topics.length > 0 && (
+                          data.topics.map((topic, topicIndex) => (
+                            topic.doesName === 'Does an animal die' && (
+                              <div key={`${index}-${topicIndex}`}>
+                                <h2>{topic. === null ? 'Does an animal die? no data' : `${topic.doesName}?`}</h2>
+                                {topic.yesSum === 0 && topic.noSum === 0 ? (
+                                  'no data'
+                                ) : (
+                                  <div className='flex'>
+                                    <p className='bg-red-800'> Yes {topic.yesSum}</p>
+                                    <p className='bg-green-800'> No {topic.noSum}</p>
+                                  </div>
+                                )}
                               </div>
-                            )}
-                        </div>
-                      );
-                    })}
+                            )
+                          ))
+                        )
+                      ))
+                    }
                   </div>
                   <p>Overview: {reduceText(result.overview, maxLength)}</p>
                 </div>
