@@ -78,12 +78,10 @@ const SearchPage = () => {
   return (
     <div>
       <Nav />
-      <Main />
-      <Footer />
-      <h1>Search Result Details</h1>
+      {/* <h1>Search Result Details</h1>
       <p>Query: {JSON.stringify(Object.fromEntries(searchParams.entries()))}</p>
       <p>URL Path: {asPath}</p>
-      <p>Search Query: {searchTerm}</p>
+      <p>Search Query: {searchTerm}</p> */}
       <div>
         {error && <div>Error: {error}</div>}
 
@@ -95,6 +93,7 @@ const SearchPage = () => {
           <p>No results found.</p>
         )}
       </div>
+      <Footer />
     </div>
   );
 }
