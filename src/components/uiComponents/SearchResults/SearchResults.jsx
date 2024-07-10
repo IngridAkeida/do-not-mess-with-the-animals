@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 function reduceText(text, maxLength) {
   if (!text || text.length <= maxLength) {
@@ -49,6 +50,7 @@ const SearchResults = ({results, searchTerm}) => {
               }
             </div>
             <p>Overview: {reduceText(result.overview, maxLength)}</p>
+            <p><Link href={`/movie/${result.id}`}>Ver detalhes</Link></p>
           </div>
         </li>
       ))}
