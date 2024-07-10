@@ -70,6 +70,9 @@ const SearchPage = () => {
     }
   }, [searchTerm]);
 
+  if (!results) {
+    return <p>Carregando...</p>;
+  }
   
 
   return (
