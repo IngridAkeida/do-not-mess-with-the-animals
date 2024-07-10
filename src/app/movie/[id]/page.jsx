@@ -60,8 +60,8 @@ const Movie = () => {
     <div className='max-w-7xl mx-auto bg-amber-950 text-white'>
       <Nav/>
       <main>
-        <div className={`flex-col flex gap-2 justify-start p-4 w-auto h-auto bg-cover bg-center`} style={{ backgroundImage: `url(${backgroundImage})` }}>
-          <div className='flex'>
+        <div className={`flex-col flex gap-2 justify-start w-auto h-auto bg-cover bg-center`} style={{ backgroundImage: `url(${backgroundImage})` }}>
+          <div className='flex p-4'>
           {item.posterImage === null ? (
               <Image className={stylesPoster} src='/assets/movie-nf.png' width={300} height={300} alt={item.name} />
             ) : (
@@ -75,10 +75,10 @@ const Movie = () => {
               <p>Written by: sjjsjs</p> 
             </div>
           </div>
-          <p className='font-semibold bg-gradient-to-t from-black to-transparent'>{item.overview}</p>
+          <p className='font-semibold bg-gradient-to-t from-black to-transparent px-4 pb-4'>{item.overview}</p>
         </div>
       <div>
-        <h1 className='font-bold text-center'>{item.name} has a total of {triggers.length} possible triggers and {totalYesSum} votes yes for this triggers. </h1>
+        <h1 className='font-bold text-center px-4'>{item.name} has a total of {triggers.length} possible triggers and {totalYesSum} votes yes for this triggers. </h1>
         {triggers.map((trigger, index) => (
           <div key={index}>
             <h2 className='font-bold pl-4 mb-2'>{trigger.name}</h2>
