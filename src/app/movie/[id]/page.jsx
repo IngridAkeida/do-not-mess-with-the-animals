@@ -40,6 +40,7 @@ const Movie = () => {
   }
 
   const item = details.item;
+  const triggers = details.allGroups;
 
   const backgroundImage = item.backgroundImage
     ? `https://www.doesthedogdie.com/content/1800/0/${item.backgroundImage}`
@@ -51,26 +52,45 @@ const Movie = () => {
     <div className='max-w-7xl mx-auto bg-amber-950 text-white'>
       <Nav/>
       <main>
-      <div className=''>
-        <h1 className='pl-4 py-1 font-bold bg-black'>{item.name}</h1>
-
         <div className={`flex-col flex gap-2 justify-start p-4 w-auto h-auto bg-cover bg-center`} style={{ backgroundImage: `url(${backgroundImage})` }}>
+          <div className='flex'>
           {item.posterImage === null ? (
               <Image className={stylesPoster} src='/assets/movie-nf.png' width={300} height={300} alt={item.name} />
             ) : (
               <Image className={stylesPoster} src={`https://www.doesthedogdie.com/content/200/0/${item.posterImage}`} width={300} height={300} alt={item.name} />
             )}
-            <p className='font-semibold bg-gradient-to-t from-black to-transparent'>{item.overview}</p>
+            <div className='pl-4'>
+              <h1 className='py-1 font-bold'>{item.name}</h1>
+              <p>{item.releaseYear}</p>
+              <p>genre</p>
+              <p>direct by: sjjsjs</p>
+              <p>Written by: sjjsjs</p> 
+            </div>
+          </div>
+          <p className='font-semibold bg-gradient-to-t from-black to-transparent'>{item.overview}</p>
         </div>
-        <div>
-        <p>Release data: {item.releaseYear}</p>
-        genero
-        diretor
-        escritor 
-        </div>
-      </div>
       <div>
         triggers
+        {triggers.map((trigger, index) => (
+          <div key={index}>
+            <h2>{trigger.name}</h2>
+            <ul>
+              {trigger.topics.map((topic, index) => (
+                <li key={index}>
+                  <div>
+                    <h2>{topic.doesName}?</h2>
+                    <div className='flex gap-2 text-center items-center'>
+                    <p className='bg-red-500 text-center rounded-full w-6 h-6'>{topic.yesSum}</p>
+                    <p className='bg-green-500 text center rounded-full w-6 h-6'>{topic.noSum}</p>
+                    </div>
+
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+
       </div>
         
       </main>
