@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
 const Nav = () => {
@@ -27,10 +28,10 @@ const Nav = () => {
     <header className={`sticky top-0 z-50 mx-auto bg-amber-800 shadow-sm ${activeHeader ? 'bg-opacity-90' : ''}`}>
       <nav className='flex items-center justify-between px-4 lg:px-10' aria-label='Global'>
         <div className='flex lg:flex-1'>
-          <a href='#' className='pt-2'>
+          <Link href='/' className='pt-2'>
             <span className='sr-only'>Logo</span>
             <Image src='/assets/logo2SemFundo.png' alt='Logo' width={70} height={40} style={{ objectFit: 'contain' }} />
-          </a>
+          </Link>
         </div>
         <div className='flex md:hidden'>
           <button
@@ -64,10 +65,10 @@ const Nav = () => {
       {mobileMenuOpen && (
         <div className='lg:hidden fixed inset-0 z-50 w-full bg-amber-800 px-6 py-6'>
           <div className='flex items-center justify-between mb-6'>
-            <a href='#' className='-m-1.5 p-1.5'>
+            <Link href='/' className='-m-1.5 p-1.5'>
               <span className='sr-only'>Logo</span>
               <Image src='/assets/logo2SemFundo.png' alt='Logo' width={70} height={40} style={{ objectFit: 'contain' }} />
-            </a>
+            </Link>
             <button
               type='button'
               className='-m-2.5 rounded-md p-2.5 text-white'
