@@ -24,7 +24,7 @@ const Nav = () => {
   }, []);
 
   return (
-    <header className={`sticky top-0 z-50 mx-auto bg-blue-800 shadow-sm ${activeHeader ? 'bg-opacity-90' : ''}`}>
+    <header className={`sticky top-0 z-50 mx-auto bg-amber-800 shadow-sm ${activeHeader ? 'bg-opacity-90' : ''}`}>
       <nav className='flex items-center justify-between px-4 lg:px-10' aria-label='Global'>
         <div className='flex lg:flex-1'>
           <a href='#' className='pt-2'>
@@ -62,7 +62,7 @@ const Nav = () => {
         </div>
       </nav>
       {mobileMenuOpen && (
-        <div className='lg:hidden fixed inset-0 z-50 w-full bg-blue-800 px-6 py-6'>
+        <div className='lg:hidden fixed inset-0 z-50 w-full bg-amber-800 px-6 py-6'>
           <div className='flex items-center justify-between mb-6'>
             <a href='#' className='-m-1.5 p-1.5'>
               <span className='sr-only'>Logo</span>
@@ -85,7 +85,7 @@ const Nav = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-blue-700'
+                className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-amber-700'
               >
                 {item.name}
               </a>
