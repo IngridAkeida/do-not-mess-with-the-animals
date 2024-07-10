@@ -1,5 +1,9 @@
 'use client';
 
+import Nav from '../../components/Header/Nav/Nav';
+import Main from '../../components/Main/Main';
+import Footer from '../../components/Footer/Footer';
+
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
@@ -76,6 +80,9 @@ const SearchPage = () => {
 
   return (
     <div>
+      <Nav />
+      <Main />
+      <Footer />
       <h1>Search Result Details</h1>
       <p>Query: {JSON.stringify(Object.fromEntries(searchParams.entries()))}</p>
       <p>URL Path: {asPath}</p>
