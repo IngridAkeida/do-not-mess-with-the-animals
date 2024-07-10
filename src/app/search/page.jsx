@@ -8,7 +8,6 @@ import SearchResults from '../../components/uiComponents/SearchResults/SearchRes
 
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
 
 const SearchPage = () => {
   const router = useRouter();
