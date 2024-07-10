@@ -48,6 +48,14 @@ const Movie = () => {
 
   const stylesPoster ='w-32 md:w-20 max-h-96 object-contain rounded-md shadow-md';
 
+  //yesSum totals 
+  const totalYesSum = triggers.reduce((total, trigger) => {
+    const triggerTotal = trigger.topics.reduce((triggerTotal, topic) => {
+      return triggerTotal + topic.yesSum;
+    }, 0);
+    return total + triggerTotal;
+  }, 0);
+
   return (
     <div className='max-w-7xl mx-auto bg-amber-950 text-white'>
       <Nav/>
@@ -70,20 +78,19 @@ const Movie = () => {
           <p className='font-semibold bg-gradient-to-t from-black to-transparent'>{item.overview}</p>
         </div>
       <div>
-        triggers
+        <h1 className='font-bold text-center'>{item.name} has a total of {triggers.length} possible triggers and {totalYesSum} votes yes for this triggers. </h1>
         {triggers.map((trigger, index) => (
           <div key={index}>
-            <h2>{trigger.name}</h2>
+            <h2 className='font-bold pl-4 mb-2'>{trigger.name}</h2>
             <ul>
               {trigger.topics.map((topic, index) => (
                 <li key={index}>
-                  <div>
+                  <div className='bg-black m-2 rounded-md p-4 mb-2'>
                     <h2>{topic.doesName}?</h2>
-                    <div className='flex gap-2 text-center items-center'>
-                    <p className='bg-red-500 text-center rounded-full w-6 h-6'>{topic.yesSum}</p>
-                    <p className='bg-green-500 text center rounded-full w-6 h-6'>{topic.noSum}</p>
+                    <div className='flex gap-2 text-center items-center pt-1'>
+                      <p className='bg-red-500 text-center rounded-full w-20 h-auto'>Yes: {topic.yesSum}</p>
+                      <p className='bg-green-500 text center rounded-full w-20 h-auto'>No: {topic.noSum}</p>
                     </div>
-
                   </div>
                 </li>
               ))}
