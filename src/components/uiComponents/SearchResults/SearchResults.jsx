@@ -5,20 +5,20 @@ function reduceText(text, maxLength) {
   if (!text || text.length <= maxLength) {
     return text;
   }
-  return text.slice(0, maxLength) + '...(See More)';
+  return text.slice(0, maxLength) + '...';
 };
 
 const SearchResults = ({results, searchTerm}) => {
   
-  const maxLength = 200;
+  const maxLength = 100;
   const stylesPoster ='w-64 md:w-20 h-auto max-h-96 object-contain rounded-md shadow-md';
 
   return (
     <div>
     <h2>Results: {searchTerm}</h2>
-    <ul className='flex flex-col gap-2 justify-center items-center'>
+    <ul className='flex flex-col md:flex-row md:flex-wrap gap-2 md:gap-4 justify-center items-center'>
       {results.map((result, index) => (
-        <li key={index} className='p-2 flex flex-col items-center justify-center md:flex-row gap-4 bg-amber-100 rounded-md shadow-md w-72'>
+        <li key={index} className='p-2 flex flex-col items-center justify-center md:flex-row gap-4 bg-blue-900 rounded-md shadow-md w-72 md:h-96 relative'>
           {result.posterImage === null ? (
             <Image className={stylesPoster} src='/assets/movie-nf.png' width={300} height={300} alt={result.name} />
           ) : (
@@ -34,7 +34,7 @@ const SearchResults = ({results, searchTerm}) => {
                   data.name === 'Animal' && data.topics && data.topics.length > 0 && 
                     data.topics.map((topic, topicIndex) => (
                       topic.doesName === 'Does an animal die' && (
-                        <div className='bg-amber-500 px-1 py-2 rounded-md' key={`${index}-${topicIndex}`}>
+                        <div className='bg-blue-800 px-1 py-2 rounded-md' key={`${index}-${topicIndex}`}>
                           <h2>{topic.doesName}?</h2>
 
                           {topic.yesSum === 0 && topic.noSum === 0 ? (
@@ -52,7 +52,18 @@ const SearchResults = ({results, searchTerm}) => {
               }
             </div>
             <p>Overview: {reduceText(result.overview, maxLength)}</p>
-            <p><Link href={`/movie/${result.id}`}>Ver detalhes</Link></p>
+            <div className=''>
+              <button className='p-2 bg-teal-600 hover:bg-blue-900 rounded-md text-white hover:text-blue-100 absolute bottom-2 left-2 w-10'>
+                <Link href={`/movie/${result.id}`}>➕</Link>
+              </button>
+              <button className='p-2 bg-teal-600 hover:bg-blue-900 rounded-md text-white hover:text-blue-100 absolute bottom-2 left-14 w-10'>
+                <Link href={`/movie/${result.id}`}>❤️</Link>
+              </button>
+              <button className='p-2 bg-teal-600 hover:bg-blue-900 rounded-md text-white hover:text-blue-100 absolute bottom-2 right-18 w-10'>
+                <Link href={`/movie/${result.id}`}>-</Link>
+              </button>
+            </div>
+            
           </div>
         </li>
       ))}
