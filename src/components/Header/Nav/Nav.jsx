@@ -30,7 +30,7 @@ const Nav = () => {
         <div className='flex lg:flex-1'>
           <Link href='/' className='pt-2'>
             <span className='sr-only'>Logo</span>
-            <Image src='/assets/logo2SemFundo.png' alt='Logo' width={70} height={40} style={{ objectFit: 'contain' }} />
+            <Image src='/assets/logo-s.png' alt='Logo' width={1000} height={500} style={{ objectFit: 'contain' }} />
           </Link>
         </div>
         <div className='flex md:hidden'>
@@ -67,7 +67,7 @@ const Nav = () => {
           <div className='flex items-center justify-between mb-6'>
             <Link href='/' className='-m-1.5 p-1.5'>
               <span className='sr-only'>Logo</span>
-              <Image src='/assets/logo2SemFundo.png' alt='Logo' width={70} height={40} style={{ objectFit: 'contain' }} />
+              <Image src='/assets/logo-s.png' alt='Logo' width={1000} height={500} style={{ objectFit: 'contain' }} />
             </Link>
             <button
               type='button'
