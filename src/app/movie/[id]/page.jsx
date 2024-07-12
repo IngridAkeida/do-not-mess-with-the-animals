@@ -57,7 +57,7 @@ const Movie = () => {
   }, 0);
 
   return (
-    <div className='max-w-7xl mx-auto bg-amber-950 text-white'>
+    <div className='max-w-7xl mx-auto bg-blue-950 text-white'>
       <Nav/>
       <main>
         <div className={`flex-col flex gap-2 justify-start w-auto h-auto bg-cover bg-center`} style={{ backgroundImage: `url(${backgroundImage})` }}>
@@ -78,14 +78,14 @@ const Movie = () => {
           <p className='font-semibold bg-gradient-to-t from-black to-transparent px-4 pb-4'>{item.overview}</p>
         </div>
       <div>
-        <h1 className='font-bold text-center px-4'>{item.name} has a total of {triggers.length} possible triggers and {totalYesSum} votes yes for this triggers. </h1>
+        <h1 className='text-center px-4'><span className='font-bold'>{item.name}</span> has <span className='font-bold'>{triggers.length}</span> possible triggers, with <span className='font-bold'>{totalYesSum}</span> votes in favor of these triggers. </h1>
         {triggers.map((trigger, index) => (
           <div key={index}>
             <h2 className='font-bold pl-4 mb-2'>{trigger.name}</h2>
             <ul>
               {trigger.topics.map((topic, index) => (
                 <li key={index}>
-                  <div className='bg-black m-2 rounded-md p-4 mb-2'>
+                  <div className='bg-blue-900 m-2 rounded-md p-4 mb-2'>
                     <h2>{topic.doesName}?</h2>
                     <div className='flex gap-2 text-center items-center pt-1'>
                       <p className='bg-red-500 text-center rounded-full w-20 h-auto'>Yes: {topic.yesSum}</p>
