@@ -56,6 +56,17 @@ const Movie = () => {
     return total + triggerTotal;
   }, 0);
 
+  //noSum totals
+  const totalnoSum = triggers.reduce((total, trigger) => {
+    const triggerTotal = trigger.topics.reduce((triggerTotal, topic) => {
+      return triggerTotal + topic.noSum;
+    }, 0);
+    return total + triggerTotal;
+  }, 0);
+
+  //total votes 
+  const totalVotes = totalYesSum + totalnoSum;
+
   return (
     <div className='max-w-7xl mx-auto bg-blue-950 text-white'>
       <Nav/>
@@ -78,9 +89,10 @@ const Movie = () => {
           <p className='font-semibold bg-gradient-to-t from-black to-transparent px-4 pb-4'>{item.overview}</p>
         </div>
       <div className=''>
-        <h1 className='text-center px-4'><span className='font-bold'>{item.name}</span> has <span className='font-bold'>{triggers.length}</span> possible triggers, with <span className='font-bold'>{totalYesSum}</span> votes in favor of these triggers. </h1>
-        <h4 className='text-white bg-red-900 px-4 mx-2 text-center rounded-md'>Please review the list of triggers carefully and exercise caution if you are sensitive to any of them.</h4>
-
+        <div className='bg-blue-900 m-2 rounded-md p-4 mb-2'>
+          <h1 className='text-center px-2 mb-2'><span className='font-bold'>{item.name}</span> has <span className='font-bold'>{triggers.length}</span> possible triggers with <span className='font-bold'>{totalYesSum}</span> votes in favor out of a total of <span className='font-bold'>{totalVotes}</span> general votes.</h1>
+          <h4 className='bg-red-900 px-2 text-center rounded-md text-bold'>Please review the list of triggers carefully and exercise caution if you are sensitive to any of them.</h4>
+        </div>
         {triggers.map((trigger, index) => (
           <div key={index}>
             <h2 className='font-bold pl-4 mb-2'>{trigger.name}</h2>
