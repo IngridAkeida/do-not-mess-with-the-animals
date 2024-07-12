@@ -1,4 +1,4 @@
-const triggerResult = ({triggers, item}) => {
+const TriggerResult = ({triggers, item}) => {
   //yesSum totals 
   const totalYesSum = triggers.reduce((total, trigger) => {
     const triggerTotal = trigger.topics.reduce((triggerTotal, topic) => {
@@ -50,5 +50,5 @@ const triggerResult = ({triggers, item}) => {
   );
 };
 
-export default triggerResult;
+export default TriggerResult;
   
