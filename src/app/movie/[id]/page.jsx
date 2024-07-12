@@ -77,8 +77,10 @@ const Movie = () => {
           </div>
           <p className='font-semibold bg-gradient-to-t from-black to-transparent px-4 pb-4'>{item.overview}</p>
         </div>
-      <div>
+      <div className=''>
         <h1 className='text-center px-4'><span className='font-bold'>{item.name}</span> has <span className='font-bold'>{triggers.length}</span> possible triggers, with <span className='font-bold'>{totalYesSum}</span> votes in favor of these triggers. </h1>
+        <h4 className='text-white bg-red-900 px-4 mx-2 text-center rounded-md'>Please review the list of triggers carefully and exercise caution if you are sensitive to any of them.</h4>
+
         {triggers.map((trigger, index) => (
           <div key={index}>
             <h2 className='font-bold pl-4 mb-2'>{trigger.name}</h2>
