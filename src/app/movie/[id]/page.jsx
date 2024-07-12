@@ -63,7 +63,7 @@ const Movie = () => {
     return <p>Carregando...</p>;
   }
 
-  const item = combineData.item;
+  const item = combineData.tmdbData;
   const triggers = combineData.allGroups;
 
   return (
