@@ -13,11 +13,29 @@ const SearchResults = ({results, searchTerm}) => {
   const maxLength = 100;
   const stylesPoster ='w-64 md:w-20 h-auto max-h-96 object-contain rounded-md shadow-md';
 
+  console.log('results', results);
+
+  if (!results) {
+    return <h2>No results found for {searchTerm}</h2>;
+  }
+
   return (
     <div>
     <h2>Results: {searchTerm}</h2>
     <ul className='flex flex-col md:flex-row md:flex-wrap gap-2 md:gap-4 justify-center items-center'>
-      {results.map((result, index) => (
+      {results.map((result, index) => {
+
+        let resultType = '';
+
+        if (result.ItemTypeId === 16) {
+          resultType = 'tvshow';
+        } else {
+          resultType = 'movie';
+        }
+
+        console.log('resultType', resultType);
+
+        return (
         <li key={index} className='p-2 flex flex-col items-center justify-center md:flex-row gap-4 bg-blue-900 rounded-md shadow-md w-72 md:h-96 relative'>
           {result.posterImage === null ? (
             <Image className={stylesPoster} src='/assets/movie-nf.png' width={300} height={300} alt={result.name} />
@@ -54,19 +72,19 @@ const SearchResults = ({results, searchTerm}) => {
             <p>Overview: {reduceText(result.overview, maxLength)}</p>
             <div className=''>
               <button className='p-2 bg-teal-600 hover:bg-blue-900 rounded-md text-white hover:text-blue-100 absolute bottom-2 left-2 w-10'>
-                <Link href={`/movie/${result.id}`}>➕</Link>
+                <Link href={`/${resultType}/${result.id}`}>➕</Link>
               </button>
               <button className='p-2 bg-teal-600 hover:bg-blue-900 rounded-md text-white hover:text-blue-100 absolute bottom-2 left-14 w-10'>
-                <Link href={`/movie/${result.id}`}>❤️</Link>
+                <Link href={`/${resultType}/${result.id}`}>❤️</Link>
               </button>
               <button className='p-2 bg-teal-600 hover:bg-blue-900 rounded-md text-white hover:text-blue-100 absolute bottom-2 right-18 w-10'>
-                <Link href={`/movie/${result.id}`}>-</Link>
+                <Link href={`/${resultType}/${result.id}`}>-</Link>
               </button>
             </div>
             
           </div>
         </li>
-      ))}
+      )})}
     </ul>
   </div>
   );
