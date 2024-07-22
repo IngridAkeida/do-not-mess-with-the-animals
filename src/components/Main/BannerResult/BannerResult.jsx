@@ -40,13 +40,14 @@ const BannerResult = ({item}) => {
             <div className='pl-4'>
               <h1 className='py-1 font-bold'>{item.title}</h1>
               <p>{item.release_date}</p>
-              <p>{item.genres.map((genre, index) => (
-                  <span key={index} className={`px-1 mx-1 text-sm rounded-lg ${genreColors[genre.id]}`}>{genre.name}</span>
+              <p className="flex flex-wrap gap-1">{item.genres.map((genre, index) => (
+                  <span key={index} className={`px-1 mx-1 text-xs rounded-lg ${genreColors[genre.id]}`}>{genre.name}</span>
               ))}</p>
               <p>direct by: sjjsjs</p>
               <p>Written by: sjjsjs</p> 
             </div>
           </div>
+          <p>{item.tagline}</p>
           <p className='font-semibold bg-gradient-to-t from-black to-transparent px-4 pb-4'>{item.overview}</p>
         </div>
   );
