@@ -8,7 +8,7 @@ export default function MyComponent() {
 
   const fetchData = async (id) => {
     try {
-      const response = await fetch(`/api/serverDataTMDB?id=${id}`);
+      const response = await fetch(`/api/serverDataTMDBTvShow?id=${id}`);
       if (!response.ok) {
         throw new Error('Failed to fetch data TMDB');
       }

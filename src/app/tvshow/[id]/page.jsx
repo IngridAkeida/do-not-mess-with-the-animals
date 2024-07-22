@@ -66,6 +66,8 @@ const Tvshow = () => {
   const item = combineData.tmdbData;
   const triggers = combineData.allGroups;
 
+  console.log('item:', item);
+
   return (
     <div className='max-w-7xl mx-auto bg-blue-950 text-white'>
       <Nav/>
