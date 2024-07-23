@@ -43,12 +43,14 @@ const BannerResult = ({item}) => {
               <p className="flex flex-wrap gap-1">{item.genres.map((genre, index) => (
                   <span key={index} className={`px-1 mx-1 text-xs rounded-lg ${genreColors[genre.id]}`}>{genre.name}</span>
               ))}</p>
-              <p>direct by: sjjsjs</p>
+              <p>Created By: {item.created_by[0].name}</p>
               <p>Written by: sjjsjs</p> 
             </div>
           </div>
-          <p>{item.tagline}</p>
-          <p className='font-semibold bg-gradient-to-t from-black to-transparent px-4 pb-4'>{item.overview}</p>
+          <div className='px-4 bg-gradient-to-t from-black to-transparent'>
+            <p className='font-bold'>{item.tagline}</p>
+            <p className='font-semibold pb-4'>{item.overview}</p>
+          </div>  
         </div>
   );
 }
