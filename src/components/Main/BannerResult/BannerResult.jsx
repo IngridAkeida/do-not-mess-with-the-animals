@@ -6,6 +6,7 @@ const BannerResult = ({item}) => {
   : '/assets/movie-nf.png';
 
   const stylesPoster ='w-32 md:w-20 max-h-96 object-contain rounded-md shadow-md';
+  const stylesSeasonPoster ='w-32 md:w-40 max-h-96 object-contain rounded-md shadow-md';
 
   const genreColors = {
     28: 'bg-orange-500',    // Action
@@ -61,14 +62,19 @@ const BannerResult = ({item}) => {
         <p>{item.vote_count}</p>
         <p>{item.popularity}</p>
         <ul className='flex flex-wrap flex-row'>
-          {item.seasons.map((season, index) => (
-            <li key={index} className='flex flex-col w-80 p-4 rounded-md shadow-md bg-blue-500 my-2'>
+          {item.seasons.map((season, index) => {
+            if (season.air_date === null) {
+              return null;
+            }
+            
+            return(
+            <li key={index} className='flex flex-col w-80 p-4 m-4 rounded-md shadow-md bg-blue-500 my-2'>
               <h2 className='text-center'>{season.name}</h2>
               <div className='flex justify-center'>
                 {season.poster_path=== null ? (
-                  <Image className={stylesPoster} src='/assets/movie-nf.png' width={300} height={300} alt={season.name} />
+                  <Image className={stylesSeasonPoster} src='/assets/movie-nf.png' width={300} height={300} alt={season.name} />
                 ) : (
-                  <Image className={stylesPoster} src={`https://www.doesthedogdie.com/content/1200/0/${season.poster_path}`} width={300} height={300} alt={season.title} />
+                  <Image className={stylesSeasonPoster} src={`https://www.doesthedogdie.com/content/1200/0/${season.poster_path}`} width={300} height={300} alt={season.title} />
                 )}
               </div>
               <div>
@@ -78,7 +84,7 @@ const BannerResult = ({item}) => {
                 <p>{season.overview}</p>
               </div>
             </li>
-          ))}
+          )})}
         </ul>
       </div>
     </div>
