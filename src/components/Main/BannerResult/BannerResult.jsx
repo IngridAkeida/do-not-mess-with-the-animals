@@ -1,4 +1,5 @@
 import Image from "next/image";
+import GenreColors from "../../uiComponents/GenreColors/GenreColors";
 
 const BannerResult = ({item}) => {
   const backgroundImage = item.backdrop_path
@@ -8,28 +9,7 @@ const BannerResult = ({item}) => {
   const stylesPoster ='w-32 md:w-20 max-h-96 object-contain rounded-md shadow-md';
   const stylesSeasonPoster ='w-32 md:w-40 max-h-96 object-contain rounded-md shadow-md';
 
-  const genreColors = {
-    28: 'bg-orange-500',    // Action
-    12: 'bg-yellow-500',    // Adventure
-    16: 'bg-orange-500',    // Animation
-    35: 'bg-red-600',       // Comedy
-    80: 'bg-red-800',       // Crime
-    99: 'bg-purple-800',    // Documentary
-    18: 'bg-blue-800',      // Drama
-    10751: 'bg-blue-600',   // Family
-    14: 'bg-teal-600',      // Fantasy
-    36: 'bg-green-800',     // History
-    27: 'bg-yellow-600',    // Horror
-    10402: 'bg-green-600',  // Music
-    9648: 'bg-purple-600',  // Mystery
-    10749: 'bg-pink-600',   // Romance
-    878: 'bg-indigo-600',   // Science Fiction
-    10770: 'bg-gray-600',   // TV Movie
-    53: 'bg-gray-800',      // Thriller
-    10752: 'bg-red-700',    // War
-    37: 'bg-yellow-800',    // Western
-    10765: 'bg-blue-700'    //'Sci-Fi & Fantasy'
-  };
+  const genreColors = GenreColors;
 
   return (
     <div>
@@ -61,14 +41,13 @@ const BannerResult = ({item}) => {
         <p>{item.vote_average}</p>
         <p>{item.vote_count}</p>
         <p>{item.popularity}</p>
-        <ul className='flex flex-wrap flex-row'>
+        <ul className='flex flex-wrap flex-row gap-4'>
           {item.seasons.map((season, index) => {
             if (season.air_date === null) {
               return null;
             }
-            
             return(
-            <li key={index} className='flex flex-col w-80 p-4 m-4 rounded-md shadow-md bg-blue-500 my-2'>
+            <li key={index} className='flex flex-col w-80 sm:w-60 p-4 rounded-md shadow-md bg-blue-500 my-2'>
               <h2 className='text-center'>{season.name}</h2>
               <div className='flex justify-center'>
                 {season.poster_path=== null ? (
@@ -86,6 +65,14 @@ const BannerResult = ({item}) => {
             </li>
           )})}
         </ul>
+      </div>
+      <div>
+        <p>Similar Titles:</p>
+        <p>{item.similar.results.map(
+          (similar, index) => (
+            <span key={index}>{similar.name}</span>
+          )
+        )}</p>
       </div>
     </div>
   );
