@@ -16,8 +16,8 @@ export default function Home() {
       <Footer />
       {/* <ComponentQuery />  */}
       {/* <ComponentId />  */}
-      <ComponentIdTMDB />
-      <ComponentIdTMDBTV />
+      {/* <ComponentIdTMDB /> */}
+      {/* <ComponentIdTMDBTV /> */}
       {/* <SearchResults /> */}
     </div>
   );
