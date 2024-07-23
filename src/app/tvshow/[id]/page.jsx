@@ -31,7 +31,7 @@ const Tvshow = () => {
       console.log('tmdbId:', tmdbId)
 
       //Fetch data from tmdb
-      const tmdbData = await fetch(`/api/serverDataTMDB?id=${tmdbId}`).then(response => {
+      const tmdbData = await fetch(`/api/serverDataTMDBTvShow?id=${tmdbId}`).then(response => {
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
