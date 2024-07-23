@@ -24,11 +24,9 @@ const Tvshow = () => {
         }
 
         const data = await response.json();
-        console.log('Data fetched:', data);
     
       //Extrat tmdbId from url
       const tmdbId = data.item.tmdbId;
-      console.log('tmdbId:', tmdbId)
 
       //Fetch data from tmdb
       const tmdbData = await fetch(`/api/serverDataTMDBTvShow?id=${tmdbId}`).then(response => {
@@ -37,8 +35,6 @@ const Tvshow = () => {
         }
         return response.json();
       });
-
-      console.log('Data fetched from second API:', tmdbData)
 
       const combineData = {
         ...data,

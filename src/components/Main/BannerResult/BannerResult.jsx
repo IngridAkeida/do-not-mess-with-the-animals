@@ -27,6 +27,7 @@ const BannerResult = ({item}) => {
     53: 'bg-gray-800',      // Thriller
     10752: 'bg-red-700',    // War
     37: 'bg-yellow-800',    // Western
+    10765: 'bg-blue-700'    //'Sci-Fi & Fantasy'
   };
 
   return (
