@@ -1,6 +1,7 @@
 import Header from '../components/Header/Header';
 import Main from '../components/Main/Main';
 import Footer from '../components/Footer/Footer';
+import ComponentList from '../components/testApi/ComponentList';
 import ComponentQuery from '../components/testApi/ComponentQuery';
 import ComponentId from '../components/testApi/ComponentId';
 import ComponentIdTMDB from '../components/testApi/ComponentIdTMDB';
@@ -14,6 +15,7 @@ export default function Home() {
       <Header />
       <Main />
       <Footer />
+      <ComponentList /> 
       {/* <ComponentQuery />  */}
       {/* <ComponentId />  */}
       {/* <ComponentIdTMDB /> */}
