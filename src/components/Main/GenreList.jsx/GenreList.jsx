@@ -1,7 +1,11 @@
 'use client';
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 import { getList } from '../../../pages/api/dataTMDBGenre';
-import Image from "next/image";
+import Carousel from './Carousel/Carousel';
+
 
 const List = () => {
   const [list, setList] = useState([]);
@@ -29,19 +33,42 @@ const List = () => {
     return <div className='text-black'>Error: {error}</div>;
   }
 
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
+  };
+
   return (
     <div className='text-black'>
       {list.map((genre, index) => (
         <ul key={index}> 
           <h2>{genre.title}</h2>
-          <li className='flex'>
+          <Slider {...settings}>
             {genre.items.results.map((item, index) => (
-              <div key={index} className='border border-black w-52'>
-                <p>{item.title}</p>
-                <Image src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} width={300} height={450} alt={item.title} />
-              </div>
+              <Carousel key={index} item={item} />
             ))}
-          </li>
+          </Slider>
         </ul>
       ))}
     </div>
