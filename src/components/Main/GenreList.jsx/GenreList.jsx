@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from "react";
-import { getList } from '../../pages/api/dataTMDBGenre';
+import { getList } from '../../../pages/api/dataTMDBGenre';
 import Image from "next/image";
 
 const List = () => {
