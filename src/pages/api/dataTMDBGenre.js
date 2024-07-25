@@ -1,49 +1,67 @@
 const API_TOKEN = process.env.NEXT_PUBLIC_TMDB_API_TOKEN;
 
 const listFetch = async (keyPass) => {
-  const response = await fetch(`https://api.themoviedb.org/3/${keyPass}`);
-  const json = await response.json();
-  return json;
+  try {
+    const response = await fetch(`https://api.themoviedb.org/3/${keyPass}`, {
+      headers: {
+        Authorization: `Bearer ${API_TOKEN}`
+      }
+    });
+    console.log('response:', response);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const json = await response.json();
+    return json;
+  } catch (error) {
+    console.error("Fetch error: ", error.message);
+    return null;
+  }
 };
 
-export default {
-  getList: async () => {
-    return [
-      {
-        slug: 'trending',
-        title: 'Trending',
-        items: await listFetch(`/trending/all/week?&api_key=${API_TOKEN}`),
-      },
-      {
-        slug: 'toprated',
-        title: 'Toprated',
-        items: await listFetch(`/movie/top_rated?&api_key=${API_TOKEN}`),
-      },
-      {
-        slug: 'action',
-        title: 'Action',
-        items: await listFetch(
-          `/discover/movie?with_genres=28&api_key=${API_TOKEN}`
-        ),
-      },
-      {
-        slug: 'comedy',
-        title: 'Comedy',
-        items: await listFetch(
-          `/discover/movie?with_genres=35&api_key=${API_TOKEN}`
-        ),
-      },
-      {
-        slug: 'horror',
-        title: 'Horror',
-        items: await listFetch(
-          `/discover/movie?with_genres=27&api_key=${API_TOKEN}`
-        ),
-      },
-      {
-        slug: 'romance',
-        title: 'Romance',
-        items: await listFetch(`/discover/movie?with_genres=10749&api_key=${API_TOKEN}`)
-      },
-    ];
-  }};
+export default async function handler(req, res) {
+  console.log('API Key:', API_TOKEN);
+
+  if (!API_TOKEN) {
+    console.error('API key is missing');
+    return res.status(401).json({ error: 'API key is required' });
+  }
+
+  const data = await getList();
+  res.status(200).json(data);
+}
+
+const getList = async () => [
+  {
+    slug: 'trending',
+    title: 'Trending',
+    items: await listFetch(`trending/all/week`),
+  },
+  {
+    slug: 'toprated',
+    title: 'Toprated',
+    items: await listFetch(`movie/top_rated`),
+  },
+  {
+    slug: 'action',
+    title: 'Action',
+    items: await listFetch(`discover/movie?with_genres=28`),
+  },
+  {
+    slug: 'comedy',
+    title: 'Comedy',
+    items: await listFetch(`discover/movie?with_genres=35`),
+  },
+  {
+    slug: 'horror',
+    title: 'Horror',
+    items: await listFetch(`discover/movie?with_genres=27`),
+  },
+  {
+    slug: 'romance',
+    title: 'Romance',
+    items: await listFetch(`discover/movie?with_genres=10749`),
+  },
+];
+
+export { getList };
