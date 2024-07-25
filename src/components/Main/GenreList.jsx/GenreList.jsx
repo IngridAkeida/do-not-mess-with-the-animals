@@ -4,6 +4,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { getList } from '../../../pages/api/dataTMDBGenre';
+import { NextArrow, PrevArrow } from './ArrowCarousel/ArrowCarousel';
 import Carousel from './Carousel/Carousel';
 
 
@@ -39,6 +40,8 @@ const List = () => {
     speed: 500,
     slidesToShow: 7,
     slidesToScroll: 7,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
     responsive: [
       {
         breakpoint: 1024,
@@ -64,7 +67,7 @@ const List = () => {
       {list.map((genre, index) => (
         <ul key={index}> 
           <h2>{genre.title}</h2>
-          <Slider {...settings}>
+          <Slider {...settings} className='bg-blue-950 py-2 rounded-sm'>
             {genre.items.results.map((item, index) => (
               <Carousel key={index} item={item} />
             ))}
