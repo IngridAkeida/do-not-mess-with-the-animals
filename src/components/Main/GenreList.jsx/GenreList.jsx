@@ -34,11 +34,11 @@ const List = () => {
   }
 
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 3,
+    slidesToShow: 7,
+    slidesToScroll: 7,
     responsive: [
       {
         breakpoint: 1024,
