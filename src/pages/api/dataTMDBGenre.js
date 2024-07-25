@@ -7,7 +7,6 @@ const listFetch = async (keyPass) => {
         Authorization: `Bearer ${API_TOKEN}`
       }
     });
-    console.log('response:', response);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -20,8 +19,6 @@ const listFetch = async (keyPass) => {
 };
 
 export default async function handler(req, res) {
-  console.log('API Key:', API_TOKEN);
-
   if (!API_TOKEN) {
     console.error('API key is missing');
     return res.status(401).json({ error: 'API key is required' });
