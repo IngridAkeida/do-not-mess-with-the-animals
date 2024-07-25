@@ -1,5 +1,4 @@
 import Header from "../components/Header/Header";
-import Main from "../components/Main/Main";
 import Footer from "../components/Footer/Footer";
 import ComponentList from "../components/Main/GenreList.jsx/GenreList";
 import ComponentQuery from "../components/testApi/ComponentQuery";
@@ -12,9 +11,9 @@ export default function Home() {
   return (
     <div className="max-w-7xl mx-auto">
       <Header />
-      <Main />
-      <Footer />
       <ComponentList />
+      <Footer />
+      
       {/* <ComponentQuery />  */}
       {/* <ComponentId />  */}
       {/* <ComponentIdTMDB /> */}
