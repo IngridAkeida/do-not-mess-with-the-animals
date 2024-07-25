@@ -39,26 +39,46 @@ const List = () => {
     infinite: true,
     speed: 500,
     slidesToShow: 7,
-    slidesToScroll: 7,
+    slidesToScroll: 5,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          infinite: true,
-          dots: true
+          slidesToShow: 5,
+          slidesToScroll: 4,
         }
       },
       {
-        breakpoint: 600,
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 3,
+        }
+      },
+      {
+        breakpoint: 640,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+        }
+      },
+      {
+        breakpoint: 425,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        }
+      },
+      {
+        breakpoint: 375,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
+          slidesToScroll: 1,
         }
-      }
+      },
+      
     ]
   };
 
