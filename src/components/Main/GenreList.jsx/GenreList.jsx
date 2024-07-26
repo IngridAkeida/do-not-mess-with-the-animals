@@ -87,8 +87,8 @@ const List = () => {
       <h2 className='bg-gradient-to-br from-teal-600 to-blue-900 font-semibold text-3xl text-center bg-black rounded-md p-2'> Loooking for the main tredings and genres avoiding animal violence </h2>
         {list.map((genre, index) => (
           <ul key={index} className='bg-gradient-to-br from-teal-600 to-blue-900 rounded-md sm:pb-8'> 
-            <h2 className='font-bold mx-2 sm:mx-12 mt-4 text-blue-50 text-2xl'>{genre.title}</h2>
-            <Slider {...settings} className='py-2 px-2 sm:px-12'>
+            <h2 className='font-bold mx-2 sm:mx-12 mt-2 sm:mt-4 text-blue-50 text-2xl'>{genre.title}</h2>
+            <Slider {...settings} className='py-2 px-2 sm:px-12 h-48 sm:h-auto'>
               {genre.items.results.map((item, index) => (
                 <Carousel key={index} item={item} />
               ))}
