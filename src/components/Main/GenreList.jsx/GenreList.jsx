@@ -87,7 +87,7 @@ const List = () => {
       {list.map((genre, index) => (
         <ul key={index}> 
           <h2>{genre.title}</h2>
-          <Slider {...settings} className='bg-blue-950 py-2 rounded-sm'>
+          <Slider {...settings} className='bg-gradient-to-br from-teal-600 to-blue-900 py-2 px-12 rounded-md'>
             {genre.items.results.map((item, index) => (
               <Carousel key={index} item={item} />
             ))}

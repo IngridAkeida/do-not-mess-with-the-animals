@@ -9,7 +9,7 @@ import SearchResults from "../components/uiComponents/SearchResults/outro";
 
 export default function Home() {
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className='max-w-7xl mx-auto'>
       <Header />
       <ComponentList />
       <Footer />
