@@ -83,17 +83,18 @@ const List = () => {
   };
 
   return (
-    <div className='text-black'>
-      {list.map((genre, index) => (
-        <ul key={index}> 
-          <h2>{genre.title}</h2>
-          <Slider {...settings} className='bg-gradient-to-br from-teal-600 to-blue-900 py-2 px-12 rounded-md'>
-            {genre.items.results.map((item, index) => (
-              <Carousel key={index} item={item} />
-            ))}
-          </Slider>
-        </ul>
-      ))}
+    <div className='flex flex-col gap-4'>
+      <h2 className='bg-gradient-to-br from-teal-600 to-blue-900 font-semibold text-3xl text-center mt-4 bg-black rounded-md p-2'> Loooking for the main tredings and genres avoiding animal violence </h2>
+        {list.map((genre, index) => (
+          <ul key={index} className='bg-gradient-to-br from-teal-600 to-blue-900 rounded-md pb-8'> 
+            <h2 className='font-bold mx-12 mt-4 text-blue-50 text-2xl'>{genre.title}</h2>
+            <Slider {...settings} className='py-2 px-12 '>
+              {genre.items.results.map((item, index) => (
+                <Carousel key={index} item={item} />
+              ))}
+            </Slider>
+          </ul>
+        ))}
     </div>
   );
 }
