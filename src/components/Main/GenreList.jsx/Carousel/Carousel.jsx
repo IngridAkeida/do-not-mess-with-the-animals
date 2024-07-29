@@ -2,8 +2,8 @@ import Image from "next/image";
 
 const Carousel = ({index, item}) => {
   return (
-    <div key={index} className='sm:h-60 sm:w-40 relative'>
-      <div className='absolute text-white bg-gradient-to-r  sm:bg-gradient-to-t from-black to-transparent h-[162px] sm:h-60 w-72 sm:w-40 rounded-xl flex flex-col justify-center items-center text-center hover:border'>
+    <div key={index} className='sm:h-60 sm:w-40 relative pr-2'>
+      <div className='absolute text-white bg-gradient-to-r  sm:bg-gradient-to-t from-black to-transparent h-[158px] sm:h-60 w-52 sm:w-40 rounded-xl flex flex-col justify-center items-center text-left'>
         <p className='p-2 sm:hidden'>{item.title || item.name}</p>
         <div>Animal violence?</div>
         <div className='flex gap-2 justify-center items-center text-black'>
