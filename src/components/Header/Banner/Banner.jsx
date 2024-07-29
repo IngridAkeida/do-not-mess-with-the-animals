@@ -11,7 +11,7 @@ const Banner = () => {
   }
 
   return (
-    <div className='text-center px-2 h-96 bg-gradient-to-br from-teal-600 to-blue-900 flex flex-col items-center justify-center gap-4 sm:px-10 rounded-b-md text-blue-200'>
+    <div className='text-center px-2 mx-2 sm:mx-0 h-52 sm:h-96 bg-gradient-to-br from-teal-600 to-blue-900 flex flex-col items-center justify-center gap-4 sm:px-10 rounded-b-md text-blue-200'>
       <h1 className='text-center text-xl md:text-5xl'>Welcome to our page</h1>
       <p className='text-base md:text-xl'>Browse movies and TV shows to ensure they are free from animal violence and others triggers</p>
       <div className='text-base sm:text-2xl relative m-2'>
