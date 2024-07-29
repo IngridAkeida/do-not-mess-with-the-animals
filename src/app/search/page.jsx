@@ -1,7 +1,6 @@
 'use client';
 
 import Nav from '../../components/Header/Nav/Nav';
-import Main from '../../components/Main/Main';
 import Footer from '../../components/Footer/Footer';
 
 import SearchResults from '../../components/uiComponents/SearchResults/SearchResults';
@@ -76,7 +75,7 @@ const SearchPage = () => {
   
 
   return (
-    <div>
+    <div className='max-w-7xl mx-auto'>
       <Nav />
       {/* <h1>Search Result Details</h1>
       <p>Query: {JSON.stringify(Object.fromEntries(searchParams.entries()))}</p>
