@@ -25,7 +25,7 @@ const Nav = () => {
   }, []);
 
   return (
-    <header className={`sticky top-0 z-50 mx-auto bg-blue-200 shadow-sm ${activeHeader ? 'bg-opacity-90' : ''}`}>
+    <header className={`sticky top-0 z-50 mx-auto bg-blue-900 shadow-sm ${activeHeader ? 'bg-opacity-90' : ''}`}>
       <nav className='flex items-center justify-between px-4 lg:px-10' aria-label='Global'>
         <div className='flex lg:flex-1'>
           <Link href='/' className='pt-2'>
@@ -36,7 +36,7 @@ const Nav = () => {
         <div className='flex md:hidden'>
           <button
             type='button'
-            className='inline-flex items-center justify-center rounded-md text-blue-900 hover:text-white hover:bg-blue-900 my-2 mx-1'
+            className='inline-flex items-center justify-center rounded-md text-blue-200 hover:text-blue-100 hover:bg-blue-900 my-2 mx-1'
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             <span className='sr-only'>Open main menu</span>
@@ -49,21 +49,21 @@ const Nav = () => {
         </div>
         <div className='hidden md:flex lg:gap-x-12'>
           {navigation.slice(0, 3).map((item) => (
-            <a key={item.name} href={item.href} className='text-sm font-semibold leading-6 text-blue-900 hover:text-white hover:bg-blue-900 my-2 mx-1'>
+            <a key={item.name} href={item.href} className='text-sm font-semibold leading-6 text-blue-200 hover:text-blue-100 hover:bg-blue-900 my-2 mx-1'>
               {item.name}
             </a>
           ))}
         </div>
         <div className='hidden md:flex lg:gap-x-12'>
           {navigation.slice(3).map((item) => (
-            <a key={item.name} href={item.href} className='text-sm font-semibold leading-6 text-blue-900 hover:text-white hover:bg-blue-900 my-2 mx-1'>
+            <a key={item.name} href={item.href} className='text-sm font-semibold leading-6 text-blue-200 hover:text-blue-100 hover:bg-blue-900 my-2 mx-1'>
               {item.name}
             </a>
           ))}
         </div>
       </nav>
       {mobileMenuOpen && (
-        <div className='lg:hidden fixed inset-0 z-50 w-full bg-blue-200 bg-opacity-95 px-4 py-2'>
+        <div className='lg:hidden fixed inset-0 z-50 w-full bg-blue-900 bg-opacity-95 px-4 py-2'>
           <div className='flex items-center justify-between mb-6'>
             <Link href='/' className='-m-1.5 p-1.5'>
               <span className='sr-only'>Logo</span>
@@ -71,7 +71,7 @@ const Nav = () => {
             </Link>
             <button
               type='button'
-              className='-m-2.5 rounded-md p-2.5 text-blue-900 hover:text-white hover:bg-blue-900 my-2 mx-1'
+              className='-m-2.5 rounded-md p-2.5 text-blue-200 hover:text-blue-100 hover:bg-blue-900 my-2 mx-1'
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className='sr-only'>Close menu</span>
@@ -86,7 +86,7 @@ const Nav = () => {
               <a
                 key={item.name}
                 href={item.href}
-                className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-blue-900 hover:text-white hover:bg-blue-900 my-2 mx-1 hover:bg-blue-700'
+                className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-blue-200 hover:text-blue-100 hover:bg-blue-900 my-2 mx-1 hover:bg-blue-700'
               >
                 {item.name}
               </a>

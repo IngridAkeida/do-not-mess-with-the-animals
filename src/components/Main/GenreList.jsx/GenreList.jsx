@@ -83,8 +83,8 @@ const List = () => {
   };
 
   return (
-    <div className='flex flex-col gap-4 mx-2 my-4'>
-      <h2 className='bg-gradient-to-br from-teal-600 to-blue-900 font-semibold text-3xl text-center bg-black rounded-md p-2'> Loooking for the main tredings and genres avoiding animal violence </h2>
+    <div className='flex flex-col gap-4 mx-2 my-4 sm:mx-0'>
+      <h2 className='bg-gradient-to-br from-teal-600 to-blue-900 font-semibold text-3xl text-center bg-black rounded-md p-2'> Looking for the main tredings and genres avoiding animal violence </h2>
         {list.map((genre, index) => (
           <ul key={index} className='bg-gradient-to-br from-teal-600 to-blue-900 rounded-md sm:pb-8'> 
             <h2 className='font-bold mx-2 sm:mx-12 mt-2 sm:mt-4 text-blue-50 text-2xl'>{genre.title}</h2>
