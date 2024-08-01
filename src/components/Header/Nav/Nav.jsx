@@ -3,19 +3,15 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import SearchField from '../../uiComponents/SearchField/SearchField';
+
+import { Navigation } from './MenuList/MenuList';
 
 const Nav = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeHeader, setActiveHeader] = useState(false);
 
-  const navigation = [
-    { name: 'Movies', href: '/' },
-    { name: 'TV Shows', href: '/' },
-    { name: 'People', href: '/' },
-    { name: 'Language', href: '/' },
-    { name: 'Search', href: '/' },
-    { name: 'Account', href: '/' }
-  ];
+  const navigation = Navigation;
 
   useEffect(() => {
     const handleScroll = () => setActiveHeader(window.scrollY > 10);
@@ -34,6 +30,7 @@ const Nav = () => {
             {/* <Image className='w-32' src='/' alt='Logo' width={1000} height={500} style={{ objectFit: 'contain' }} /> */}
           </Link>
         </div>
+        <SearchField />
         <div className='flex md:hidden'>
           <button
             type='button'
