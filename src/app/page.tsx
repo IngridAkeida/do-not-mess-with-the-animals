@@ -13,11 +13,11 @@ import LogUp from '../components/SignUp'
 export default function Home() {
   return (
     <div className='max-w-7xl mx-auto'>
-      <LogIn />
+      {/* <LogIn /> */}
       {/* <LogUp /> */}
-      {/* <Header />
+      <Header />
       <ComponentList />
-      <Footer /> */}
+      <Footer />
       
       {/* <ComponentQuery />  */}
       {/* <ComponentId />  */}
