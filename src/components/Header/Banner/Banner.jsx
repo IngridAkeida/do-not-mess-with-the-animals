@@ -2,7 +2,6 @@
 import SearchField from '../../uiComponents/SearchField/SearchField'; 
 
 const Banner = () => {
-
   const SearchWrapStyle = 'text-base sm:text-2xl relative m-2';
   const SearchInputStyle = 'p-2 sm:p-4 sm:w-screen max-w-5xl bg-blue-100 rounded-xl text-blue-900';
   const SearchButtonStyle = 'p-2 sm:p-4 bg-teal-600 hover:bg-blue-900 rounded-xl absolute right-0 text-white hover:text-blue-100';

@@ -11,6 +11,10 @@ const Nav = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeHeader, setActiveHeader] = useState(false);
 
+  const SearchWrapStyle = 'hidden sm:block text-base sm:text-base relative m-2';
+  const SearchInputStyle = 'p-1 sm:w-80 max-w-md bg-blue-100 rounded-md text-blue-900';
+  const SearchButtonStyle = 'p-1 bg-teal-600 hover:bg-blue-900 rounded-md absolute right-0 text-white hover:text-blue-100';
+
   const navigation = Navigation;
 
   useEffect(() => {
@@ -30,7 +34,11 @@ const Nav = () => {
             {/* <Image className='w-32' src='/' alt='Logo' width={1000} height={500} style={{ objectFit: 'contain' }} /> */}
           </Link>
         </div>
-        <SearchField />
+        <SearchField 
+          wrapStyle={SearchWrapStyle} 
+          inputStyle={SearchInputStyle} 
+          buttonStyle={SearchButtonStyle} 
+        />
         <div className='flex md:hidden'>
           <button
             type='button'

@@ -9,15 +9,17 @@ import SearchResults from "../components/uiComponents/SearchResults/outro";
 
 import LogIn from '../components/SignIn'
 import LogUp from '../components/SignUp'
+import User from '../components/User'
 
 export default function Home() {
   return (
     <div className='max-w-7xl mx-auto'>
       {/* <LogIn /> */}
       {/* <LogUp /> */}
-      <Header />
+      <User />
+      {/* <Header />
       <ComponentList />
-      <Footer />
+      <Footer /> */}
       
       {/* <ComponentQuery />  */}
       {/* <ComponentId />  */}
