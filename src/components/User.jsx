@@ -13,7 +13,6 @@ const User = () => {
         <div>Blocklist</div>
         <div>Settings</div>
       </div>
-      
     </div>
   );
 };
