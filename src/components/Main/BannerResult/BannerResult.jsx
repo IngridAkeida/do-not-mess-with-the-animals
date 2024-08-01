@@ -26,7 +26,7 @@ const BannerResult = ({item}) => {
           <p className="flex flex-wrap gap-1">{item.genres.map((genre, index) => (
               <span key={index} className={`px-1 mx-1 text-xs rounded-lg ${genreColors[genre.id]}`}>{genre.name}</span>
           ))}</p>
-          <p>Created By: {item.created_by[0].name}</p>
+          {/* <p>Created By: {item.created_by[0].name}</p> */}
           <p>Written by: sjjsjs</p> 
         </div>
       </div>
@@ -41,7 +41,7 @@ const BannerResult = ({item}) => {
         <p>{item.vote_average}</p>
         <p>{item.vote_count}</p>
         <p>{item.popularity}</p>
-        <ul className='flex flex-wrap flex-row gap-4'>
+        {/* <ul className='flex flex-wrap flex-row gap-4'>
           {item.seasons.map((season, index) => {
             if (season.air_date === null) {
               return null;
@@ -64,7 +64,7 @@ const BannerResult = ({item}) => {
               </div>
             </li>
           )})}
-        </ul>
+        </ul> */}
       </div>
       <div>
         <p>Similar Titles:</p>

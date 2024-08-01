@@ -1,68 +1,26 @@
 'use client'
 
 import Nav from '../../../components/Header/Nav/Nav';
+import { useCombineData } from '../../../components/Main/CombineDatas/CombineDatas';
 import BannerResult from '../../../components/Main/BannerResult/BannerResult';
 import TriggerResult from '../../../components/Main/TriggerResult/TriggerResult';
 import Footer from '../../../components/Footer/Footer';
 
-import { useParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
 
 const Tvshow = () => {
+  const fetchpath ='serverDataTMDBTvShow';
+  const { combineData, loading, error } = useCombineData({fetchpath}); 
 
-  const { id } = useParams();
-  const [combineData, setCombineData] = useState(null);
+  if (loading) {
+    return <p>Loading...</p>;
+  }
 
-  useEffect(() => {
-    const fetchDetails = async () => {
-      if (!id) return;
-
-      try {
-        const response = await fetch(`/api/serverDataDDDId?id=${id}`);
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const data = await response.json();
-    
-      //Extrat tmdbId from url
-      const tmdbId = data.item.tmdbId;
-
-      //Fetch data from tmdb
-      const tmdbData = await fetch(`/api/serverDataTMDBTvShow?id=${tmdbId}`).then(response => {
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-      });
-
-      const combineData = {
-        ...data,
-        tmdbData
-      };
-
-      console.log('Combined data:', combineData)
-
-      setCombineData(combineData);
-    } catch (error) {
-      console.error('Fetch error:', error);
-    }
-
-  };
-
-    if (id) {
-      fetchDetails();
-    }
-  }, [id]);
-
-  if (!combineData) {
-    return <p>Carregando...</p>;
+  if (error) {
+    return <p>Error: {error.message}</p>;
   }
 
   const item = combineData.tmdbData;
   const triggers = combineData.allGroups;
-
-  console.log('item:', item);
 
   return (
     <div className='max-w-7xl mx-auto bg-blue-950 text-white'>
