@@ -7,12 +7,17 @@ import ComponentIdTMDB from "../components/testApi/ComponentIdTMDB";
 import ComponentIdTMDBTV from "../components/testApi/ComponentIdTMDBTV";
 import SearchResults from "../components/uiComponents/SearchResults/outro";
 
+import LogIn from '../components/SignIn'
+import LogUp from '../components/SignUp'
+
 export default function Home() {
   return (
     <div className='max-w-7xl mx-auto'>
-      <Header />
+      <LogIn />
+      {/* <LogUp /> */}
+      {/* <Header />
       <ComponentList />
-      <Footer />
+      <Footer /> */}
       
       {/* <ComponentQuery />  */}
       {/* <ComponentId />  */}

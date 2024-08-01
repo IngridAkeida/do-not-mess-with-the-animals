@@ -14,10 +14,6 @@ const SignIn = () => {
     console.log('Password:', password);
   };
 
-  const handleBankIDSignIn = () => {
-    console.log('BankID sign-in');
-  };
-
   return (
     <div className='flex items-center justify-center min-h-screen bg-gray-100'>
       <div className='bg-white p-8 rounded shadow-md w-80'>
@@ -34,7 +30,10 @@ const SignIn = () => {
             />
           </div>
           <div className='mb-4'>
-            <label className='block text-gray-700'>Password</label>
+            <div className='flex justify-between items-end'>
+              <label className='block text-gray-700'>Password</label>
+              <p className='text-blue-600 text-xs'>Forgot your password?</p>
+            </div>
             <input
               type='password'
               value={password}
@@ -47,11 +46,8 @@ const SignIn = () => {
             Sign In
           </button>
         </form>
-        <div className='mt-4 text-center'>
-          <button onClick={handleBankIDSignIn} className='w-full bg-green-500 text-white py-2 rounded hover:bg-green-600'>
-            Sign In with BankID
-          </button>
-        </div>
+        <p className='text-black'> New here?</p>
+        <p className='text-black'> Create your account now!</p>
       </div>
     </div>
   );

@@ -6,26 +6,23 @@ const SignUp = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confPassword, setConfPassword] = useState('');
 
   const handleNameChange = (e) => setName(e.target.value);
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
+  const handleConfirmPasswordChange = (e) => setConfPassword(e.target.value);
 
   const handleSignUp = (e) => {
     e.preventDefault();
-    // Handle sign-up logic here
     console.log('Name:', name);
     console.log('Email:', email);
     console.log('Password:', password);
-  };
-
-  const handleBankIDSignUp = () => {
-    // Handle BankID sign-up logic here
-    console.log('BankID sign-up');
+    console.log('Confirm Password:', confPassword);
   };
 
   return (
-    <div className='flex items-center justify-center min-h-screen bg-gray-100'>
+    <div className='flex flex-col items-center justify-center min-h-screen bg-gray-100'>
       <div className='bg-white p-8 rounded shadow-md w-80'>
         <h2 className='text-2xl mb-4 text-center text-black'>Sign Up</h2>
         <form onSubmit={handleSignUp}>
@@ -35,7 +32,7 @@ const SignUp = () => {
               type='text'
               value={name}
               onChange={handleNameChange}
-              className='w-full px-3 py-2 border rounded'
+              className='w-full px-3 py-2 border rounded text-black'
               required
             />
           </div>
@@ -45,7 +42,7 @@ const SignUp = () => {
               type='email'
               value={email}
               onChange={handleEmailChange}
-              className='w-full px-3 py-2 border rounded'
+              className='w-full px-3 py-2 border rounded text-black'
               required
             />
           </div>
@@ -55,7 +52,7 @@ const SignUp = () => {
               type='password'
               value={password}
               onChange={handlePasswordChange}
-              className='w-full px-3 py-2 border rounded'
+              className='w-full px-3 py-2 border rounded text-black'
               required
             />
           </div>
@@ -63,9 +60,9 @@ const SignUp = () => {
             <label className='block text-gray-700'>Re-enter password</label>
             <input
               type='password'
-              value={password}
-              onChange={handlePasswordChange}
-              className='w-full px-3 py-2 border rounded'
+              value={confPassword}
+              onChange={handleConfirmPasswordChange}
+              className='w-full px-3 py-2 border rounded text-black'
               required
             />
           </div>
@@ -74,11 +71,9 @@ const SignUp = () => {
           </button>
         </form>
         <div className='mt-4 text-center'>
-          <button onClick={handleBankIDSignUp} className='w-full bg-green-500 text-white py-2 rounded hover:bg-green-600'>
-            Sign Up with BankID
-          </button>
         </div>
-      </div>
+        <p className='text-black'>Already have an account? Sign in</p>
+      </div> 
     </div>
   );
 };
