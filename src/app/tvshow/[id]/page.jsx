@@ -23,7 +23,7 @@ const Tvshow = () => {
   const triggers = combineData.allGroups;
 
   return (
-    <div className='max-w-7xl mx-auto bg-dark-neutral-a40 text-white'>
+    <div className='max-w-7xl mx-auto bg-dark-neutral-a50 text-white'>
       <Nav/>
       <main>
         <BannerResult item={item} />
