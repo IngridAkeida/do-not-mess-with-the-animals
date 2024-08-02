@@ -12,7 +12,7 @@ import User from '../components/User'
 
 export default function Home() {
   return (
-    <div className='max-w-7xl mx-auto'>
+    <div className='max-w-7xl mx-auto bg-dark-neutral-a40'>
       {/* <LogIn />
       <LogUp />
       <User /> */}

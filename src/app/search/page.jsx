@@ -75,7 +75,7 @@ const SearchPage = () => {
   
 
   return (
-    <div className='max-w-7xl mx-auto'>
+    <div className='max-w-7xl mx-auto bg-dark-neutral-a40'>
       <Nav />
       {/* <h1>Search Result Details</h1>
       <p>Query: {JSON.stringify(Object.fromEntries(searchParams.entries()))}</p>
