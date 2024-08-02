@@ -35,7 +35,7 @@ const config: Config = {
             a20: '#919191',
             a30: '#5e5e5e',
             a40: '#303030',
-            a50: '#000000',
+            a50: '#040000',
           },
         },
         light: {
@@ -47,7 +47,7 @@ const config: Config = {
             500: '#ff8162',
             600: '#ff6b46', // Darkest tone
           },
-          surface: {
+          neutral: {
             100: '#ffffff', // Lightest tone
             200: '#f7f7f7',
             300: '#efefef',
