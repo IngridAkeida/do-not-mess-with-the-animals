@@ -36,7 +36,7 @@ const SearchResults = ({results, searchTerm}) => {
         console.log('resultType', resultType);
 
         return (
-        <li key={index} className='p-2 flex flex-col items-center justify-center md:flex-row gap-4 bg-blue-900 rounded-md shadow-md w-72 md:h-96 relative'>
+        <li key={index} className='p-2 flex flex-col items-center justify-center md:flex-row gap-4 bg-dark-neutral-a40 rounded-md shadow-md w-72 md:h-96 relative'>
           {result.posterImage === null ? (
             <Image className={stylesPoster} src='/assets/movie-nf.png' width={300} height={300} alt={result.name} />
           ) : (
@@ -71,13 +71,13 @@ const SearchResults = ({results, searchTerm}) => {
             </div>
             <p>Overview: {reduceText(result.overview, maxLength)}</p>
             <div className=''>
-              <button className='p-2 bg-teal-600 hover:bg-blue-900 rounded-md text-white hover:text-blue-100 absolute bottom-2 left-2 w-10'>
+              <button className='p-2 bg-teal-600 hover:bg-dark-neutral-a40 rounded-md text-white hover:text-blue-100 absolute bottom-2 left-2 w-10'>
                 <Link href={`/${resultType}/${result.id}`}>➕</Link>
               </button>
-              <button className='p-2 bg-teal-600 hover:bg-blue-900 rounded-md text-white hover:text-blue-100 absolute bottom-2 left-14 w-10'>
+              <button className='p-2 bg-teal-600 hover:bg-dark-neutral-a40 rounded-md text-white hover:text-blue-100 absolute bottom-2 left-14 w-10'>
                 <Link href={`/${resultType}/${result.id}`}>❤️</Link>
               </button>
-              <button className='p-2 bg-teal-600 hover:bg-blue-900 rounded-md text-white hover:text-blue-100 absolute bottom-2 right-18 w-10'>
+              <button className='p-2 bg-teal-600 hover:bg-dark-neutral-a40 rounded-md text-white hover:text-blue-100 absolute bottom-2 right-18 w-10'>
                 <Link href={`/${resultType}/${result.id}`}>-</Link>
               </button>
             </div>

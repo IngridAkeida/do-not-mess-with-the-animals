@@ -22,7 +22,7 @@ const TriggerResult = ({triggers, item}) => {
   return (
 
     <div className=''>
-      <div className='bg-blue-900 m-2 rounded-md p-4 mb-2'>
+      <div className='bg-dark-neutral-a40 m-2 rounded-md p-4 mb-2'>
         <h1 className='text-center px-2 mb-2'><span className='font-bold'>{item.name}</span> has <span className='font-bold'>{triggers.length}</span> possible triggers with <span className='font-bold'>{totalYesSum}</span> votes in favor out of a total of <span className='font-bold'>{totalVotes}</span> general votes.</h1>
         <h4 className='bg-red-900 px-2 text-center rounded-md text-bold'>Please review the list of triggers carefully and exercise caution if you are sensitive to any of them.</h4>
       </div>
@@ -32,7 +32,7 @@ const TriggerResult = ({triggers, item}) => {
           <ul>
             {trigger.topics.map((topic, index) => (
               <li key={index}>
-                <div className='bg-blue-900 m-2 rounded-md p-4 mb-2'>
+                <div className='bg-dark-neutral-a40 m-2 rounded-md p-4 mb-2'>
                   <h2>{topic.doesName}?</h2>
                   <div className='flex gap-2 text-center items-center pt-1'>
                     <p className='bg-red-500 text-center rounded-full w-20 h-auto'>Yes: {topic.yesSum}</p>
