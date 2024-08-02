@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import SearchField from '../../uiComponents/SearchField/SearchField';
 
-import { Navigation } from './MenuList/MenuList';
+import { Navigation } from '../../uiComponents/MenuList/MenuList';
 
 const Nav = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -34,11 +34,7 @@ const Nav = () => {
             {/* <Image className='w-32' src='/' alt='Logo' width={1000} height={500} style={{ objectFit: 'contain' }} /> */}
           </Link>
         </div>
-        <SearchField 
-          wrapStyle={SearchWrapStyle} 
-          inputStyle={SearchInputStyle} 
-          buttonStyle={SearchButtonStyle} 
-        />
+        
         <div className='flex md:hidden'>
           <button
             type='button'
@@ -60,6 +56,11 @@ const Nav = () => {
             </a>
           ))}
         </div>
+        <SearchField 
+          wrapStyle={SearchWrapStyle} 
+          inputStyle={SearchInputStyle} 
+          buttonStyle={SearchButtonStyle} 
+        />
         <div className='hidden md:flex lg:gap-x-12'>
           {navigation.slice(3).map((item) => (
             <a key={item.name} href={item.href} className='text-sm font-semibold leading-6 text-blue-200 hover:text-blue-100 hover:bg-blue-900 my-2 mx-1'>
