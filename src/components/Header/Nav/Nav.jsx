@@ -12,8 +12,8 @@ const Nav = () => {
   const [activeHeader, setActiveHeader] = useState(false);
 
   const SearchWrapStyle = 'hidden sm:block text-base sm:text-base relative m-2';
-  const SearchInputStyle = 'p-1 sm:w-80 max-w-md bg-blue-100 rounded-xl text-blue-900';
-  const SearchButtonStyle = 'p-1 bg-teal-600 hover:bg-dark-neutral-a40 rounded-xl absolute right-0 text-white hover:text-blue-100';
+  const SearchInputStyle = 'p-1 sm:w-80 max-w-md bg-blue-100 rounded-xl text-black';
+  const SearchButtonStyle = 'p-1 bg-dark-menu-y10 hover:bg-dark-neutral-a40 rounded-xl absolute right-0 text-dark-neutral-a40 hover:text-dark-menu-y10';
 
   const navigation = Navigation;
 
