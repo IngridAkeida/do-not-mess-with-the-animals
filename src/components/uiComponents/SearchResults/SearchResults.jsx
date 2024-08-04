@@ -81,7 +81,7 @@ const SearchResults = ({results, searchTerm}) => {
           </div>
           <p>Overview: {reduceText(result.overview, maxLength)}</p>
           <div className=''>
-            <button className='p-2 bg-teal-600 hover:bg-dark-neutral-a40 rounded-md text-white hover:text-blue-100 absolute bottom-2 left-2 w-10'>
+            <button className='bg-teal-600 hover:bg-dark-neutral-a40 rounded-md text-white hover:text-blue-100 absolute bottom-2 left-2 w-10'>
               <Link href={`/${resultType}/${result.id}`}>+</Link>
             </button>
             {/* <button className='p-2 bg-teal-600 hover:bg-dark-neutral-a40 rounded-md text-white hover:text-blue-100 absolute bottom-2 left-14 w-10'>
