@@ -30,8 +30,8 @@ const Nav = () => {
         <div className='flex lg:flex-1'>
           <Link href='/' className='pt-2'>
             <span className='sr-only'>Logo</span>
-            <div className='bg-white w-auto h-auto text-black m-2 p-1'>⚙️</div>
-            {/* <Image className='w-32' src='/' alt='Logo' width={1000} height={500} style={{ objectFit: 'contain' }} /> */}
+            {/* <div className='bg-white w-auto h-auto text-black m-2 p-1'>⚙️</div> */}
+            <Image className='w-20' src='/assets/logowsc.png' alt='Logo' width={1000} height={500} style={{ objectFit: 'contain' }} />
           </Link>
         </div>
         
@@ -43,9 +43,9 @@ const Nav = () => {
           >
             <span className='sr-only'>Open main menu</span>
             <div className='flex flex-col gap-1'>
-              <div className={`bg-dark-neutral-a40 w-6 h-0.5 rounded-sm transition-transform ${mobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></div>
-              <div className={`bg-dark-neutral-a40 w-6 h-0.5 rounded-sm transition-opacity ${mobileMenuOpen ? 'opacity-0' : ''}`}></div>
-              <div className={`w-6 h-0.5 bg-dark-neutral-a40 rounded-sm transition-transform ${mobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></div>
+              <div className={`bg-dark-menu-y10 w-6 h-0.5 rounded-sm transition-transform ${mobileMenuOpen ? 'rotate-45 translate-y-1.5' : ''}`}></div>
+              <div className={`bg-dark-menu-y10 w-6 h-0.5 rounded-sm transition-opacity ${mobileMenuOpen ? 'opacity-0' : ''}`}></div>
+              <div className={`bg-dark-menu-y10 w-6 h-0.5 rounded-sm transition-transform ${mobileMenuOpen ? '-rotate-45 -translate-y-1.5' : ''}`}></div>
             </div>
           </button>
         </div>
@@ -74,8 +74,8 @@ const Nav = () => {
           <div className='flex items-center justify-between mb-6'>
             <Link href='/' className='-m-1.5 p-1.5'>
               <span className='sr-only'>Logo</span>
-              <div className='bg-white w-auto h-auto text-black m-2 p-1'>⚙️</div>
-              {/* <Image className='w-32' src='/' alt='Logo' width={1000} height={500} style={{ objectFit: 'contain' }} /> */}
+              {/* <div className='bg-white w-auto h-auto text-black m-2 p-1'>⚙️</div> */}
+              <Image className='w-20' src='/assets/logowsc.png' alt='Logo' width={1000} height={500} style={{ objectFit: 'contain' }} />
             </Link>
             <button
               type='button'
@@ -84,8 +84,8 @@ const Nav = () => {
             >
               <span className='sr-only'>Close menu</span>
               <div className='hover:bg-black'>
-                <div className='w-6 h-0.5 bg-dark-neutral-a40 rounded-sm rotate-45 translate-y-0.5'></div>
-                <div className='w-6 h-0.5 bg-dark-neutral-a40 rounded-sm -rotate-45 translate-y-0'></div>
+                <div className='w-6 h-0.5 bg-dark-menu-y10 rounded-sm rotate-45 translate-y-0.5'></div>
+                <div className='w-6 h-0.5 bg-dark-menu-y10 rounded-sm -rotate-45 translate-y-0'></div>
               </div>
             </button>
           </div>

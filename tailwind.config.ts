@@ -22,6 +22,9 @@ const config: Config = {
             a30: '#551708',
             a40: '#2e1104',
           },
+          menu:{
+            y10: '#fabd15',
+          },
           accent: {
             a0: '#00d9d9',
             a10: '#1ca9a9',
