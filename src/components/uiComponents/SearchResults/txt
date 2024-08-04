@@ -155,7 +155,7 @@
                           ) : (
                               <div className='flex'>
                                 <p className='bg-red-800'> Yes {topic.yesSum}</p>
-                                <p className='bg-green-800'> No {topic.noSum}</p>
+                                <p className='bg-alert-info-600'> No {topic.noSum}</p>
                               </div>
                             )}
                         </div>

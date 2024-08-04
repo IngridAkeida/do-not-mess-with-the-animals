@@ -7,7 +7,7 @@ const Banner = () => {
   const SearchButtonStyle = 'p-2 sm:p-4 bg-teal-600 hover:bg-dark-neutral-a40 rounded-xl absolute right-0 text-white hover:text-blue-100';
 
   return (
-    <div className='text-center px-2 mx-2 sm:mx-0 h-52 sm:h-96 bg-gradient-to-br from-teal-600 to-blue-900 flex flex-col items-center justify-center gap-4 sm:px-10 rounded-b-md text-blue-200'>
+    <div className='text-center px-2 mx-2 sm:mx-0 h-52 sm:h-96 bg-gradient-to-br from-dark-primary-a40 to-dark-primary-a30 flex flex-col items-center justify-center gap-4 sm:px-10 rounded-b-md text-blue-200'>
       <h1 className='text-center text-xl md:text-5xl'>Welcome to our page</h1>
       <p className='text-base md:text-xl'>Browse movies and TV shows to ensure they are free from animal violence and others triggers</p>
       <SearchField 

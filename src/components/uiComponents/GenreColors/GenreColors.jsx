@@ -8,7 +8,7 @@ const genreColors = {
   18: 'bg-blue-800',      // Drama
   10751: 'bg-blue-600',   // Family
   14: 'bg-teal-600',      // Fantasy
-  36: 'bg-green-800',     // History
+  36: 'bg-alert-info-600',     // History
   27: 'bg-yellow-600',    // Horror
   10402: 'bg-green-600',  // Music
   9648: 'bg-purple-600',  // Mystery

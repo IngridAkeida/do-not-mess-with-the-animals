@@ -60,7 +60,7 @@ const SearchResults = ({results, searchTerm}) => {
                           ) : (
                             <div className='flex gap-2 mt-1 text-white'>
                               <p className='bg-red-800 text-center rounded-full w-20 h-auto'> Yes {topic.yesSum}</p>
-                              <p className='bg-green-800 text-center rounded-full w-20 h-auto'> No {topic.noSum}</p>
+                              <p className='bg-alert-info-600 text-center rounded-full w-20 h-auto'> No {topic.noSum}</p>
                             </div>
                           )}
                         </div>
