@@ -4,5 +4,5 @@ export const Navigation = [
   { name: 'People', href: '/' },
   { name: 'Account', href: '/' },
   { name: 'Language', href: '/' },
-  
+  { name: 'Mode', href: '/' },
 ];
