@@ -1,6 +1,13 @@
-import Image from "next/image";
+import Image from 'next/image';
+import { FaRegHeart } from "react-icons/fa";
+import { FaHeart } from "react-icons/fa6";
+import { FaPlus } from "react-icons/fa6";
+import { FaCheck } from "react-icons/fa";
+import { FaPlay } from "react-icons/fa";
+
 
 const Carousel = ({index, item}) => {
+
   return (
     <div key={index} className='sm:h-60 sm:w-40 relative pr-2 sm:cursor-pointer'>
       <div className='absolute text-left text-white bg-gradient-to-r  sm:bg-gradient-to-t from-black hover:from-transparent to-transparent h-[158px] sm:h-[230px] w-52 sm:w-[152px] rounded-xl flex flex-col justify-center sm:justify-end items-start sm:text-center sm:pb-4 border'>
@@ -9,7 +16,7 @@ const Carousel = ({index, item}) => {
         <p className='text-sm'>{item.release_date}</p>
         <p className='text-sm'>Trigger</p> 
         <p className='text-sm'>yes X no</p>
-        <p className='text-sm'>+ ♥</p>
+        <p className='text-sm'><FaCheck /><FaPlus/><FaRegHeart /><FaHeart /><FaPlay/></p>
       </div>
       </div>
       <div className='hidden sm:flex'>
