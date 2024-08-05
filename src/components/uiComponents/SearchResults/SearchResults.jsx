@@ -111,9 +111,6 @@ const SearchResults = ({results, searchTerm}) => {
                   <Image className='rounded-xl' src={`https://www.doesthedogdie.com/content/200/0/${result.posterImage}`} width={500} height={500} alt={result.name} />
                 )}
               </div>
-            {/* <button className='bg-teal-600 hover:bg-dark-neutral-a40 rounded-md text-white hover:text-blue-100 absolute bottom-2 left-2 w-10'>
-              <Link href={`/${resultType}/${result.id}`}>+</Link>
-            </button> */}
           </li>
         </Link>
       )})}
