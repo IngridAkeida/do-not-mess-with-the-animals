@@ -7,10 +7,18 @@ const Carousel = ({index, item}) => {
         <p className='p-2 sm:hidden'>{item.title || item.name}</p>
       </div>
       <div className='hidden sm:flex'>
-        <Image src={`https://image.tmdb.org/t/p//w300${item.poster_path}`} width={300} height={450} alt={item.title} className='rounded-xl'/>  
+        {item.poster_path=== null ? (
+          <Image className='rounded-xl' src='/assets/movie-nf.png' width={300} height={300} alt={item.title} />
+        ) : (
+          <Image src={`https://image.tmdb.org/t/p//w300${item.poster_path}`} width={300} height={450} alt={item.title} className='rounded-xl'/>  
+        )}
       </div>
       <div className='sm:hidden flex'>
-        <Image src={`https://image.tmdb.org/t/p//w400${item.backdrop_path}`} width={400} height={300} alt={item.title} className='rounded-xl'/>  
+      {item.backdrop_path === null ? (
+        <Image className='rounded-xl' src='/assets/movie-nf-hor.png' width={300} height={300} alt={item.title} />
+        ) : (
+        <Image src={`https://image.tmdb.org/t/p//w400${item.backdrop_path}`} width={400} height={300} alt={item.title} className='rounded-xl'/> 
+      )} 
       </div>
     </div>
   );
