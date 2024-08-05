@@ -59,7 +59,7 @@ const SearchResults = ({results, searchTerm}) => {
           <li className='sm:h-60 sm:w-40 relative sm:cursor-pointer'>
             <div className='absolute text-left text-white bg-gradient-to-r sm:bg-gradient-to-t from-black sm:hover:from-black sm:from-transparent to-transparent h-[100%] w-[100%] rounded-md flex flex-col justify-center sm:justify-end items-start sm:text-center sm:pb-4'>
               <div className='block sm:text-transparent sm:hover:text-white px-2 h-[80%] w-[100%]'>
-                <div className='flex gap-2'>
+                <div className='flex sm:flex-col gap-2 sm:gap-0'>
                   <p className='font-bold'>{result.name}</p>
                   <p className='font-thin text-sm'>({result.itemType.name})</p>
                 </div>
@@ -72,7 +72,7 @@ const SearchResults = ({results, searchTerm}) => {
                         data.topics.map((topic, topicIndex) => (
                           topic.doesName === 'Does an animal die' && (
                             <div className='' key={`${index}-${topicIndex}`}>
-                              <h2>{topic.doesName}?</h2>
+                              <h2 className='font-light text-sm pb-1'>{topic.doesName}?</h2>
 
                               {topic.yesSum === 0 && topic.noSum === 0 ? (
                                 'no data'
@@ -105,7 +105,7 @@ const SearchResults = ({results, searchTerm}) => {
                   <Image className='rounded-xl' src={`https://www.doesthedogdie.com/content/200/0/${result.backgroundImage}`} width={300} height={300} alt={result.name} />
                 )}
               </div>
-              <div className='hidden sm:flex'>{result.posterImage=== null ? (
+              <div className='hidden sm:flex h-[100%]'>{result.posterImage=== null ? (
                   <Image className='rounded-xl' src='/assets/movie-nf.png' width={500} height={500} alt={result.name} />
                 ) : (
                   <Image className='rounded-xl' src={`https://www.doesthedogdie.com/content/200/0/${result.posterImage}`} width={500} height={500} alt={result.name} />
@@ -115,7 +115,7 @@ const SearchResults = ({results, searchTerm}) => {
               <Link href={`/${resultType}/${result.id}`}>+</Link>
             </button> */}
           </li>
-        +</Link>
+        </Link>
       )})}
     </ul>
     </div>
