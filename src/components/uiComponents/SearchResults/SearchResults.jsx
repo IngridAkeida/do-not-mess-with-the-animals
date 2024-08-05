@@ -54,83 +54,68 @@ const SearchResults = ({results, searchTerm}) => {
 
         console.log('resultType', resultType);
 
-    
-
         return (
-        <li key={index} className='sm:h-60 sm:w-40 relative sm:cursor-pointer'>
-          <div className='absolute text-left text-white bg-gradient-to-r sm:bg-gradient-to-t from-black sm:hover:from-black sm:from-transparent to-transparent h-[100%] w-[100%] rounded-md flex flex-col justify-center sm:justify-end items-start sm:text-center sm:pb-4'>
-            <div className='block sm:text-transparent sm:hover:text-white px-2 h-[80%] w-[100%]'>
-              <p className='font-bold'>{result.name}</p>
-              <p className='text-xs pb-1'>{result.releaseYear}</p>
-              <p className='text-xs'>genre,genre, genre</p>
-              <p className='text-sm'>Trigger</p> 
-              <p className='text-sm'>yes X no</p>
-              <div className='text-sm flex  gap-2 sm:absolute sm:bottom-4 sm:left-12'>
-                <span onClick={handleAddClick} className='cursor-pointer'>
-                  {isAdded ? <FaCheck /> : <FaPlus />}
-                </span>
-                <span onClick={handleFavoriteClick} className='cursor-pointer'>
-                  {isFavorited ? <FaHeart /> : <FaRegHeart />}
-                </span>
-                <FaPlay />
-              </div>
-            </div>
-          </div>
-          <div className='flex sm:hidden'>{result.backgroundImage === null ? (
-                <Image className='rounded-xl' src='/assets/movie-nf-hor.png' width={300} height={300} alt={result.name} />
-              ) : (
-                <Image className='rounded-xl' src={`https://www.doesthedogdie.com/content/200/0/${result.backgroundImage}`} width={300} height={300} alt={result.name} />
-              )}
-            </div>
-            <div className='hidden sm:flex'>{result.posterImage=== null ? (
-                <Image className='rounded-xl' src='/assets/movie-nf.png' width={500} height={500} alt={result.name} />
-              ) : (
-                <Image className='rounded-xl' src={`https://www.doesthedogdie.com/content/200/0/${result.posterImage}`} width={500} height={500} alt={result.name} />
-              )}
-            </div>
-            {/* <div className='w-11/12'>
-              <h2 className='text-base font-bold'>{result.name}</h2>
-              <p>Release data: {result.releaseYear}</p>
-              {result.genre && <p>Genre: {result.genre}</p>}
-              <div className='flex'>
-                {result.additionalData && result.additionalData.length > 0 && 
-                  result.additionalData.map((data, index) => (
-                    data.name === 'Animal' && data.topics && data.topics.length > 0 && 
-                      data.topics.map((topic, topicIndex) => (
-                        topic.doesName === 'Does an animal die' && (
-                          <div className='bg-dark-neutral-a40 px-1 py-2 rounded-md' key={`${index}-${topicIndex}`}>
-                            <h2>{topic.doesName}?</h2>
+        <Link key={index} href={`/${resultType}/${result.id}`}>
+          <li className='sm:h-60 sm:w-40 relative sm:cursor-pointer'>
+            <div className='absolute text-left text-white bg-gradient-to-r sm:bg-gradient-to-t from-black sm:hover:from-black sm:from-transparent to-transparent h-[100%] w-[100%] rounded-md flex flex-col justify-center sm:justify-end items-start sm:text-center sm:pb-4'>
+              <div className='block sm:text-transparent sm:hover:text-white px-2 h-[80%] w-[100%]'>
+                <div className='flex gap-2'>
+                  <p className='font-bold'>{result.name}</p>
+                  <p className='font-thin text-sm'>({result.itemType.name})</p>
+                </div>
+                <p className='text-xs pb-1'>{result.releaseYear}</p>
+                {result.genre && <p>Genre: {result.genre}</p>}
+                <div className=''>
+                  {result.additionalData && result.additionalData.length > 0 && 
+                    result.additionalData.map((data, index) => (
+                      data.name === 'Animal' && data.topics && data.topics.length > 0 && 
+                        data.topics.map((topic, topicIndex) => (
+                          topic.doesName === 'Does an animal die' && (
+                            <div className='' key={`${index}-${topicIndex}`}>
+                              <h2>{topic.doesName}?</h2>
 
-                            {topic.yesSum === 0 && topic.noSum === 0 ? (
-                              'no data'
-                            ) : (
-                              <div className='flex gap-2 mt-1 text-white'>
-                                <p className='bg-alert-danger-600 text-center rounded-full w-20 h-auto'> Yes {topic.yesSum}</p>
-                                <p className='bg-alert-success-600 text-center rounded-full w-20 h-auto'> No {topic.noSum}</p>
-                              </div>
-                            )}
-                          </div>
-                        )
-                      ))
-                  ))
-                }
+                              {topic.yesSum === 0 && topic.noSum === 0 ? (
+                                'no data'
+                              ) : (
+                                <div className='flex sm:justify-center text-center gap-1 mb-1'>
+                                  <p className='bg-alert-danger-600 w-7 text-xs p-1 rounded-full'> {topic.yesSum}</p>
+                                  <p className='bg-alert-success-600 w-7 text-xs p-1 rounded-full'>{topic.noSum}</p>
+                                </div>
+                              )}
+                            </div>
+                          )
+                        ))
+                    ))
+                  }
+                </div>
+                <div className='text-sm flex gap-2 absolute bottom-2 sm:bottom-4 sm:left-12'>
+                  <span onClick={handleAddClick} className='cursor-pointer'>
+                    {isAdded ? <FaCheck /> : <FaPlus />}
+                  </span>
+                  <span onClick={handleFavoriteClick} className='cursor-pointer'>
+                    {isFavorited ? <FaHeart /> : <FaRegHeart />}
+                  </span>
+                  <FaPlay />
+                </div>
               </div>
-              <p>Overview: {reduceText(result.overview, maxLength)}</p>
-              <div className=''>
-                <button className='bg-teal-600 hover:bg-dark-neutral-a40 rounded-md text-white hover:text-blue-100 absolute bottom-2 left-2 w-10'>
-                  <Link href={`/${resultType}/${result.id}`}>+</Link>
-                </button>
-                {/* <button className='p-2 bg-teal-600 hover:bg-dark-neutral-a40 rounded-md text-white hover:text-blue-100 absolute bottom-2 left-14 w-10'>
-                  <Link href={`/${resultType}/${result.id}`}>❤️</Link>
-                </button>
-                <button className='p-2 bg-teal-600 hover:bg-dark-neutral-a40 rounded-md text-white hover:text-blue-100 absolute bottom-2 right-18 w-10'>
-                  <Link href={`/${resultType}/${result.id}`}>-</Link>
-                </button> */}
-              {/* </div>
-              
-            </div> */} 
-            
-        </li>
+            </div>
+            <div className='flex sm:hidden'>{result.backgroundImage === null ? (
+                  <Image className='rounded-xl' src='/assets/movie-nf-hor.png' width={300} height={300} alt={result.name} />
+                ) : (
+                  <Image className='rounded-xl' src={`https://www.doesthedogdie.com/content/200/0/${result.backgroundImage}`} width={300} height={300} alt={result.name} />
+                )}
+              </div>
+              <div className='hidden sm:flex'>{result.posterImage=== null ? (
+                  <Image className='rounded-xl' src='/assets/movie-nf.png' width={500} height={500} alt={result.name} />
+                ) : (
+                  <Image className='rounded-xl' src={`https://www.doesthedogdie.com/content/200/0/${result.posterImage}`} width={500} height={500} alt={result.name} />
+                )}
+              </div>
+            {/* <button className='bg-teal-600 hover:bg-dark-neutral-a40 rounded-md text-white hover:text-blue-100 absolute bottom-2 left-2 w-10'>
+              <Link href={`/${resultType}/${result.id}`}>+</Link>
+            </button> */}
+          </li>
+        +</Link>
       )})}
     </ul>
     </div>
