@@ -1,7 +1,7 @@
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
-const SearchField = ({wrapStyle, buttonStyle, inputStyle}) => {
+const SearchField = ({wrapStyle, buttonStyle, inputStyle, errorStyle}) => {
 
   const [searchTerm, setSearchTerm] = useState(''); 
   const [error, setError] = useState('');
@@ -9,7 +9,7 @@ const SearchField = ({wrapStyle, buttonStyle, inputStyle}) => {
 
   const handleClick = () => {
     if (searchTerm.trim() === '') {
-      setError('The search field cannot be empty.');
+      setError('The search field cannot be empty');
       return;
     }
     setError(''); 
@@ -36,7 +36,7 @@ const SearchField = ({wrapStyle, buttonStyle, inputStyle}) => {
         className={buttonStyle}
         onClick={handleClick}>Search</button>
         <div className='h-6'>
-          {error && <p className='text-sm rounded-xl bg-alert-danger-600 text-alert-danger-100'>{error}</p>}
+          {error && <p className={errorStyle}>{error}</p>}
         </div>
         
       </div>

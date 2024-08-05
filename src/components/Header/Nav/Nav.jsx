@@ -14,6 +14,7 @@ const Nav = () => {
   const SearchWrapStyle = 'hidden sm:block text-base sm:text-base relative m-2';
   const SearchInputStyle = 'p-1 sm:w-80 max-w-md bg-blue-100 rounded-xl text-black';
   const SearchButtonStyle = 'p-1 bg-dark-menu-y10 hover:bg-dark-neutral-a40 rounded-xl absolute right-0 text-dark-neutral-a40 hover:text-dark-menu-y10';
+  const SearchErrorStyle ='text-sm text-center rounded-xl bg-alert-danger-600 text-alert-danger-100';
 
   const navigation = Navigation;
 
@@ -60,6 +61,7 @@ const Nav = () => {
           wrapStyle={SearchWrapStyle} 
           inputStyle={SearchInputStyle} 
           buttonStyle={SearchButtonStyle} 
+          errorStyle={SearchErrorStyle}
         />
         <div className='hidden md:flex lg:gap-x-12'>
           {navigation.slice(3).map((item) => (
