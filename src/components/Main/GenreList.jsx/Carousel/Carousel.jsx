@@ -16,13 +16,14 @@ const Carousel = ({ index, item }) => {
 
   return (
     <div key={index} className='sm:h-60 sm:w-40 relative pr-2 sm:cursor-pointer'>
-      <div className='absolute text-left text-white bg-gradient-to-r sm:bg-gradient-to-t from-black hover:from-transparent to-transparent h-[158px] sm:h-[230px] w-52 sm:w-[152px] rounded-xl flex flex-col justify-center sm:justify-end items-start sm:text-center sm:pb-4 border'>
-        <div className='px-2'>
-          <p className='sm:hidden font-bold pb-1'>{item.title || item.name}</p>
-          <p className='text-sm'>{item.release_date}</p>
+      <div className='absolute text-left text-white bg-gradient-to-r sm:bg-gradient-to-t hover:from-black from-transparent to-transparent h-[158px] sm:h-[230px] w-60 sm:w-[152px] rounded-xl flex flex-col justify-center sm:justify-end items-start sm:text-center sm:pb-4'>
+        <div className='block sm:text-transparent sm:hover:text-white px-2 absolute bottom-2'>
+          <p className='sm:hidden font-bold'>{item.title || item.name}</p>
+          <p className='text-xs pb-1'>{item.release_date}</p>
+          <p>genre,genre, genre</p>
           <p className='text-sm'>Trigger</p> 
           <p className='text-sm'>yes X no</p>
-          <div className='text-sm flex space-x-2'>
+          <div className='text-sm flex gap-2'>
             <span onClick={handleAddClick} className='cursor-pointer'>
               {isAdded ? <FaCheck /> : <FaPlus />}
             </span>
