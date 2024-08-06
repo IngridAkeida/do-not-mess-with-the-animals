@@ -49,10 +49,10 @@ const SearchResults = ({results, searchTerm}) => {
       <div className='hidden sm:block w-2/12'>
         <div className='p-4  rounded-md shadow-md'>
           <h3 className='text-lg font-semibold mb-2'>Filter by:</h3>
-          <select id="filter" value={filter} onChange={handleFilterChange} className='p-2 rounded-md w-full'>
-            <option value="all">All</option>
-            <option value="movies">Movies</option>
-            <option value="tvshows">TV Shows</option>
+          <select id='filter' value={filter} onChange={handleFilterChange} className='p-2 rounded-md w-full text-black'>
+            <option value='all'>All</option>
+            <option value='movies'>Movies</option>
+            <option value='tvshows'>TV Shows</option>
           </select>
         </div>
       </div>
@@ -120,12 +120,12 @@ const SearchResults = ({results, searchTerm}) => {
                   <Image className='rounded-xl' src={`https://www.doesthedogdie.com/content/200/0/${result.backgroundImage}`} width={300} height={300} alt={result.name} />
                 )}
               </div>
-              <div className='hidden sm:flex h-[100%]'>{result.posterImage=== null ? (
-                  <Image className='rounded-xl' src='/assets/movie-nf.png' width={500} height={500} alt={result.name} />
-                ) : (
-                  <Image className='rounded-xl' src={`https://www.doesthedogdie.com/content/200/0/${result.posterImage}`} width={500} height={500} alt={result.name} />
-                )}
-              </div>
+            <div className='hidden sm:flex h-[100%]'>{result.posterImage=== null ? (
+                <Image className='rounded-xl' src='/assets/movie-nf.png' width={500} height={500} alt={result.name} />
+              ) : (
+                <Image className='rounded-xl' src={`https://www.doesthedogdie.com/content/200/0/${result.posterImage}`} width={500} height={500} alt={result.name} />
+              )}
+            </div>
           </li>
         </Link>
       )})}
