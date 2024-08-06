@@ -83,7 +83,7 @@ const List = () => {
   };
 
   return (
-    <div className='flex flex-col gap-4 mx-2 my-4 sm:mx-0'>
+    <div className='flex flex-col gap-2 mx-2 my-2 md:mx-0'>
       <h2 className='bg-gradient-to-br from-dark-primary-a40 to-dark-primary-a30 font-semibold text-3xl text-center bg-black rounded-md p-2'> Looking for the main tredings and genres</h2>
         {list.map((genre, index) => (
           <ul key={index} className='bg-gradient-to-br from-dark-primary-a40 to-dark-primary-a30 rounded-md sm:pb-8'> 
