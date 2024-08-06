@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
+import DropDownMenu from './DropDownMenu/DropDownMenu';
 import SearchField from '../../uiComponents/SearchField/SearchField';
 
 import { NavigationInfo, NavigationUser } from '../../uiComponents/MenuList/MenuList';
@@ -25,7 +26,8 @@ const Nav = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
+    
+  
   return (
     <header className={`sticky top-0 z-50 mx-auto bg-dark-neutral-a40 shadow-sm ${activeHeader ? 'bg-opacity-90' : ''}`}>
       <nav className='flex items-center justify-between px-4 lg:px-10' aria-label='Global'>
@@ -51,13 +53,7 @@ const Nav = () => {
             </div>
           </button>
         </div>
-        <div className='hidden md:flex lg:gap-x-12'>
-          {navigationInfo.map((item) => (
-            <a key={item.name} href={item.href} className='text-sm font-semibold leading-6 text-blue-200 hover:text-blue-100 hover:bg-dark-neutral-a40 my-2 mx-1'>
-              {item.name}
-            </a>
-          ))}
-        </div>
+        <DropDownMenu />
         <SearchField 
           wrapStyle={SearchWrapStyle} 
           inputStyle={SearchInputStyle} 
@@ -117,5 +113,6 @@ const Nav = () => {
     </header>
   );
 };
+
 
 export default Nav;
