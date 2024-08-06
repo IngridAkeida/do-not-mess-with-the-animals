@@ -10,7 +10,7 @@ import Signup from "../components/Main/Registration/Signup";
 export default function Home() {
   return (
     <div className="max-w-7xl mx-auto bg-dark-neutral-a50">
-      {/* <Login /> */}
+      {/* <Login />  */}
       {/* < Signup /> */}
       <Header />
       <ComponentList />

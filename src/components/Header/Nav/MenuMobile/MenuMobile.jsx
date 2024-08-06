@@ -11,10 +11,6 @@ const MenuMobile = ({setMobileMenuOpen}) => {
   const navigationInfo = NavigationInfo;
   const navigationUser = NavigationUser;
 
-  const handleMenuClick = (name) => {
-    setOpenMenu(openMenu === name ? null : name);
-  };
-
   return(
     <div className='sm:hidden fixed inset-0 z-50 w-full bg-dark-neutral-a40 bg-opacity-95 px-4 py-2'>
           <div className='flex items-center justify-between mb-6'>

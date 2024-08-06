@@ -39,7 +39,7 @@ const Nav = () => {
         <div className='flex sm:hidden'>
           <button
             type='button'
-            className='inline-flex items-center justify-center rounded-md text-blue-200 hover:text-blue-100 hover:bg-dark-neutral-a40 my-2 mx-1'
+            className='inline-flex items-center justify-center rounded-md my-2 mx-1'
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             <span className='sr-only'>Open main menu</span>
