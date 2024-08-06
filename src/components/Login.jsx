@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import { analytics } from '../pages/firebaseData';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -10,15 +11,15 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    signInWithEmailAndPassword(auth, loginEmail, loginPassword)
+    signInWithEmailAndPassword(analytics, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log('Usuário logado:', user);
+        console.log('user login succefully:', user);
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        console.error('Erro ao logar:', errorCode, errorMessage);
+        console.error('login error:', errorCode, errorMessage);
       });
   };
 
