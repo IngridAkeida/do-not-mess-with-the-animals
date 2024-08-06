@@ -1,14 +1,14 @@
 'use client';
 import { useState } from 'react';
 
-const SignIn = () => {
+const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
 
-  const handleSignIn = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
     console.log('Email:', email);
     console.log('Password:', password);
@@ -18,7 +18,7 @@ const SignIn = () => {
     <div className='flex items-center justify-center min-h-screen bg-gray-100'>
       <div className='bg-white p-8 rounded shadow-md w-80'>
         <h2 className='text-2xl mb-4 text-center text-black'>Sign In</h2>
-        <form onSubmit={handleSignIn}>
+        <form id='' onSubmit={handleLogin}>
           <div className='mb-4'>
             <label className='block text-gray-700'>Email</label>
             <input
@@ -53,4 +53,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default Login;
