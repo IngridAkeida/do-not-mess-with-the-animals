@@ -7,7 +7,7 @@ import ComponentIdTMDB from "../components/testApi/ComponentIdTMDB";
 import ComponentIdTMDBTV from "../components/testApi/ComponentIdTMDBTV";
 
 import LogIn from '../components/Login'
-import LogUp from '../components/Signup'
+import LogUp from '../components/Main/Registration/Signup'
 import User from '../components/User'
 
 export default function Home() {
