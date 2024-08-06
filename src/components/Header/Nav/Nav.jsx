@@ -36,7 +36,7 @@ const Nav = () => {
           </Link>
         </div>
         
-        <div className='flex md:hidden'>
+        <div className='flex sm:hidden'>
           <button
             type='button'
             className='inline-flex items-center justify-center rounded-md text-blue-200 hover:text-blue-100 hover:bg-dark-neutral-a40 my-2 mx-1'
