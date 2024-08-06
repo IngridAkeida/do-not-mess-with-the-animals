@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import SearchField from '../../uiComponents/SearchField/SearchField';
 
-import { Navigation } from '../../uiComponents/MenuList/MenuList';
+import { NavigationInfo, NavigationUser } from '../../uiComponents/MenuList/MenuList';
 
 const Nav = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -16,7 +16,8 @@ const Nav = () => {
   const SearchButtonStyle = 'p-1 bg-dark-menu-y10 hover:bg-dark-neutral-a40 rounded-xl absolute right-0 text-dark-neutral-a40 hover:text-dark-menu-y10';
   const SearchErrorStyle ='text-sm text-center rounded-xl bg-alert-danger-600 text-alert-danger-100';
 
-  const navigation = Navigation;
+  const navigationInfo = NavigationInfo;
+  const navigationUser = NavigationUser;
 
   useEffect(() => {
     const handleScroll = () => setActiveHeader(window.scrollY > 10);
@@ -51,7 +52,7 @@ const Nav = () => {
           </button>
         </div>
         <div className='hidden md:flex lg:gap-x-12'>
-          {navigation.slice(0, 3).map((item) => (
+          {navigationInfo.map((item) => (
             <a key={item.name} href={item.href} className='text-sm font-semibold leading-6 text-blue-200 hover:text-blue-100 hover:bg-dark-neutral-a40 my-2 mx-1'>
               {item.name}
             </a>
@@ -64,7 +65,7 @@ const Nav = () => {
           errorStyle={SearchErrorStyle}
         />
         <div className='hidden md:flex lg:gap-x-12'>
-          {navigation.slice(3).map((item) => (
+          {navigationUser.map((item) => (
             <a key={item.name} href={item.href} className='text-sm font-semibold leading-6 text-blue-200 hover:text-blue-100 hover:bg-dark-neutral-a40 my-2 mx-1'>
               {item.name}
             </a>
@@ -92,7 +93,16 @@ const Nav = () => {
             </button>
           </div>
           <div className='space-y-2'>
-            {navigation.map((item) => (
+            {navigationInfo.map((item) => (
+              <a
+                key={item.name}
+                href={item.href}
+                className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-blue-200 hover:text-blue-100 hover:bg-dark-neutral-a40 my-2 '
+              >
+                {item.name}
+              </a>
+            ))}
+            {navigationUser.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
