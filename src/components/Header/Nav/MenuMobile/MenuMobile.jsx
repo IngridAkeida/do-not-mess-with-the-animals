@@ -2,10 +2,18 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { NavigationInfo, NavigationUser } from '../../../uiComponents/MenuList/MenuList';
+import { useState } from "react";
 
 const MenuMobile = ({setMobileMenuOpen}) => {
+
+  const [openMenu, setOpenMenu] = useState(null);
+
   const navigationInfo = NavigationInfo;
   const navigationUser = NavigationUser;
+
+  const handleMenuClick = (name) => {
+    setOpenMenu(openMenu === name ? null : name);
+  };
 
   return(
     <div className='sm:hidden fixed inset-0 z-50 w-full bg-dark-neutral-a40 bg-opacity-95 px-4 py-2'>
@@ -16,7 +24,7 @@ const MenuMobile = ({setMobileMenuOpen}) => {
             </Link>
             <button
               type='button'
-              className='-m-2.5 rounded-md p-2.5 text-blue-200 hover:text-blue-100 hover:bg-dark-neutral-a40 my-2 mx-1'
+              className='-m-2.5 rounded-md p-2.5 text-blue-200 hover:text-blue-100 my-2 mx-1'
               onClick={() => setMobileMenuOpen(false)}
             >
               <span className='sr-only'>Close menu</span>
@@ -47,15 +55,17 @@ const MenuMobile = ({setMobileMenuOpen}) => {
                 </li>
               </ul>
             ))}
-            {navigationUser.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className='-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-blue-200 hover:text-blue-100 hover:bg-dark-neutral-a40 my-2 '
-              >
-                {item.name}
-              </a>
-            ))}
+
+            <div className='flex gap-2'>
+              {navigationUser.map((item) => (
+                <a href={item.href} key={item.name}
+                  className='rounded-lg py-2 text-base font-semibold leading-7 text-dark-menu-y10 my-2 '
+                >
+                  <p>{item.name}</p>
+                </a>
+              ))}
+            </div>
+            <button>Logoff</button>
           </div>
         </div>
   )
