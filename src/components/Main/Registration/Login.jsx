@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
-import { analytics } from '../pages/firebaseData';
+import { auth } from '../../../pages/firebaseData';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -11,7 +12,7 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    signInWithEmailAndPassword(analytics, email, password)
+    signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
         console.log('user login succefully:', user);
