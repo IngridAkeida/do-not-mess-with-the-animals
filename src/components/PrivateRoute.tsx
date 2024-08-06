@@ -1,8 +1,8 @@
 import { useAuth } from '../context/AuthContext';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
-const PrivateRoute = ({ children }) => {
+const PrivateRoute = ({ children }:{ children: React.ReactNode }) => {
   const { currentUser } = useAuth();
   const router = useRouter();
 
@@ -16,7 +16,7 @@ const PrivateRoute = ({ children }) => {
     return null;
   }
 
-  return children;
+  return <>{children}</>;
 };
 
 export default PrivateRoute;
