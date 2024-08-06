@@ -6,19 +6,19 @@ import ComponentId from "../components/testApi/ComponentId";
 import ComponentIdTMDB from "../components/testApi/ComponentIdTMDB";
 import ComponentIdTMDBTV from "../components/testApi/ComponentIdTMDBTV";
 
-import LogIn from '../components/Login'
-import LogUp from '../components/Main/Registration/Signup'
+import Login from '../components/Login'
+import Signup from '../components/Main/Registration/Signup'
 import User from '../components/User'
 
 export default function Home() {
   return (
     <div className='max-w-7xl mx-auto bg-dark-neutral-a50'>
-      {/* <LogIn />
-      <LogUp />
-      <User /> */}
-      <Header />
+      {/* <Login />*/}
+      < Signup />
+      {/* <User />  */}
+      {/* <Header />
       <ComponentList />
-      <Footer />
+      <Footer /> */}
       
       {/* <ComponentQuery />  */}
       {/* <ComponentId />  */}
