@@ -32,7 +32,7 @@ const DropDownMenu = () => {
   return (
     <div className='hidden sm:flex lg:gap-x-6'>
     {navigationInfo.map((item) => (
-      <div key={item.name} className='relative mt-2 mx-1' ref={dropdownRef}>
+      <div key={item.name} className='relative my-auto' ref={dropdownRef}>
         <button
           className='text-sm font-semibold leading-6 text-alert-danger-100 hover:text-dark-menu-y10'
           onClick={() => toggleDropdown(item.name)}

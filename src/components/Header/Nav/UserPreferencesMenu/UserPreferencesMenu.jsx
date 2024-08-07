@@ -6,7 +6,7 @@ const navigationUser = NavigationUser;
   return (
     <div className='hidden sm:flex lg:gap-x-4'>
       {navigationUser.map((item) => (
-        <a key={item.name} href={item.href} className='text-xl font-semibold text-alert-danger-100 hover:text-dark-menu-y10 hover:bg-dark-neutral-a40 my-1 mx-1'>
+        <a key={item.name} href={item.href} className='text-xl font-semibold text-alert-danger-100 hover:text-dark-menu-y10 hover:bg-dark-neutral-a40 my-auto'>
           {item.name}
         </a>
       ))}
