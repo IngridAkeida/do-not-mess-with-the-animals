@@ -4,9 +4,9 @@ const UserPreferencesMenu = () => {
 const navigationUser = NavigationUser;
 
   return (
-    <div className='hidden sm:flex lg:gap-x-12'>
+    <div className='hidden sm:flex lg:gap-x-4'>
       {navigationUser.map((item) => (
-        <a key={item.name} href={item.href} className='text-sm font-semibold leading-6 text-blue-200 hover:text-blue-100 hover:bg-dark-neutral-a40 my-2 mx-1'>
+        <a key={item.name} href={item.href} className='text-xl font-semibold text-alert-danger-100 hover:text-dark-menu-y10 hover:bg-dark-neutral-a40 my-1 mx-1'>
           {item.name}
         </a>
       ))}
