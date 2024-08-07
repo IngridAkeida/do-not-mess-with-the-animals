@@ -1,5 +1,4 @@
 'use client';
-
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
@@ -33,7 +32,7 @@ const Nav = () => {
         <div className='flex'>
           <Link href='/' className='pt-2'>
             <span className='sr-only'>Logo</span>
-            <Image className='w-20' src='/assets/logowsc.png' alt='Logo' width={1000} height={500} style={{ objectFit: 'contain' }} />
+            <Image className='w-14' src='/assets/logowsc.png' alt='Logo' width={1000} height={500} style={{ objectFit: 'contain' }} />
           </Link>
         </div> 
         <div className='flex sm:hidden'>
