@@ -19,6 +19,7 @@ const Nav = () => {
   const SearchButtonDisabledStyle = 'text-gray-500 cursor-none';
 
   useEffect(() => {
+  
     const handleScroll = () => setActiveHeader(window.scrollY > 10);
 
     window.addEventListener('scroll', handleScroll);
@@ -29,13 +30,12 @@ const Nav = () => {
   return (
     <header className={`sticky top-0 z-50 mx-auto bg-dark-neutral-a40 shadow-sm ${activeHeader ? 'bg-opacity-90' : ''}`}>
       <nav className='flex items-center justify-between px-4 lg:px-10' aria-label='Global'>
-        <div className='flex lg:flex-1'>
+        <div className='flex'>
           <Link href='/' className='pt-2'>
             <span className='sr-only'>Logo</span>
             <Image className='w-20' src='/assets/logowsc.png' alt='Logo' width={1000} height={500} style={{ objectFit: 'contain' }} />
           </Link>
-        </div>
-        
+        </div> 
         <div className='flex sm:hidden'>
           <button
             type='button'
@@ -50,7 +50,7 @@ const Nav = () => {
             </div>
           </button>
         </div>
-        <div className='flex w-[85%] justify-between'>
+        <div className='hidden sm:flex sm:w-[85%] sm:justify-between'>
           <DropDownMenu />
           <SearchField 
             wrapStyle={SearchWrapStyle} 
