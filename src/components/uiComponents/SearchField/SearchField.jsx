@@ -1,5 +1,7 @@
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { FaMagnifyingGlass } from "react-icons/fa6";
+
 
 const SearchField = ({wrapStyle, buttonStyle, inputStyle, errorStyle}) => {
 
@@ -34,7 +36,7 @@ const SearchField = ({wrapStyle, buttonStyle, inputStyle, errorStyle}) => {
           />
         <button 
         className={buttonStyle}
-        onClick={handleClick}>Search</button>
+        onClick={handleClick}><FaMagnifyingGlass /></button>
         <div className='h-6'>
           {error && <p className={errorStyle}>{error}</p>}
         </div>

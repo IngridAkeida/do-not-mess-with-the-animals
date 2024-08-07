@@ -3,9 +3,9 @@ import SearchField from '../../uiComponents/SearchField/SearchField';
 
 const Banner = () => {
   const SearchWrapStyle = 'text-base sm:text-2xl relative m-2';
-  const SearchInputStyle = 'p-2 sm:w-screen max-w-5xl bg-blue-100 rounded-3xl text-black';
-  const SearchButtonStyle = 'p-2 sm:p-2 bg-dark-menu-y10 hover:bg-dark-neutral-a40 rounded-r-3xl absolute right-0 text-dark-neutral-a40 hover:text-dark-menu-y10';
-   const SearchErrorStyle ='text-sm rounded-xl bg-alert-danger-600 text-alert-danger-100';
+  const SearchInputStyle = 'p-2 sm:w-screen max-w-5xl bg-alert-warning-100 rounded-3xl text-black';
+  const SearchButtonStyle = 'p-3 bg-gradient-to-l from-dark-menu-y10 to-bg-alert-warning-100 hover:bg-dark-menu-y10 rounded-r-3xl absolute right-0 text-dark-neutral-a40';
+  const SearchErrorStyle ='text-sm rounded-xl bg-alert-danger-600 text-alert-danger-100';
 
   return (
     <div className='text-center px-2 mx-2 sm:mx-0 h-52 sm:h-96 bg-gradient-to-br from-dark-primary-a40 to-dark-primary-a30 flex flex-col items-center justify-center gap-4 sm:px-10 rounded-b-md text-white'>
