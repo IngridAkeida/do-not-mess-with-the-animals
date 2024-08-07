@@ -5,7 +5,7 @@ import Footer from "../components/Footer/Footer";
 import ComponentList from "../components/Main/GenreList.jsx/GenreList";
 
 import Login from "./login/page";
-import Signup from "../components/Main/Registration/Signup";
+import Signup from "./Signup/page";
 
 export default function Home() {
   return (

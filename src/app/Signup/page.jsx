@@ -1,7 +1,7 @@
 'use client';
 // src/components/SignUp.js
 import React, { useState } from 'react';
-import { auth } from '../../../pages/firebaseData';
+import { auth } from '../../pages/firebaseData';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 
 const SignUp = () => {

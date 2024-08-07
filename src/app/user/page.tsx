@@ -1,5 +1,7 @@
 'use client';
 import PrivateRoute from '../../components/PrivateRoute';
+import { useAuth } from '../../context/AuthContext';
+import { auth } from '../path/to/firebaseConfig';
 
 const User = () => {
   return (
