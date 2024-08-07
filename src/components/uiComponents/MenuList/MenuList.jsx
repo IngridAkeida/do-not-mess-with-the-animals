@@ -27,7 +27,7 @@ export const NavigationInfo = [
 ];
 
 export const NavigationUser = [
-  { name: <FaUser />, href: '/' },
+  { name: <FaUser />, href: '/user' },
   { name: <FaLanguage />, href: '/' },
   { name: <MdDarkMode /> || <MdLightMode /> , href: '/' }
 ];
