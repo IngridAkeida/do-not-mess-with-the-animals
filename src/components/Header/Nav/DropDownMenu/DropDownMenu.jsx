@@ -40,7 +40,7 @@ const DropDownMenu = () => {
           {item.name}
         </button>
         {openDropdown === item.name && (
-          <div className='absolute top-11 left-0 bg-dark-neutral-a40 rounded shadow-lg border'>
+          <div className='absolute top-11 left-0 bg-dark-neutral-a40 rounded shadow-lg border border-dark-menu-y10'>
             {item.subMenu
               ? item.subMenu.map((subItem) => (
                   <div
