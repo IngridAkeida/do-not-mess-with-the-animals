@@ -50,14 +50,16 @@ const Nav = () => {
             </div>
           </button>
         </div>
-        <DropDownMenu />
-        <SearchField 
-          wrapStyle={SearchWrapStyle} 
-          inputStyle={SearchInputStyle} 
-          buttonStyle={SearchButtonStyle} 
-          errorStyle={SearchErrorStyle}
-        />
-        <UserPreferencesMenu />
+        <div className='flex w-[85%] justify-between'>
+          <DropDownMenu />
+          <SearchField 
+            wrapStyle={SearchWrapStyle} 
+            inputStyle={SearchInputStyle} 
+            buttonStyle={SearchButtonStyle} 
+            errorStyle={SearchErrorStyle}
+          />
+          <UserPreferencesMenu />
+        </div>
       </nav>
       {mobileMenuOpen && (
         <MenuMobile setMobileMenuOpen={setMobileMenuOpen}/>
