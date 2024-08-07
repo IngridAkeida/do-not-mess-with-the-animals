@@ -14,9 +14,9 @@ const Nav = () => {
   const [activeHeader, setActiveHeader] = useState(false);
 
   const SearchWrapStyle = 'hidden sm:block text-base sm:text-base relative m-2';
-  const SearchInputStyle = 'p-1 sm:w-80 max-w-md bg-alert-warning-100 rounded-xl text-black outline-none';
-  const SearchButtonStyle = 'p-2 bg-gradient-to-l from-dark-menu-y10 to-bg-alert-warning-100 hover:bg-dark-menu-y10 rounded-r-xl absolute right-0 text-dark-neutral-a40';
-  const SearchErrorStyle ='text-sm text-center rounded-xl bg-alert-danger-600 text-alert-danger-100';
+  const SearchInputStyle = 'p-1 pl-4 sm:w-80 max-w-md bg-alert-warning-100 rounded-2xl text-black outline-none';
+  const SearchButtonStyle = 'p-2 pl-6 bg-gradient-to-l from-dark-menu-y10 to-alert-warning-100 hover:bg-dark-menu-y10 rounded-r-3xl absolute right-0 text-dark-neutral-a40';
+  const SearchButtonDisabledStyle = 'text-gray-500 cursor-none';
 
   useEffect(() => {
     const handleScroll = () => setActiveHeader(window.scrollY > 10);
@@ -55,8 +55,8 @@ const Nav = () => {
           <SearchField 
             wrapStyle={SearchWrapStyle} 
             inputStyle={SearchInputStyle} 
-            buttonStyle={SearchButtonStyle} 
-            errorStyle={SearchErrorStyle}
+            buttonStyle={SearchButtonStyle}
+            buttonDisabledStyle={SearchButtonDisabledStyle} 
           />
           <UserPreferencesMenu />
         </div>

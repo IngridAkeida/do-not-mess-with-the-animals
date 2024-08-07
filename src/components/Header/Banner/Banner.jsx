@@ -3,9 +3,9 @@ import SearchField from '../../uiComponents/SearchField/SearchField';
 
 const Banner = () => {
   const SearchWrapStyle = 'text-base sm:text-2xl relative m-2';
-  const SearchInputStyle = 'p-2 sm:w-screen max-w-5xl bg-alert-warning-100 rounded-3xl text-black';
-  const SearchButtonStyle = 'p-3 bg-gradient-to-l from-dark-menu-y10 to-bg-alert-warning-100 hover:bg-dark-menu-y10 rounded-r-3xl absolute right-0 text-dark-neutral-a40';
-  const SearchErrorStyle ='text-sm rounded-xl bg-alert-danger-600 text-alert-danger-100';
+  const SearchInputStyle = 'p-2 pl-6 sm:w-screen max-w-5xl bg-alert-warning-100 rounded-3xl text-black outline-none';
+  const SearchButtonStyle = 'p-3 pl-8 bg-gradient-to-l from-dark-menu-y10 to-alert-warning-100 hover:bg-dark-menu-y10 rounded-r-3xl absolute right-0 text-dark-neutral-a40';
+  const SearchButtonDisabledStyle = 'bg-gray-300 text-gray-500 cursor-none';
 
   return (
     <div className='text-center px-2 mx-2 sm:mx-0 h-52 sm:h-96 bg-gradient-to-br from-dark-primary-a40 to-dark-primary-a30 flex flex-col items-center justify-center gap-4 sm:px-10 rounded-b-md text-white'>
@@ -14,8 +14,8 @@ const Banner = () => {
       <SearchField 
         wrapStyle={SearchWrapStyle} 
         inputStyle={SearchInputStyle} 
-        buttonStyle={SearchButtonStyle} 
-        errorStyle={SearchErrorStyle}
+        buttonStyle={SearchButtonStyle}
+        buttonDisabledStyle={SearchButtonDisabledStyle}
       />
     </div>
   );

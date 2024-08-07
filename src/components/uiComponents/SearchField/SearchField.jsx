@@ -1,13 +1,16 @@
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FaMagnifyingGlass } from "react-icons/fa6";
 
-
-const SearchField = ({wrapStyle, buttonStyle, inputStyle, errorStyle}) => {
-
+const SearchField = ({ wrapStyle, buttonStyle, inputStyle, buttonDisabledStyle }) => {
   const [searchTerm, setSearchTerm] = useState(''); 
   const [error, setError] = useState('');
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
   const router = useRouter();
+
+  useEffect(() => {
+    setIsButtonDisabled(searchTerm.trim() === '');
+  }, [searchTerm]);
 
   const handleClick = () => {
     if (searchTerm.trim() === '') {
@@ -25,23 +28,26 @@ const SearchField = ({wrapStyle, buttonStyle, inputStyle, errorStyle}) => {
   };
 
   return (
-      <div className={wrapStyle}>
-        <input 
-          className={inputStyle}
-          type='text' 
-          placeholder='Search for movies or tv shows...' 
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          onKeyDown={handleKeyPress}
-          />
-        <button 
-        className={buttonStyle}
-        onClick={handleClick}><FaMagnifyingGlass /></button>
-        <div className='h-6'>
-          {error && <p className={errorStyle}>{error}</p>}
-        </div>
-        
+    <div className={wrapStyle}>
+      <input 
+        className={inputStyle}
+        type='text' 
+        placeholder='Search for movies or tv shows...' 
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        onKeyDown={handleKeyPress}
+      />
+      <button 
+        className={`${buttonStyle} ${isButtonDisabled ? buttonDisabledStyle : ''}`}
+        onClick={handleClick}
+        disabled={isButtonDisabled}
+      >
+        <FaMagnifyingGlass />
+      </button>
+      <div className='h-6'>
+        {error && <p>{error}</p>}
       </div>
+    </div>
   );
 }
 
