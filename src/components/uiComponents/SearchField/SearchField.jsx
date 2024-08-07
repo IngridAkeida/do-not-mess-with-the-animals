@@ -44,7 +44,7 @@ const SearchField = ({ wrapStyle, buttonStyle, inputStyle, buttonDisabledStyle }
       >
         <FaMagnifyingGlass />
       </button>
-      <div className='h-6'>
+      <div className=''>
         {error && <p>{error}</p>}
       </div>
     </div>
