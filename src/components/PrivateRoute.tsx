@@ -3,17 +3,17 @@ import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
 const PrivateRoute = ({ children }:{ children: React.ReactNode }) => {
-  const { currentUser } = useAuth();
+  const { user } = useAuth();
   const router = useRouter();
 
   useEffect(() => {
-    if (!currentUser) {
+    if (!user) {
       router.push('/login');
     }
-  }, [currentUser, router]);
+  }, [user, router]);
 
-  if (!currentUser) {
-    return null;
+  if (!user) {
+    return <p>Loading...</p>;
   }
 
   return <>{children}</>;
