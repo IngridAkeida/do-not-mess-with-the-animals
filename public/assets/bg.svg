@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="260" height="260" viewBox="0 0 260 260">
   <style>
     .background {
-      fill: #040000;
+      fill: #7e1808;
     }
     .pattern {
-      fill: #ab1406;
-      fill-opacity: 0.6;
+      fill: #fabd15;
+      fill-opacity: 0.8;
     }
   </style>
   <defs>

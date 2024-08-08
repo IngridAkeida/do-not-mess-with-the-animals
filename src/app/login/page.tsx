@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { auth } from '../../pages/firebaseData';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -28,25 +29,25 @@ const Login = () => {
   };
 
   return (
-    <div className='flex items-center justify-center min-h-screen bg-custom'>
-      <div className='bg-white p-8 rounded shadow-md w-80'>
-        <h2 className='text-2xl mb-4 text-center text-black'>LogIn</h2>
+    <div className='flex items-center justify-center min-h-screen bg-custom text-dark-neutral-a40'>
+      <div className='bg-gradient-to-br from-alert-warning-100 to-alert-warning-300 p-8 rounded shadow-md w-80'>
+        <h2 className='text-2xl mb-4 text-center'>Login</h2>
         <form onSubmit={handleLogin}>
           <div className='mb-4'>
-            <label className='block text-gray-700'>Email</label>
+            <label className='block'>Email</label>
             <input
               type='email'
               value={email}
               onChange={handleEmailChange}
-              className='w-full px-3 py-2 border rounded text-black'
+              className='w-full px-3 py-2 border rounded'
               placeholder='e-mail'
               required
             />
           </div>
           <div className='mb-4'>
             <div className='flex justify-between items-end'>
-              <label className='block text-gray-700'>Password</label>
-              <p className='text-blue-600 text-xs'>Forgot your password?</p>
+              <label className='block'>Password</label>
+              <button type='button' className='text-alert-info-600 text-xs hover:text-dark-accent-a20'>Forgot your password?</button>
             </div>
             <input
               type='password'
@@ -61,8 +62,13 @@ const Login = () => {
             Login
           </button>
         </form>
-        <p className='text-black'> New here?</p>
-        <p className='text-black'> Create your account now!</p>
+        <div className='flex text-sm gap-2 justify-center'>
+        <p className=''> New here?</p>
+        <Link href='/si'>
+          <button type='button' className='hover:text-dark-accent-a20'>Create your account now!</button>
+        </Link>
+        </div>
+        
       </div>
     </div>
   );
