@@ -64,7 +64,7 @@ const Login = () => {
         </form>
         <div className='flex text-sm gap-2 justify-center'>
         <p className=''> New here?</p>
-        <Link href='/si'>
+        <Link href='/signup'>
           <button type='button' className='hover:text-dark-accent-a20'>Create your account now!</button>
         </Link>
         </div>
