@@ -6,10 +6,11 @@ import ComponentList from "../components/Main/GenreList.jsx/GenreList";
 
 export default function Home() {
   return (
-    <div className="max-w-7xl mx-auto bg-dark-neutral-a50">
+    <div className='max-w-7xl mx-auto h-96'>
       <Header />
       <ComponentList />
       <Footer />
     </div>
   );
 }
+

@@ -16,6 +16,7 @@ const User = () => {
           <div className='w-1/6 border'>
             <div className='w-24 h-24 bg-dark-neutral-a40 rounded-full text-white'></div>
             <h1>Joe Doe</h1>
+            <h2>Member since 2021</h2>
             <span>Edit profile</span>
             <div>Settings</div>
             <button onClick={() => auth.signOut()}>Sign Out</button>
