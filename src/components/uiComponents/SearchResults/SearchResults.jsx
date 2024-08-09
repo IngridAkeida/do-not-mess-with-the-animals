@@ -18,12 +18,12 @@ const SearchResults = ({results, searchTerm}) => {
       if (result.tmdbId === null) return false;
       if (result.ItemTypeId !== 15 && result.ItemTypeId !== 16) return false;
 
-      if (result.ItemTypeId === 16) movieCount++;
-      if (result.ItemTypeId === 15) tvShowCount++;
+      if (result.ItemTypeId === 15) movieCount++;
+      if (result.ItemTypeId === 16) tvShowCount++;
 
       if (filter === 'all') return true;
-      if (filter === 'movies' && result.ItemTypeId === 16) return true;
-      if (filter === 'tvshows' && result.ItemTypeId === 15) return true;
+      if (filter === 'movies' && result.ItemTypeId === 15) return true;
+      if (filter === 'tvshows' && result.ItemTypeId === 16) return true;
 
       return false;
     });
