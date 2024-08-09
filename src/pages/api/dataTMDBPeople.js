@@ -1,4 +1,3 @@
-// src/pages/api/people.js
 const API_TOKEN = process.env.NEXT_PUBLIC_TMDB_API_TOKEN;
 
 const listFetch = async () => {

@@ -47,10 +47,12 @@ const PeoplePage = () => {
           <ul className='flex flex-wrap gap-2 justify-center items-center'>
             {data.results.map((person) => (
               <li className='max-w-48 bg-dark-neutral-a40 p-2' key={person.id}>
-                <Link href='/person'>
-                <h2>{person.name}</h2>
-                <Image src={`https://image.tmdb.org/t/p/w500${person.profile_path}`} alt={person.name} width={200} height={300} />
-                <p className='flex text-xs'>{person.known_for.map((content) => content.title || content.name).join(', ')}</p>
+                <Link href={`/person/${person.id}`}>
+                  <div>
+                    <h2>{person.name}</h2>
+                    <Image src={`https://image.tmdb.org/t/p/w500${person.profile_path}`} alt={person.name} width={200} height={300} />
+                    <p className='flex text-xs'>{person.known_for.map((content) => content.title || content.name).join(', ')}</p>
+                  </div>
                 </Link>
               </li>
             ))}
