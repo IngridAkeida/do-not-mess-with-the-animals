@@ -1,42 +1,39 @@
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import CardLayout from '../../Main/CardLayout/CardLayout';
 
 const SearchResults = ({results, searchTerm}) => {
-
-  const [filter, setFilter] = useState('all');
-
   console.log('results', results);
-
-  if (!results) {
-    return <h2>No results found for {searchTerm}</h2>;
-  }
+  const [filter, setFilter] = useState('all');
 
   const handleFilterChange = (event) => {
     setFilter(event.target.value);
   };
 
-  const filteredResults = results.filter(result => {
-    if(result.tmdbId === null){
-      return false;
-    }
-    if (result.ItemTypeId !== 15 && result.ItemTypeId !== 16) {
-      return false;
-    }
-    if (filter === 'all') {
-      return true;
-    }
-    if (filter === 'movies' && result.ItemTypeId === 16 && result.tmdbId ==! null) {
-      return true;
-    }
-    if (filter === 'tvshows' && result.ItemTypeId === 15 && result.tmdbId ==! null) {
-      return true;
-    }
-    return false;
-  });
+  const { filteredResults, movieCount, tvShowCount } = useMemo(() => {
+    let movieCount = 0;
+    let tvShowCount = 0;
 
-  const movieCount = results.filter(result => result.ItemTypeId === 16).length;
-  const tvShowCount = results.filter(result => result.ItemTypeId === 15).length;
+    const filteredResults = results.filter(result => {
+      if (result.tmdbId === null) return false;
+      if (result.ItemTypeId !== 15 && result.ItemTypeId !== 16) return false;
+
+      if (result.ItemTypeId === 16) movieCount++;
+      if (result.ItemTypeId === 15) tvShowCount++;
+
+      if (filter === 'all') return true;
+      if (filter === 'movies' && result.ItemTypeId === 16) return true;
+      if (filter === 'tvshows' && result.ItemTypeId === 15) return true;
+
+      return false;
+    });
+
+    return { filteredResults, movieCount, tvShowCount };
+  }, [results, filter]);
+
+  if (!results) {
+    return <h2>No results found for {searchTerm}</h2>;
+  }
 
   return (
     <div className='bg-dark-neutral-a30 flex flex-col px-2 py-4 sm:px-0 gap-2'>

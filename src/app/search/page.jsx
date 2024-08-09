@@ -2,23 +2,20 @@
 
 import Nav from '../../components/Header/Nav/Nav';
 import Footer from '../../components/Footer/Footer';
-
 import SearchResults from '../../components/uiComponents/SearchResults/SearchResults';
-
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
 const SearchPage = () => {
-  const router = useRouter();
   const searchParams = useSearchParams();
-
-  const asPath = router.asPath;
   const searchTerm = searchParams.get('term');
 
   const [results, setResults] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    if (!searchTerm) return;
+
     const handleSearch = async () => {
       try {
         const encodedTerm = encodeURIComponent(searchTerm);
@@ -26,61 +23,52 @@ const SearchPage = () => {
         if (!response1.ok) {
           throw new Error('Failed to fetch data');
         }
+
         const dataQuery = await response1.json();
         const ids = dataQuery.items.map(item => item.id);
         if (!ids || ids.length === 0) {
           throw new Error('ID not found in the first API response');
         }
 
-        const fetchingResultsIds = async (ids) => {
-          const resultsIDs = {}
-          for (const id of ids) {
-            try {
-              const response2 = await fetch(`/api/serverDataDDDId?id=${id}`);
-              if (!response2.ok) {
-                throw new Error('Failed to fetch data');
-              }
-              const dataId = await response2.json();
-              resultsIDs[id] = dataId.allGroups;
-            } catch (error) {
-              console.error(`Error fetching data for ID ${id}:`, error);
+        // Use Promise.all to fetch all data in parallel
+        const resultsIds = await Promise.all(
+          ids.map(async id => {
+            const response2 = await fetch(`/api/serverDataDDDId?id=${id}`);
+            if (!response2.ok) {
+              throw new Error('Failed to fetch data');
             }
-          }
-          console.log(resultsIDs);
-          return resultsIDs;
-        };
-        const resultsIds = await fetchingResultsIds(ids);
+            const dataId = await response2.json();
+            return { id, allGroups: dataId.allGroups };
+          })
+        );
+
+        const resultsMap = resultsIds.reduce((acc, curr) => {
+          acc[curr.id] = curr.allGroups;
+          return acc;
+        }, {});
 
         const combinedData = dataQuery.items.map((itemQuery) => ({
           ...itemQuery,
-          additionalData: resultsIds[itemQuery.id]
+          additionalData: resultsMap[itemQuery.id]
         }));
 
         setResults(combinedData);
-        console.log(combinedData);
 
       } catch (error) {
         setError(error.message);
       }
     };
 
-    if (searchTerm) {
-      handleSearch();
-    }
+    handleSearch();
   }, [searchTerm]);
 
   if (!results) {
     return <p>Carregando...</p>;
   }
-  
 
   return (
     <div className='max-w-7xl mx-auto bg-dark-neutral-a50'>
       <Nav />
-      {/* <h1>Search Result Details</h1>
-      <p>Query: {JSON.stringify(Object.fromEntries(searchParams.entries()))}</p>
-      <p>URL Path: {asPath}</p>
-      <p>Search Query: {searchTerm}</p> */}
       <div>
         {error && <div>Error: {error}</div>}
 
