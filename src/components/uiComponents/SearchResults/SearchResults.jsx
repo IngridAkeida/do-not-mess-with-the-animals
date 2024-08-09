@@ -17,10 +17,13 @@ const SearchResults = ({results, searchTerm}) => {
   };
 
   const filteredResults = results.filter(result => {
+    if (result.ItemTypeId !== 15 && result.ItemTypeId !== 16) {
+      return false;
+    }
     if (filter === 'all') {
       return true;
     }
-    if (filter === 'movies' && result.ItemTypeId !== 16) {
+    if (filter === 'movies' && result.ItemTypeId === 16) {
       return true;
     }
     if (filter === 'tvshows' && result.ItemTypeId === 15) {
@@ -29,9 +32,12 @@ const SearchResults = ({results, searchTerm}) => {
     return false;
   });
 
+   const movieCount = results.filter(result => result.ItemTypeId === 16).length;
+  const tvShowCount = results.filter(result => result.ItemTypeId === 15).length;
+
   return (
     <div className='bg-dark-neutral-a30 flex flex-col px-2 py-4 sm:px-0 gap-2'>
-      <h2 className='bg-gradient-to-br from-dark-primary-a40 to-dark-primary-a30 font-semibold text-xl text-center bg-black rounded-md p-2 '>You searched for the term <span className='font-bold text-dark-menu-y10'>{searchTerm}</span>, we found <span className='font-bold text-dark-menu-y10'>{results.length}</span> contents with that keyword, of which <span className='font-bold text-dark-menu-y10'>x</span> are films and <span className='font-bold text-dark-menu-y10'>x</span> are tv shows</h2>
+      <h2 className='bg-gradient-to-br from-dark-primary-a40 to-dark-primary-a30 font-semibold text-xl text-center bg-black rounded-md p-2 '>You searched for the term <span className='font-bold text-dark-menu-y10'>{searchTerm}</span>, we found <span className='font-bold text-dark-menu-y10'>{filteredResults.length}</span> contents with that keyword, of which <span className='font-bold text-dark-menu-y10'>{movieCount}</span> are films and <span className='font-bold text-dark-menu-y10'>{tvShowCount}</span> are tv shows</h2>
 
     <div className='flex justify-center'>
       <div className='hidden sm:block w-2/12'>
@@ -48,15 +54,11 @@ const SearchResults = ({results, searchTerm}) => {
       {filteredResults.map((result, index) => {
 
         let resultType = '';
-
         if (result.ItemTypeId === 16) {
           resultType = 'tvshow';
         } else {
           resultType = 'movie';
         }
-
-        console.log('resultType', resultType);
-
         return (
         <Link key={index} href={`/${resultType}/${result.id}`}>
           <CardLayout result={result} />
