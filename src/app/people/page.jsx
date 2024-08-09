@@ -39,15 +39,21 @@ const PeoplePage = () => {
   return (
     <div className='max-w-7xl mx-auto'>
       <Nav />
-      <h1>Popular People</h1>
-      <ul>
-        {data.results.map((person) => (
-          <li key={person.id}>
-            <h2>{person.name}</h2>
-            <Image src={`https://image.tmdb.org/t/p/w500${person.profile_path}`} alt={person.name} width={200} height={300} />
-          </li>
-        ))}
-      </ul>
+      <div className='flex'>
+        <div className='w-2/12'>Coluna 1</div>
+        <div className='w-10/12'>
+          <h1>Popular People</h1>
+          <ul className='flex flex-wrap gap-2'>
+            {data.results.map((person) => (
+              <li className='max-w-48 bg-dark-neutral-a40 p-2' key={person.id}>
+                <h2>{person.name}</h2>
+                <Image src={`https://image.tmdb.org/t/p/w500${person.profile_path}`} alt={person.name} width={200} height={300} />
+                <p className='flex text-xs'>{person.known_for.map((content) => content.title || content.name).join(', ')}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
     </div>
   );
 }
