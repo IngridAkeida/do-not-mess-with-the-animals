@@ -13,7 +13,7 @@ const Nav = () => {
   const [activeHeader, setActiveHeader] = useState(false);
 
   const SearchWrapStyle = 'hidden sm:block text-base sm:text-base relative m-2';
-  const SearchInputStyle = 'p-1 sm:pl-4 sm:w-80 max-w-md bg-alert-warning-100 rounded-2xl text-black outline-none';
+  const SearchInputStyle = 'p-1 sm:pl-4 sm:w-80 max-w-md bg-light-neutral-200 rounded-2xl text-black outline-none';
   const SearchButtonStyle = 'p-2 sm:pl-6 bg-gradient-to-l from-dark-menu-y10 to-alert-warning-100 hover:bg-dark-menu-y10 rounded-r-3xl absolute right-0 text-dark-neutral-a40';
   const SearchButtonDisabledStyle = 'text-gray-500 cursor-none';
 
