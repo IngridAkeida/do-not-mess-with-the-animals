@@ -40,10 +40,10 @@ const PeoplePage = () => {
     <div className='max-w-7xl mx-auto'>
       <Nav />
       <div className='flex'>
-        <div className='w-2/12'>Coluna 1</div>
-        <div className='w-10/12'>
+        <div className='hidden sm:block w-2/12'>Coluna 1</div>
+        <div className='flex flex-col sm:w-10/12'>
           <h1>Popular People</h1>
-          <ul className='flex flex-wrap gap-2'>
+          <ul className='flex flex-wrap gap-2 justify-center items-center'>
             {data.results.map((person) => (
               <li className='max-w-48 bg-dark-neutral-a40 p-2' key={person.id}>
                 <h2>{person.name}</h2>
