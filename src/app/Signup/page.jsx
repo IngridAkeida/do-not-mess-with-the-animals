@@ -42,7 +42,7 @@ const SignUp = () => {
 
   return (
     <div className='flex flex-col items-center justify-center min-h-screen bg-custom text-dark-neutral-a40'>
-      <div className='bg-gradient-to-br from-alert-warning-100 to-dark-menu-y10 p-8 rounded shadow-md w-80'>
+      <div className='bg-gradient-to-br from-dark-primary-a10 to-dark-menu-y10 p-8 rounded shadow-md w-80'>
         <h2 className='text-2xl mb-4 text-center'>Sign Up</h2>
         <form onSubmit={handleSignup}>
           <div className='mb-4'>
