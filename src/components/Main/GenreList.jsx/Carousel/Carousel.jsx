@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import { useState } from 'react';
 import { FaRegHeart, FaHeart, FaPlus, FaCheck, FaPlay } from 'react-icons/fa';
 
@@ -15,16 +14,7 @@ const Carousel = ({ index, item }) => {
     setIsFavorited(!isFavorited);
   };
 
-  let resultType = '';
-
-  if (item.media_type === 'TV') {
-    resultType = 'tvshow';
-  } else {
-    resultType = 'movie';
-  }
-
   return (
-    <Link key={index} href={`/${resultType}/${item.id}`}>
       <div key={index} className='sm:h-60 sm:w-40 relative pr-2 sm:cursor-pointer'>
         <div className='absolute text-left text-white bg-gradient-to-r sm:bg-gradient-to-t from-black sm:hover:from-black sm:from-transparent to-transparent h-[100%] w-[100%] sm:h-[95%] sm:w-[95%] rounded-xl flex flex-col justify-center sm:justify-end items-start sm:text-center sm:pb-4'>
           <div className='block sm:text-transparent sm:hover:text-white px-2 h-[80%] w-[100%]'>
@@ -59,7 +49,6 @@ const Carousel = ({ index, item }) => {
           )}
         </div>
       </div>
-    </Link>
   );
 };
 

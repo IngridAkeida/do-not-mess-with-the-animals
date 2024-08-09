@@ -6,6 +6,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import { getList } from '../../../pages/api/dataTMDBGenre';
 import { NextArrow, PrevArrow } from './ArrowCarousel/ArrowCarousel';
 import Carousel from './Carousel/Carousel';
+import Link from 'next/link';
 
 
 const List = () => {
@@ -89,9 +90,20 @@ const List = () => {
           <ul key={index} className='bg-gradient-to-br from-dark-primary-a40 to-dark-primary-a30 rounded-md sm:pb-8'> 
             <h2 className='font-bold mx-2 sm:mx-12 mt-2 sm:mt-4 text-blue-50 text-2xl'>{genre.title}</h2>
             <Slider {...settings} className='py-2 px-2 sm:px-12 h-48 sm:h-auto'>
-              {genre.items.results.map((item, index) => (
-                <Carousel key={index} item={item} />
-              ))}
+              {genre.items.results.map((item, index) => {
+                let resultType = '';
+
+                if (item.media_type === 'TV') {
+                  resultType = 'tvshow';
+                } else {
+                  resultType = 'movie';
+                }
+                return(
+                  <Link key={index} href={`/${resultType}/${item.id}`}>
+                    <Carousel key={index} item={item} />
+                  </Link>
+                )
+              })}
             </Slider>
           </ul>
         ))}
