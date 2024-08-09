@@ -17,22 +17,25 @@ const SearchResults = ({results, searchTerm}) => {
   };
 
   const filteredResults = results.filter(result => {
+    if(result.tmdbId === null){
+      return false;
+    }
     if (result.ItemTypeId !== 15 && result.ItemTypeId !== 16) {
       return false;
     }
     if (filter === 'all') {
       return true;
     }
-    if (filter === 'movies' && result.ItemTypeId === 16) {
+    if (filter === 'movies' && result.ItemTypeId === 16 && result.tmdbId ==! null) {
       return true;
     }
-    if (filter === 'tvshows' && result.ItemTypeId === 15) {
+    if (filter === 'tvshows' && result.ItemTypeId === 15 && result.tmdbId ==! null) {
       return true;
     }
     return false;
   });
 
-   const movieCount = results.filter(result => result.ItemTypeId === 16).length;
+  const movieCount = results.filter(result => result.ItemTypeId === 16).length;
   const tvShowCount = results.filter(result => result.ItemTypeId === 15).length;
 
   return (
