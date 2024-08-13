@@ -1,6 +1,9 @@
 import Image from "next/image";
 import GenreColors from "../../uiComponents/GenreColors/GenreColors";
 
+import { FaPlay } from "react-icons/fa";
+
+
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -12,7 +15,7 @@ const BannerResult = ({item}) => {
   : '/assets/movie-nf.png';
 
   const stylesPoster ='w-32 md:w-20 max-h-96 object-contain rounded-md shadow-md';
-  const stylesSeasonPoster ='w-32 md:w-40 max-h-96 object-contain rounded-md shadow-md';
+  const stylesSeasonPoster ='w-48 sm:w-28 xl:w-48 max-h-96 object-contain rounded-md shadow-md';
 
   const genreColors = GenreColors;
   const settings = Settings;
@@ -30,6 +33,7 @@ const BannerResult = ({item}) => {
         )}
         <div className='pl-4'>
           <h1 className='py-1 font-bold'>{item.name || item.title}</h1>
+          <p><FaPlay /></p>
           {item.seasons && item.seasons.length > 0 ? (<p>TV show</p>) : (<p>Movie</p>)}
           <p>{item.release_date}</p>
           <p className="flex flex-wrap gap-1">{item.genres.map((genre, index) => (
@@ -47,14 +51,15 @@ const BannerResult = ({item}) => {
       </div>  
       </div>
       <div>
+        <p>Seasons:</p>
         {item.seasons && item.seasons.length > 0 ? (
-         <Slider {...settings}  className='flex flex-wrap flex-row gap-4'>
+         <Slider {...settings}  className='flex flex-wrap flex-row gap-4 bg-gradient-to-br from-dark-primary-a40 to-dark-primary-a0'>
           {item.seasons.map((season, index) => {
             if (season.air_date === null) {
               return null;
             }
             return(
-            <li key={index} className='flex flex-col w-80 sm:w-60 p-4 rounded-md shadow-md bg-blue-500 my-2'>
+            <li key={index} className='flex flex-col p-4 rounded-md shadow-md my-2 w-80 sm:w-60 max-h-96 justify-center items-center text-center'>
               <h2 className='text-center'>{season.name}</h2>
               <div className='flex justify-center'>
                 {season.poster_path=== null ? (
@@ -63,23 +68,24 @@ const BannerResult = ({item}) => {
                   <Image className={stylesSeasonPoster} src={`https://www.doesthedogdie.com/content/1200/0/${season.poster_path}`} width={300} height={300} alt={season.title} />
                 )}
               </div>
-              <div>
-                <p>Number of Episodes: {season.episode_count}</p>
-                <p>Release Data: {season.air_date}</p>
-                <p>Votes: {season.vote_average}</p>
-                <p>{season.overview}</p>
-              </div>
             </li>
           )})}
         </Slider>): null}
       </div>
       <div>
         <p>Similar Titles:</p>
-        <p>{item.similar.results.map(
-          (similar, index) => (
-            <span key={index}>{similar.name}</span>
-          )
-        )}</p>
+        <Slider {...settings}  className='flex flex-wrap flex-row gap-4 bg-gradient-to-br from-dark-primary-a40 to-dark-primary-a0'>
+          {item.similar.results.map((similar, index) => (
+            <li key={index}>
+              <span>{similar.name}</span>
+              {similar.poster_path === null ? (
+                <Image className={stylesPoster} src='/assets/movie-nf.png' width={300} height={300} alt={similar.name} />
+              ) : (
+                <Image className={stylesPoster} src={`https://www.doesthedogdie.com/content/1200/0/${similar.poster_path}`} width={300} height={300} alt={similar.title} />
+              )}
+            </li>
+          ))}
+        </Slider>
       </div>
     </div>
   );
