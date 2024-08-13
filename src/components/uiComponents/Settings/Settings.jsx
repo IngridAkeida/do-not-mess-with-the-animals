@@ -4,13 +4,13 @@ import { NextArrow, PrevArrow } from '../ArrowCarousel/ArrowCarousel';
 const settings = {
     dots: false,
     infinite: true,
-    speed: 500,
+    speed: 1000,
     slidesToShow: 7,
     slidesToScroll: 6,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 5000,
     responsive: [
       {
         breakpoint: 1280,
