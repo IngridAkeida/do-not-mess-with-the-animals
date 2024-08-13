@@ -89,7 +89,7 @@ const List = () => {
             <h2 className='font-bold text-2xl'>{genre.title}</h2>
             <p className='hidden sm:block'>{aboutGenres[genre.title.toLowerCase()]?.about}</p>
           </div>
-            <Slider {...settings} className='py-2 px-2 h-48 sm:px-12 sm:h-auto sm:w-[400px] md:w-[768px] border'>
+            <Slider {...settings} className='py-2 px-2 h-48 sm:px-12 sm:h-auto sm:w-72 md:w-[768px] border'>
               {genre.items.results.map((item, index) => {
                 let resultType = '';
 
