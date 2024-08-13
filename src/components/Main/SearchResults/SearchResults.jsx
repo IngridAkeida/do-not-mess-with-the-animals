@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useState, useMemo } from 'react';
-import CardLayout from '../../Main/CardLayout/CardLayout';
+import CardLayout from '../CardLayout/CardLayout';
 
 const SearchResults = ({results, searchTerm}) => {
   console.log('results', results);

@@ -4,13 +4,16 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { getList } from '../../../pages/api/dataTMDBGenre';
-import { NextArrow, PrevArrow } from './ArrowCarousel/ArrowCarousel';
+import Settings  from './Settings/Settings'
 import Carousel from './Carousel/Carousel';
 import Link from 'next/link';
+import AboutGenre from '../../uiComponents/AboutGenre/AboutGenre'
 
 const List = () => {
   const [list, setList] = useState([]);
   const [error, setError] = useState('');
+  const aboutGenres = AboutGenre; 
+  const settings = Settings;
 
   useEffect(() => {
     const loadAll = async () => {
@@ -34,93 +37,7 @@ const List = () => {
     return <div className='text-black'>Error: {error}</div>;
   }
 
-  const aboutGenres = {
-  trending: {
-    name: 'Trending',
-    about: 'Discover What’s Hot Right Now! Dive into the latest movies and TV shows that everyone is talking about.'
-  },
-  toprated: {
-    name: 'Toprated',
-    about: 'Experience the Best of the Best! Explore a handpicked selection of critically acclaimed movies and TV shows.'
-  },
-  action: {
-    name: 'Action',
-    about: 'Get Your Adrenaline Pumping! Immerse yourself in heart-pounding action with high-octane movies and TV shows.'
-  },
-  comedy: {
-    name: 'Comedy',
-    about: 'Laugh Out Loud! Enjoy a collection of side-splitting comedies that are sure to tickle your funny bone.'
-  },
-  horror: {
-    name: 'Horror',
-    about: 'Face Your Fears! Dare to be scared with spine-chilling horror movies and TV shows that will keep you on the edge of your seat.'
-  },
-  romance: {
-    name: 'Romance',
-    about: 'Fall in Love Again! Indulge in heartwarming romance movies and TV shows that celebrate the magic of love.'
-  }
-};
-
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 7,
-    slidesToScroll: 6,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
-    responsive: [
-      {
-        breakpoint: 1280,
-        settings: {
-          slidesToShow: 6,
-          slidesToScroll: 5,
-        }
-      },
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 5,
-          slidesToScroll: 4,
-        }
-      },
-      {
-        breakpoint: 896,
-        settings: {
-          slidesToShow: 4,
-          slidesToScroll: 3,
-        }
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 4,
-          slidesToScroll: 3,
-        }
-      },
-      {
-        breakpoint: 639,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        }
-      },
-      {
-        breakpoint: 530,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        }
-      },
-      {
-        breakpoint: 425,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        }
-      },
-    ]
-  };
+ 
 
   return (
     <div className='flex flex-col gap-2 mx-2 my-2 md:mx-0'>
