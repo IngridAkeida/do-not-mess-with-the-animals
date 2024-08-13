@@ -15,15 +15,15 @@ const Carousel = ({ index, item }) => {
   };
 
   return (
-      <div key={index} className='sm:h-auto sm:w-auto relative pr-2 sm:cursor-pointer'>
-        <div className='absolute text-left bg-gradient-to-r sm:bg-gradient-to-t from-black md:hover:from-black md:from-transparent to-transparent h-[100%] w-[100%] sm:h-[100%] sm:w-48 rounded-xl flex flex-col justify-center sm:justify-end items-start sm:text-center'>
+      <div key={index} className='sm:h-auto relative pr-2 sm:cursor-pointer'>
+        <div className='absolute text-left bg-gradient-to-r sm:bg-gradient-to-t from-black md:hover:from-black md:from-transparent to-transparent h-[100%] w-[100%] sm:h-[100%] sm:w-28 xl:w-32 rounded-xl flex flex-col justify-center sm:justify-end items-start sm:text-center'>
           <div className='block md:text-transparent md:hover:text-white px-2 h-[80%] w-[100%] sm:pt-12'>
             <p className='font-bold'>{item.title || item.name}</p>
             <p className='text-xs pb-1'>{item.release_date}</p>
             <p className='text-xs'>genre,genre, genre</p>
             <p className='text-sm'>Trigger</p> 
             <p className='text-sm'>yes X no</p>
-            <div className='text-sm flex  gap-2 sm:absolute sm:bottom-4 sm:left-12'>
+            <div className='text-sm flex gap-2 sm:absolute sm:bottom-4 sm:left-12'>
               <span onClick={handleAddClick} className='cursor-pointer'>
                 {isAdded ? <FaCheck /> : <FaPlus />}
               </span>
@@ -34,7 +34,7 @@ const Carousel = ({ index, item }) => {
             </div>
           </div>
         </div>
-        <div className='hidden sm:flex w-48'>
+        <div className='hidden sm:flex w-48 sm:w-28 xl:w-32'>
           {item.poster_path === null ? (
             <Image className='rounded-xl' src='/assets/movie-nf.png' width={300} height={300} alt={item.title} />
           ) : (
