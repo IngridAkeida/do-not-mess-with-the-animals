@@ -41,11 +41,11 @@ const List = () => {
   },
   toprated: {
     name: 'Toprated',
-    about: 'Experience the Best of the Best! Explore a handpicked selection of critically acclaimed movies and TV shows that have wowed audiences and critics alike.'
+    about: 'Experience the Best of the Best! Explore a handpicked selection of critically acclaimed movies and TV shows.'
   },
   action: {
     name: 'Action',
-    about: 'Get Your Adrenaline Pumping! Immerse yourself in heart-pounding action with high-octane movies and TV shows that deliver thrilling stunts, epic battles, and non-stop excitement.'
+    about: 'Get Your Adrenaline Pumping! Immerse yourself in heart-pounding action with high-octane movies and TV shows.'
   },
   comedy: {
     name: 'Comedy',
@@ -128,8 +128,8 @@ const List = () => {
         {list.map((genre, index) => (
           <ul key={index} className='bg-gradient-to-br from-dark-primary-a40 to-dark-primary-a30 rounded-md sm:py-2 md:flex'> 
           <div className='m-1 sm:m-2 sm:w-auto'>
-            <h2 className='font-bold text-2xl'>{genre.title}</h2>
-            <p className='hidden md:block'>{aboutGenres[genre.title.toLowerCase()]?.about}</p>
+            <h2 className='font-bold text-md md:text-xl'>{genre.title}</h2>
+            <p className='hidden md:block text-xs md:text-sm'>{aboutGenres[genre.title.toLowerCase()]?.about}</p>
           </div>
             <Slider {...settings} className='py-2 px-2 h-48 sm:px-12 sm:h-auto sm:w-[610px] md:w-[600px] md2:w-[700px] lg:w-[900px] xl:w-[1024px]'>
               {genre.items.results.map((item, index) => {
