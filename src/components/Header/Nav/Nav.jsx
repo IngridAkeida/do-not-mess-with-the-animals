@@ -27,7 +27,7 @@ const Nav = () => {
     
   
   return (
-    <header className={`sticky top-0 z-50 mx-auto bg-dark-neutral-a40 shadow-sm ${activeHeader ? 'bg-opacity-90' : ''}`}>
+    <header className={`sticky top-0 z-50 mx-auto bg-dark-neutral-a40 shadow-sm ${activeHeader ? 'bg-opacity-100' : ''}`}>
       <nav className='flex items-center justify-between px-4 lg:px-10' aria-label='Global'>
         <div className='flex'>
           <Link href='/' className='pt-2'>

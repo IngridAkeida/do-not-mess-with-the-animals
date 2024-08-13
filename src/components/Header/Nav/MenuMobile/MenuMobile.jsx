@@ -17,7 +17,7 @@ const MenuMobile = ({setMobileMenuOpen}) => {
   }, []);
 
   return(
-    <div className='sm:hidden fixed inset-0 z-50 w-full bg-dark-neutral-a40 bg-opacity-95 px-4 py-2'>
+    <div className='sm:hidden fixed inset-0 z-50 w-full bg-dark-neutral-a40 px-4 py-2'>
     <div className='flex items-center justify-between mb-6'>
       <Link href='/' className='-m-1.5 p-1.5'>
         <span className='sr-only'>Logo</span>
