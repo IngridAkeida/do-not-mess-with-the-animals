@@ -2,7 +2,7 @@
 
 import Nav from '../../components/Header/Nav/Nav';
 import Footer from '../../components/Footer/Footer';
-import SearchResults from '../../components/uiComponents/SearchResults/SearchResults';
+import SearchResults from '../../components/Main/SearchResults/SearchResults';
 import { useSearchParams } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
