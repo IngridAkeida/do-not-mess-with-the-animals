@@ -11,6 +11,8 @@ const BannerResult = ({item}) => {
 
   const genreColors = GenreColors;
 
+  console.log(item)
+
   return (
     <div>
       <div className={`flex-col flex gap-2 justify-start w-auto h-auto bg-cover bg-center`} style={{ backgroundImage: `url(${backgroundImage})` }}>
@@ -21,13 +23,16 @@ const BannerResult = ({item}) => {
           <Image className={stylesPoster} src={`https://www.doesthedogdie.com/content/1200/0/${item.poster_path}`} width={300} height={300} alt={item.title} />
         )}
         <div className='pl-4'>
-          <h1 className='py-1 font-bold'>{item.title}</h1>
+          <h1 className='py-1 font-bold'>{item.name || item.title}</h1>
+          {item.seasons && item.seasons.length > 0 ? (<p>TV show</p>) : (<p>Movie</p>)}
           <p>{item.release_date}</p>
           <p className="flex flex-wrap gap-1">{item.genres.map((genre, index) => (
               <span key={index} className={`px-1 mx-1 text-xs rounded-lg ${genreColors[genre.id]}`}>{genre.name}</span>
           ))}</p>
-          {/* <p>Created By: {item.created_by[0].name}</p> */}
-          <p>Written by: sjjsjs</p> 
+          {item.seasons && item.seasons.length > 0 ? (<p>Seasons: {item.number_of_seasons}
+</p>) : null}
+          <p>Status: {item.status}</p>
+          {item.seasons && item.seasons.length > 0 ? (<p>Created By: {item.created_by[0].name}</p>) : null}
         </div>
       </div>
       <div className='px-4 bg-gradient-to-t from-black to-transparent'>
@@ -36,12 +41,8 @@ const BannerResult = ({item}) => {
       </div>  
       </div>
       <div>
-        <p>{item.episode_run_time}</p>
-        <p>{item.status}</p>
-        <p>{item.vote_average}</p>
-        <p>{item.vote_count}</p>
-        <p>{item.popularity}</p>
-        {/* <ul className='flex flex-wrap flex-row gap-4'>
+        {item.seasons && item.seasons.length > 0 ? (
+         <ul className='flex flex-wrap flex-row gap-4'>
           {item.seasons.map((season, index) => {
             if (season.air_date === null) {
               return null;
@@ -64,7 +65,7 @@ const BannerResult = ({item}) => {
               </div>
             </li>
           )})}
-        </ul> */}
+        </ul>): null}
       </div>
       <div>
         <p>Similar Titles:</p>
