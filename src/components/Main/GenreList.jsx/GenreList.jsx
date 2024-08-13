@@ -4,7 +4,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { getList } from '../../../pages/api/dataTMDBGenre';
-import Settings  from './Settings/Settings'
+import Settings  from '../../uiComponents/Settings/Settings';
 import Carousel from './Carousel/Carousel';
 import Link from 'next/link';
 import AboutGenre from '../../uiComponents/AboutGenre/AboutGenre'

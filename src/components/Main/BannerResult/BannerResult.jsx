@@ -1,6 +1,11 @@
 import Image from "next/image";
 import GenreColors from "../../uiComponents/GenreColors/GenreColors";
 
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import Settings  from '../../uiComponents/Settings/Settings';
+
 const BannerResult = ({item}) => {
   const backgroundImage = item.backdrop_path
   ? `https://www.doesthedogdie.com/content/1800/0/${item.backdrop_path}`
@@ -10,6 +15,7 @@ const BannerResult = ({item}) => {
   const stylesSeasonPoster ='w-32 md:w-40 max-h-96 object-contain rounded-md shadow-md';
 
   const genreColors = GenreColors;
+  const settings = Settings;
 
   console.log(item)
 
@@ -42,7 +48,7 @@ const BannerResult = ({item}) => {
       </div>
       <div>
         {item.seasons && item.seasons.length > 0 ? (
-         <ul className='flex flex-wrap flex-row gap-4'>
+         <Slider {...settings}  className='flex flex-wrap flex-row gap-4'>
           {item.seasons.map((season, index) => {
             if (season.air_date === null) {
               return null;
@@ -65,7 +71,7 @@ const BannerResult = ({item}) => {
               </div>
             </li>
           )})}
-        </ul>): null}
+        </Slider>): null}
       </div>
       <div>
         <p>Similar Titles:</p>
