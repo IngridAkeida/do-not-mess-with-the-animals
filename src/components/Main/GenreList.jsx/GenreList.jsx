@@ -37,7 +37,7 @@ const List = () => {
   const aboutGenres = {
   trending: {
     name: 'Trending',
-    about: 'Discover What’s Hot Right Now! Dive into the latest movies and TV shows that everyone is talking about. From viral hits to the newest releases, catch up on the buzz and see what’s making waves in entertainment today!'
+    about: 'Discover What’s Hot Right Now! Dive into the latest movies and TV shows that everyone is talking about.'
   },
   toprated: {
     name: 'Toprated',
@@ -49,15 +49,15 @@ const List = () => {
   },
   comedy: {
     name: 'Comedy',
-    about: 'Laugh Out Loud! Enjoy a collection of side-splitting comedies that are sure to tickle your funny bone. From witty banter to hilarious situations, these films and shows are crafted to bring joy and laughter to your screen.'
+    about: 'Laugh Out Loud! Enjoy a collection of side-splitting comedies that are sure to tickle your funny bone.'
   },
   horror: {
     name: 'Horror',
-    about: 'Face Your Fears! Dare to be scared with spine-chilling horror movies and TV shows that will keep you on the edge of your seat. Whether it’s supernatural thrills or psychological terror.'
+    about: 'Face Your Fears! Dare to be scared with spine-chilling horror movies and TV shows that will keep you on the edge of your seat.'
   },
   romance: {
     name: 'Romance',
-    about: 'Fall in Love Again! Indulge in heartwarming romance movies and TV shows that celebrate the magic of love. From sweeping love stories to touching moments, these selections will make your heart flutter.'
+    about: 'Fall in Love Again! Indulge in heartwarming romance movies and TV shows that celebrate the magic of love.'
   }
 };
 
@@ -115,8 +115,7 @@ const List = () => {
           <ul key={index} className='bg-gradient-to-br from-dark-primary-a40 to-dark-primary-a30 rounded-md sm:py-2 md:flex'> 
           <div className='m-1 sm:m-2 sm:w-auto'>
             <h2 className='font-bold text-2xl'>{genre.title}</h2>
-            {/* <p className='hidden md:block'>{aboutGenres[genre.title.toLowerCase()]?.about}</p> */}
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae.</p>
+            <p className='hidden md:block'>{aboutGenres[genre.title.toLowerCase()]?.about}</p>
           </div>
             <Slider {...settings} className='py-2 px-2 h-48 sm:px-12 sm:h-auto sm:w-[610px] md:w-[600px] md2:w-[700px] lg:w-[900px] xl:w-[1024px]'>
               {genre.items.results.map((item, index) => {
