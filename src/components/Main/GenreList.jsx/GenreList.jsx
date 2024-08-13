@@ -43,7 +43,7 @@ const List = () => {
     <div className='flex flex-col gap-2 mx-2 my-2 md:mx-0'>
       <h2 className='bg-gradient-to-br from-dark-primary-a40 to-dark-primary-a30 font-semibold text-3xl text-center bg-black rounded-md p-2'> Looking for the main tredings and genres</h2>
         {list.map((genre, index) => (
-          <ul key={index} className='bg-gradient-to-br from-dark-primary-a40 to-dark-primary-a30 rounded-md sm:py-2 md:flex'> 
+          <ul key={index} className='bg-gradient-to-br from-dark-primary-a40 to-dark-primary-a30 rounded-md md:flex'> 
           <div className='m-1 sm:m-2 sm:w-auto'>
             <h2 className='font-bold text-md md:text-xl'>{genre.title}</h2>
             <p className='hidden md:block text-xs md:text-sm'>{aboutGenres[genre.title.toLowerCase()]?.about}</p>
