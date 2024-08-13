@@ -106,6 +106,13 @@ const List = () => {
         }
       },
       {
+        breakpoint: 530,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        }
+      },
+      {
         breakpoint: 425,
         settings: {
           slidesToShow: 1,
