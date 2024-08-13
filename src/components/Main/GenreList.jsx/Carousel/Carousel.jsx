@@ -15,8 +15,8 @@ const Carousel = ({ index, item }) => {
   };
 
   return (
-      <div key={index} className='sm:h-60 sm:w-40 relative pr-2 sm:cursor-pointer'>
-        <div className='absolute text-left text-white bg-gradient-to-r sm:bg-gradient-to-t from-black sm:hover:from-black sm:from-transparent to-transparent h-[100%] w-[100%] sm:h-[95%] sm:w-[95%] rounded-xl flex flex-col justify-center sm:justify-end items-start sm:text-center sm:pb-4'>
+      <div key={index} className='sm:h-auto sm:w-auto relative pr-2 sm:cursor-pointer'>
+        <div className='absolute text-left text-white bg-gradient-to-r sm:bg-gradient-to-t from-black sm:hover:from-black sm:from-transparent to-transparent h-[100%] w-[100%] sm:h-[100%] sm:w-48 rounded-xl flex flex-col justify-center sm:justify-end items-start sm:text-center sm:pb-4'>
           <div className='block sm:text-transparent sm:hover:text-white px-2 h-[80%] w-[100%]'>
             <p className='font-bold'>{item.title || item.name}</p>
             <p className='text-xs pb-1'>{item.release_date}</p>
@@ -34,7 +34,7 @@ const Carousel = ({ index, item }) => {
             </div>
           </div>
         </div>
-        <div className='hidden sm:flex'>
+        <div className='hidden sm:flex w-48'>
           {item.poster_path === null ? (
             <Image className='rounded-xl' src='/assets/movie-nf.png' width={300} height={300} alt={item.title} />
           ) : (
