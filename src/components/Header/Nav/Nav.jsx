@@ -50,14 +50,16 @@ const Nav = () => {
           </button>
         </div>
         <div className='hidden sm:flex sm:w-[85%] sm:justify-between'>
-          <DropDownMenu />
-          <SearchField 
-            wrapStyle={SearchWrapStyle} 
-            inputStyle={SearchInputStyle} 
-            buttonStyle={SearchButtonStyle}
-            buttonDisabledStyle={SearchButtonDisabledStyle} 
-          />
-          <UserPreferencesMenu />
+          <div className='flex mx-auto'><DropDownMenu/></div>
+          <div className='flex flex-row justify-end gap-2'>
+            <SearchField 
+              wrapStyle={SearchWrapStyle} 
+              inputStyle={SearchInputStyle} 
+              buttonStyle={SearchButtonStyle}
+              buttonDisabledStyle={SearchButtonDisabledStyle} 
+            />
+            <UserPreferencesMenu />
+          </div>
         </div>
       </nav>
       {mobileMenuOpen && (

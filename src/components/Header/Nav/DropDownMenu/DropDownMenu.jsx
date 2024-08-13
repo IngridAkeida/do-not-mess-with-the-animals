@@ -30,7 +30,7 @@ const DropDownMenu = () => {
   }, []);
 
   return (
-    <div className='hidden sm:flex lg:gap-x-6'>
+    <div className='hidden sm:flex gap-x-2 lg:gap-x-6'>
     {navigationInfo.map((item) => (
       <div key={item.name} className='relative my-auto' ref={dropdownRef}>
         <button
