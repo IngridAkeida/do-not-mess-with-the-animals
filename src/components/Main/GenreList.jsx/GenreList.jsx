@@ -99,10 +99,17 @@ const List = () => {
         }
       },
       {
-        breakpoint: 640,
+        breakpoint: 639,
         settings: {
-          slidesToShow: 4,
-          slidesToScroll: 3,
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 425,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
         }
       },
     ]
