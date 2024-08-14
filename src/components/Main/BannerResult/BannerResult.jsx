@@ -24,28 +24,34 @@ const BannerResult = ({item, triggers}) => {
   return (
     <div>
       <div className={`flex-col flex gap-2 justify-start w-auto h-auto bg-cover bg-center`} style={{ backgroundImage: `url(${backgroundImage})` }}>
-        <div className='flex p-4'>
-        {item.poster_path=== null ? (
-            <Image className={stylesPoster} src='/assets/movie-nf.png' width={300} height={300} alt={item.name} />
-          ) : (
-            <Image className={stylesPoster} src={`https://www.doesthedogdie.com/content/1200/0/${item.poster_path}`} width={300} height={300} alt={item.title} />
-          )}
-          <div className='pl-4'>
-            <h1 className='py-1 font-bold'>{item.name || item.title}</h1>
-            <p><FaPlay /></p>
-            {item.seasons && item.seasons.length > 0 ? (<p>TV show</p>) : (<p>Movie</p>)}
-            <p>{item.release_date}</p>
-            <p className="flex flex-wrap gap-1">{item.genres.map((genre, index) => (
-                <span key={index} className={`px-1 mx-1 text-xs rounded-lg ${genreColors[genre.id]}`}>{genre.name}</span>
-            ))}
-            </p>
-            <div className='text-sm'>
-              {item.seasons && item.seasons.length > 0 ? (<p><span className='font-semibold'>Seasons: </span>{item.number_of_seasons}</p>) : null}
-              <p><span className='font-semibold'>Status: </span>{item.status}</p>
-              {item.seasons && item.seasons.length > 0 ? (<p><span className='font-semibold'>Created By: </span>{item.created_by[0].name}</p>) : null}
+        <div className='flex'>
+          <div className='flex p-4'>
+          {item.poster_path=== null ? (
+              <Image className={stylesPoster} src='/assets/movie-nf.png' width={300} height={300} alt={item.name} />
+            ) : (
+              <Image className={stylesPoster} src={`https://www.doesthedogdie.com/content/1200/0/${item.poster_path}`} width={300} height={300} alt={item.title} />
+            )}
+            <div className='pl-4'>
+              <div className='flex items-center'>
+                <h1 className='py-1 font-bold'>{item.name || item.title}</h1>
+                <p className='font-semibold text-sm ml-2'>({item.seasons && item.seasons.length > 0 ? ('TV Show') : ('Movie')})</p>
+                <p className='ml-2'><FaPlay /></p>
+              </div>
+              <p className="flex flex-wrap gap-1">{item.genres.map((genre, index) => (
+                  <span key={index} className={`px-1 text-xs rounded-lg ${genreColors[genre.id]}`}>{genre.name}</span>
+              ))}
+              </p>
+              <div className='text-sm'>
+                <p>{item.release_date || item.first_air_date}</p>
+                {item.seasons && item.seasons.length > 0 ? (<p><span className='font-semibold'>Seasons: </span>{item.number_of_seasons}</p>) : null}
+                <p><span className='font-semibold'>Status: </span>{item.status}</p>
+                {item.seasons && item.seasons.length > 0 ? (<p><span className='font-semibold'>Created By: </span>{item.created_by[0].name}</p>) : null}
+              </div>
             </div>
           </div>
+          <div>sklsklks</div>
         </div>
+        
         <div className='px-4 bg-gradient-to-t from-black to-transparent'>
           <p className='font-bold'>{item.tagline}</p>
           <p className='font-semibold pb-4'>{item.overview}</p>
