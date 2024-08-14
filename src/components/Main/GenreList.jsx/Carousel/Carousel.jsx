@@ -16,7 +16,7 @@ const Carousel = ({ index, item }) => {
 
   return (
       <div key={index} className='sm:h-auto relative pr-2 sm:cursor-pointer'>
-        <div className='absolute text-left bg-gradient-to-r sm:bg-gradient-to-t from-black md:hover:from-black md:from-transparent to-transparent h-[100%] sm:h-[100%] w-72 xs:w-64 sm:w-28 xl:w-32 rounded-xl flex flex-col justify-center sm:justify-end items-start sm:text-center'>
+        <div className='absolute text-left bg-gradient-to-r sm:bg-gradient-to-t from-black to-transparent md:from-transparent md:hover:bg-black md:hover:opacity-80  h-[100%] sm:h-[100%] w-72 xs:w-64 sm:w-28 xl:w-32 rounded-xl flex flex-col justify-center sm:justify-end items-start sm:text-center'>
           <div className='block md:text-transparent md:hover:text-white px-2 h-[80%] md:h-[100%] w-[100%] md:pt-8'>
             <p className='font-bold text-sm'>{item.title || item.name}</p>
             <p className='text-xs pb-1'>{item.release_date}</p>
