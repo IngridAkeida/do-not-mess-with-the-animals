@@ -15,7 +15,7 @@ const BannerResult = ({item, triggers}) => {
   ? `https://www.doesthedogdie.com/content/1800/0/${item.backdrop_path}`
   : '/assets/movie-nf.png';
 
-  const stylesPoster ='w-32 md:w-20 max-h-96 object-contain rounded-md shadow-md';
+  const stylesPoster ='w-32 md:w-24 max-h-96 object-cover rounded-md shadow-md';
 
   const genreColors = GenreColors;
   const settings = Settings;
@@ -37,11 +37,13 @@ const BannerResult = ({item, triggers}) => {
             <p>{item.release_date}</p>
             <p className="flex flex-wrap gap-1">{item.genres.map((genre, index) => (
                 <span key={index} className={`px-1 mx-1 text-xs rounded-lg ${genreColors[genre.id]}`}>{genre.name}</span>
-            ))}</p>
-            {item.seasons && item.seasons.length > 0 ? (<p>Seasons: {item.number_of_seasons}
-  </p>) : null}
-            <p>Status: {item.status}</p>
-            {item.seasons && item.seasons.length > 0 ? (<p>Created By: {item.created_by[0].name}</p>) : null}
+            ))}
+            </p>
+            <div className='text-sm'>
+              {item.seasons && item.seasons.length > 0 ? (<p><span className='font-semibold'>Seasons: </span>{item.number_of_seasons}</p>) : null}
+              <p><span className='font-semibold'>Status: </span>{item.status}</p>
+              {item.seasons && item.seasons.length > 0 ? (<p><span className='font-semibold'>Created By: </span>{item.created_by[0].name}</p>) : null}
+            </div>
           </div>
         </div>
         <div className='px-4 bg-gradient-to-t from-black to-transparent'>
