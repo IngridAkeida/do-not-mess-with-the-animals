@@ -3,6 +3,8 @@ import GenreColors from "../../uiComponents/GenreColors/GenreColors";
 
 import { FaPlay } from "react-icons/fa";
 
+import CustomSlider from '../../uiComponents/CustomSlider/CustomSlider';
+
 
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -15,7 +17,7 @@ const BannerResult = ({item}) => {
   : '/assets/movie-nf.png';
 
   const stylesPoster ='w-32 md:w-20 max-h-96 object-contain rounded-md shadow-md';
-  const stylesSeasonPoster ='w-48 sm:w-28 xl:w-48 max-h-96 object-contain rounded-md shadow-md';
+  const stylesSeasonPoster ='w-48 sm:w-28 sm:h-40 xl:w-48 xl:h-60 h-auto object-cover max-h-96 object-contain rounded-md shadow-md';
 
   const genreColors = GenreColors;
   const settings = Settings;
@@ -51,41 +53,18 @@ const BannerResult = ({item}) => {
       </div>  
       </div>
       <div>
-        <p>Seasons:</p>
-        {item.seasons && item.seasons.length > 0 ? (
-         <Slider {...settings}  className='flex flex-wrap flex-row gap-4 bg-gradient-to-br from-dark-primary-a40 to-dark-primary-a0'>
-          {item.seasons.map((season, index) => {
-            if (season.air_date === null) {
-              return null;
-            }
-            return(
-            <li key={index} className='flex flex-col p-4 rounded-md shadow-md my-2 w-80 sm:w-60 max-h-96 justify-center items-center text-center'>
-              <h2 className='text-center'>{season.name}</h2>
-              <div className='flex justify-center'>
-                {season.poster_path=== null ? (
-                  <Image className={stylesSeasonPoster} src='/assets/movie-nf.png' width={300} height={300} alt={season.name} />
-                ) : (
-                  <Image className={stylesSeasonPoster} src={`https://www.doesthedogdie.com/content/1200/0/${season.poster_path}`} width={300} height={300} alt={season.title} />
-                )}
-              </div>
-            </li>
-          )})}
-        </Slider>): null}
-      </div>
-      <div>
-        <p>Similar Titles:</p>
-        <Slider {...settings}  className='flex flex-wrap flex-row gap-4 bg-gradient-to-br from-dark-primary-a40 to-dark-primary-a0'>
-          {item.similar.results.map((similar, index) => (
-            <li key={index}>
-              <span>{similar.name}</span>
-              {similar.poster_path === null ? (
-                <Image className={stylesPoster} src='/assets/movie-nf.png' width={300} height={300} alt={similar.name} />
-              ) : (
-                <Image className={stylesPoster} src={`https://www.doesthedogdie.com/content/1200/0/${similar.poster_path}`} width={300} height={300} alt={similar.title} />
-              )}
-            </li>
-          ))}
-        </Slider>
+        <CustomSlider
+          title="Seasons"
+          items={item.seasons}
+          settings={settings}
+          isSeason={true}
+        />
+        <CustomSlider
+          title="Similar Titles"
+          items={item.similar.results}
+          settings={settings}
+          isSeason={false}
+        />
       </div>
     </div>
   );
