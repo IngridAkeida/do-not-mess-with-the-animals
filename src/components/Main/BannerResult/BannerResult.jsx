@@ -4,24 +4,21 @@ import GenreColors from "../../uiComponents/GenreColors/GenreColors";
 import { FaPlay } from "react-icons/fa";
 
 import CustomSlider from '../../uiComponents/CustomSlider/CustomSlider';
+import TriggerResult from '../../Main/TriggerResult/TriggerResult';
 
-
-import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Settings  from '../../uiComponents/Settings/Settings';
 
-const BannerResult = ({item}) => {
+const BannerResult = ({item, triggers}) => {
   const backgroundImage = item.backdrop_path
   ? `https://www.doesthedogdie.com/content/1800/0/${item.backdrop_path}`
   : '/assets/movie-nf.png';
 
   const stylesPoster ='w-32 md:w-20 max-h-96 object-contain rounded-md shadow-md';
-  const stylesSeasonPoster ='w-48 sm:w-28 sm:h-40 xl:w-48 xl:h-60 h-auto object-cover max-h-96 object-contain rounded-md shadow-md';
 
   const genreColors = GenreColors;
   const settings = Settings;
-
   console.log(item)
 
   return (
@@ -66,6 +63,7 @@ const BannerResult = ({item}) => {
           isSeason={false}
         />
       </div>
+      <TriggerResult triggers={triggers} item={item}/>
     </div>
   );
 }
