@@ -10,8 +10,9 @@ const CustomSlider = ({ title, items, settings, isSeason }) => {
 
   return (
     <div>
-      <p>{title}:</p>
       {items && items.length > 0 ? (
+      <div>
+        <p>{title}:</p>
         <Slider {...settings} className='flex flex-wrap flex-row gap-4 bg-gradient-to-br from-dark-primary-a40 to-dark-primary-a0'>
           {items.map((item, index) => {
             if (isSeason && item.air_date === null) {
@@ -31,6 +32,7 @@ const CustomSlider = ({ title, items, settings, isSeason }) => {
             );
           })}
         </Slider>
+      </div>
       ) : null}
     </div>
   );
