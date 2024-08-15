@@ -1,6 +1,5 @@
 'use client';
 
-import { Chela_One } from 'next/font/google';
 import { useState } from 'react';
 
 export default function MyComponent() {
