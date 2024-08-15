@@ -61,7 +61,7 @@ const TriggerResult = ({triggers, item}) => {
                 <h3 className='text-lg font-semibold mb-2'>Filter by:</h3>
                 <select id='filter' value={filter} onChange={handleFilterChange} className='p-2 rounded-md w-full text-black'>
                   <option value='all'>All</option>
-                  {triggers.map((trigger, index) => (
+                  {triggers.filter(trigger => trigger.name !== 'Unanswered Triggers').map((trigger, index) => (
                     <option key={index} value={trigger.name}>{trigger.name}</option>
                   ))}
                 </select>
