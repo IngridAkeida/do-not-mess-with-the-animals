@@ -93,7 +93,20 @@ const BannerResult = ({ item, triggers }) => {
           />
         </div>
       </div>
-      <VideoModal isVisible={showModal} onClose={() => setShowModal(false)} />
+      <VideoModal isVisible={showModal} onClose={() => setShowModal(false)}>
+        <div className='flex items-center justify-center w-full h-full'>
+          <div className="relative w-full h-0 pb-[56.25%]">  {/* 16:9 aspect ratio */}
+            <iframe
+              className="absolute top-0 left-0 w-full h-full"
+              src={`https://www.youtube.com/embed/${item.videos.results[0].key}`}
+              title={item.name || item.title}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      </VideoModal>
     </Fragment>
   );
 }
