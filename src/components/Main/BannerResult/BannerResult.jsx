@@ -75,21 +75,20 @@ const BannerResult = ({ item, triggers }) => {
                 
               </div>
             </div>
-            <div>sklsklks</div>
           </div>
 
           <div className='px-4 bg-gradient-to-t from-black to-transparent'>
             <p className='font-bold'>{item.tagline}</p>
             <p className='font-semibold pb-4'>{item.overview}</p>
-          </div>
-        </div>
-        <div>
-          <CustomSlider
+            <CustomSlider
             title='Seasons'
             items={item.seasons}
             settings={settings}
             isSeason={true}
           />
+          </div>
+        </div>
+        <div>
           <TriggerResult triggers={triggers} item={item} />
           <CustomSlider
             title='Similar Titles'
