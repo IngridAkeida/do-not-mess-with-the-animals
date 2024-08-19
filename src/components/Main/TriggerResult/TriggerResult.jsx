@@ -58,7 +58,7 @@ const TriggerResult = ({triggers, item}) => {
                 <h1 className='text-center px-2 mb-2'><span className='font-bold'>{item.name}</span> has <span className='font-bold'>{triggers.length}</span> possible triggers with <span className='font-bold'>{totalYesSum}</span> votes in favor out of a total of <span className='font-bold'>{totalVotes}</span> general votes.</h1>
                 <h4 className='bg-dark-primary-a20 px-2 text-center rounded-md text-bold'>Please review the list of triggers carefully and exercise caution if you are sensitive to any of them.</h4>
               </div>
-              <div className='flex bg-dark-neutral-a30 rounded-md p-4 mt-2'>
+              <div className='flex h-96 overflow-x-auto bg-dark-neutral-a30 rounded-md p-4 mt-2'>
                 <div className='p-4 rounded-md shadow-md bg-dark-neutral-a40'>
                   <h3 className='font-bold mb-2'>Filter by:</h3>
                   <select id='filter' value={filter} onChange={handleFilterChange} className='p-2 rounded-md w-full text-dark-neutral-a0 bg-dark-neutral-a50'>
