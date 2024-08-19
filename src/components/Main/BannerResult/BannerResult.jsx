@@ -39,18 +39,18 @@ const BannerResult = ({ item, triggers }) => {
                 height={300}
                 alt={item.title || item.name}
               />
-              <div 
-                className={`ml-2 absolute left-6 top-14 flex items-center justify-center transition-opacity duration-300 hover:cursor-pointer
-                ${showModal ? 'opacity-0' : 'opacity-80'}`} 
-                onClick={() => setShowModal(true)}>
-                <FaPlay className="text-7xl transition-colors duration-300 hover:text-dark-primary-a40 "/>
-              </div>
+              
               <div className='pl-4'>
                 <div className='flex items-center'>
                   <h1 className='py-1 font-bold'>{item.name || item.title}</h1>
                   <p className='font-semibold text-sm ml-2'>
                     {item.seasons && item.seasons.length > 0 ? 'TV Show' : 'Movie'}
                   </p>
+                  <div className={`transition-opacity duration-300 hover:cursor-pointer
+                    ${showModal ? 'opacity-0' : 'opacity-100'}`} 
+                    onClick={() => setShowModal(true)}>
+                      <FaPlay className="pl-2 text-xl text-dark-primary-a10 transition-all hover:size-6  duration-300 hover:text-dark-primary-a20 "/>
+                    </div>
                 </div>
                 <p className='flex flex-wrap gap-1'>
                   {item.genres.map((genre) => (
@@ -72,6 +72,7 @@ const BannerResult = ({ item, triggers }) => {
                     <p><span className='font-semibold'>Created By: </span>{item.created_by[0]?.name}</p>
                   )}
                 </div>
+                
               </div>
             </div>
             <div>sklsklks</div>
