@@ -25,15 +25,15 @@ const TriggerResult = ({triggers, item}) => {
   console.log('filteredTriggers:', filteredTriggers);
 
   return (
-    <div className='flex flex-col my-2'>
+    <div className='flex flex-col my-2 w-1/2'>
       {
         filteredTriggers.length === 0 ? (
             <div className=''>
               <p className='bg-dark-neutral-a40 m-2 rounded-md p-4 mb-2'>There are no topics for this trigger.</p>
             </div>
           ) : (
-            <div className='w-[50%] bg-dark-neutral-a40 rounded-md p-2 mb-2'>
-              <div className='flex h-96 overflow-x-auto bg-dark-neutral-a30 rounded-md p-4'>
+            <div className='bg-dark-neutral-a40 rounded-md p-2 mb-2'>
+              <div className='flex h-auto max-h-[1200px] overflow-x-auto bg-dark-neutral-a30 rounded-md p-4'>
                 <div className='p-4 rounded-md shadow-md bg-dark-neutral-a40'>
                   <h3 className='font-bold mb-2'>Filter by:</h3>
                   <select id='filter' value={filter} onChange={handleFilterChange} className='p-2 rounded-md w-full text-dark-neutral-a0 bg-dark-neutral-a50'>

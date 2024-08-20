@@ -22,6 +22,8 @@ const BannerResult = ({ item, triggers }) => {
   const genreColors = GenreColors;
   const settings = Settings;
 
+  console.log(item)
+
   return (
     <Fragment>
       <div>
@@ -91,7 +93,32 @@ const BannerResult = ({ item, triggers }) => {
           </div>
         </div>
         <div>
+        <div className='flex gap-2'>
           <TriggerResult triggers={triggers} item={item} />
+          <div className='w-[620px] flex flex-row flex-wrap gap-
+          2 justify-center items-center bg-dark-neutral-a40 rounded-md shadow-md p-2 m-2 gap-2'>
+            {item.credits.cast.map((cast, index) => (
+            <div key={index} className='bg-dark-neutral-a30 p-6 flex flex-col justify-center items-center w-48'>
+              <div className='w-32 h-auto'>
+                <Image
+                  className='rounded-md'
+                  src={cast.profile_path
+                    ? `https://www.doesthedogdie.com/content/1200/0/${cast.profile_path}`
+                    : '/assets/person-nf.png'}
+                  width={200}
+                  height={200}
+                  alt={cast.name}
+                />
+              </div>
+              <div className='pt-2 flex flex-col justify-center items-center'>
+                <h2 className='font-bold'>{cast.name}</h2>
+                <p className='text-sm'>{cast.character}</p>
+              </div>
+            </div>
+            ))}
+          </div>
+        </div>
+          
           <CustomSlider
             title='Similar Titles'
             items={item.similar?.results}
