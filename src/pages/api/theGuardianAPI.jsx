@@ -17,7 +17,7 @@ const GuardianNews = () => {
     const fetchArticles = async () => {
       try {
         const response = await guardianKey.content.search('movie', {
-          'page-size': 1, 
+          'page-size': 10, 
           'show-fields': 'all',
           'tag': 'film/film,tone/reviews', // Adicione tags, se necessário
           'order-by': 'relevance', 
@@ -42,8 +42,8 @@ const GuardianNews = () => {
 
   return (
     <div>
-    <h1>Notícias do The Guardian</h1>
-    <ul>
+    <h1>News</h1>
+    <ul className='border w-1/2'>
       {articles.map((article) => (
         <li key={article.id}>
           <h2>

@@ -11,7 +11,7 @@ export default function Home() {
     <div className='max-w-7xl mx-auto h-96'>
       <Nav />
       <Banner />
-      {/* <ComponentList /> */}
+      <ComponentList />
       <GuardianNews />
       <Footer />
     </div>
