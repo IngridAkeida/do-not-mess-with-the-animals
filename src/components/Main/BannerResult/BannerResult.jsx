@@ -8,6 +8,7 @@ import TriggerResult from '../../Main/TriggerResult/TriggerResult';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Settings from '../../uiComponents/Settings/Settings';
+import TriggerMessage from '@/components/TriggerMessage';
 
 const BannerResult = ({ item, triggers }) => {
 
@@ -80,6 +81,7 @@ const BannerResult = ({ item, triggers }) => {
           <div className='px-4 bg-gradient-to-t from-black to-transparent'>
             <p className='font-bold'>{item.tagline}</p>
             <p className='font-semibold pb-4'>{item.overview}</p>
+            <TriggerMessage item={item} triggers={triggers}/>
             <CustomSlider
             title='Seasons'
             items={item.seasons}
@@ -98,6 +100,7 @@ const BannerResult = ({ item, triggers }) => {
           />
         </div>
       </div>
+      { item.videos.results.length > 0 && (
       <VideoModal isVisible={showModal} onClose={() => setShowModal(false)}>
         <div className='flex items-center justify-center w-full h-full'>
           <div className='relative w-full h-0 pb-[56.25%]'>
@@ -105,13 +108,13 @@ const BannerResult = ({ item, triggers }) => {
               className='absolute top-0 left-0 w-full h-full'
               src={`https://www.youtube.com/embed/${item.videos.results[0].key}`}
               title={item.name || item.title}
-              frameBorder='0'
               allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
               allowFullScreen
             />
           </div>
         </div>
       </VideoModal>
+      )}
     </Fragment>
   );
 }
