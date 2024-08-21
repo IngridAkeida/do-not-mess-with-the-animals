@@ -19,6 +19,12 @@ const BannerResult = ({ item, triggers }) => {
 
   const stylesPoster = 'w-32 md:w-60 object-cover rounded-md shadow-md';
 
+  const firstDate = new Date(item.first_air_date).getFullYear();
+  const lastDate = new Date(item.last_air_date).getFullYear();
+  const timeAir = `${firstDate} - ${lastDate}`;
+  const releaseDate = new Date(item.release_date).getFullYear();
+
+  const year = item.first_air_date ? timeAir : releaseDate;
   const genreColors = GenreColors;
   const settings = Settings;
 
@@ -31,7 +37,7 @@ const BannerResult = ({ item, triggers }) => {
           className='flex-col flex gap-2 justify-start w-auto h-auto bg-cover bg-center'
           style={{ backgroundImage: `url(${backgroundImage})` }}
         > 
-          <div className='bg-black bg-opacity-35'>
+          <div className='bg-black bg-opacity-60'>
             <div className='flex flex-col'>
               <div className='flex gap-2 items-center bg-dark-neutral-a30 bg-opacity-85 py-2'>
                 <h1 className='py-1 ml-4 font-bold text-5xl'>{item.name || item.title}</h1>
@@ -70,7 +76,7 @@ const BannerResult = ({ item, triggers }) => {
                         ))}
                       </p>
                       <div className='text-sm'>
-                        <p>{item.release_date || item.first_air_date}</p>
+                        <p>{year}</p>
                         {item.seasons && item.seasons.length > 0 && (
                           <div className='flex gap-1'>
                             <p className='font-bold'>Seasons</p>
