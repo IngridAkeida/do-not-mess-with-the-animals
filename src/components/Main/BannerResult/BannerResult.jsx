@@ -17,7 +17,7 @@ const BannerResult = ({ item, triggers }) => {
     ? `https://www.doesthedogdie.com/content/1800/0/${item.backdrop_path}`
     : '/assets/movie-nf.png';
 
-  const stylesPoster = 'w-32 md:w-24 max-h-96 object-cover rounded-md shadow-md';
+  const stylesPoster = 'w-32 md:w-52 max-h-96 object-cover rounded-md shadow-md';
 
   const genreColors = GenreColors;
   const settings = Settings;
@@ -42,8 +42,7 @@ const BannerResult = ({ item, triggers }) => {
                 height={300}
                 alt={item.title || item.name}
               />
-              
-              <div className='pl-4'>
+              <div className='pl-4 border'>
                 <div className='flex items-center'>
                   <h1 className='py-1 font-bold'>{item.name || item.title}</h1>
                   <p className='font-semibold text-sm ml-2'>
@@ -75,7 +74,9 @@ const BannerResult = ({ item, triggers }) => {
                     <p><span className='font-semibold'>Created By: </span>{item.created_by[0]?.name}</p>
                   )}
                 </div>
-                
+              </div>
+              <div>
+                <TriggerMessage item={item} triggers={triggers}/>
               </div>
             </div>
           </div>
@@ -83,7 +84,6 @@ const BannerResult = ({ item, triggers }) => {
           <div className='px-4 bg-gradient-to-t from-black to-transparent'>
             <p className='font-bold'>{item.tagline}</p>
             <p className='font-semibold pb-4'>{item.overview}</p>
-            <TriggerMessage item={item} triggers={triggers}/>
             <CustomSlider
             title='Seasons'
             items={item.seasons}
