@@ -17,7 +17,7 @@ const BannerResult = ({ item, triggers }) => {
     ? `https://www.doesthedogdie.com/content/1800/0/${item.backdrop_path}`
     : '/assets/movie-nf.png';
 
-  const stylesPoster = 'w-32 md:w-52 max-h-96 object-cover rounded-md shadow-md';
+  const stylesPoster = 'w-32 md:w-60 object-cover rounded-md shadow-md';
 
   const genreColors = GenreColors;
   const settings = Settings;
@@ -58,8 +58,8 @@ const BannerResult = ({ item, triggers }) => {
                 />
                 <div className='flex flex-col pl-4 gap-2'>
                   <div className='flex'>
-                    <div className=''>
-                      <p className='flex flex-wrap gap-1'>
+                    <div className='w-60 flex flex-col gap-1'>
+                      <p className='flex justify-start items-center gap-1'>
                         {item.genres.map((genre) => (
                           <span
                             key={genre.id}
@@ -72,22 +72,29 @@ const BannerResult = ({ item, triggers }) => {
                       <div className='text-sm'>
                         <p>{item.release_date || item.first_air_date}</p>
                         {item.seasons && item.seasons.length > 0 && (
-                          <p><span className='font-semibold'>Seasons: </span>{item.number_of_seasons}</p>
+                          <div className='flex gap-1'>
+                            <p className='font-bold'>Seasons</p>
+                            <p className='font-light'>{item.number_of_seasons}</p>
+                          </div>
                         )}
-                        <p><span className='font-semibold'>Status: </span>{item.status}</p>
+                        <div className='flex gap-1'>
+                          <p className='font-bold'>Status</p>
+                          <p className='font-light'>{item.status}</p>
+                        </div>
                         {item.seasons && item.seasons.length > 0 && (
-                          <p><span className='font-semibold'>Created By: </span>{item.created_by[0]?.name}</p>
+                          <div className='flex gap-1'>
+                            <p className='font-bold'>Created By</p>
+                            <p className='font-light'>{item.created_by[0]?.name}</p>
+                          </div>
                         )}
                       </div>
                     </div>
-                    <div>
-                      <TriggerMessage item={item} triggers={triggers}/>
-                    </div>
+                    <TriggerMessage item={item} triggers={triggers}/>
                   </div>
-                  <div>
-                    <h2>Cast:</h2>
+                  <div className=''>
+                    <p>Stars:</p>
                     <div className='flex gap-2'>
-                      {item.credits.cast.map((cast, index) => (
+                      {item.credits.cast.slice(0, 8).map((cast, index) => (
                       <div key={index} className=''>
                         <div className=''>
                           <Image
@@ -100,7 +107,7 @@ const BannerResult = ({ item, triggers }) => {
                             alt={cast.name}
                           />
                         </div>
-                        <div className=''>
+                        <div className='max-w-28 flex flex-col justify-center items-center text-center'>
                           <h2 className='font-bold'>{cast.name}</h2>
                           <p className='text-sm'>{cast.character}</p>
                         </div>
