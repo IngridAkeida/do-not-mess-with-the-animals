@@ -1,8 +1,9 @@
 import { Fragment, useState } from 'react';
 import Image from 'next/image';
 import GenreColors from '../../uiComponents/GenreColors/GenreColors';
-import { FaPlay } from 'react-icons/fa';
-import VideoModal from '../../uiComponents/Modal/VideoModal';
+import { RiPlayLargeFill } from "react-icons/ri";
+import { RiAlarmWarningFill } from "react-icons/ri";
+import Modal from '../../uiComponents/Modal/Modal';
 import CustomSlider from '../../uiComponents/CustomSlider/CustomSlider';
 import TriggerResult from '../../Main/TriggerResult/TriggerResult';
 import 'slick-carousel/slick/slick.css';
@@ -12,7 +13,11 @@ import TriggerMessage from '@/components/TriggerMessage';
 
 const BannerResult = ({ item, triggers }) => {
 
-  const [showModal, setShowModal] = useState(false);
+  const [showModalVideo, setShowModalVideo] = useState(false);
+  const [showModalTrigger, setShowModalTrigger] = useState(false);
+
+
+
   const backgroundImage = item.backdrop_path
     ? `https://www.doesthedogdie.com/content/1800/0/${item.backdrop_path}`
     : '/assets/movie-nf.png';
@@ -46,9 +51,9 @@ const BannerResult = ({ item, triggers }) => {
                 </p>
                 <div className='flex items-center'>
                   <div className={`transition-opacity duration-300 hover:cursor-pointer
-                    ${showModal ? 'opacity-0' : 'opacity-100'}`} 
-                    onClick={() => setShowModal(true)}>
-                      <FaPlay className='pl-2 text-4xl text-dark-primary-a10 transition-all hover:size-10 duration-300 hover:text-dark-primary-a20'/>
+                    ${showModalVideo ? 'opacity-0' : 'opacity-100'}`} 
+                    onClick={() => setShowModalVideo(true)}>
+                      <RiPlayLargeFill className='pl-2 text-4xl text-dark-primary-a10 transition-all hover:size-10 duration-300 hover:text-dark-primary-a20'/>
                   </div>
                 </div>
               </div>
@@ -93,6 +98,18 @@ const BannerResult = ({ item, triggers }) => {
                             <p className='font-light'>{item.created_by[0]?.name}</p>
                           </div>
                         )}
+                        <div className='flex items-center h-12'>
+                          <div className={`transition-opacity w-12 duration-300 hover:cursor-pointer
+                            ${showModalVideo ? 'opacity-0' : 'opacity-100'}`} 
+                            onClick={() => setShowModalVideo(true)}>
+                              <RiPlayLargeFill className='p-2 text-dark-primary-a10 transition-all size-10 duration-300 bg-dark-menu-y10 rounded-full hover:text-dark-primary-a20'/>
+                          </div>
+                          <div className={`transition-opacity w-12 duration-300 hover:cursor-pointer
+                            ${showModalTrigger ? 'opacity-0' : 'opacity-100'}`} 
+                            onClick={() => setShowModalTrigger(true)}>
+                            <RiAlarmWarningFill className='p-2 text-dark-primary-a10 transition-all size-10 duration-300 bg-dark-menu-y10 rounded-full hover:text-dark-primary-a20'/>
+                          </div>
+                        </div>
                       </div>
                     </div>
                     <TriggerMessage item={item} triggers={triggers}/>
@@ -150,19 +167,28 @@ const BannerResult = ({ item, triggers }) => {
         </div>
       </div>
       { item.videos.results.length > 0 && (
-      <VideoModal isVisible={showModal} onClose={() => setShowModal(false)}>
-        <div className='flex items-center justify-center w-full h-full'>
-          <div className='relative w-full h-0 pb-[56.25%]'>
-            <iframe
-              className='absolute top-0 left-0 w-full h-full'
-              src={`https://www.youtube.com/embed/${item.videos.results[0].key}`}
-              title={item.name || item.title}
-              allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
-              allowFullScreen
-            />
+        <Modal isVisible={showModalVideo} onClose={() => setShowModalVideo(false)}>
+          <div className='flex items-center justify-center w-full h-full'>
+            <div className='relative w-full h-0 pb-[56.25%]'>
+              <iframe
+                className='absolute top-0 left-0 w-full h-full'
+                src={`https://www.youtube.com/embed/${item.videos.results[0].key}`}
+                title={item.name || item.title}
+                allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+                allowFullScreen
+              />
+            </div>
           </div>
-        </div>
-      </VideoModal>
+        </Modal>
+      )}
+      { item.videos.results.length > 0 && (
+        <Modal isVisible={showModalTrigger} onClose={() => setShowModalTrigger(false)}>
+          <div className='flex items-center justify-center w-full h-full'>
+            <div className='relative w-full'>
+              <TriggerResult triggers={triggers} item={item} />
+            </div>
+          </div>
+        </Modal>
       )}
     </Fragment>
   );

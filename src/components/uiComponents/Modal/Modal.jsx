@@ -1,6 +1,6 @@
 import { IoClose } from "react-icons/io5";
 
-const VideoModal = ({isVisible, onClose, children}) => {
+const Modal = ({isVisible, onClose, children}) => {
 
   if (!isVisible) return null;
 
@@ -20,4 +20,4 @@ const VideoModal = ({isVisible, onClose, children}) => {
   );
 };
 
-export default VideoModal;
+export default Modal;
