@@ -124,7 +124,7 @@ const BannerResult = ({ item, triggers }) => {
                               className='rounded-md h-44 w-auto'
                               src={cast.profile_path
                                 ? `https://image.tmdb.org/t/p/w500/${cast.profile_path}`
-                                : '/assets/person-nf.png'}
+                                : '/assets/default-user.png'}
                               width={200}
                               height={200}
                               alt={cast.name}
@@ -148,7 +148,7 @@ const BannerResult = ({ item, triggers }) => {
                             className='rounded-md h-44 w-auto'
                             src={crew.profile_path
                               ? `https://image.tmdb.org/t/p/w500/${crew.profile_path}`
-                              : '/assets/person-nf.png'}
+                              : '/assets/default-user.png'}
                             width={200}
                             height={200}
                             alt={crew.name}
