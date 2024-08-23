@@ -1,5 +1,4 @@
 'use client';
-import TriggerMessage from '../../TriggerMessage';
 import { useMemo, useState } from "react";
 
 const TriggerResult = ({triggers, item}) => {
@@ -25,7 +24,7 @@ const TriggerResult = ({triggers, item}) => {
   console.log('filteredTriggers:', filteredTriggers);
 
   return (
-    <div className='flex flex-col my-2 w-1/2'>
+    <div className='flex flex-col my-2'>
       {
         filteredTriggers.length === 0 ? (
             <div className=''>

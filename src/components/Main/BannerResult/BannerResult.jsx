@@ -16,6 +16,16 @@ const BannerResult = ({ item, triggers }) => {
   const [showModalVideo, setShowModalVideo] = useState(false);
   const [showModalTrigger, setShowModalTrigger] = useState(false);
 
+
+  // modal epecific styles
+  // modal video 
+  const stylesVideo = 'fixed inset-0 bg-opacity-25 backdrop-blur-sm flex justify-center items-center w-full h-full';
+  const stylesVideoContent = 'flex flex-col w-[90%] h-[90%] sm:w-[70%] sm:h-[70%] md:w-[60%] md:h-[60%] lg:w-[50%] lg:h-auto p-1 bg-black bg-opacity-80';
+
+  // modal triigger
+  const stylesTrigger = 'fixed inset-0 bg-opacity-25 backdrop-blur-sm flex justify-center items-center w-full h-full';
+  const stylesTriggerContent = 'flex flex-col w-[90%] h-[90%] sm:w-[70%] sm:h-[70%] md:w-[60%] md:h-[60%] lg:w-[40%] lg:h-[80%] p-1 bg-dark-neutral-a40 rounded-sm';
+
   const backgroundImage = item.backdrop_path
     ? `https://www.doesthedogdie.com/content/1800/0/${item.backdrop_path}`
     : '/assets/movie-nf.png';
@@ -26,8 +36,8 @@ const BannerResult = ({ item, triggers }) => {
   const lastDate = new Date(item.last_air_date).getFullYear();
   const timeAir = `${firstDate} - ${lastDate}`;
   const releaseDate = new Date(item.release_date).getFullYear();
-
   const year = item.first_air_date ? timeAir : releaseDate;
+
   const genreColors = GenreColors;
   const settings = Settings;
 
@@ -195,7 +205,7 @@ const BannerResult = ({ item, triggers }) => {
         </div>
       </div>
       { item.videos.results.length > 0 && (
-        <Modal isVisible={showModalVideo} onClose={() => setShowModalVideo(false)}>
+        <Modal isVisible={showModalVideo} styleContainer = {stylesVideo} styleContent= {stylesVideoContent} onClose={() => setShowModalVideo(false)}>
           <div className='flex items-center justify-center w-full h-full'>
             <div className='relative w-full h-0 pb-[56.25%]'>
               <iframe
@@ -210,9 +220,9 @@ const BannerResult = ({ item, triggers }) => {
         </Modal>
       )}
       { item.videos.results.length > 0 && (
-        <Modal isVisible={showModalTrigger} onClose={() => setShowModalTrigger(false)}>
+        <Modal isVisible={showModalTrigger} styleContainer = {stylesTrigger} styleContent= {stylesTriggerContent} onClose={() => setShowModalTrigger(false)}>
           <div className='flex items-center justify-center'>
-            <div className='relative max-h-[80%]'>
+            <div className='relative'>
               <TriggerResult triggers={triggers} item={item} />
             </div>
           </div>
