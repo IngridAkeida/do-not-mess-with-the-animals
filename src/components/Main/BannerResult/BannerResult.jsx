@@ -56,7 +56,7 @@ const BannerResult = ({ item, triggers }) => {
                 </div>
               </div>
               <div className='flex p-4 relative'>
-                <div className='bg-black bg-opacity-70 flex items-start rounded-md'> 
+                <div className='bg-black bg-opacity-70 flex items-start rounded-md flex-col'> 
                   <Image
                     className={stylesPoster}
                     src={item.poster_path
@@ -66,6 +66,7 @@ const BannerResult = ({ item, triggers }) => {
                     height={300}
                     alt={item.title || item.name}
                   />
+                  <p className='font-bold'>{item.tagline}</p>
                 </div>
                 <div className='flex flex-col pl-4 gap-2'>
                   <div className='flex'>
@@ -133,8 +134,8 @@ const BannerResult = ({ item, triggers }) => {
                             />
                           </div>
                           <div className='max-w-28 flex flex-col justify-center items-center text-center'>
-                            <h2 className='font-bold'>{cast.name}</h2>
-                            <p className='text-sm'>{cast.character}</p>
+                            <h2 className='text-sm font-bold'>{cast.name}</h2>
+                            <p className='text-xs'>{cast.character}</p>
                           </div>
                         </div>
                         ))}
@@ -157,8 +158,8 @@ const BannerResult = ({ item, triggers }) => {
                           />
                         </div>
                         <div className='max-w-28 flex flex-col justify-center items-center text-center'>
-                          <h2 className='font-bold'>{crew.name}</h2>
-                          <p className='text-sm'>{crew.department}</p>
+                          <h2 className='text-sm font-bold'>{crew.name}</h2>
+                          <p className='text-xs'>{crew.department}</p>
                         </div>
                       </div>
                       ))}
@@ -169,7 +170,6 @@ const BannerResult = ({ item, triggers }) => {
               </div>
             </div>
             <div className='px-4 bg-gradient-to-t from-black to-transparent'>
-              <p className='font-bold'>{item.tagline}</p>
               <p className='font-semibold pb-4'>{item.overview}</p>
               <CustomSlider
               title='Seasons'
