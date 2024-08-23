@@ -179,10 +179,9 @@ const BannerResult = ({ item, triggers }) => {
           </div>
         </div>
         <div>
-        <div className='flex gap-2'>
+        {/* <div className='flex gap-2'>
           <TriggerResult triggers={triggers} item={item} />
-          
-        </div>
+        </div> */}
           <CustomSlider
             title='Similar Titles'
             items={item.similar?.results}
