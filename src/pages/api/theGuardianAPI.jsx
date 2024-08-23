@@ -17,7 +17,7 @@ const GuardianNews = () => {
     const fetchArticles = async () => {
       try {
         const response = await guardianKey.content.search('movie', {
-          'page-size': 10, 
+          'page-size': 1, 
           'show-fields': 'all',
           'tag': 'film/film,tone/reviews', // Adicione tags, se necessário
           'order-by': 'relevance', 

@@ -123,7 +123,6 @@ const BannerResult = ({ item, triggers }) => {
                             <p className='font-light'>{item.created_by[0]?.name}</p>
                           </div>
                         )}
-                        {/* aqui */}
                         <div className='flex items-center h-12'>
                           <div className={`transition-opacity w-12 duration-300 hover:cursor-pointer
                             ${showModalVideo ? 'opacity-0' : 'opacity-100'}`} 
