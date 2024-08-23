@@ -26,23 +26,25 @@ const TriggerResult = ({triggers, item}) => {
   return (
     <div className='flex flex-col my-2'>
       {
-        filteredTriggers.length === 0 ? (
+        filteredTriggers.length <= 0 ? (
             <div className=''>
               <p className='bg-dark-neutral-a40 m-2 rounded-md p-4 mb-2'>There are no topics for this trigger.</p>
             </div>
           ) : (
-            <div className='bg-dark-neutral-a40 rounded-md p-2 mb-2'>
-              <div className='flex h-auto max-h-[1200px] overflow-x-auto bg-dark-neutral-a30 rounded-md p-4'>
-                <div className='p-4 rounded-md shadow-md bg-dark-neutral-a40'>
-                  <h3 className='font-bold mb-2'>Filter by:</h3>
-                  <select id='filter' value={filter} onChange={handleFilterChange} className='p-2 rounded-md w-full text-dark-neutral-a0 bg-dark-neutral-a50'>
-                    <option value='all'>All</option>
-                    {triggers.filter(trigger => trigger.name !== 'Unanswered Triggers').map((trigger, index) => (
-                      <option key={index} value={trigger.name}>{trigger.name}</option>
-                    ))}
-                  </select>
+            <div className='bg-dark-neutral-a40 rounded-md mb-2'>
+              <div className='flex h-[500px] overflow-x-auto bg-dark-neutral-a30 rounded-md p-4'>
+                <div className='w-2/6 sticky top-0'>
+                  <div className='p-4 rounded-md shadow-md bg-dark-neutral-a40'>
+                    <h3 className='font-bold mb-2'>Filter by:</h3>
+                    <select id='filter' value={filter} onChange={handleFilterChange} className='p-2 rounded-md w-full text-dark-neutral-a0 bg-dark-neutral-a50'>
+                      <option value='all'>All</option>
+                      {triggers.filter(trigger => trigger.name !== 'Unanswered Triggers').map((trigger, index) => (
+                        <option key={index} value={trigger.name}>{trigger.name}</option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
-                <div>
+                <div className='w-4/6'>
                   {filteredTriggers.filter(trigger => trigger.name !== 'Unanswered Triggers').map((trigger, index) => (
                   <div key={index}>
                     <h2 className='font-bold pl-4 mb-2'>{trigger.name}</h2>

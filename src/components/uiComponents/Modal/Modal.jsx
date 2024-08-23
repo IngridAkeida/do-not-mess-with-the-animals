@@ -13,7 +13,7 @@ const Modal = ({isVisible, onClose, styleContainer, styleContent, children}) => 
   return (
     <div className={styleContainer} onClick={handleClose} id='wrapper'>
       <div className={styleContent}>
-        <button className='place-self-end m-1' onClick={() => onClose()}><IoClose /></button>
+        <button className='place-self-end' onClick={() => onClose()}><IoClose /></button>
         <div className='text-white'>{children}</div>
       </div>
     </div>
