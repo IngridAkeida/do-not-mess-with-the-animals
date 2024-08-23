@@ -23,7 +23,7 @@ const Banner = () => {
         /> */}
       </div>
       <div className='w-1/2 border h-full'>
-      Criar um random video aqui
+      Criar um random video aqui, tirar da lista de trending!
       </div>
     </div>
   );
