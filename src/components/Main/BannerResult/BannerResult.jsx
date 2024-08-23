@@ -66,7 +66,9 @@ const BannerResult = ({ item, triggers }) => {
                     height={300}
                     alt={item.title || item.name}
                   />
-                  <p className='font-bold max-w-44 m-auto'>&quot;{item.tagline}&quot;</p>
+                  {item.tagline && 
+                    <p className='font-bold max-w-44 m-auto'>&quot;{item.tagline}&quot;</p>
+                  }
                 </div>
                 <div className='flex flex-col pl-4 gap-2'>
                   <div className='flex'>
