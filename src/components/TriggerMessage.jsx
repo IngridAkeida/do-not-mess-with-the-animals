@@ -1,3 +1,6 @@
+import { IoIosArrowBack } from "react-icons/io";
+
+
 const TriggerMessage = ({item, triggers}) => {
 
   //yesSum totals 
@@ -23,7 +26,10 @@ const TriggerMessage = ({item, triggers}) => {
     <div className='flex justify-end items-center'>
       <div className='w-[60%] bg-dark-neutral-a40 rounded-md p-4'>
         <h1 className='text-center px-2 mb-2'><span className='font-bold'>{item.name}</span> has <span className='font-bold'>{triggers.length}</span> possible triggers with <span className='font-bold'>{totalYesSum}</span> votes in favor out of a total of <span className='font-bold'>{totalVotes}</span> general votes.</h1>
-        <h4 className='bg-dark-primary-a20 px-2 text-center rounded-md text-bold'>Please review the list bellow of triggers carefully and exercise caution if you are sensitive to any of them.</h4>
+        <div className='bg-dark-primary-a20 px-2 text-center rounded-md text-bold flex justify-center items-center'>
+          <IoIosArrowBack className='text-5xl' />
+          <p>Please review the list left of triggers carefully and exercise caution if you are sensitive to any of them.</p>
+        </div>
       </div>
     </div>
   );

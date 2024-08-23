@@ -1,22 +1,20 @@
 import { Fragment, useState } from 'react';
 import Image from 'next/image';
+import { RiPlayLargeFill } from 'react-icons/ri';
+import { RiAlarmWarningFill } from 'react-icons/ri';
 import GenreColors from '../../uiComponents/GenreColors/GenreColors';
-import { RiPlayLargeFill } from "react-icons/ri";
-import { RiAlarmWarningFill } from "react-icons/ri";
 import Modal from '../../uiComponents/Modal/Modal';
 import CustomSlider from '../../uiComponents/CustomSlider/CustomSlider';
-import TriggerResult from '../../Main/TriggerResult/TriggerResult';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Settings from '../../uiComponents/Settings/Settings';
+import TriggerResult from '../../Main/TriggerResult/TriggerResult';
 import TriggerMessage from '@/components/TriggerMessage';
 
 const BannerResult = ({ item, triggers }) => {
 
   const [showModalVideo, setShowModalVideo] = useState(false);
   const [showModalTrigger, setShowModalTrigger] = useState(false);
-
-
 
   const backgroundImage = item.backdrop_path
     ? `https://www.doesthedogdie.com/content/1800/0/${item.backdrop_path}`
@@ -74,7 +72,7 @@ const BannerResult = ({ item, triggers }) => {
                         {item.genres.map((genre) => (
                           <span
                             key={genre.id}
-                            className={`px-1 text-xs rounded-lg ${genreColors[genre.id]}`}
+                            className={`py-0.5 px-1 text-xs rounded-lg ${genreColors[genre.id]}`}
                           >
                             {genre.name}
                           </span>
@@ -98,6 +96,7 @@ const BannerResult = ({ item, triggers }) => {
                             <p className='font-light'>{item.created_by[0]?.name}</p>
                           </div>
                         )}
+                        {/* aqui */}
                         <div className='flex items-center h-12'>
                           <div className={`transition-opacity w-12 duration-300 hover:cursor-pointer
                             ${showModalVideo ? 'opacity-0' : 'opacity-100'}`} 
@@ -114,29 +113,55 @@ const BannerResult = ({ item, triggers }) => {
                     </div>
                     <TriggerMessage item={item} triggers={triggers}/>
                   </div>
-                  <div className=''>
-                    <p>Stars:</p>
+                  <div className='flex gap-x-8'>
+                    <div className='min-w-[500px]'>
+                      <p>Stars:</p>
+                      <div className='flex gap-2'>
+                        {item.credits.cast.slice(0, 4).map((cast, index) => (
+                        <div key={index} className=''>
+                          <div className=''>
+                            <Image
+                              className='rounded-md h-44 w-auto'
+                              src={cast.profile_path
+                                ? `https://image.tmdb.org/t/p/w500/${cast.profile_path}`
+                                : '/assets/person-nf.png'}
+                              width={200}
+                              height={200}
+                              alt={cast.name}
+                            />
+                          </div>
+                          <div className='max-w-28 flex flex-col justify-center items-center text-center'>
+                            <h2 className='font-bold'>{cast.name}</h2>
+                            <p className='text-sm'>{cast.character}</p>
+                          </div>
+                        </div>
+                        ))}
+                      </div>
+                    </div>
+                    <div className=''>
+                    <p>Crew:</p>
                     <div className='flex gap-2'>
-                      {item.credits.cast.slice(0, 8).map((cast, index) => (
+                      {item.credits.crew.slice(0, 3).map((crew, index) => (
                       <div key={index} className=''>
                         <div className=''>
                           <Image
                             className='rounded-md h-44 w-auto'
-                            src={cast.profile_path
-                              ? `https://www.doesthedogdie.com/content/1200/0/${cast.profile_path}`
+                            src={crew.profile_path
+                              ? `https://image.tmdb.org/t/p/w500/${crew.profile_path}`
                               : '/assets/person-nf.png'}
                             width={200}
                             height={200}
-                            alt={cast.name}
+                            alt={crew.name}
                           />
                         </div>
                         <div className='max-w-28 flex flex-col justify-center items-center text-center'>
-                          <h2 className='font-bold'>{cast.name}</h2>
-                          <p className='text-sm'>{cast.character}</p>
+                          <h2 className='font-bold'>{crew.name}</h2>
+                          <p className='text-sm'>{crew.department}</p>
                         </div>
                       </div>
                       ))}
                     </div>  
+                  </div>  
                   </div>
                 </div>
               </div>
@@ -184,7 +209,7 @@ const BannerResult = ({ item, triggers }) => {
       { item.videos.results.length > 0 && (
         <Modal isVisible={showModalTrigger} onClose={() => setShowModalTrigger(false)}>
           <div className='flex items-center justify-center w-full h-full'>
-            <div className='relative w-full'>
+            <div className='relative max-h-[80%]'>
               <TriggerResult triggers={triggers} item={item} />
             </div>
           </div>
