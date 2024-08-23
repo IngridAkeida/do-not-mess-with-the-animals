@@ -56,7 +56,7 @@ const BannerResult = ({ item, triggers }) => {
                 </div>
               </div>
               <div className='flex p-4 relative'>
-                <div className='bg-black bg-opacity-70 flex items-start rounded-md flex-col'> 
+                <div className='bg-black bg-opacity-70 flex items-center rounded-md flex-col text-center w-'> 
                   <Image
                     className={stylesPoster}
                     src={item.poster_path
@@ -66,7 +66,7 @@ const BannerResult = ({ item, triggers }) => {
                     height={300}
                     alt={item.title || item.name}
                   />
-                  <p className='font-bold'>{item.tagline}</p>
+                  <p className='font-bold max-w-44 m-auto'>&quot;{item.tagline}&quot;</p>
                 </div>
                 <div className='flex flex-col pl-4 gap-2'>
                   <div className='flex'>
