@@ -118,7 +118,7 @@ const BannerResult = ({ item, triggers }) => {
                     </div>
                     <TriggerMessage item={item} triggers={triggers}/>
                   </div>
-                  <div className='flex gap-x-4'>
+                  <div className='flex gap-x-6'>
                     <div className='px-4 pt-1 bg-dark-primary-a40 bg-opacity-70 rounded-md'>
                       <p>Stars:</p>
                       <div className='flex gap-2'>
