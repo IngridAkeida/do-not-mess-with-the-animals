@@ -12,7 +12,6 @@ export default function Home() {
       <Nav />
       <Banner />
       <ComponentList />
-      <GuardianNews />
       <Footer />
     </div>
   );

@@ -17,9 +17,9 @@ const GuardianNews = () => {
     const fetchArticles = async () => {
       try {
         const response = await guardianKey.content.search('movie', {
-          'page-size': 1, 
+          'page-size': 2, 
           'show-fields': 'all',
-          'tag': 'film/film,tone/reviews', // Adicione tags, se necessário
+          'tag': 'film/film', 
           'order-by': 'relevance', 
           'show-tags': 'contributor' 
       });
@@ -43,22 +43,23 @@ const GuardianNews = () => {
   return (
     <div>
     <h1>News</h1>
-    <ul className='border w-1/2'>
+    <ul className='flex gap-2'>
       {articles.map((article) => (
-        <li key={article.id}>
+        <li className='bg-dark-primary-a40 p-2 rounded-md' key={article.id}>
           <h2>
             <a href={article.webUrl} target="_blank" rel="noopener noreferrer">
               {article.webTitle}
             </a>
           </h2>
-          <p><strong>Publicado em:</strong> {new Date(article.webPublicationDate).toLocaleDateString()}</p>
-          <p><strong>Seção:</strong> {article.sectionName}</p>
-          <p><strong>Pilar:</strong> {article.pillarName}</p>
+          <p className='text-sm font-thin'>Published on: {new Date(article.webPublicationDate).toLocaleDateString()}</p>
           <div>
-            <Image src={article.fields.thumbnail} alt={article.webTitle} width={300} height={200} />
-            <p>{article.fields.trailText
-            }</p>
-            see more at <a href = {article.webUrl} target="_blank" rel="noopener noreferrer">The Guardian</a>
+            <div className='flex gap-1'>
+              <Image src={article.fields.thumbnail} alt={article.webTitle} width={300} height={200} className='rounded-md'/>
+              <p>{article.fields.trailText}</p>
+            </div>
+            <p className='text-sm font-thin bottom-0'>
+            See more at <a href = {article.webUrl} target="_blank" rel="noopener noreferrer">The Guardian</a>
+            </p>
           </div>
         </li>
       ))}
