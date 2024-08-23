@@ -20,7 +20,7 @@ const BannerResult = ({ item, triggers }) => {
     ? `https://www.doesthedogdie.com/content/1800/0/${item.backdrop_path}`
     : '/assets/movie-nf.png';
 
-  const stylesPoster = 'w-32 md:w-60 object-cover rounded-md shadow-md';
+  const stylesPoster = 'w-32 md:w-60 object-contain rounded-md shadow-md';
 
   const firstDate = new Date(item.first_air_date).getFullYear();
   const lastDate = new Date(item.last_air_date).getFullYear();
@@ -56,15 +56,17 @@ const BannerResult = ({ item, triggers }) => {
                 </div>
               </div>
               <div className='flex p-4 relative'>
-                <Image
-                  className={stylesPoster}
-                  src={item.poster_path
-                    ? `https://www.doesthedogdie.com/content/1200/0/${item.poster_path}`
-                    : '/assets/movie-nf.png'}
-                  width={300}
-                  height={300}
-                  alt={item.title || item.name}
-                />
+                <div className='bg-black bg-opacity-70 flex items-start rounded-md'> 
+                  <Image
+                    className={stylesPoster}
+                    src={item.poster_path
+                      ? `https://www.doesthedogdie.com/content/1200/0/${item.poster_path}`
+                      : '/assets/movie-nf.png'}
+                    width={300}
+                    height={300}
+                    alt={item.title || item.name}
+                  />
+                </div>
                 <div className='flex flex-col pl-4 gap-2'>
                   <div className='flex'>
                     <div className='w-60 flex flex-col gap-1'>
