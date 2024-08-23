@@ -211,7 +211,7 @@ const BannerResult = ({ item, triggers }) => {
       )}
       { item.videos.results.length > 0 && (
         <Modal isVisible={showModalTrigger} onClose={() => setShowModalTrigger(false)}>
-          <div className='flex items-center justify-center w-full h-full'>
+          <div className='flex items-center justify-center'>
             <div className='relative max-h-[80%]'>
               <TriggerResult triggers={triggers} item={item} />
             </div>
