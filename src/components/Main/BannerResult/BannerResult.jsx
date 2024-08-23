@@ -56,7 +56,7 @@ const BannerResult = ({ item, triggers }) => {
                 </div>
               </div>
               <div className='flex p-4 relative'>
-                <div className='bg-black bg-opacity-70 flex items-center rounded-md flex-col text-center w-'> 
+                <div className='bg-dark-primary-a40 bg-opacity-70 flex items-center rounded-md flex-col text-center'> 
                   <Image
                     className={stylesPoster}
                     src={item.poster_path
@@ -96,8 +96,8 @@ const BannerResult = ({ item, triggers }) => {
                           <p className='font-light'>{item.status}</p>
                         </div>
                         {item.seasons && item.seasons.length > 0 && (
-                          <div className='flex gap-1'>
-                            <p className='font-bold'>Created By</p>
+                          <div className='flex gap-1 w-60'>
+                            <p className='font-bold '>Created By</p>
                             <p className='font-light'>{item.created_by[0]?.name}</p>
                           </div>
                         )}
@@ -118,8 +118,8 @@ const BannerResult = ({ item, triggers }) => {
                     </div>
                     <TriggerMessage item={item} triggers={triggers}/>
                   </div>
-                  <div className='flex gap-x-8'>
-                    <div className='min-w-[500px]'>
+                  <div className='flex gap-x-4'>
+                    <div className='px-4 pt-1 bg-dark-primary-a40 bg-opacity-70 rounded-md'>
                       <p>Stars:</p>
                       <div className='flex gap-2'>
                         {item.credits.cast.slice(0, 4).map((cast, index) => (
@@ -143,29 +143,29 @@ const BannerResult = ({ item, triggers }) => {
                         ))}
                       </div>
                     </div>
-                    <div className=''>
-                    <p>Crew:</p>
-                    <div className='flex gap-2'>
-                      {item.credits.crew.slice(0, 3).map((crew, index) => (
-                      <div key={index} className=''>
-                        <div className=''>
-                          <Image
-                            className='rounded-md h-44 w-auto'
-                            src={crew.profile_path
-                              ? `https://image.tmdb.org/t/p/w500/${crew.profile_path}`
-                              : '/assets/default-user.png'}
-                            width={200}
-                            height={200}
-                            alt={crew.name}
-                          />
+                    <div className='px-4 pt-1 bg-dark-primary-a40 bg-opacity-70 rounded-md'>
+                      <p>Crew:</p>
+                      <div className='flex gap-2'>
+                        {item.credits.crew.slice(0, 3).map((crew, index) => (
+                        <div key={index} className=''>
+                          <div className=''>
+                            <Image
+                              className='rounded-md h-44 w-auto'
+                              src={crew.profile_path
+                                ? `https://image.tmdb.org/t/p/w500/${crew.profile_path}`
+                                : '/assets/default-user.png'}
+                              width={200}
+                              height={200}
+                              alt={crew.name}
+                            />
+                          </div>
+                          <div className='max-w-28 flex flex-col justify-center items-center text-center'>
+                            <h2 className='text-sm font-bold'>{crew.name}</h2>
+                            <p className='text-xs'>{crew.department}</p>
+                          </div>
                         </div>
-                        <div className='max-w-28 flex flex-col justify-center items-center text-center'>
-                          <h2 className='text-sm font-bold'>{crew.name}</h2>
-                          <p className='text-xs'>{crew.department}</p>
-                        </div>
-                      </div>
-                      ))}
-                    </div>  
+                        ))}
+                      </div>  
                   </div>  
                   </div>
                 </div>
