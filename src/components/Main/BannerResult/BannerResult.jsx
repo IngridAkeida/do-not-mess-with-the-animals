@@ -2,6 +2,7 @@ import { Fragment, useState } from 'react';
 import Image from 'next/image';
 import { RiPlayLargeFill } from 'react-icons/ri';
 import { RiAlarmWarningFill } from 'react-icons/ri';
+import { FaRegHeart, FaHeart, FaPlus, FaCheck, FaPlay } from 'react-icons/fa';
 import GenreColors from '../../uiComponents/GenreColors/GenreColors';
 import Modal from '../../uiComponents/Modal/Modal';
 import CustomSlider from '../../uiComponents/CustomSlider/CustomSlider';
@@ -15,16 +16,15 @@ const BannerResult = ({ item, triggers }) => {
 
   const [showModalVideo, setShowModalVideo] = useState(false);
   const [showModalTrigger, setShowModalTrigger] = useState(false);
+  const [isAdded, setIsAdded] = useState(false);
+  const [isFavorited, setIsFavorited] = useState(false);
 
-
-  // modal epecific styles
-  // modal video 
-  const stylesVideo = 'fixed inset-0 bg-opacity-25 backdrop-blur-sm flex justify-center items-center w-full h-full';
-  const stylesVideoContent = 'flex flex-col w-[90%] h-[90%] sm:w-[70%] sm:h-[70%] md:w-[60%] md:h-[60%] lg:w-[50%] lg:h-auto p-1 bg-black bg-opacity-80';
-
-  // modal triigger
-  const stylesTrigger = 'fixed inset-0 bg-opacity-25 backdrop-blur-sm flex justify-center items-center w-full h-full mt-6';
-  const stylesTriggerContent = 'flex flex-col w-[90%] h-[90%] sm:w-[70%] sm:h-[70%] md:w-[60%] md:h-[60%] lg:w-[40%] lg:h-[85%] p-1 bg-dark-neutral-a30 rounded-md';
+  const handleAddClick = () => {
+    setIsAdded(!isAdded);
+  };
+  const handleFavoriteClick = () => {
+    setIsFavorited(!isFavorited);
+  };
 
   const backgroundImage = item.backdrop_path
     ? `https://www.doesthedogdie.com/content/1800/0/${item.backdrop_path}`
@@ -40,6 +40,18 @@ const BannerResult = ({ item, triggers }) => {
 
   const genreColors = GenreColors;
   const settings = Settings;
+
+  // modal epecific styles
+  // modal video 
+  const stylesVideo = 'fixed inset-0 bg-opacity-25 backdrop-blur-sm flex justify-center items-center w-full h-full';
+  const stylesVideoContent = 'flex flex-col w-[90%] h-[90%] sm:w-[70%] sm:h-[70%] md:w-[60%] md:h-[60%] lg:w-[50%] lg:h-auto p-1 bg-black bg-opacity-80';
+
+  // modal triigger
+  const stylesTrigger = 'fixed inset-0 bg-opacity-25 backdrop-blur-sm flex justify-center items-center w-full h-full mt-6';
+  const stylesTriggerContent = 'flex flex-col w-[90%] h-[90%] sm:w-[70%] sm:h-[70%] md:w-[60%] md:h-[60%] lg:w-[40%] lg:h-[85%] p-1 bg-dark-neutral-a30 rounded-md';
+
+  //button styles
+  const stylesButton = 'p-2 text-dark-primary-a10 transition-all size-10 duration-300 bg-dark-menu-y10 rounded-full hover:text-dark-primary-a20';
 
   console.log(item)
 
@@ -116,12 +128,28 @@ const BannerResult = ({ item, triggers }) => {
                           <div className={`transition-opacity w-12 duration-300 hover:cursor-pointer
                             ${showModalVideo ? 'opacity-0' : 'opacity-100'}`} 
                             onClick={() => setShowModalVideo(true)}>
-                              <RiPlayLargeFill className='p-2 text-dark-primary-a10 transition-all size-10 duration-300 bg-dark-menu-y10 rounded-full hover:text-dark-primary-a20'/>
+                              <RiPlayLargeFill className={stylesButton}/>
                           </div>
                           <div className={`transition-opacity w-12 duration-300 hover:cursor-pointer
                             ${showModalTrigger ? 'opacity-0' : 'opacity-100'}`} 
                             onClick={() => setShowModalTrigger(true)}>
-                            <RiAlarmWarningFill className='p-2 text-dark-primary-a10 transition-all size-10 duration-300 bg-dark-menu-y10 rounded-full hover:text-dark-primary-a20'/>
+                            <RiAlarmWarningFill className={stylesButton}/>
+                          </div>
+                          <div className={`transition-opacity w-12 duration-300 hover:cursor-pointer
+                            ${showModalVideo ? 'opacity-0' : 'opacity-100'}`} 
+                            onClick={handleFavoriteClick}>
+                              {isFavorited ? 
+                                <FaHeart className={stylesButton}/> : 
+                                <FaRegHeart className={stylesButton}/>
+                              }
+                          </div>
+                          <div className={`transition-opacity w-12 duration-300 hover:cursor-pointer
+                            ${showModalTrigger ? 'opacity-0' : 'opacity-100'}`} 
+                            onClick={handleAddClick}>
+                              {isAdded ? 
+                                <FaCheck className={stylesButton}/> : 
+                                <FaPlus className={stylesButton}/>
+                              }
                           </div>
                         </div>
                       </div>
