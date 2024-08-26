@@ -1,13 +1,7 @@
 'use client';
-import SearchField from '../../uiComponents/SearchField/SearchField'; 
-import GuardianNews from '../../../pages/api/theGuardianAPI';
 import Image from 'next/image';
 
 const Banner = ({randomItem}) => {
-  const SearchWrapStyle = 'text-base sm:text-2xl relative m-2';
-  const SearchInputStyle = 'p-2 pl-6 sm:w-[600px] lg:w-[800px] bg-light-neutral-200 rounded-3xl text-black outline-none';
-  const SearchButtonStyle = 'p-3 pl-8 bg-gradient-to-l from-dark-menu-y10 to-alert-warning-100 hover:bg-dark-menu-y10 rounded-r-3xl absolute right-0 text-dark-neutral-a40';
-  const SearchButtonDisabledStyle = 'bg-gray-300 text-gray-500 cursor-none';
 
   const backgroundImage = randomItem?.backdrop_path
   ? `https://www.doesthedogdie.com/content/1800/0/${randomItem?.backdrop_path}`
