@@ -1,44 +1,18 @@
 'use client';
-import { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { getList } from '../../../pages/api/dataTMDBGenre';
+
 import Settings  from '../../uiComponents/Settings/Settings';
 import Carousel from './Carousel/Carousel';
 import GuardianNews from '../../../pages/api/theGuardianAPI';
 import Link from 'next/link';
 import AboutGenre from '../../uiComponents/AboutGenre/AboutGenre'
 
-const List = () => {
-  const [list, setList] = useState([]);
-  const [error, setError] = useState('');
+const List = ({list}) => {
+
   const aboutGenres = AboutGenre; 
   const settings = Settings;
-
-  useEffect(() => {
-    const loadAll = async () => {
-      try {
-        let listGenres = await getList();
-        if (listGenres) {
-          setList(listGenres);
-          console.log('listGenres:', listGenres);
-        } else {
-          setError('Failed to load genres.');
-        }
-      } catch (e) {
-        setError('Failed to load genres.');
-        console.error(e);
-      }
-    }
-    loadAll();
-  }, []);
-
-  if (error) {
-    return <div className='text-black'>Error: {error}</div>;
-  }
-
- 
 
   return (
     <div className='flex flex-col gap-2 mx-2 my-2 md:mx-0'>
