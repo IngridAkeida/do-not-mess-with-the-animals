@@ -42,18 +42,26 @@ const PersonPage = () => {
   if (!person) {
     return <div>No data found</div>;
   }
-
+  console.log(person)
   return (
     <div className='max-w-7xl mx-auto'>
       <Nav />
-      <h1>{person.name}</h1>
-      <Image 
-        src={`https://image.tmdb.org/t/p/w500${person.profile_path}`} 
-        alt={person.name} 
-        width={200} 
-        height={300} 
-      />
-      <p>{person.biography}</p>
+      <div className='flex'>
+        <div>
+          <h1 className='text-3xl'>{person.name}</h1>
+          <p>{person.known_for_department}</p>
+          <p>{person.place_of_birth}</p>
+          <Image 
+            src={`https://image.tmdb.org/t/p/w500${person.profile_path}`} 
+            alt={person.name} 
+            width={200} 
+            height={300} 
+          />
+        </div>
+      
+      <p className='text-justify '>{person.biography}</p>
+      </div>
+      
     </div>
   );
 }
