@@ -9,7 +9,7 @@ const Banner = () => {
   const SearchButtonDisabledStyle = 'bg-gray-300 text-gray-500 cursor-none';
 
   return (
-    <div className='text-center px-2 mx-2 sm:mx-0 h-52 sm:h-96 bg-gradient-to-br from-dark-primary-a40 to-dark-primary-a30 flex items-center justify-center gap-4 sm:px-10 rounded-b-md text-white'>
+    <div className='text-center px-2 mx-2 sm:mx-0 h-52 sm:h-96 bg-gradient-to-br from-dark-primary-a40 via-dark-primary-a20 to-dark-primary-a40 flex items-center justify-center gap-4 sm:px-10 rounded-b-md text-white'>
       <div className='w-1/2 flex flex-col gap-y-2'>
         <h1 className='text-center font-bold text-xl pb-2 md:text-5xl bg-gradient-to-br from-dark-menu-y10 via-dark-primary-a0 to-dark-menu-y10 bg-clip-text text-transparent'>Welcome to our page</h1>
         <p className='text-base md:text-xl'>Explore movies and TV shows with confidence, and know if they&apos;re free from unwanted <span className='text-dark-primary-a0 font-semibold'>triggers</span>. </p>
