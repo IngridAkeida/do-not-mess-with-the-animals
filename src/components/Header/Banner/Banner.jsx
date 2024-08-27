@@ -1,8 +1,8 @@
 'use client';
 import Image from 'next/image';
-import { useCombineData } from '../../Main/CombineDatas/CombineDatas';
+import Link from 'next/link';
 
-const Banner = ({randomItem}) => {
+const Banner = ({randomItem, matchFound}) => {
 
   const backgroundImage = randomItem?.backdrop_path
   ? `https://www.doesthedogdie.com/content/1800/0/${randomItem?.backdrop_path}`
@@ -14,27 +14,16 @@ const Banner = ({randomItem}) => {
     return null;
   } 
 
-  // let fetchpath = '';
+  console.log('matchFound:', matchFound);
 
-  // if(randomItem?.media_type === 'movie') {
-  //   let fetchpath ='serverDataTMDBMovie';
-  // } else if(randomItem?.media_type === 'tv') {
-  //   let fetchpath ='serverDataTMDBTvShow';
-  // }
+  let resultType = '';
 
-  // const { combineData, loading, error } = useCombineData({fetchpath});
+  if (matchFound.media_type === 16) {
+    resultType = 'tvshow';
+  } else {
+    resultType = 'movie';
+  }
 
-  // const item = combineData?.tmdbData;
-
-  // if (loading) {
-  //   return <p>Loading...</p>;
-  // } 
-
-  // if (error) {
-  //   return <p>Error: {error.message}</p>;
-  // }
-
-  // console.log('item:', item);
 
   return (
     <div 
@@ -63,8 +52,10 @@ const Banner = ({randomItem}) => {
           </div>
           <div className='relative w-auto bg-dark-primary-a40 rounded-md py-5 px-10 bg-opacity-35'>
             <div className='text-lg font-semibold '>{randomItem?.title}</div>
+            <Link href={`/${resultType}/${matchFound.id}`}>Aqui</Link>
             {/* {randomItem?.release_date} */}
           </div>
+          
         </div>
       </div>
     </div>

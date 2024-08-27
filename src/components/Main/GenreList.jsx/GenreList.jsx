@@ -41,7 +41,7 @@ const List = ({list}) => {
             </Slider>
           </ul>
         ))}
-        <GuardianNews />
+        {/* <GuardianNews /> */}
         {list.slice(3).map((genre, index) => (
           <ul key={index} className='bg-gradient-to-br from-dark-primary-a40 to-dark-primary-a30 rounded-md md:flex'> 
           <div className='m-1 sm:m-2 sm:w-auto'>

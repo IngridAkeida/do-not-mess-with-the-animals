@@ -8,21 +8,19 @@ import { useEffect, useState } from 'react';
 import { getList } from '../pages/api/dataTMDBGenre';
 
 export default function Home() {
-
   const [list, setList] = useState([]);
   const [error, setError] = useState('');
   const [randomItem, setRandomItem] = useState(null);
-  
+  const [results, setResults] = useState(null);
+  const [matchFound, setMatchFound] = useState(false);
 
   useEffect(() => {
     const loadAll = async () => {
       try {
-        let listGenres = await getList();
+        const listGenres = await getList();
         if (listGenres) {
           setList(listGenres);
-          console.log('listGenres:', listGenres);
-
-          displayRandomElement(listGenres[0]?.items.results);
+          displayRandomElement(listGenres[1]?.items.results);
         } else {
           setError('Failed to load genres.');
         }
@@ -30,33 +28,66 @@ export default function Home() {
         setError('Failed to load genres.');
         console.error(e);
       }
-    }
+    };
+
     loadAll();
   }, []);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      if (!randomItem) return;
+
+      try {
+        const encodedTerm = encodeURIComponent(randomItem.title);
+        const response = await fetch(`/api/serverDataDDDQuery?query=${encodedTerm}`);
+
+        if (!response.ok) {
+          throw new Error('Failed to fetch data');
+        }
+
+        const dataId = await response.json();
+        setResults(dataId);
+      } catch (error) {
+        setError(error.message);
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, [randomItem]);
+
+  useEffect(() => {
+    if (randomItem && results && Array.isArray(results.items)) {
+      const matchFoundResult = results.items.find(item => item.tmdbId === randomItem.id);
+  
+      if (matchFoundResult) {
+        setMatchFound(matchFoundResult);
+      } else {
+        console.log('No match found for randomItem and results.');
+      }
+    }
+  }, [randomItem, results]);
+
 
   if (error) {
     return <div className='text-black'>Error: {error}</div>;
   }
 
-  function displayRandomElement(results) {
-    if (results && results.length > 0) {
-      const randomIndex = Math.floor(Math.random() * results.length);
-      console.log('Random result:', results[randomIndex]);
-      setRandomItem(results[randomIndex]);
+  function displayRandomElement(resultsTmdb) {
+    if (resultsTmdb && resultsTmdb.length > 0) {
+      const randomIndex = Math.floor(Math.random() * resultsTmdb.length);
+      setRandomItem(resultsTmdb[randomIndex]);
     } else {
       console.log('No results found.');
     }
   }
 
-  
-  
   return (
     <div className='max-w-7xl mx-auto h-96'>
       <Nav />
-      <Banner randomItem={randomItem}/>
-      <ComponentList list={list}/>
+      <Banner randomItem={randomItem} matchFound={matchFound} />
+      <ComponentList list={list} />
       <Footer />
     </div>
   );
 }
-
