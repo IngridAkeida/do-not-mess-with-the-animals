@@ -50,7 +50,7 @@ const Banner = ({randomItem}) => {
             Welcome to our page
           </h1>
           <p className='text-base md:text-xl'>
-            Explore movies and TV shows with confidence, and know if they&apos;re free from unwanted <span className='text-dark-primary-a0 font-semibold'>triggers</span>.
+            Explore movies and TV shows with confidence, and know if they&apos;re free from unwanted <span className='text-dark-primary-a0 font-semibold bg-dark-menu-y10 py-0.5 px-1 rounded-md'>triggers</span>.
           </p>
           <p className='text-base md:text-xl'>
             Create an account to save your <span className='text-dark-menu-y10 font-semibold'>favorites</span>, <span className='text-dark-menu-y10 font-semibold'>wish list</span>, <span className='text-dark-menu-y10 font-semibold'>watched</span>, or <span className='text-dark-menu-y10 font-semibold'>unwanted</span> content.
