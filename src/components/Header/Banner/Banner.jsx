@@ -61,8 +61,8 @@ const Banner = ({randomItem}) => {
           <div className='absolute mr-4'>
             <Image src={`https://www.doesthedogdie.com/content/1800/0/${randomItem?.backdrop_path}`} alt={randomItem?.title} className='w-full object-contain rounded-md' width={1800} height={1800} />
           </div>
-          <div className='relative'>
-            {randomItem?.title}
+          <div className='relative w-auto bg-dark-primary-a40 rounded-md py-5 px-10 bg-opacity-35'>
+            <div className='text-lg font-semibold '>{randomItem?.title}</div>
             {/* {randomItem?.release_date} */}
           </div>
         </div>
