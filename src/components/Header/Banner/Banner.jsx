@@ -38,7 +38,7 @@ const Banner = ({randomItem, matchFound}) => {
         <div className='w-1/2 flex flex-col justify-center items-center gap-y-2'>
           <h1 className='text-center font-bold text-xl pb-2 md:text-5xl bg-gradient-to-br from-dark-menu-y10 via-dark-primary-a0 to-dark-menu-y10 bg-clip-text text-transparent'
           style={{ WebkitTextStroke: '0.1px white' }}>
-            Welcome to our page
+            Welcome to Watch Safe Cinema
           </h1>
           <p className='text-base md:text-xl'>
             Explore movies and TV shows with confidence, and know if they&apos;re free from unwanted <span className='text-dark-primary-a0 font-semibold bg-dark-menu-y10 py-0.5 px-1 rounded-md'>triggers</span>.
