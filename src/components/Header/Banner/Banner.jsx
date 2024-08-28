@@ -49,8 +49,8 @@ const Banner = ({randomItem, matchFound}) => {
           <p className='text-base md:text-xl'>Discover everything about movies and so much more.</p>
         </div>
         <div className='w-1/2 h-full flex justify-center items-center'>
-          <div className='absolute mr-4'>
-            <Image src={`https://www.doesthedogdie.com/content/1800/0/${imagePath}`} alt={nameTitle} className='w-full object-contain rounded-md' width={1800} height={1800} />
+          <div className='absolute mr-4 '>
+            <Image src={`https://www.doesthedogdie.com/content/1800/0/${imagePath}`} alt={nameTitle} className='w-full object-contain rounded-md max-h-80' width={1800} height={1800} />
           </div>
           <div className='relative w-auto bg-dark-primary-a40 rounded-md py-5 px-10 bg-opacity-35'>
             <div className='text-lg font-semibold '>{nameTitle}</div>

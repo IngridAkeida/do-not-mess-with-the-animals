@@ -9,8 +9,8 @@ const settings = {
     slidesToScroll: 6,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
-    autoplay: true,
-    autoplaySpeed: 5000,
+    // autoplay: true,
+    // autoplaySpeed: 5000,
     responsive: [
       {
         breakpoint: 1280,

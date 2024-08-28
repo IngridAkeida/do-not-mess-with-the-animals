@@ -1,9 +1,8 @@
 import { Fragment, useState } from 'react';
 import Image from 'next/image';
 import { RiPlayLargeFill } from 'react-icons/ri';
-import { RiAlarmWarningFill } from 'react-icons/ri';
-import { FaRegHeart, FaHeart, FaPlus, FaCheck, FaPlay } from 'react-icons/fa';
 import GenreColors from '../../uiComponents/GenreColors/GenreColors';
+import DetailContent from '../../uiComponents/DetailsContent/DetailsContent';
 import Modal from '../../uiComponents/Modal/Modal';
 import CustomSlider from '../../uiComponents/CustomSlider/CustomSlider';
 import 'slick-carousel/slick/slick.css';
@@ -13,30 +12,21 @@ import TriggerResult from '../../Main/TriggerResult/TriggerResult';
 import TriggerMessage from '@/components/TriggerMessage';
 
 const BannerResult = ({ item, triggers }) => {
-
   const [showModalVideo, setShowModalVideo] = useState(false);
   const [showModalTrigger, setShowModalTrigger] = useState(false);
-  const [isAdded, setIsAdded] = useState(false);
-  const [isFavorited, setIsFavorited] = useState(false);
-
-  const handleAddClick = () => {
-    setIsAdded(!isAdded);
-  };
-  const handleFavoriteClick = () => {
-    setIsFavorited(!isFavorited);
-  };
-
+  
   const backgroundImage = item.backdrop_path
     ? `https://www.doesthedogdie.com/content/1800/0/${item.backdrop_path}`
     : '/assets/movie-nf.png';
 
   const stylesPoster = 'w-32 md:w-60 object-contain rounded-md shadow-md';
 
-  const firstDate = new Date(item.first_air_date).getFullYear();
-  const lastDate = new Date(item.last_air_date).getFullYear();
-  const timeAir = `${firstDate} - ${lastDate}`;
-  const releaseDate = new Date(item.release_date).getFullYear();
-  const year = item.first_air_date ? timeAir : releaseDate;
+  const handleModalVideoClick = () => {
+    setShowModalVideo(!showModalVideo);
+  };
+  const handleModalTriggerClick = () => {
+    setShowModalTrigger(!showModalTrigger)
+  };
 
   const genreColors = GenreColors;
   const settings = Settings;
@@ -49,9 +39,6 @@ const BannerResult = ({ item, triggers }) => {
   // modal triigger
   const stylesTrigger = 'fixed inset-0 bg-opacity-25 backdrop-blur-sm flex justify-center items-center w-full h-full mt-6';
   const stylesTriggerContent = 'flex flex-col w-[90%] h-[90%] sm:w-[70%] sm:h-[70%] md:w-[60%] md:h-[60%] lg:w-[40%] lg:h-[85%] p-1 bg-dark-neutral-a30 rounded-md';
-
-  //button styles
-  const stylesButton = 'p-2 text-dark-primary-a10 transition-all size-10 duration-300 bg-dark-menu-y10 rounded-full hover:text-dark-primary-a20';
 
   console.log(item)
 
@@ -72,7 +59,7 @@ const BannerResult = ({ item, triggers }) => {
                 <div className='flex items-center'>
                   <div className={`transition-opacity duration-300 hover:cursor-pointer
                     ${showModalVideo ? 'opacity-0' : 'opacity-100'}`} 
-                    onClick={() => setShowModalVideo(true)}>
+                    onClick={handleModalVideoClick}>
                       <RiPlayLargeFill className='pl-2 text-4xl text-dark-primary-a10 transition-all hover:size-10 duration-300 hover:text-dark-primary-a20'/>
                   </div>
                 </div>
@@ -105,8 +92,7 @@ const BannerResult = ({ item, triggers }) => {
                           </span>
                         ))}
                       </p>
-                      <div className='text-sm'>
-                        <p>{year}</p>
+                      {/* <div className='text-sm'>
                         {item.seasons && item.seasons.length > 0 && (
                           <div className='flex gap-1'>
                             <p className='font-bold'>Seasons</p>
@@ -151,7 +137,13 @@ const BannerResult = ({ item, triggers }) => {
                               }
                           </div>
                         </div>
-                      </div>
+                      </div> */}
+                      <DetailContent 
+                        item={item} 
+                        handleModalTriggerClick={handleModalTriggerClick} handleModalVideoClick={handleModalVideoClick}
+                        showModalVideo={showModalVideo} 
+                        showModalTrigger={showModalTrigger}
+                      />
                     </div>
                     <TriggerMessage item={item} triggers={triggers}/>
                   </div>
@@ -220,9 +212,6 @@ const BannerResult = ({ item, triggers }) => {
           </div>
         </div>
         <div>
-        {/* <div className='flex gap-2'>
-          <TriggerResult triggers={triggers} item={item} />
-        </div> */}
           <CustomSlider
             title='Similar Titles'
             items={item.similar?.results}
@@ -232,7 +221,7 @@ const BannerResult = ({ item, triggers }) => {
         </div>
       </div>
       { item.videos.results.length > 0 && (
-        <Modal isVisible={showModalVideo} styleContainer = {stylesVideo} styleContent= {stylesVideoContent} onClose={() => setShowModalVideo(false)}>
+        <Modal isVisible={showModalVideo} styleContainer = {stylesVideo} styleContent= {stylesVideoContent} onClose={handleModalVideoClick}>
           <div className='flex items-center justify-center w-full h-full'>
             <div className='relative w-full h-0 pb-[56.25%]'>
               <iframe
@@ -246,8 +235,8 @@ const BannerResult = ({ item, triggers }) => {
           </div>
         </Modal>
       )}
-      { item.videos.results.length > 0 && (
-        <Modal isVisible={showModalTrigger} styleContainer = {stylesTrigger} styleContent= {stylesTriggerContent} onClose={() => setShowModalTrigger(false)}>
+      { triggers.length > 0 && (
+        <Modal isVisible={showModalTrigger} styleContainer ={stylesTrigger} styleContent= {stylesTriggerContent} onClose={handleModalTriggerClick}>
           <div className='flex items-center justify-center'>
             <div className='relative'>
               <TriggerResult triggers={triggers} item={item} />
