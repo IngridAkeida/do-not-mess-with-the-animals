@@ -118,11 +118,13 @@ export default function Home() {
   }
 
   return (
-    <Fragment className='max-w-7xl mx-auto h-96'>
-      <Nav />
-      <Banner randomItem={randomItem} addVideo={addVideo} matchFound={matchFoundResult} />
-      <ComponentList list={list} matchFound={matchFoundResult} />
-      <Footer />
+    <Fragment>
+      <div className='max-w-7xl mx-auto h-96'>
+        <Nav />
+        <Banner randomItem={randomItem} addVideo={addVideo} matchFound={matchFoundResult} />
+        <ComponentList list={list} matchFound={matchFoundResult} />
+        <Footer />
+      </div>
     </Fragment>
   );
 }

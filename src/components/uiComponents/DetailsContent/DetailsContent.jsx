@@ -48,17 +48,19 @@ const DetailsContent = ({ item, handleModalTriggerClick, handleModalVideoClick, 
             <p className='font-light'>{item.number_of_seasons}</p>
           </div>
         )}
+        {item.status && item.status.length > 0 && (
         <div className='flex gap-1'>
           <p className='font-bold'>Status</p>
           <p className='font-light'>{item.status}</p>
         </div>
+        )}
         {item.seasons && item.seasons.length > 0 && (
           <div className='flex gap-1 w-60'>
             <p className='font-bold '>Created By</p>
             <p className='font-light'>{item.created_by[0]?.name}</p>
           </div>
         )}
-        <div className='flex items-center h-12'>
+        <div className='flex items-center justify-center h-12'>
           <div className={`transition-opacity w-12 duration-300 hover:cursor-pointer
             ${showModalVideo ? 'opacity-0' : 'opacity-100'}`} 
             onClick={handleModalVideoClick}>

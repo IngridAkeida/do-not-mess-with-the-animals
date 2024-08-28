@@ -55,7 +55,7 @@ const Banner = ({randomItem, matchFound, addVideo}) => {
     > 
       <div className='absolute inset-0 bg-gradient-to-br from-dark-primary-a40 via-dark-primary-a20 to-dark-neutral-a50 opacity-80'></div>
 
-      <div className='relative text-center px-2 mx-2 sm:mx-0 h-52 sm:h-96 flex items-center justify-center gap-4 rounded-b-md text-white'>
+      <div className='relative text-center mx-2 sm:mx-0 h-52 sm:h-96 flex items-center justify-center gap-4 rounded-b-md text-white'>
         <div className='w-1/2 flex flex-col justify-center items-center gap-y-2'>
           <h1 className='text-center font-bold text-xl pb-2 md:text-5xl bg-gradient-to-br from-dark-menu-y10 via-dark-primary-a0 to-dark-menu-y10 bg-clip-text text-transparent'
           style={{ WebkitTextStroke: '0.1px white' }}>
@@ -70,20 +70,21 @@ const Banner = ({randomItem, matchFound, addVideo}) => {
           <p className='text-base md:text-xl'>Discover everything about movies and so much more.</p>
         </div>
         <div className='w-1/2 h-full flex justify-center items-center'>
-          <div className='absolute mr-4 '>
-            <Image src={`https://www.doesthedogdie.com/content/1800/0/${imagePath}`} alt={nameTitle} className='w-full object-contain rounded-md max-h-80' width={1800} height={1800} />
+          <div className='absolute'>
+            <Image src={`https://www.doesthedogdie.com/content/1800/0/${imagePath}`} alt={nameTitle} className='object-contain rounded-md h-full w-full' width={1800} height={1800} />
           </div>
-          <div className='relative w-auto bg-dark-primary-a40 rounded-md py-5 px-10 bg-opacity-35'>
-            <div className='text-lg font-semibold '>{nameTitle}</div>
-            <Link href={`/${resultType}/${matchFound.id}`}>Aqui</Link>
-            {/* {randomItem?.release_date} */}
-            <div>
-              <DetailsContent 
-                item={randomItem} 
-                handleModalTriggerClick={handleModalTriggerClick} handleModalVideoClick={handleModalVideoClick}
-                showModalVideo={showModalVideo} 
-                showModalTrigger={showModalTrigger}
-              />
+          <div className='relative from-dark-primary-a40 to-transparent bg-gradient-to-tl w-full h-full rounded-md py-5'>
+            <div className='flex justify-end items-center pb-4 flex-col text-center h-full w-auto'>
+              <div className='text-lg font-semibold'>{nameTitle}</div>
+              <div className=''>
+                <DetailsContent 
+                  item={randomItem} 
+                  handleModalTriggerClick={handleModalTriggerClick} handleModalVideoClick={handleModalVideoClick}
+                  showModalVideo={showModalVideo} 
+                  showModalTrigger={showModalTrigger}
+                />
+              </div>
+              <Link className='bg-dark-menu-y10 rounded-md hover:opacity-95 text-dark-primary-a20 mt-2 px-2 py-1' href={`/${resultType}/${matchFound.id}`}>See More</Link>
             </div>
           </div>
         </div>
