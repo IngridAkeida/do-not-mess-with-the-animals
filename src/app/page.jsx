@@ -38,7 +38,7 @@ export default function Home() {
       if (!randomItem) return;
 
       try {
-        const encodedTerm = encodeURIComponent(randomItem.name);
+        const encodedTerm = encodeURIComponent(randomItem.name || randomItem.title);
         const response = await fetch(`/api/serverDataDDDQuery?query=${encodedTerm}`);
 
         if (!response.ok) {
