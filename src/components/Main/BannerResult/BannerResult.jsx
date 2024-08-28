@@ -1,7 +1,6 @@
 import { Fragment, useState } from 'react';
 import Image from 'next/image';
 import { RiPlayLargeFill } from 'react-icons/ri';
-import GenreColors from '../../uiComponents/GenreColors/GenreColors';
 import DetailContent from '../../uiComponents/DetailsContent/DetailsContent';
 import Modal from '../../uiComponents/Modal/Modal';
 import CustomSlider from '../../uiComponents/CustomSlider/CustomSlider';
@@ -28,7 +27,7 @@ const BannerResult = ({ item, triggers }) => {
     setShowModalTrigger(!showModalTrigger)
   };
 
-  const genreColors = GenreColors;
+  
   const settings = Settings;
 
   // modal epecific styles
@@ -81,70 +80,12 @@ const BannerResult = ({ item, triggers }) => {
                 </div>
                 <div className='flex flex-col pl-4 gap-2'>
                   <div className='flex'>
-                    <div className='w-60 flex flex-col gap-1'>
-                      <p className='flex justify-start items-center gap-1'>
-                        {item.genres.map((genre) => (
-                          <span
-                            key={genre.id}
-                            className={`py-0.5 px-1 text-xs rounded-lg ${genreColors[genre.id]}`}
-                          >
-                            {genre.name}
-                          </span>
-                        ))}
-                      </p>
-                      {/* <div className='text-sm'>
-                        {item.seasons && item.seasons.length > 0 && (
-                          <div className='flex gap-1'>
-                            <p className='font-bold'>Seasons</p>
-                            <p className='font-light'>{item.number_of_seasons}</p>
-                          </div>
-                        )}
-                        <div className='flex gap-1'>
-                          <p className='font-bold'>Status</p>
-                          <p className='font-light'>{item.status}</p>
-                        </div>
-                        {item.seasons && item.seasons.length > 0 && (
-                          <div className='flex gap-1 w-60'>
-                            <p className='font-bold '>Created By</p>
-                            <p className='font-light'>{item.created_by[0]?.name}</p>
-                          </div>
-                        )}
-                        <div className='flex items-center h-12'>
-                          <div className={`transition-opacity w-12 duration-300 hover:cursor-pointer
-                            ${showModalVideo ? 'opacity-0' : 'opacity-100'}`} 
-                            onClick={() => setShowModalVideo(true)}>
-                              <RiPlayLargeFill className={stylesButton}/>
-                          </div>
-                          <div className={`transition-opacity w-12 duration-300 hover:cursor-pointer
-                            ${showModalTrigger ? 'opacity-0' : 'opacity-100'}`} 
-                            onClick={() => setShowModalTrigger(true)}>
-                            <RiAlarmWarningFill className={stylesButton}/>
-                          </div>
-                          <div className={`transition-opacity w-12 duration-300 hover:cursor-pointer
-                            ${showModalVideo ? 'opacity-0' : 'opacity-100'}`} 
-                            onClick={handleFavoriteClick}>
-                              {isFavorited ? 
-                                <FaHeart className={stylesButton}/> : 
-                                <FaRegHeart className={stylesButton}/>
-                              }
-                          </div>
-                          <div className={`transition-opacity w-12 duration-300 hover:cursor-pointer
-                            ${showModalTrigger ? 'opacity-0' : 'opacity-100'}`} 
-                            onClick={handleAddClick}>
-                              {isAdded ? 
-                                <FaCheck className={stylesButton}/> : 
-                                <FaPlus className={stylesButton}/>
-                              }
-                          </div>
-                        </div>
-                      </div> */}
-                      <DetailContent 
-                        item={item} 
-                        handleModalTriggerClick={handleModalTriggerClick} handleModalVideoClick={handleModalVideoClick}
-                        showModalVideo={showModalVideo} 
-                        showModalTrigger={showModalTrigger}
-                      />
-                    </div>
+                    <DetailContent 
+                      item={item} 
+                      handleModalTriggerClick={handleModalTriggerClick} handleModalVideoClick={handleModalVideoClick}
+                      showModalVideo={showModalVideo} 
+                      showModalTrigger={showModalTrigger}
+                    />
                     <TriggerMessage item={item} triggers={triggers}/>
                   </div>
                   <div className='flex gap-x-6'>

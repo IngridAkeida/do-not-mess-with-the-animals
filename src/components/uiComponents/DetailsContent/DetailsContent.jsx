@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { RiAlarmWarningFill } from 'react-icons/ri';
-import { FaRegHeart, FaHeart, FaPlus, FaCheck, FaPlay } from 'react-icons/fa';
+import { FaRegHeart, FaHeart, FaPlus, FaCheck} from 'react-icons/fa';
 import { RiPlayLargeFill } from 'react-icons/ri';
+import GenreColors from '../GenreColors/GenreColors';
 
 const DetailsContent = ({ item, handleModalTriggerClick, handleModalVideoClick, showModalTrigger, showModalVideo }) => {
 
@@ -23,51 +24,65 @@ const DetailsContent = ({ item, handleModalTriggerClick, handleModalVideoClick, 
     setIsFavorited(!isFavorited);
   };
 
+  const genreColors = GenreColors;
+
   return(
-    <div className='text-sm'>
-      <p>{year}</p>
-      {item.seasons && item.seasons.length > 0 && (
+    <div className='w-60 flex flex-col gap-1'>
+      <p className='flex justify-start items-center gap-1'>
+        {item.genres.map((genre) => (
+          <span
+            key={genre.id}
+            className={`py-0.5 px-1 text-xs font-semibold rounded-lg ${genreColors[genre.id]}`}
+          >
+            {genre.name}
+          </span>
+        ))}
+      </p>
+      <div className='text-sm'>
+        <p>{year}</p>
+        {item.seasons && item.seasons.length > 0 && (
+          <div className='flex gap-1'>
+            <p className='font-bold'>Seasons</p>
+            <p className='font-light'>{item.number_of_seasons}</p>
+          </div>
+        )}
         <div className='flex gap-1'>
-          <p className='font-bold'>Seasons</p>
-          <p className='font-light'>{item.number_of_seasons}</p>
+          <p className='font-bold'>Status</p>
+          <p className='font-light'>{item.status}</p>
         </div>
-      )}
-      <div className='flex gap-1'>
-        <p className='font-bold'>Status</p>
-        <p className='font-light'>{item.status}</p>
-      </div>
-      {item.seasons && item.seasons.length > 0 && (
-        <div className='flex gap-1 w-60'>
-          <p className='font-bold '>Created By</p>
-          <p className='font-light'>{item.created_by[0]?.name}</p>
-        </div>
-      )}
-      <div className='flex items-center h-12'>
-        <div className={`transition-opacity w-12 duration-300 hover:cursor-pointer
-          ${showModalVideo ? 'opacity-0' : 'opacity-100'}`} 
-          onClick={handleModalVideoClick}>
-            <RiPlayLargeFill className={stylesButton}/>
-        </div>
-        <div className={`transition-opacity w-12 duration-300 hover:cursor-pointer
-          ${showModalTrigger ? 'opacity-0' : 'opacity-100'}`} 
-          onClick={handleModalTriggerClick}>
-          <RiAlarmWarningFill className={stylesButton}/>
-        </div>
-        <div className={`transition-opacity w-12 duration-300 hover:cursor-pointer
-          ${showModalVideo ? 'opacity-0' : 'opacity-100'}`} 
-          onClick={handleFavoriteClick}>
-            {isFavorited ? 
-              <FaHeart className={stylesButton}/> : 
-              <FaRegHeart className={stylesButton}/>
-            }
-        </div>
-        <div className={`transition-opacity w-12 duration-300 hover:cursor-pointer
-          ${showModalTrigger ? 'opacity-0' : 'opacity-100'}`} 
-          onClick={handleAddClick}>
-            {isAdded ? 
-              <FaCheck className={stylesButton}/> : 
-              <FaPlus className={stylesButton}/>
-            }
+        {item.seasons && item.seasons.length > 0 && (
+          <div className='flex gap-1 w-60'>
+            <p className='font-bold '>Created By</p>
+            <p className='font-light'>{item.created_by[0]?.name}</p>
+          </div>
+        )}
+        <div className='flex items-center h-12'>
+          <div className={`transition-opacity w-12 duration-300 hover:cursor-pointer
+            ${showModalVideo ? 'opacity-0' : 'opacity-100'}`} 
+            onClick={handleModalVideoClick}>
+              <RiPlayLargeFill className={stylesButton}/>
+          </div>
+          <div className={`transition-opacity w-12 duration-300 hover:cursor-pointer
+            ${showModalTrigger ? 'opacity-0' : 'opacity-100'}`} 
+            onClick={handleModalTriggerClick}>
+            <RiAlarmWarningFill className={stylesButton}/>
+          </div>
+          <div className={`transition-opacity w-12 duration-300 hover:cursor-pointer
+            ${showModalVideo ? 'opacity-0' : 'opacity-100'}`} 
+            onClick={handleFavoriteClick}>
+              {isFavorited ? 
+                <FaHeart className={stylesButton}/> : 
+                <FaRegHeart className={stylesButton}/>
+              }
+          </div>
+          <div className={`transition-opacity w-12 duration-300 hover:cursor-pointer
+            ${showModalTrigger ? 'opacity-0' : 'opacity-100'}`} 
+            onClick={handleAddClick}>
+              {isAdded ? 
+                <FaCheck className={stylesButton}/> : 
+                <FaPlus className={stylesButton}/>
+              }
+          </div>
         </div>
       </div>
     </div>
