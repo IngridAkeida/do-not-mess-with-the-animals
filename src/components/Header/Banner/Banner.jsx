@@ -73,7 +73,7 @@ const Banner = ({randomItem, matchFound, addVideo}) => {
           <div className='absolute'>
             <Image src={`https://www.doesthedogdie.com/content/1800/0/${imagePath}`} alt={nameTitle} className='object-contain rounded-md h-full w-full' width={1800} height={1800} />
           </div>
-          <div className='relative from-dark-primary-a40 to-transparent bg-gradient-to-tl w-full h-full rounded-md py-5'>
+          <div className='relative from-dark-primary-a30 to-transparent bg-gradient-to-tl w-full h-full rounded-md py-5'>
             <div className='flex justify-end items-center pb-4 flex-col text-center h-full w-auto'>
               <div className='text-lg font-semibold'>{nameTitle}</div>
               <div className=''>

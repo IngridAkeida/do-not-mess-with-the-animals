@@ -30,15 +30,28 @@ const DetailsContent = ({ item, handleModalTriggerClick, handleModalVideoClick, 
 
   return(
     <div className='w-60 flex flex-col gap-1'>
-      <p className='flex justify-start items-center gap-1'>
-        {genres.map((genre) => (
-          <span
-            key={genre.id}
-            className={`py-0.5 px-1 text-xs font-semibold rounded-lg ${genreColors[genre.id]}`}
-          >
-            {genre.name}
-          </span>
-        ))}
+      <p className='flex justify-center items-center gap-1'>
+        {genres.map((genre) => {
+          if(genre?.id){
+            return(
+              <span
+                key={genre.id}
+                className={`py-0.5 px-1 text-xs font-semibold rounded-lg ${genreColors[genre.id].color}`}
+              >
+                {genre.name}
+              </span>
+            )
+          } else {
+            return(
+              <span
+                key={genre}
+                className={`py-0.5 px-1 text-xs font-semibold rounded-lg ${genreColors[genre].color}`}
+              >
+                {genreColors?.[genre].name}
+              </span>
+            )
+          }
+        })}
       </p>
       <div className='text-sm'>
         <p>{year}</p>

@@ -1,24 +1,85 @@
 const genreColors = {
-  28: 'bg-orange-500 text-black',   // Action
-  12: 'bg-yellow-500 text-black',   // Adventure
-  16: 'bg-orange-500 text-black',   // Animation
-  35: 'bg-red-600',                 // Comedy
-  80: 'bg-red-800',                 // Crime
-  99: 'bg-purple-800',              // Documentary
-  18: 'bg-blue-800',                // Drama
-  10751: 'bg-blue-600',             // Family
-  14: 'bg-teal-600',                // Fantasy
-  36: 'bg-alert-info-600 text-black', // History
-  27: 'bg-yellow-600 text-black',   // Horror
-  10402: 'bg-green-600',            // Music
-  9648: 'bg-purple-600',            // Mystery
-  10749: 'bg-pink-600 text-black',  // Romance
-  878: 'bg-indigo-600',             // Science Fiction
-  10770: 'bg-gray-600',             // TV Movie
-  53: 'bg-gray-800',                // Thriller
-  10752: 'bg-red-700',              // War
-  37: 'bg-yellow-800 text-black',   // Western
-  10765: 'bg-blue-700'              // Sci-Fi & Fantasy
+  28: {
+    name: 'Action',
+    color: 'bg-orange-500 text-black'
+  },
+  12: {
+    name: 'Adventure',
+    color: 'bg-yellow-500 text-black'
+  },
+  16: {
+    name: 'Animation',
+    color: 'bg-orange-500 text-black'
+  },
+  35: {
+    name: 'Comedy',
+    color: 'bg-red-600'
+  },
+  80: {
+    name: 'Crime',
+    color: 'bg-red-800'
+  },
+  99: {
+    name: 'Documentary',
+    color: 'bg-purple-800'
+  },
+  18: {
+    name: 'Drama',
+    color: 'bg-blue-800'
+  },
+  10751: {
+    name: 'Family',
+    color: 'bg-blue-600'
+  },
+  14: {
+    name: 'Fantasy',
+    color: 'bg-teal-600'
+  },
+  36: {
+    name: 'History',
+    color: 'bg-alert-info-600 text-black'
+  },
+  27: {
+    name: 'Horror',
+    color: 'bg-yellow-600 text-black'
+  },
+  10402: {
+    name: 'Music',
+    color: 'bg-green-600'
+  },
+  9648: {
+    name: 'Mystery',
+    color: 'bg-purple-600'
+  },
+  10749: {
+    name: 'Romance',
+    color: 'bg-pink-600 text-black'
+  },
+  878: {
+    name: 'Science Fiction',
+    color: 'bg-indigo-600'
+  },
+  10770: {
+    name: 'TV Movie',
+    color: 'bg-gray-600'
+  },
+  53: {
+    name: 'Thriller',
+    color: 'bg-gray-800'
+  },
+  10752: {
+    name: 'War',
+    color: 'bg-red-700'
+  },
+  37: {
+    name: 'Western',
+    color: 'bg-yellow-800 text-black'
+  },
+  10765: {
+    name: 'Sci-Fi & Fantasy',
+    color: 'bg-blue-700'
+  }
 };
+
 
 export default genreColors;
