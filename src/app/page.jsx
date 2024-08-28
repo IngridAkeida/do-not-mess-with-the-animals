@@ -38,7 +38,7 @@ export default function Home() {
       if (!randomItem) return;
 
       try {
-        const encodedTerm = encodeURIComponent(randomItem.title);
+        const encodedTerm = encodeURIComponent(randomItem.name);
         const response = await fetch(`/api/serverDataDDDQuery?query=${encodedTerm}`);
 
         if (!response.ok) {
@@ -81,6 +81,10 @@ export default function Home() {
       console.log('No results found.');
     }
   }
+
+  console.log('list:', list);
+  console.log('randomItem:', randomItem);
+  console.log('results:', results);
 
   return (
     <div className='max-w-7xl mx-auto h-96'>

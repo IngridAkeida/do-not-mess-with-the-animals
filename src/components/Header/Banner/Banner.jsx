@@ -4,9 +4,10 @@ import Link from 'next/link';
 
 const Banner = ({randomItem, matchFound}) => {
 
-  const backgroundImage = randomItem?.backdrop_path
-  ? `https://www.doesthedogdie.com/content/1800/0/${randomItem?.backdrop_path}`
-  : '/assets/movie-nf.png';
+  const imagePath = randomItem?.backgroundImage || randomItem?.backdrop_path;
+  const backgroundImage = imagePath 
+    ? `https://www.doesthedogdie.com/content/1800/0/${imagePath}` 
+    : '/assets/movie-nf.png';
 
   console.log('randomItem:', randomItem);
 
@@ -48,10 +49,10 @@ const Banner = ({randomItem, matchFound}) => {
         </div>
         <div className='w-1/2 h-full flex justify-center items-center'>
           <div className='absolute mr-4'>
-            <Image src={`https://www.doesthedogdie.com/content/1800/0/${randomItem?.backdrop_path}`} alt={randomItem?.title} className='w-full object-contain rounded-md' width={1800} height={1800} />
+            <Image src={`https://www.doesthedogdie.com/content/1800/0/${randomItem?.backdrop_path}`} alt={randomItem?.name} className='w-full object-contain rounded-md' width={1800} height={1800} />
           </div>
           <div className='relative w-auto bg-dark-primary-a40 rounded-md py-5 px-10 bg-opacity-35'>
-            <div className='text-lg font-semibold '>{randomItem?.title}</div>
+            <div className='text-lg font-semibold '>{randomItem?.name}</div>
             <Link href={`/${resultType}/${matchFound.id}`}>Aqui</Link>
             {/* {randomItem?.release_date} */}
           </div>

@@ -59,6 +59,11 @@ const getList = async () => [
     title: 'Romance',
     items: await listFetch(`discover/movie?with_genres=10749`),
   },
+  {
+    slug: 'scifi',
+    title: 'Sci-Fi & Fantasy',
+    items: await listFetch(`discover/tv?with_genres=10765`),
+  }
 ];
 
 export { getList };
