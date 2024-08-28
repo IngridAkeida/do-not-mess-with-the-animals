@@ -24,12 +24,14 @@ const DetailsContent = ({ item, handleModalTriggerClick, handleModalVideoClick, 
     setIsFavorited(!isFavorited);
   };
 
+  const genres = item.genres || item.genre_ids;
+
   const genreColors = GenreColors;
 
   return(
     <div className='w-60 flex flex-col gap-1'>
       <p className='flex justify-start items-center gap-1'>
-        {item.genres.map((genre) => (
+        {genres.map((genre) => (
           <span
             key={genre.id}
             className={`py-0.5 px-1 text-xs font-semibold rounded-lg ${genreColors[genre.id]}`}
@@ -67,16 +69,14 @@ const DetailsContent = ({ item, handleModalTriggerClick, handleModalVideoClick, 
             onClick={handleModalTriggerClick}>
             <RiAlarmWarningFill className={stylesButton}/>
           </div>
-          <div className={`transition-opacity w-12 duration-300 hover:cursor-pointer
-            ${showModalVideo ? 'opacity-0' : 'opacity-100'}`} 
+          <div className='w-12 hover:cursor-pointer' 
             onClick={handleFavoriteClick}>
               {isFavorited ? 
                 <FaHeart className={stylesButton}/> : 
                 <FaRegHeart className={stylesButton}/>
               }
           </div>
-          <div className={`transition-opacity w-12 duration-300 hover:cursor-pointer
-            ${showModalTrigger ? 'opacity-0' : 'opacity-100'}`} 
+          <div className='w-12 hover:cursor-pointer' 
             onClick={handleAddClick}>
               {isAdded ? 
                 <FaCheck className={stylesButton}/> : 

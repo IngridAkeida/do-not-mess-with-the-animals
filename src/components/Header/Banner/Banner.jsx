@@ -1,8 +1,14 @@
 'use client';
+import DetailsContent from '@/components/uiComponents/DetailsContent/DetailsContent';
+import Modal from '@/components/uiComponents/Modal/Modal';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
 
 const Banner = ({randomItem, matchFound, addVideo}) => {
+
+  const [showModalVideo, setShowModalVideo] = useState(false);
+  const [showModalTrigger, setShowModalTrigger] = useState(false);
 
   const imagePath = randomItem?.backgroundImage || randomItem?.backdrop_path;
   const backgroundImage = imagePath 
@@ -11,6 +17,22 @@ const Banner = ({randomItem, matchFound, addVideo}) => {
 
   const nameTitle = randomItem?.name || randomItem?.title;
   console.log('randomItem:', randomItem);
+
+  const videoToShow = addVideo?.results.find(video => video.official) || addVideo?.[0];
+
+  const handleModalVideoClick = () => {
+    setShowModalVideo(!showModalVideo);
+  };
+  const handleModalTriggerClick = () => {
+    setShowModalTrigger(!showModalTrigger)
+  };
+
+  const stylesVideo = 'fixed inset-0 bg-opacity-25 backdrop-blur-sm flex justify-center items-center w-full h-full';
+  const stylesVideoContent = 'flex flex-col w-[90%] h-[90%] sm:w-[70%] sm:h-[70%] md:w-[60%] md:h-[60%] lg:w-[50%] lg:h-auto p-1 bg-black bg-opacity-80';
+
+  // modal triigger
+  const stylesTrigger = 'fixed inset-0 bg-opacity-25 backdrop-blur-sm flex justify-center items-center w-full h-full mt-6';
+  const stylesTriggerContent = 'flex flex-col w-[90%] h-[90%] sm:w-[70%] sm:h-[70%] md:w-[60%] md:h-[60%] lg:w-[40%] lg:h-[85%] p-1 bg-dark-neutral-a30 rounded-md';
 
   if (!randomItem) {
     return null;
@@ -55,18 +77,40 @@ const Banner = ({randomItem, matchFound, addVideo}) => {
             <div className='text-lg font-semibold '>{nameTitle}</div>
             <Link href={`/${resultType}/${matchFound.id}`}>Aqui</Link>
             {/* {randomItem?.release_date} */}
-            <iframe
+            <div>
+              <DetailsContent 
+                item={randomItem} 
+                handleModalTriggerClick={handleModalTriggerClick} handleModalVideoClick={handleModalVideoClick}
+                showModalVideo={showModalVideo} 
+                showModalTrigger={showModalTrigger}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      { addVideo && addVideo.results.length > 0 && (
+        <Modal isVisible={showModalVideo} styleContainer = {stylesVideo} styleContent= {stylesVideoContent} onClose={handleModalVideoClick}>
+          <div className='flex items-center justify-center w-full h-full'>
+            <div className='relative w-full h-0 pb-[56.25%]'>
+              <iframe
                 className='absolute top-0 left-0 w-full h-full'
-                src={`https://www.youtube.com/embed/${addVideo.key}`}
+                src={`https://www.youtube.com/embed/${videoToShow.key}`}
                 title={nameTitle}
                 allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
                 allowFullScreen
               />
+            </div>
+          </div>
+        </Modal>
+      )}
+      <Modal isVisible={showModalTrigger} styleContainer ={stylesTrigger} styleContent= {stylesTriggerContent} onClose={handleModalTriggerClick}>
+        <div className='flex items-center justify-center'>
+          <div className='relative'>
+            Hello
           </div>
         </div>
-      </div>
+      </Modal>
     </div>
-
   );
 };
 

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import Nav from '../components/Header/Nav/Nav';
 import Banner from '../components/Header/Banner/Banner';
 import ComponentList from '../components/Main/GenreList.jsx/GenreList';
@@ -83,7 +83,7 @@ export default function Home() {
             throw new Error(`HTTP error! Status: ${response.status}`);
           }
           const data = await response.json();
-          setAddVideo(data.videos.results[0]);
+          setAddVideo(data.videos);
         } catch (error) {
           setError(error.message);
         } finally {
@@ -118,11 +118,11 @@ export default function Home() {
   }
 
   return (
-    <div className='max-w-7xl mx-auto h-96'>
+    <Fragment className='max-w-7xl mx-auto h-96'>
       <Nav />
       <Banner randomItem={randomItem} addVideo={addVideo} matchFound={matchFoundResult} />
       <ComponentList list={list} matchFound={matchFoundResult} />
       <Footer />
-    </div>
+    </Fragment>
   );
 }
