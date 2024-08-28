@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-const Banner = ({randomItem, matchFound}) => {
+const Banner = ({randomItem, matchFound, addVideo}) => {
 
   const imagePath = randomItem?.backgroundImage || randomItem?.backdrop_path;
   const backgroundImage = imagePath 
@@ -25,7 +25,6 @@ const Banner = ({randomItem, matchFound}) => {
   } else {
     resultType = 'movie';
   }
-
 
   return (
     <div 
@@ -56,8 +55,14 @@ const Banner = ({randomItem, matchFound}) => {
             <div className='text-lg font-semibold '>{nameTitle}</div>
             <Link href={`/${resultType}/${matchFound.id}`}>Aqui</Link>
             {/* {randomItem?.release_date} */}
+            <iframe
+                className='absolute top-0 left-0 w-full h-full'
+                src={`https://www.youtube.com/embed/${addVideo.key}`}
+                title={nameTitle}
+                allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+                allowFullScreen
+              />
           </div>
-          
         </div>
       </div>
     </div>

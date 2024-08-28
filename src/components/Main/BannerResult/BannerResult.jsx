@@ -27,7 +27,6 @@ const BannerResult = ({ item, triggers }) => {
     setShowModalTrigger(!showModalTrigger)
   };
 
-  
   const settings = Settings;
 
   // modal epecific styles

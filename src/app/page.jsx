@@ -1,26 +1,29 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import Nav from '../components/Header/Nav/Nav';
 import Banner from '../components/Header/Banner/Banner';
-import Footer from '../components/Footer/Footer';
 import ComponentList from '../components/Main/GenreList.jsx/GenreList';
-import { useEffect, useState } from 'react';
+import Footer from '../components/Footer/Footer';
 import { getList } from '../pages/api/dataTMDBGenre';
 
 export default function Home() {
   const [list, setList] = useState([]);
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(true);
   const [randomItem, setRandomItem] = useState(null);
   const [results, setResults] = useState(null);
-  const [matchFound, setMatchFound] = useState(false);
+  const [addVideo, setAddVideo] = useState(null);
+  const [matchFoundResult, setMatchFoundResult] = useState(null);
 
+  // Load genres and select a random item
   useEffect(() => {
-    const loadAll = async () => {
+    const loadAllGenres = async () => {
       try {
         const listGenres = await getList();
         if (listGenres) {
           setList(listGenres);
-          displayRandomElement(listGenres[1]?.items.results);
+          selectRandomItem(listGenres[1]?.items.results);
         } else {
           setError('Failed to load genres.');
         }
@@ -29,14 +32,23 @@ export default function Home() {
         console.error(e);
       }
     };
-
-    loadAll();
+    loadAllGenres();
   }, []);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      if (!randomItem) return;
+  const selectRandomItem = (items) => {
+    if (items?.length) {
+      const randomIndex = Math.floor(Math.random() * items.length);
+      setRandomItem(items[randomIndex]);
+    } else {
+      console.log('No results found.');
+    }
+  };
 
+  // Fetch additional data and video for the random item
+  useEffect(() => {
+    if (!randomItem) return;
+
+    const fetchRandomItemDetails = async () => {
       try {
         const encodedTerm = encodeURIComponent(randomItem.name || randomItem.title);
         const response = await fetch(`/api/serverDataDDDQuery?query=${encodedTerm}`);
@@ -53,44 +65,63 @@ export default function Home() {
       }
     };
 
-    fetchData();
+    fetchRandomItemDetails();
   }, [randomItem]);
 
+  // Fetch video data based on matched result
   useEffect(() => {
-    if (randomItem && results && Array.isArray(results.items)) {
-      const matchFoundResult = results.items.find(item => item.tmdbId === randomItem.id);
-  
-      if (matchFoundResult) {
-        setMatchFound(matchFoundResult);
+    if (matchFoundResult) {
+      const tmdbId = matchFoundResult.tmdbId;
+      const pathChoice = matchFoundResult.itemTypeId === 15
+        ? `api/serverDataTMDBMovie?id=${tmdbId}`
+        : `api/serverDataTMDBTvShow?id=${tmdbId}`;
+
+      const fetchDataVideo = async () => {
+        try {
+          const response = await fetch(`/${pathChoice}`);
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          const data = await response.json();
+          setAddVideo(data.videos.results[0]);
+        } catch (error) {
+          setError(error.message);
+        } finally {
+          setLoading(false);
+        }
+      };
+
+      fetchDataVideo();
+    }
+  }, [matchFoundResult]);
+
+  console.log(addVideo)
+
+  // Find a matching result from the API response
+  useEffect(() => {
+    if (randomItem && results?.items?.length) {
+      const matchingItem = results.items.find(item => item.tmdbId === randomItem.id);
+      if (matchingItem) {
+        setMatchFoundResult(matchingItem);
       } else {
-        console.log('No match found for randomItem and results.');
+        console.log('No match found for randomItem in results.');
       }
     }
   }, [randomItem, results]);
 
+  if (loading) {
+    return <div className='text-black'>Loading...</div>;
+  }
 
   if (error) {
     return <div className='text-black'>Error: {error}</div>;
   }
 
-  function displayRandomElement(resultsTmdb) {
-    if (resultsTmdb && resultsTmdb.length > 0) {
-      const randomIndex = Math.floor(Math.random() * resultsTmdb.length);
-      setRandomItem(resultsTmdb[randomIndex]);
-    } else {
-      console.log('No results found.');
-    }
-  }
-
-  console.log('list:', list);
-  console.log('randomItem:', randomItem);
-  console.log('results:', results);
-
   return (
     <div className='max-w-7xl mx-auto h-96'>
       <Nav />
-      <Banner randomItem={randomItem} matchFound={matchFound} />
-      <ComponentList list={list} />
+      <Banner randomItem={randomItem} addVideo={addVideo} matchFound={matchFoundResult} />
+      <ComponentList list={list} matchFound={matchFoundResult} />
       <Footer />
     </div>
   );
