@@ -3,6 +3,7 @@ import DetailsContent from '@/components/uiComponents/DetailsContent/DetailsCont
 import Modal from '@/components/uiComponents/Modal/Modal';
 import Image from 'next/image';
 import Link from 'next/link';
+import {FaPlus} from 'react-icons/fa';
 import { useState } from 'react';
 
 const Banner = ({randomItem, matchFound, addVideo}) => {
@@ -84,7 +85,9 @@ const Banner = ({randomItem, matchFound, addVideo}) => {
                   showModalTrigger={showModalTrigger}
                 />
               </div>
-              <Link className='bg-dark-menu-y10 rounded-md hover:opacity-95 text-dark-primary-a20 mt-2 px-2 py-1' href={`/${resultType}/${matchFound.id}`}>See More</Link>
+              <Link className='flex justify-center items-center h-10 w-[30%] bg-dark-menu-y10 rounded-md hover:opacity-95 text-dark-primary-a20 mt-2 px-2 py-1' href={`/${resultType}/${matchFound.id}`}>
+                <FaPlus/>
+              </Link>
             </div>
           </div>
         </div>

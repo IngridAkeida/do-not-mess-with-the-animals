@@ -2,6 +2,7 @@ import { useState } from "react";
 import { RiAlarmWarningFill } from 'react-icons/ri';
 import { FaRegHeart, FaHeart, FaPlus, FaCheck} from 'react-icons/fa';
 import { RiPlayLargeFill } from 'react-icons/ri';
+import { MdOutlinePlaylistAdd, MdOutlinePlaylistAddCheck} from "react-icons/md";
 import GenreColors from '../GenreColors/GenreColors';
 
 const DetailsContent = ({ item, handleModalTriggerClick, handleModalVideoClick, showModalTrigger, showModalVideo }) => {
@@ -94,8 +95,8 @@ const DetailsContent = ({ item, handleModalTriggerClick, handleModalVideoClick, 
           <div className='w-12 hover:cursor-pointer' 
             onClick={handleAddClick}>
               {isAdded ? 
-                <FaCheck className={stylesButton}/> : 
-                <FaPlus className={stylesButton}/>
+                <MdOutlinePlaylistAddCheck className={stylesButton}/> : 
+                <MdOutlinePlaylistAdd className={stylesButton}/>
               }
           </div>
         </div>
