@@ -4,7 +4,7 @@ import { useAuth } from '../context/AuthContext';
 
 const withAuth = (WrappedComponent: React.ComponentType) => {
   return (props: any) => {
-    const { user, loading } = useAuth(); // Adicione o estado de carregamento
+    const { user, loading } = useAuth();
     const router = useRouter();
 
     useEffect(() => {
@@ -13,8 +13,12 @@ const withAuth = (WrappedComponent: React.ComponentType) => {
       }
     }, [user, loading, router]);
 
-    if (loading || !user) {
-      return null; // Ou um spinner/carregamento enquanto verifica a autenticação
+    if (loading) {
+      return <div>Loading...</div>; // Exibe um indicador de carregamento enquanto verifica a autenticação
+    }
+
+    if (!user) {
+      return null; // Redireciona para login, mas o useEffect acima já está lidando com isso
     }
 
     return <WrappedComponent {...props} />;

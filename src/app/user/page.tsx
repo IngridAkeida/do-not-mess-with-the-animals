@@ -13,7 +13,7 @@ import Footer from '../../components/Footer/Footer';
 import withAuth from '../../hoc/withAuth'; // Importa o HOC
 
 const User = () => {
-  const { user, updateUserProfile } = useAuth();
+  const { user, loading } = useAuth(); // Pegue o estado de loading aqui também
   const [profileImage, setProfileImage] = useState('');
   const [uploading, setUploading] = useState(false);
   const router = useRouter();
@@ -95,6 +95,10 @@ const User = () => {
       console.error('Error signing out:', error);
     }
   };
+
+  if (loading) {
+    return <div>Loading...</div>; // Mostra um indicador de carregamento enquanto o usuário está sendo carregado
+  }
 
   return (
     <div className='max-w-7xl mx-auto bg-dark-primary-a40'>

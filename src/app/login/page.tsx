@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { auth } from '../../pages/firebaseData';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
+import Nav from '../../components/Header/Nav/Nav';
 import Link from 'next/link';
 
 const Login = () => {
@@ -29,8 +30,9 @@ const Login = () => {
   };
 
   return (
-    <div className='flex items-center justify-center min-h-screen bg-custom text-dark-neutral-a40'>
-      <div className='bg-gradient-to-br from-dark-primary-a10 to-dark-menu-y10 p-8 rounded shadow-md w-80'>
+    <div className=''>
+      <Nav />
+      <div className='bg-gradient-to-br from-dark-primary-a10 to-dark-menu-y10 p-8 rounded shadow-md w-80 flex flex-col items-center justify-center min-h-screen bg-custom text-dark-neutral-a40'>
         <h2 className='text-2xl mb-4 text-center'>Login</h2>
         <form onSubmit={handleLogin}>
           <div className='mb-4'>
