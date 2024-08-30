@@ -2,16 +2,17 @@
 import { useEffect, useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { storage, firestore, auth } from '../../pages/firebaseData';
-import { ref, uploadBytes, getDownloadURL, deleteObject, listAll } from 'firebase/storage';
+import { ref, uploadBytes, getDownloadURL, deleteObject } from 'firebase/storage';
 import { doc, updateDoc } from 'firebase/firestore';
 import Image from 'next/image';
 import { v4 } from 'uuid';
+
+import Nav from '../../components/Header/Nav/Nav'
 
 const User = () => {
   const { user, updateUserProfile } = useAuth();
   const [profileImage, setProfileImage] = useState(user?.photoURL || '');
   const [uploading, setUploading] = useState(false);
-  const [imgUrls, setImgUrls] = useState<string[]>([]);
 
   const handleUpdateProfile = async () => {
     if (!user) return;
@@ -33,14 +34,24 @@ const User = () => {
     const file = e.target.files?.[0];
     if (!file) return;
 
+    const oldImageUrl = user.photoURL;
     const storageRef = ref(storage, `profileImages/${v4()}`);
     setUploading(true);
 
     try {
+      // Upload the new image
       await uploadBytes(storageRef, file);
       const downloadURL = await getDownloadURL(storageRef);
+
+      // Update the user's profile with the new image URL
       await updateUserProfile({ photoURL: downloadURL });
       await updateDoc(doc(firestore, 'users', user.uid), { photoURL: downloadURL });
+
+      // Delete the old image from Firebase Storage if it exists
+      if (oldImageUrl) {
+        const oldImageRef = ref(storage, oldImageUrl);
+        await deleteObject(oldImageRef);
+      }
 
       setProfileImage(downloadURL);
     } catch (error) {
@@ -57,9 +68,11 @@ const User = () => {
     setUploading(true);
 
     try {
+      // Delete the current image
       await deleteObject(storageRef);
       await updateUserProfile({ photoURL: null });
       await updateDoc(doc(firestore, 'users', user.uid), { photoURL: null });
+
       setProfileImage('');
     } catch (error) {
       console.error('Error removing image:', error);
@@ -69,72 +82,64 @@ const User = () => {
   };
 
   useEffect(() => {
-    const fetchImages = async () => {
-      try {
-        const res = await listAll(ref(storage, 'profileImages'));
-        const urls = await Promise.all(res.items.map(itemRef => getDownloadURL(itemRef)));
-        setImgUrls(urls);
-      } catch (error) {
-        console.error('Error fetching images:', error);
-      }
-    };
-
-    fetchImages();
-  }, []);
+    if (user?.photoURL) {
+      setProfileImage(user.photoURL);
+    }
+  }, [user]);
 
   return (
-    <div className="max-w-7xl mx-auto bg-dark-primary-a20">
-      <h1>Welcome, {user?.displayName || user?.email}!</h1>
-      <p>User since {user?.metadata.creationTime}</p>
-      <p>Last Sign In {user?.metadata.lastSignInTime}</p>
-      <div className="flex m-2">
-        <div className="w-1/6 border">
-          <div className="w-24 h-24 border rounded-full text-white">
-            {imgUrls.length > 0 ? (
-              imgUrls.map((url, index) => (
+    <div className='max-w-7xl mx-auto bg-dark-primary-a40'>
+      <Nav />
+      <div className='max-w-4xl mx-auto bg-gradient-to-br from-dark-primary-a30 to-dark-primary-a0 flex flex-col justify-center items-center'>
+        <h1>Welcome, {user?.displayName || user?.email}!</h1>
+        <p>User since {user?.metadata.creationTime}</p>
+        <p>Last Sign In {user?.metadata.lastSignInTime}</p>
+        <div className='flex m-2'>
+          <div className='w-1/6 '>
+            <div className='w-24 h-24  rounded-full text-white'>
+              {profileImage ? (
                 <Image
-                  key={index}
-                  src={url}
-                  alt="Profile"
-                  className="w-full h-full rounded-full"
+                  src={profileImage}
+                  alt='Profile'
+                  className='w-full h-full rounded-full'
                   width={1800}
                   height={1800}
-                  layout="fixed"
+                  layout='fixed'
                 />
-              ))
-            ) : (
-              <span>No Image</span>
-            )}
+              ) : (
+                <span>No Image</span>
+              )}
+            </div>
+            <label htmlFor='fileInput'>Upload Image:</label>
+            <input
+              id='fileInput'
+              type='file'
+              onChange={handleUpload}
+              disabled={uploading}
+              className='mt-2'
+            />
+            <button
+              type='button'
+              onClick={handleRemoveImage}
+              disabled={uploading || !profileImage}
+              className='mt-2'
+            >
+              Remove Image
+            </button>
+            <button type='button' onClick={handleUpdateProfile} className='mt-2'>
+              Update Profile
+            </button>
+            <button type='button' onClick={() => auth.signOut()} className='mt-2'>
+              Sign Out
+            </button>
           </div>
-          <label htmlFor="fileInput">Upload Image:</label>
-          <input
-            id="fileInput"
-            type="file"
-            onChange={handleUpload}
-            disabled={uploading}
-            className="mt-2"
-          />
-          <button
-            type="button"
-            onClick={handleRemoveImage}
-            disabled={uploading || !profileImage}
-            className="mt-2"
-          >
-            Remove Image
-          </button>
-          <button type="button" onClick={handleUpdateProfile} className="mt-2">
-            Update Profile
-          </button>
-          <button type="button" onClick={() => auth.signOut()} className="mt-2">
-            Sign Out
-          </button>
-        </div>
-        <div className="w-5/6 border">
-          <div>Your Lists</div>
-          <div>Favorites</div>
-          <div>Watchlist</div>
-          <div>Watchedlist</div>
-          <div>Blocklist</div>
+          <div className='w-5/6 '>
+            <div>Your Lists</div>
+            <div>Favorites</div>
+            <div>Watchlist</div>
+            <div>Watchedlist</div>
+            <div>Blocklist</div>
+          </div>
         </div>
       </div>
     </div>
