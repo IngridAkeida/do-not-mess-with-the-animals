@@ -91,11 +91,11 @@ const User = () => {
   return (
     <div className='max-w-7xl mx-auto bg-dark-primary-a40'>
       <Nav />
-      <div className='max-w-4xl h-auto mx-auto bg-gradient-to-br from-dark-primary-a30 via-dark-primary-a0 to-dark-primary-a20 flex flex-col justify-start items-center'>
-        <div className='flex p-6 w-full'>
-          <div className='flex flex-col w-2/6'>
+      <div className='max-w-5xl h-auto mx-auto bg-gradient-to-br from-dark-primary-a30 via-dark-primary-a0 to-dark-primary-a20 flex flex-col justify-start items-center'>
+        <div className='flex flex-col p-6 w-full gap-y-2'>
+          <div className='flex flex-col bg-black bg-opacity-20 rounded-md p-2'>
             <div className='flex'>
-              <div className='w-28 h-28 rounded-full text-white'>
+              <div className='w-28 h-28 rounded-full'>
                 {profileImage ? (
                   <Image
                     src={profileImage}
@@ -110,12 +110,15 @@ const User = () => {
                 )}
               </div>
               <div>
-                <h1 className='text-base ' >Welcome, {user?.displayName || user?.email}!</h1>
+                <h1 className='text-base'>Welcome, {user?.displayName || user?.email}!</h1>
                 {/* <p>User since {user?.metadata.creationTime}</p>
                 <p>Last Sign In {user?.metadata.lastSignInTime}</p> */}
               </div> 
             </div>
             <div>Edit Profile</div>
+            <button type='button' onClick={() => auth.signOut()} className='mt-2 text-left'>
+              Sign Out
+            </button>
             {/* <label htmlFor='fileInput'>Upload Image:</label>
             <input
               id='fileInput'
@@ -135,11 +138,9 @@ const User = () => {
             <button type='button' onClick={handleUpdateProfile} className='mt-2'>
               Update Profile
             </button> */}
-            <button type='button' onClick={() => auth.signOut()} className='mt-2'>
-              Sign Out
-            </button>
+            
           </div>
-          <div className='w-4/6 flex flex-col gap-y-2'>
+          <div className='flex flex-col gap-y-2'>
             <div className='bg-black h-40 rounded-md'>Your List</div>
             <div className='bg-black h-40 rounded-md'>Favorites</div>
             <div className='bg-black h-40 rounded-md'>Watchlist</div>
