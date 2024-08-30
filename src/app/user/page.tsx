@@ -8,6 +8,7 @@ import Image from 'next/image';
 import { v4 } from 'uuid';
 
 import Nav from '../../components/Header/Nav/Nav'
+import Footer from '../../components/Footer/Footer'
 
 const User = () => {
   const { user, updateUserProfile } = useAuth();
@@ -90,7 +91,7 @@ const User = () => {
   return (
     <div className='max-w-7xl mx-auto bg-dark-primary-a40'>
       <Nav />
-      <div className='max-w-4xl mx-auto bg-gradient-to-br from-dark-primary-a30 to-dark-primary-a0 flex flex-col justify-center items-center'>
+      <div className='max-w-4xl h-lvh  max-h-screen mx-auto bg-gradient-to-br from-dark-primary-a30 via-dark-primary-a0 to-dark-primary-a20 flex flex-col justify-start items-center'>
         <h1>Welcome, {user?.displayName || user?.email}!</h1>
         <p>User since {user?.metadata.creationTime}</p>
         <p>Last Sign In {user?.metadata.lastSignInTime}</p>
@@ -142,6 +143,7 @@ const User = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
