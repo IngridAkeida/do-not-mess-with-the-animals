@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     return () => unsubscribe();
   }, []);
 
-  const updateUserProfile = async (profileData: { displayName?: string; photoURL?: string }) => {
+  const updateUserProfile = async (profileData: { displayName?: string; photoURL?: string | null }) => {
     if (user) {
       try {
         await firebaseUpdateProfile(user, profileData);
