@@ -10,7 +10,7 @@ import { v4 } from 'uuid';
 
 import Nav from '../../components/Header/Nav/Nav';
 import Footer from '../../components/Footer/Footer';
-import withAuth from '../../hoc/withAuth';
+import withAuth from '../../hoc/withAuth'; // Importa o HOC
 
 const User = () => {
   const { user, updateUserProfile } = useAuth();
@@ -29,7 +29,7 @@ const User = () => {
 
     try {
       await updateUserProfile({
-        displayName: 'New Name',
+        displayName: user.displayName,
         photoURL: profileImage,
       });
       console.log('Profile updated successfully!');
@@ -108,9 +108,9 @@ const User = () => {
                   <Image
                     src={profileImage}
                     alt='Profile'
-                    className='w-full h-full rounded-full'
-                    width={1800}
-                    height={1800}
+                    className='w-full h-full rounded-md'
+                    width={300}
+                    height={300}
                     layout='fixed'
                   />
                 ) : (
@@ -161,4 +161,4 @@ const User = () => {
   );
 };
 
-export default withAuth(User); 
+export default withAuth(User);

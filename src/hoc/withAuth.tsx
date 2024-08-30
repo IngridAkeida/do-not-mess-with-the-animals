@@ -3,18 +3,17 @@ import { useRouter } from 'next/navigation';
 import { useAuth } from '../context/AuthContext';
 
 const withAuth = (WrappedComponent: React.ComponentType) => {
-  const displayName = `withAuth(${WrappedComponent.displayName || WrappedComponent.name || 'Component'})`;
   return (props: any) => {
-    const { user } = useAuth();
+    const { user, loading } = useAuth(); // Adicione o estado de carregamento
     const router = useRouter();
 
     useEffect(() => {
-      if (!user) {
+      if (!loading && !user) {
         router.push('/login'); // Redireciona para a página de login se não estiver autenticado
       }
-    }, [user, router]);
+    }, [user, loading, router]);
 
-    if (!user) {
+    if (loading || !user) {
       return null; // Ou um spinner/carregamento enquanto verifica a autenticação
     }
 
