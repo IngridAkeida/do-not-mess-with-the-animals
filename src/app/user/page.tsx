@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { useAuth } from '../../context/AuthContext';
 import { storage, firestore, auth } from '../../pages/firebaseData';
 import { ref, uploadBytes, getDownloadURL, deleteObject } from 'firebase/storage';
@@ -7,20 +8,28 @@ import { doc, updateDoc } from 'firebase/firestore';
 import Image from 'next/image';
 import { v4 } from 'uuid';
 
-import Nav from '../../components/Header/Nav/Nav'
-import Footer from '../../components/Footer/Footer'
+import Nav from '../../components/Header/Nav/Nav';
+import Footer from '../../components/Footer/Footer';
+import withAuth from '../../hoc/withAuth';
 
 const User = () => {
   const { user, updateUserProfile } = useAuth();
-  const [profileImage, setProfileImage] = useState(user?.photoURL || '');
+  const [profileImage, setProfileImage] = useState('');
   const [uploading, setUploading] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (user && user.photoURL) {
+      setProfileImage(user.photoURL);
+    }
+  }, [user]);
 
   const handleUpdateProfile = async () => {
     if (!user) return;
 
     try {
       await updateUserProfile({
-        displayName: 'Ingrid Sanches',
+        displayName: 'New Name',
         photoURL: profileImage,
       });
       console.log('Profile updated successfully!');
@@ -40,15 +49,12 @@ const User = () => {
     setUploading(true);
 
     try {
-      // Upload the new image
       await uploadBytes(storageRef, file);
       const downloadURL = await getDownloadURL(storageRef);
 
-      // Update the user's profile with the new image URL
       await updateUserProfile({ photoURL: downloadURL });
       await updateDoc(doc(firestore, 'users', user.uid), { photoURL: downloadURL });
 
-      // Delete the old image from Firebase Storage if it exists
       if (oldImageUrl) {
         const oldImageRef = ref(storage, oldImageUrl);
         await deleteObject(oldImageRef);
@@ -69,7 +75,6 @@ const User = () => {
     setUploading(true);
 
     try {
-      // Delete the current image
       await deleteObject(storageRef);
       await updateUserProfile({ photoURL: null });
       await updateDoc(doc(firestore, 'users', user.uid), { photoURL: null });
@@ -82,11 +87,14 @@ const User = () => {
     }
   };
 
-  useEffect(() => {
-    if (user?.photoURL) {
-      setProfileImage(user.photoURL);
+  const handleSignOut = async () => {
+    try {
+      await auth.signOut();
+      router.push('/'); // Redireciona para a página inicial após o logout
+    } catch (error) {
+      console.error('Error signing out:', error);
     }
-  }, [user]);
+  };
 
   return (
     <div className='max-w-7xl mx-auto bg-dark-primary-a40'>
@@ -109,17 +117,17 @@ const User = () => {
                   <span>No Image</span>
                 )}
               </div>
-              <div>
+              <div className='ml-4'>
                 <h1 className='text-base'>Welcome, {user?.displayName || user?.email}!</h1>
                 {/* <p>User since {user?.metadata.creationTime}</p>
                 <p>Last Sign In {user?.metadata.lastSignInTime}</p> */}
-              </div> 
+              </div>
             </div>
             <div>Edit Profile</div>
-            <button type='button' onClick={() => auth.signOut()} className='mt-2 text-left'>
+            <button type='button' onClick={handleSignOut} className='mt-2 text-left'>
               Sign Out
             </button>
-            {/* <label htmlFor='fileInput'>Upload Image:</label>
+            <label htmlFor='fileInput'>Upload Image:</label>
             <input
               id='fileInput'
               type='file'
@@ -137,8 +145,7 @@ const User = () => {
             </button>
             <button type='button' onClick={handleUpdateProfile} className='mt-2'>
               Update Profile
-            </button> */}
-            
+            </button>
           </div>
           <div className='flex flex-col gap-y-2'>
             <div className='bg-black h-40 rounded-md'>Your List</div>
@@ -154,4 +161,4 @@ const User = () => {
   );
 };
 
-export default User;
+export default withAuth(User); 
