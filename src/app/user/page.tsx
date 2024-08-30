@@ -95,7 +95,7 @@ const User = () => {
         <div className='flex flex-col p-6 w-full gap-y-2'>
           <div className='flex flex-col bg-black bg-opacity-20 rounded-md p-2'>
             <div className='flex'>
-              <div className='w-28 h-28 rounded-full'>
+              <div className='w-28 h-28 rounded-md'>
                 {profileImage ? (
                   <Image
                     src={profileImage}
