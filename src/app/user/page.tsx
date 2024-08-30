@@ -91,27 +91,32 @@ const User = () => {
   return (
     <div className='max-w-7xl mx-auto bg-dark-primary-a40'>
       <Nav />
-      <div className='max-w-4xl h-lvh  max-h-screen mx-auto bg-gradient-to-br from-dark-primary-a30 via-dark-primary-a0 to-dark-primary-a20 flex flex-col justify-start items-center'>
-        <h1>Welcome, {user?.displayName || user?.email}!</h1>
-        <p>User since {user?.metadata.creationTime}</p>
-        <p>Last Sign In {user?.metadata.lastSignInTime}</p>
-        <div className='flex m-2'>
-          <div className='w-1/6 '>
-            <div className='w-24 h-24  rounded-full text-white'>
-              {profileImage ? (
-                <Image
-                  src={profileImage}
-                  alt='Profile'
-                  className='w-full h-full rounded-full'
-                  width={1800}
-                  height={1800}
-                  layout='fixed'
-                />
-              ) : (
-                <span>No Image</span>
-              )}
+      <div className='max-w-4xl h-auto mx-auto bg-gradient-to-br from-dark-primary-a30 via-dark-primary-a0 to-dark-primary-a20 flex flex-col justify-start items-center'>
+        <div className='flex p-6 w-full'>
+          <div className='flex flex-col w-2/6'>
+            <div className='flex'>
+              <div className='w-28 h-28 rounded-full text-white'>
+                {profileImage ? (
+                  <Image
+                    src={profileImage}
+                    alt='Profile'
+                    className='w-full h-full rounded-full'
+                    width={1800}
+                    height={1800}
+                    layout='fixed'
+                  />
+                ) : (
+                  <span>No Image</span>
+                )}
+              </div>
+              <div>
+                <h1 className='text-base ' >Welcome, {user?.displayName || user?.email}!</h1>
+                {/* <p>User since {user?.metadata.creationTime}</p>
+                <p>Last Sign In {user?.metadata.lastSignInTime}</p> */}
+              </div> 
             </div>
-            <label htmlFor='fileInput'>Upload Image:</label>
+            <div>Edit Profile</div>
+            {/* <label htmlFor='fileInput'>Upload Image:</label>
             <input
               id='fileInput'
               type='file'
@@ -129,17 +134,17 @@ const User = () => {
             </button>
             <button type='button' onClick={handleUpdateProfile} className='mt-2'>
               Update Profile
-            </button>
+            </button> */}
             <button type='button' onClick={() => auth.signOut()} className='mt-2'>
               Sign Out
             </button>
           </div>
-          <div className='w-5/6 '>
-            <div>Your Lists</div>
-            <div>Favorites</div>
-            <div>Watchlist</div>
-            <div>Watchedlist</div>
-            <div>Blocklist</div>
+          <div className='w-4/6 flex flex-col gap-y-2'>
+            <div className='bg-black h-40 rounded-md'>Your List</div>
+            <div className='bg-black h-40 rounded-md'>Favorites</div>
+            <div className='bg-black h-40 rounded-md'>Watchlist</div>
+            <div className='bg-black h-40 rounded-md'>Watchedlist</div>
+            <div className='bg-black h-40 rounded-md'>Blocklist</div>
           </div>
         </div>
       </div>
