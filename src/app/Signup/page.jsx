@@ -92,8 +92,6 @@ const SignUp = () => {
               Sign Up
             </button>
           </form>
-          <div className='mt-4 text-center'>
-          </div>
           <div className='flex text-sm gap-2 justify-center mt-1'>
             <p className='text-white'> Already have an account?</p>
             <Link href='/login'>

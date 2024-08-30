@@ -71,7 +71,6 @@ const Login = () => {
             <button type='button' className='text-white font-semibold hover:text-dark-menu-y10'>Create your account now!</button>
           </Link>
           </div>
-          
         </div>
       </div>
     </div>
