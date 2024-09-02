@@ -38,31 +38,6 @@ const getList = async () => [
     slug: 'toprated',
     title: 'Toprated',
     items: await listFetch(`movie/top_rated`),
-  },
-  {
-    slug: 'action',
-    title: 'Action',
-    items: await listFetch(`discover/movie?with_genres=28`),
-  },
-  {
-    slug: 'comedy',
-    title: 'Comedy',
-    items: await listFetch(`discover/movie?with_genres=35`),
-  },
-  {
-    slug: 'horror',
-    title: 'Horror',
-    items: await listFetch(`discover/movie?with_genres=27`),
-  },
-  {
-    slug: 'romance',
-    title: 'Romance',
-    items: await listFetch(`discover/movie?with_genres=10749`),
-  },
-  {
-    slug: 'scifi',
-    title: 'Sci-Fi & Fantasy',
-    items: await listFetch(`discover/tv?with_genres=10765`),
   }
 ];
 
