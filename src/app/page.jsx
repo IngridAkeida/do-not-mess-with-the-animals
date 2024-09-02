@@ -23,7 +23,7 @@ export default function Home() {
         const listGenres = await getList();
         if (listGenres) {
           setList(listGenres);
-          selectRandomItem(listGenres[1]?.items.results);
+          selectRandomItem(listGenres[2]?.items.results);
         } else {
           setError('Failed to load genres.');
         }

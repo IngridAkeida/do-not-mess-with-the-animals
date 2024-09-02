@@ -30,15 +30,25 @@ export default async function handler(req, res) {
 
 const getList = async () => [
   {
-    slug: 'trending',
-    title: 'Trending',
-    items: await listFetch(`trending/all/week`),
+    slug: 'trending-movies',
+    title: 'Trending Movies',
+    items: await listFetch(`trending/movie/week`),
   },
   {
-    slug: 'toprated',
-    title: 'Toprated',
+    slug: 'trending-tv',
+    title: 'Trending TV Shows',
+    items: await listFetch(`trending/tv/week`),
+  },
+  {
+    slug: 'toprated-movies',
+    title: 'Top Rated Movies',
     items: await listFetch(`movie/top_rated`),
-  }
+  },
+  {
+    slug: 'toprated-tv',
+    title: 'Top Rated TV Shows',
+    items: await listFetch(`tv/top_rated`),
+  },
 ];
 
 export { getList };
