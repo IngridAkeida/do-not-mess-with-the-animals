@@ -16,7 +16,6 @@ export default function Home() {
   const [addVideo, setAddVideo] = useState(null);
   const [matchFoundResult, setMatchFoundResult] = useState(null);
 
-  // Load genres and select a random item
   useEffect(() => {
     const loadAllGenres = async () => {
       try {
