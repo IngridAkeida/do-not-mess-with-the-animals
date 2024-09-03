@@ -29,8 +29,6 @@ const SearchPage = () => {
         if (!ids || ids.length === 0) {
           throw new Error('ID not found in the first API response');
         }
-
-        // Use Promise.all to fetch all data in parallel
         const resultsIds = await Promise.all(
           ids.map(async id => {
             const response2 = await fetch(`/api/serverDataDDDId?id=${id}`);
