@@ -70,7 +70,7 @@ const GenresMovie = () => {
   };
 
   return (
-    <div className='max-w-7xl mx-auto bg-gradient-to-br from-dark-primary-a40 via-dark-primary-a20 to-dark-primary-a30 '>
+    <div className='max-w-7xl mx-auto bg-gradient-to-br from-dark-primary-a40 via-dark-primary-a20 to-dark-primary-a30'>
       <Nav />
       <div className='flex flex-wrap flex-row gap-4 justify-center items-center my-4 pb-4'>
         {list.map((genre, index) => (
