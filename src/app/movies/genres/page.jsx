@@ -7,8 +7,8 @@ import { FaTheaterMasks, FaRobot, FaSkull, FaLaugh, FaHeart, FaDragon, FaTv, FaM
 import { GiWesternHat, GiFamilyHouse, GiSwordman, GiWarAxe } from 'react-icons/gi';
 import { MdAnimation } from 'react-icons/md';
 import { IoIosRocket } from 'react-icons/io';
-import { RiPoliceCarFill } from "react-icons/ri";
-import { FaSurprise } from "react-icons/fa";
+import { RiPoliceCarFill } from 'react-icons/ri';
+import { FaSurprise } from 'react-icons/fa';
 import Link from 'next/link';
 
 const GenresMovie = () => {
@@ -45,42 +45,42 @@ const GenresMovie = () => {
 
   const getGenreIcon = (slug) => {
     const icons = {
-      'action': <GiSwordman className="h-20 w-20 text-white" />,
-      'adventure': <IoIosRocket className="h-20 w-20 text-white" />,
-      'animation':  <MdAnimation className="h-20 w-20 text-white" />,
-      'comedy': <FaLaugh className="h-20 w-20 text-white" />,
-      'crime': <RiPoliceCarFill className="h-20 w-20 text-white" />,
-      'documentary': <FaTv className="h-20 w-20 text-white" />,
-      'drama': <FaTheaterMasks className="h-20 w-20 text-white" />,
-      'family': <GiFamilyHouse className="h-20 w-20 text-white" />,
-      'fantasy': <FaDragon className="h-20 w-20 text-white" />,
-      'history': <FaHistory className="h-20 w-20 text-white" />,
-      'horror': <FaSkull className="h-20 w-20 text-white" />,
-      'music': <FaMusic className="h-20 w-20 text-white" />,
-      'mystery': <GiWesternHat className="h-20 w-20 text-white" />,
-      'romance': <FaHeart className="h-20 w-20 text-white" />,
-      'scifi': <FaRobot className="h-20 w-20 text-white" />,
-      'tv-movie': <FaTv className="h-20 w-20 text-white" />,
-      'thriller': <FaSurprise  className="h-20 w-20 text-white" />,
-      'war': <GiWarAxe className="h-20 w-20 text-white" />,
-      'western': <GiWesternHat className="h-20 w-20 text-white" />,
+      'action': <GiSwordman className='h-20 w-20' />,
+      'adventure': <IoIosRocket className='h-20 w-20' />,
+      'animation':  <MdAnimation className='h-20 w-20' />,
+      'comedy': <FaLaugh className='h-20 w-20' />,
+      'crime': <RiPoliceCarFill className='h-20 w-20' />,
+      'documentary': <FaTv className='h-20 w-20' />,
+      'drama': <FaTheaterMasks className='h-20 w-20' />,
+      'family': <GiFamilyHouse className='h-20 w-20' />,
+      'fantasy': <FaDragon className='h-20 w-20' />,
+      'history': <FaHistory className='h-20 w-20' />,
+      'horror': <FaSkull className='h-20 w-20' />,
+      'music': <FaMusic className='h-20 w-20' />,
+      'mystery': <GiWesternHat className='h-20 w-20' />,
+      'romance': <FaHeart className='h-20 w-20' />,
+      'scifi': <FaRobot className='h-20 w-20' />,
+      'tv-movie': <FaTv className='h-20 w-20' />,
+      'thriller': <FaSurprise  className='h-20 w-20' />,
+      'war': <GiWarAxe className='h-20 w-20' />,
+      'western': <GiWesternHat className='h-20 w-20' />,
     };
 
-    return icons[slug] || <MdTheaters className="h-20 w-20 text-white" />;
+    return icons[slug] || <MdTheaters className='h-20 w-20' />;
   };
 
   return (
-    <div className='max-w-7xl mx-auto bg-gradient-to-br from-dark-primary-a40 via-dark-primary-a20 to-dark-primary-a30'>
+    <div className='max-w-7xl mx-auto bg-gradient-to-br from-dark-primary-a40 via-dark-primary-a20 to-dark-primary-a30 '>
       <Nav />
-      <div className='flex flex-wrap flex-row gap-4 justify-center items-center my-4'>
+      <div className='flex flex-wrap flex-row gap-4 justify-center items-center my-4 pb-4'>
         {list.map((genre, index) => (
           <div key={index} className=''>
           <Link href={`/movies/genres/genre/${genre.slug}`} passHref> 
             <div 
-              className='h-80 w-52 border rounded-md flex flex-col items-center justify-center bg-dark-accent-a40 hover:bg-dark-accent-a30  transition duration-300 cursor-pointer'
+              className='h-80 w-52 border rounded-md flex flex-col items-center justify-center bg-dark-accent-a40 hover:bg-dark-accent-a30 transition duration-300 cursor-pointer text-white hover:text-dark-accent-a0 hover:animate-jump animate-once animate-duration-1000 animate-ease-in-out' 
             >
               {getGenreIcon(genre.slug)}
-              <div className='text-white text-center mt-4'>
+              <div className='text-center mt-4'>
                 {genre.title}
               </div>
             </div>
