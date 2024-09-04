@@ -97,10 +97,11 @@ const BannerResult = ({ item, triggers }) => {
                             <Image
                               className='rounded-md h-44 w-auto'
                               src={cast.profile_path
-                                ? `https://image.tmdb.org/t/p/w500/${cast.profile_path}`
+                                ? `https://image.tmdb.org/t/p/w500${cast.profile_path}`
                                 : '/assets/default-user.png'}
-                              width={200}
-                              height={200}
+                              width={500}
+                              height={750}
+                              priority={true}
                               alt={cast.name}
                             />
                           </div>
@@ -121,11 +122,12 @@ const BannerResult = ({ item, triggers }) => {
                             <Image
                               className='rounded-md h-44 w-auto'
                               src={crew.profile_path
-                                ? `https://image.tmdb.org/t/p/w500/${crew.profile_path}`
+                                ? `https://image.tmdb.org/t/p/w500${crew.profile_path}`
                                 : '/assets/default-user.png'}
-                              width={200}
-                              height={200}
-                              alt={crew.name}
+                                width={500}
+                                height={750}
+                                priority={true}
+                                alt={crew.name}
                             />
                           </div>
                           <div className='max-w-28 flex flex-col justify-center items-center text-center'>

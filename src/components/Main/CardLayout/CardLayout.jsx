@@ -60,13 +60,17 @@ const CardLayout = ({result}) => {
       <div className='flex sm:hidden'>{result.backgroundImage === null ? (
             <Image className='rounded-xl' src='/assets/movie-nf-hor.png' width={300} height={300} alt={result.name} />
           ) : (
-            <Image className='rounded-xl' src={`https://www.doesthedogdie.com/content/200/0/${result.backgroundImage}`} width={300} height={300} alt={result.name} />
+            <Image className='rounded-xl' src={`https://image.tmdb.org/t/p/w500${result.backgroundImage}`} width={500}
+                              height={750}
+                              priority={true} alt={result.name} />
           )}
         </div>
       <div className='hidden sm:flex h-[100%]'>{result.posterImage=== null ? (
           <Image className='rounded-xl' src='/assets/movie-nf.png' width={500} height={500} alt={result.name} />
         ) : (
-          <Image className='rounded-xl' src={`https://www.doesthedogdie.com/content/200/0/${result.posterImage}`} width={500} height={500} alt={result.name} />
+          <Image className='rounded-xl' src={`https://image.tmdb.org/t/p/w500${result.posterImage}`} width={500}
+                              height={750}
+                              priority={true} alt={result.name} />
         )}
       </div>
     </li>

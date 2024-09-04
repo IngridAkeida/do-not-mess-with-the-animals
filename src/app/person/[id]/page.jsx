@@ -54,8 +54,9 @@ const PersonPage = () => {
           <Image 
             src={`https://image.tmdb.org/t/p/w500${person.profile_path}`} 
             alt={person.name} 
-            width={200} 
-            height={300} 
+            width={500}
+                              height={750}
+                              priority={true}
           />
         </div>
       

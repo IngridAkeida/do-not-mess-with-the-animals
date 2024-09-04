@@ -50,7 +50,9 @@ const PeoplePage = () => {
                 <Link href={`/person/${person.id}`}>
                   <div>
                     <h2>{person.name}</h2>
-                    <Image src={`https://image.tmdb.org/t/p/w500${person.profile_path}`} alt={person.name} width={200} height={300} />
+                    <Image src={`https://image.tmdb.org/t/p/w500${person.profile_path}`} alt={person.name} width={500}
+                              height={750}
+                              priority={true} />
                     <p className='flex text-xs'>{person.known_for.map((content) => content.title || content.name).join(', ')}</p>
                   </div>
                 </Link>

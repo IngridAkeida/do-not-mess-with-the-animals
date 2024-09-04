@@ -69,13 +69,17 @@ const GenreContentCard = ({ genreData }) => {
                 <div className='flex sm:hidden'>{content.backdrop_path === null ? (
                       <Image className='rounded-xl' src='/assets/content-nf-hor.png' width={300} height={300} alt={content.name || content.title} />
                     ) : (
-                      <Image className='rounded-xl' src={`https://www.doesthedogdie.com/content/200/0/${content.backdrop_path}`} width={300} height={300} alt={content.name || content.title} />
+                      <Image className='rounded-xl' src={`https://image.tmdb.org/t/p/w500${content.backdrop_path}`} width={500}
+                              height={750}
+                              priority={true} alt={content.name || content.title} />
                     )}
                 </div>
                 <div className='hidden sm:flex h-[100%]'>{content.poster_path === null ? (
                     <Image className='rounded-xl' src='/assets/content-nf.png' width={500} height={500} alt={content.name || content.title} />
                   ) : (
-                    <Image className='rounded-xl' src={`https://www.doesthedogdie.com/content/200/0/${content.poster_path}`} width={500} height={500} alt={content.name || content.title} />
+                    <Image className='rounded-xl' src={`https://image.tmdb.org/t/p/w500${content.poster_path}`} width={500}
+                              height={750}
+                              priority={true} alt={content.name || content.title} />
                   )}
                 </div>
                 </div>
