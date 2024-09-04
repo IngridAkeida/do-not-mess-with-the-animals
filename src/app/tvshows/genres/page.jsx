@@ -1,6 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { getListMovie } from '../../../pages/api/dataTMDBGenreMovie';
+import { getListTvShow } from '../../../pages/api/dataTMDBGenreTvShow';
 import Nav from '@/components/Header/Nav/Nav';
 import Link from 'next/link';
 import GenreIcon from '@/components/uiComponents/GenreIcon/GenreIcon';
@@ -13,7 +13,7 @@ const GenresMovie = () => {
   useEffect(() => {
     const loadAllGenres = async () => {
       try {
-        const listGenres = await getListMovie();
+        const listGenres = await getListTvShow();
         if (listGenres) {
           setList(listGenres);
         } else {
@@ -45,7 +45,7 @@ const GenresMovie = () => {
       <div className='flex flex-wrap flex-row gap-4 justify-center items-center my-4 pb-4'>
         {list.map((genre, index) => (
           <div key={index} className=''>
-          <Link href={`/movies/genres/genre/${genre.slug}`} passHref> 
+          <Link href={`/tvshow/genres/genre/${genre.slug}`} passHref> 
             <div 
               className='h-80 w-52 border rounded-md flex flex-col items-center justify-center bg-dark-accent-a40 hover:bg-dark-accent-a30 transition duration-300 cursor-pointer text-white hover:text-dark-accent-a0 hover:animate-jump animate-once animate-duration-1000 animate-ease-in-out' 
             >
