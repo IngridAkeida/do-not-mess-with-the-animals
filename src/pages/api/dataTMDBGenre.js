@@ -1,8 +1,8 @@
 const API_TOKEN = process.env.NEXT_PUBLIC_TMDB_API_TOKEN;
 
-const listFetch = async (keyPass) => {
+const listFetch = async (keyPass, page = 1) => {
   try {
-    const response = await fetch(`https://api.themoviedb.org/3/${keyPass}`, {
+    const response = await fetch(`https://api.themoviedb.org/3/${keyPass}page=${page}`, {
       headers: {
         Authorization: `Bearer ${API_TOKEN}`
       }
@@ -32,22 +32,22 @@ const getList = async () => [
   {
     slug: 'trending-movies',
     title: 'Trending Movies',
-    items: await listFetch(`trending/movie/week`),
+    items: await listFetch(`trending/movie/week`, page),
   },
   {
     slug: 'trending-tv',
     title: 'Trending TV Shows',
-    items: await listFetch(`trending/tv/week`),
+    items: await listFetch(`trending/tv/week`, page),
   },
   {
     slug: 'toprated-movies',
     title: 'Top Rated Movies',
-    items: await listFetch(`movie/top_rated`),
+    items: await listFetch(`movie/top_rated`, page),
   },
   {
     slug: 'toprated-tv',
     title: 'Top Rated TV Shows',
-    items: await listFetch(`tv/top_rated`),
+    items: await listFetch(`tv/top_rated`, page),
   },
 ];
 

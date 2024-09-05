@@ -1,17 +1,18 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getListTvShow } from '../../../pages/api/dataTMDBGenreTvShow';
 import Nav from '@/components/Header/Nav/Nav';
 import GenreIcon from '@/components/uiComponents/GenreIcon/GenreIcon';
 import GenreMenu from '@/components/Main/GenresMenu/GenreMenu';
 
-const GenresMovie = () => {
+const GenresTVShow = () => {
   const [list, setList] = useState([]);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadAllGenres = async () => {
+      setLoading(true);
       try {
         const listGenres = await getListTvShow();
         if (listGenres) {
@@ -48,4 +49,4 @@ const GenresMovie = () => {
   );
 };
 
-export default GenresMovie;
+export default GenresTVShow;
