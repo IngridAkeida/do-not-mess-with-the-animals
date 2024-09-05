@@ -62,10 +62,7 @@ const GenreMovie = () => {
   if (error) {
     return <div className='text-white'>Error: {error}</div>;
   }
-  
-  console.log('genreData', genreData);
-  console.log('currentPage', currentPage);
-  console.log('totalPages', totalPages);
+  console.log(genreData);
   return (
     <div className='max-w-7xl mx-auto bg-gradient-to-br from-dark-primary-a40 via-dark-primary-a20 to-dark-primary-a30'>
       <Nav />
