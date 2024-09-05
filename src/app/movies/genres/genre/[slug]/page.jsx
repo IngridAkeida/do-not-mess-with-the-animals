@@ -1,24 +1,38 @@
 'use client';
 import { useParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { getListMovie } from '../../../../../pages/api/dataTMDBGenreMovie';
 import Nav from '@/components/Header/Nav/Nav';
 import GenreContentCard from '@/components/Main/GenresMenu/GenreContentCard/GenreContentCard';
+import PageButton from '@/components/Main/GenresMenu/PageButton/PageButton';
 
 const GenreMovie = () => {
   const { slug } = useParams();
+  const router = useRouter();
   const [genreData, setGenreData] = useState(null);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1); 
+  const [totalPages, setTotalPages] = useState(1); 
   
   
   useEffect(() => {
-    if(!slug) return;
+    if (!slug) return;
+    
     const loadAllGenres = async () => {
       try {
-        const listGenre = await getListMovie();
+        setLoading(true);
+        const listGenre = await getListMovie(currentPage);
+        
         if (listGenre) {
-          setGenreData(listGenre.find(item => item.slug === slug));
+          const genre = listGenre.find(item => item.slug === slug);
+          setGenreData(genre);
+          if (genre.items.total_pages >= 500) {
+            setTotalPages(500);
+          } else {
+            setTotalPages(genre.items.total_pages);
+          }
         } else {
           setError('Failed to load genres.');
         }
@@ -29,8 +43,13 @@ const GenreMovie = () => {
         setLoading(false);
       }
     };
+    
     loadAllGenres();
-  }, [slug]);
+  }, [slug, currentPage]);
+
+  useEffect(() => {
+    router.push(`?page=${currentPage}`);
+  }, [currentPage, slug, router]);
 
   if (!genreData) {
     return <div className='text-white'>Loading genre data...</div>;
@@ -43,17 +62,15 @@ const GenreMovie = () => {
   if (error) {
     return <div className='text-white'>Error: {error}</div>;
   }
-
   
-
-  
-
-  console.log(genreData)
-
+  console.log('genreData', genreData);
+  console.log('currentPage', currentPage);
+  console.log('totalPages', totalPages);
   return (
     <div className='max-w-7xl mx-auto bg-gradient-to-br from-dark-primary-a40 via-dark-primary-a20 to-dark-primary-a30'>
       <Nav />
-      <GenreContentCard genreData={genreData}/>
+      <GenreContentCard genreData={genreData} />
+      <PageButton currentPage={currentPage} totalPages={totalPages} setCurrentPage={setCurrentPage} />
     </div>
   );
 };
