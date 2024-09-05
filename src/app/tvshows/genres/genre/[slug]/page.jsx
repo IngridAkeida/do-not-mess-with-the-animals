@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { getListTvShow } from '@/pages/api/dataTMDBGenreTvShow';
 import Nav from '@/components/Header/Nav/Nav';
 import GenreContentCard from '@/components/Main/GenresMenu/GenreContentCard/GenreContentCard';
+import PageButton from '@/components/Main/GenresMenu/PageButton/PageButton';
 
 const GenreTVShow = () => {
   const { slug } = useParams();
@@ -57,69 +58,13 @@ const GenreTVShow = () => {
     return <div className='text-white'>Error: {error}</div>;
   }
 
-  const handleNextPage = () => {
-    if (currentPage < totalPages) {
-      setCurrentPage(prevPage => prevPage + 1);
-    }
-  };
-
-  const handlePreviousPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage(prevPage => prevPage - 1);
-    }
-  };
-
-  const handleFirstPage = () => {
-    setCurrentPage(1);
-  };
-
-  const handleLastPage = () => {
-    setCurrentPage(totalPages);
-  };
-
 
   return (
     <div className='max-w-7xl mx-auto bg-gradient-to-br from-dark-primary-a40 via-dark-primary-a20 to-dark-primary-a30'>
       <Nav />
       <GenreContentCard genreData={genreData}/>
-      <div className='flex justify-between mt-4 items-center'>
-        <button
-          className='text-white bg-gray-700 p-2 rounded'
-          onClick={handleFirstPage}
-          disabled={currentPage === 1}
-        >
-          Primeira Página
-        </button>
+      <PageButton currentPage={currentPage} totalPages={totalPages} setCurrentPage={setCurrentPage}/>
 
-        <button
-          className='text-white bg-gray-700 p-2 rounded'
-          onClick={handlePreviousPage}
-          disabled={currentPage === 1}
-        >
-          Página Anterior
-        </button>
-
-        {/* Contador de páginas */}
-        <span className='text-white'>
-          Página {currentPage} de {totalPages}
-        </span>
-
-        <button
-          className='text-white bg-gray-700 p-2 rounded'
-          onClick={handleNextPage}
-          disabled={currentPage === totalPages}
-        >
-          Próxima Página
-        </button>
-
-        <button
-          className='text-white bg-gray-700 p-2 rounded'
-          onClick={handleLastPage}
-          disabled={currentPage === totalPages}
-        >
-          Última Página
-        </button>
-      </div>
     </div>
   );
 };
