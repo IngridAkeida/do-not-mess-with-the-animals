@@ -45,7 +45,7 @@ const List = ({list}) => {
             </Slider>
           </ul>
         ))} */}
-        <div className='bg-gradient-to-br from-dark-primary-a40 via-dark-primary-a20 to-dark-primary-a30'>
+        <div className='bg-gradient-to-br from-dark-primary-a40 via-dark-primary-a30 to-dark-primary-a40'>
           <div className="relative">
             <div className="absolute top-2 right-2">
               <label className="inline-flex items-center cursor-pointer">
@@ -64,7 +64,7 @@ const List = ({list}) => {
               </label>
             </div>
             <div key={navigationInfo[toggle ? 1 : 0].name}>
-              <h1 className="text-center text-2xl mb-4 text-white">
+              <h1 className="text-center text-2xl mb-4 text-white font-semibold">
                 {navigationInfo[toggle ? 1 : 0].name}
               </h1>
               <div className="flex flex-wrap flex-row gap-4 justify-center items-center my-4 pb-4">
@@ -79,10 +79,12 @@ const List = ({list}) => {
               </div>
             </div>
           </div>
-          <div>
+        </div>
+        <div>
+        <div className='bg-gradient-to-br from-dark-primary-a40 via-dark-primary-a30 to-dark-primary-a40'>
           {navigationInfo.slice(2).map((item) => (
             <div key={item.name}>
-              <h1>{item.name}</h1>
+            <h1 className="text-center text-2xl mb-4 text-white font-semibold">{item.name}</h1>
               <div className='flex flex-wrap flex-row gap-4 justify-center items-center my-4 pb-4'>
                 {item.subMenu.map((subItem) => (
                 <Link key={subItem.name} href={subItem.href} passHref> 
@@ -100,10 +102,10 @@ const List = ({list}) => {
             </div>
           ))}
           </div>
-          <div>
+        </div>
+        <div>
             <GuardianNews />
           </div>
-        </div>
     </div>
   );
 }
