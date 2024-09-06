@@ -10,18 +10,43 @@ const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confPassword, setConfPassword] = useState('');
+  const [error, setError] = useState('');
 
   const handleNameChange = (e) => setName(e.target.value);
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
   const handleConfirmPasswordChange = (e) => setConfPassword(e.target.value);
 
+  const validateEmail = (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  };
+
+  const validatePassword = (password) => {
+    const hasUpperCase = /[A-Z]/.test(password);
+    const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
+    return hasUpperCase && hasSpecialChar;
+  };
+
   const handleSignup = (e) => {
     e.preventDefault();
-    if (password !== confPassword) {
-      console.error('As senhas não coincidem');
+
+    if (!validateEmail(email)) {
+      setError('Invalid email. Check email format.');
       return;
     }
+
+    if (password !== confPassword) {
+      setError('Passwords do not match.');
+      return;
+    }
+
+    if (!validatePassword(password)) {
+      setError('The password must contain at least one capital letter and one special character.');
+      return;
+    }
+
+    setError(''); 
 
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
@@ -32,14 +57,16 @@ const SignUp = () => {
           console.log('Usuário cadastrado:', user);
         }).catch((error) => {
           console.error('Erro ao atualizar o perfil do usuário:', error);
+          setError('Erro ao atualizar o perfil do usuário. Por favor, tente novamente.');
         });
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.error('Erro ao cadastrar:', errorCode, errorMessage);
-  });
-};
+        setError('Erro ao cadastrar. Verifique suas informações e tente novamente.');
+      });
+  };
 
   return (
     <div className='max-w-7xl mx-auto bg-dark-primary-a40'>
@@ -88,6 +115,11 @@ const SignUp = () => {
                 required
               />
             </div>
+            {error && (
+              <div className='mb-4 text-red-500 text-center'>
+                {error}
+              </div>
+            )}
             <button type='submit' className='w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600'>
               Sign Up
             </button>
@@ -100,7 +132,7 @@ const SignUp = () => {
           </div> 
         </div> 
       </div>
-  </div>
+    </div>
   );
 };
 
