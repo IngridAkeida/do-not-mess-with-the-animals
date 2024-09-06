@@ -1,9 +1,10 @@
 import { FaRegHeart, FaHeart, FaPlus, FaCheck, FaPlay } from 'react-icons/fa';
+import PageButton from '@/components/Main/GenresMenu/PageButton/PageButton';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
 
-const GenreContentCard = ({ genreData }) => {
+const GenreContentCard = ({ genreData, currentPage, totalPages, setCurrentPage }) => {
   const [isAdded, setIsAdded] = useState(false);
   const [isFavorited, setIsFavorited] = useState(false);
   const [filter, setFilter] = useState('all');
@@ -49,8 +50,8 @@ const GenreContentCard = ({ genreData }) => {
           </select>
         </div>
       </div>
-      <div className='my-4 pb-4 w-9/12'>
-        <h1 className='text-white ml-4'>Genre: {genreData.title}</h1>
+      <div className='my-4 pb-4 w-9/12 flex flex-col justify-center items-center text-center'>
+        <h3 className='text-white my-4 text-lg font-semibold bg-dark-primary-a40 w-[95%] px-2 rounded-md '>Genre: {genreData.title}</h3>
         <div className='flex flex-row flex-wrap justify-center items-center gap-4'>
           {filteredResults.map((content) => {
             return (
@@ -92,6 +93,7 @@ const GenreContentCard = ({ genreData }) => {
             );
           })}
         </div>
+        <PageButton currentPage={currentPage} totalPages={totalPages} setCurrentPage={setCurrentPage} />
       </div>
     </div>
   );

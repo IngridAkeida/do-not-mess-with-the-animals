@@ -4,7 +4,7 @@ import GenreDataFetch from '@/components/Main/GenresMenu/GenreDataFetch/GenreDat
 import { getListMovie } from '../../../../../pages/api/dataTMDBGenreMovie';
 import Nav from '@/components/Header/Nav/Nav';
 import GenreContentCard from '@/components/Main/GenresMenu/GenreContentCard/GenreContentCard';
-import PageButton from '@/components/Main/GenresMenu/PageButton/PageButton';
+
 
 const GenreMovie = () => {
 
@@ -27,8 +27,8 @@ const GenreMovie = () => {
   return (
     <div className='max-w-7xl mx-auto bg-gradient-to-br from-dark-primary-a40 via-dark-primary-a20 to-dark-primary-a30'>
       <Nav />
-      <GenreContentCard genreData={genreData} />
-      <PageButton currentPage={currentPage} totalPages={totalPages} setCurrentPage={setCurrentPage} />
+      <GenreContentCard genreData={genreData} currentPage={currentPage} totalPages={totalPages} setCurrentPage={setCurrentPage} />
+      
     </div>
   );
 };
