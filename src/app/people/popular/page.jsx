@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
-import Nav from '../../components/Header/Nav/Nav';
+import Nav from '../../../components/Header/Nav/Nav';
 import Image from 'next/image';
 import Link from 'next/link';
 
