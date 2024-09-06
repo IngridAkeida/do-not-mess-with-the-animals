@@ -46,6 +46,10 @@ const List = ({list}) => {
           </ul>
         ))} */}
         <div className='bg-gradient-to-br from-dark-primary-a40 via-dark-primary-a30 to-dark-primary-a40'>
+            <h1 className='text-center text-2xl mb-4 text-white font-semibold'>News</h1>
+            <GuardianNews />
+        </div>
+        <div className='bg-gradient-to-br from-dark-primary-a40 via-dark-primary-a30 to-dark-primary-a40'>
           <div className='relative'>
             <div className='absolute top-2 right-2'>
               <label className='inline-flex items-center cursor-pointer'>
@@ -103,9 +107,6 @@ const List = ({list}) => {
           ))}
           </div>
         </div>
-        <div>
-            <GuardianNews />
-          </div>
     </div>
   );
 }
