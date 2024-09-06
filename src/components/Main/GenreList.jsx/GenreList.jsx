@@ -57,7 +57,7 @@ const List = ({list}) => {
                 />
                 <div className='block border border-dark-primary-a20 bg-dark-menu-y10 w-14 h-8 rounded-full'></div>
                 <div
-                  className={`dot absolute left-1 top-1 bg-dark-primary-a20  w-6 h-6 rounded-full transition ${
+                  className={`dot absolute left-1 top-1 bg-dark-primary-a20  w-6 h-6 rounded-full duration-300 transition ${
                     toggle ? 'transform translate-x-6' : ''
                   }`}
                 ></div>
