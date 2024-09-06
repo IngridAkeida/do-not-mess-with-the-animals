@@ -26,7 +26,7 @@ const GuardianNews = () => {
   useEffect(() => {
     const fetchArticles = async () => {
       try {
-        const response = await guardianKey.content.search('cinema OR film OR movie OR tv show OR actor', {
+        const response = await guardianKey.content.search('cinema OR film OR movie OR tvshow OR actor', {
           'page-size': 10,
           'show-fields': 'all',
           'tag': 'film/film',
@@ -54,6 +54,7 @@ const GuardianNews = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 5000,
+    arrows: true,
   };
 
   console.log(articles);
@@ -63,7 +64,7 @@ const GuardianNews = () => {
       <Slider {...settings} className='m-1'>
         {articles.map((article) => (
           <div className='p-2 h-80 ' key={article.id}>
-          <div className='bg-dark-primary-a40 rounded-md '>
+          <div className='bg-dark-primary-a40 rounded-md p-2'>
             <h2 className='text-lg font-semibold h-14'>
               {article.webTitle}
             </h2>
