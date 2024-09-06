@@ -46,16 +46,16 @@ const List = ({list}) => {
           </ul>
         ))} */}
         <div className='bg-gradient-to-br from-dark-primary-a40 via-dark-primary-a30 to-dark-primary-a40'>
-          <div className="relative">
-            <div className="absolute top-2 right-2">
-              <label className="inline-flex items-center cursor-pointer">
+          <div className='relative'>
+            <div className='absolute top-2 right-2'>
+              <label className='inline-flex items-center cursor-pointer'>
                 <input
-                  type="checkbox"
-                  className="sr-only"
+                  type='checkbox'
+                  className='sr-only'
                   checked={toggle}
                   onChange={() => setToggle(!toggle)}
                 />
-                <div className="block border border-dark-primary-a20 bg-dark-menu-y10 w-14 h-8 rounded-full"></div>
+                <div className='block border border-dark-primary-a20 bg-dark-menu-y10 w-14 h-8 rounded-full'></div>
                 <div
                   className={`dot absolute left-1 top-1 bg-dark-primary-a20  w-6 h-6 rounded-full transition ${
                     toggle ? 'transform translate-x-6' : ''
@@ -64,15 +64,15 @@ const List = ({list}) => {
               </label>
             </div>
             <div key={navigationInfo[toggle ? 1 : 0].name}>
-              <h1 className="text-center text-2xl mb-4 text-white font-semibold">
+              <h1 className='text-center text-2xl mb-4 text-white font-semibold'>
                 {navigationInfo[toggle ? 1 : 0].name}
               </h1>
-              <div className="flex flex-wrap flex-row gap-4 justify-center items-center my-4 pb-4">
+              <div className='flex flex-wrap flex-row gap-4 justify-center items-center my-4 pb-4'>
                 {navigationInfo[toggle ? 1 : 0].subMenu.map((subItem) => (
                   <Link key={subItem.name} href={subItem.href} passHref>
-                    <div className="h-80 w-52 border rounded-md flex flex-col items-center justify-center bg-dark-accent-a40 hover:bg-dark-accent-a30 transition duration-300 cursor-pointer text-white hover:text-dark-accent-a0">
-                      <span>imagem</span>
-                      <div className="text-center mt-4">{subItem.name}</div>
+                    <div className='h-80 w-52 border rounded-md flex flex-col items-center justify-center bg-dark-accent-a40 hover:bg-dark-accent-a30 transition duration-300 cursor-pointer text-white hover:text-dark-accent-a0 hover:animate-jump animate-once animate-duration-1000 animate-ease-in-out'>
+                      <span>{subItem.icon}</span>
+                      <div className='text-center mt-4'>{subItem.name}</div>
                     </div>
                   </Link>
                 ))}
@@ -84,14 +84,14 @@ const List = ({list}) => {
         <div className='bg-gradient-to-br from-dark-primary-a40 via-dark-primary-a30 to-dark-primary-a40'>
           {navigationInfo.slice(2).map((item) => (
             <div key={item.name}>
-            <h1 className="text-center text-2xl mb-4 text-white font-semibold">{item.name}</h1>
+            <h1 className='text-center text-2xl mb-4 text-white font-semibold'>{item.name}</h1>
               <div className='flex flex-wrap flex-row gap-4 justify-center items-center my-4 pb-4'>
                 {item.subMenu.map((subItem) => (
                 <Link key={subItem.name} href={subItem.href} passHref> 
                   <div 
                     className='h-80 w-52 border rounded-md flex flex-col items-center justify-center bg-dark-accent-a40 hover:bg-dark-accent-a30 transition duration-300 cursor-pointer text-white hover:text-dark-accent-a0 hover:animate-jump animate-once animate-duration-1000 animate-ease-in-out' 
                   >
-                    <span>imagem</span>
+                    <span>{subItem.icon}</span>
                     <div className='text-center mt-4'>
                       {subItem.name}
                     </div>
