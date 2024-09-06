@@ -61,17 +61,17 @@ const GuardianNews = () => {
 
   return (
     <div className=''>
-      <Slider {...settings} className='m-1'>
+      <Slider {...settings} className=''>
         {articles.map((article) => (
-          <div className='p-2 h-80 ' key={article.id}>
-          <div className='bg-dark-primary-a40 rounded-md p-2'>
+          <div className='p-2' key={article.id}>
+          <div className='bg-dark-primary-a40 rounded-md p-2 h-[330px]'>
             <h2 className='text-lg font-semibold h-14'>
               {article.webTitle}
             </h2>
             <p className='text-sm font-thin'>Published on: {new Date(article.webPublicationDate).toLocaleDateString()}</p>
             <div>
               <div className='flex gap-1'>
-                <Image src={article.fields.thumbnail} alt={article.webTitle} width={300} height={200} className='rounded-md'/>
+                <Image src={article.fields.thumbnail} alt={article.webTitle} width={300} height={200} className='rounded-md w-[300px] h-[216px]'/>
                 <p>{truncateText(article.fields.bodyText, 300)}</p>
               </div>
               <p className='text-sm font-thin bottom-0'>
