@@ -11,11 +11,11 @@ export const NavigationInfo = [
       { name: 'Popular', href: '/' },
       { name: 'Top Rated', href: '/' },
       { name: 'Upcoming', href: '/' },
-      { name: 'Genres', href: '/' },
+      { name: 'Genres', href: '/movies/genres' },
     ]},
   { name: 'TV Shows', 
     subMenu: [
-      { name: 'Popular', href: '/' },
+      { name: 'Populars', href: '/' },
       { name: 'Top Rated', href: '/' },
       { name: 'Upcoming', href: '/' },
       { name: 'Genres', href: '/' },
