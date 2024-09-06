@@ -14,7 +14,6 @@ const Footer = () => {
   return (
     <footer className={`p-6 ${theme === 'dark' ? 'bg-dark-primary-a40 text-white' : 'bg-light-primary-100 text-dark-primary-a40'}`}>
       <div className='container mx-auto flex flex-col lg:flex-row justify-between items-center'>
-        {/* Newsletter Section */}
         <div className='mb-6 lg:mb-0'>
           <h2 className='text-xl font-bold mb-2'>Newsletter</h2>
           <form className='flex flex-col sm:flex-row'>
@@ -32,8 +31,6 @@ const Footer = () => {
             </button>
           </form>
         </div>
-
-        {/* Site Map Section */}
         <div className='mb-6 lg:mb-0'>
           <h2 className='text-xl font-bold mb-2'>Site Map</h2>
           <ul className='space-x-2 flex gap-4'>
