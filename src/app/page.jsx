@@ -5,7 +5,7 @@ import Nav from '../components/Header/Nav/Nav';
 import Banner from '../components/Header/Banner/Banner';
 import ComponentList from '../components/Main/GenreList.jsx/GenreList';
 import Footer from '../components/Footer/Footer';
-import { getList } from '../pages/api/dataTMDBGenre';
+import { getList } from '../pages/api/dataTMDBGenreMovieNew';
 
 export default function Home() {
   const [list, setList] = useState([]);
