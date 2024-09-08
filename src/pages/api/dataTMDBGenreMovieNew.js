@@ -30,7 +30,12 @@ export default async function handler(req, res) {
 
 const getListMovieNew = async () => [
   {
-    slug: 'trending-movies',
+    slug: 'trending-movies-day',
+    title: 'Trending Movies',
+    items: await listFetch(`trending/movie/day`),
+  },
+  {
+    slug: 'trending-movies-week',
     title: 'Trending Movies',
     items: await listFetch(`trending/movie/week`),
   },
