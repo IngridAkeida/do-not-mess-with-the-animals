@@ -1,13 +1,13 @@
-import Image from "next/image";
-import Link from "next/link";
-
+import Image from 'next/image';
+import Link from 'next/link';
 import { NavigationInfo, NavigationUser } from '../../../uiComponents/MenuList/MenuList';
-import { useEffect } from "react";
+import { useEffect } from 'react';
+import { useTheme } from 'next-themes';
 
 const MenuMobile = ({setMobileMenuOpen}) => {
   // const [openMenu, setOpenMenu] = useState(null);
   const navigationInfo = NavigationInfo;
-  const navigationUser = NavigationUser;
+  const { theme } = useTheme();
 
   useEffect(() => {
     document.body.classList.add('overflow-hidden');
@@ -17,7 +17,7 @@ const MenuMobile = ({setMobileMenuOpen}) => {
   }, []);
 
   return(
-    <div className='sm:hidden fixed inset-0 z-50 w-full bg-dark-neutral-a40 px-4 py-2'>
+    <div className={`sm:hidden fixed inset-0 z-50 w-full px-4 py-2 ${ theme === 'dark' ? 'bg-dark-neutral-a40':'bg-light-primary-600'}`}>
     <div className='flex items-center justify-between mb-6'>
       <Link href='/' className='-m-1.5 p-1.5'>
         <span className='sr-only'>Logo</span>
@@ -55,15 +55,8 @@ const MenuMobile = ({setMobileMenuOpen}) => {
           </li>
         </ul>
       ))}
-
       <div className='flex gap-2'>
-        {navigationUser.map((item) => (
-          <a href={item.href} key={item.name}
-            className='rounded-lg py-2 text-base font-semibold leading-7 text-dark-menu-y10 my-2 '
-          >
-            <p>{item.name}</p>
-          </a>
-        ))}
+        <NavigationUser />
       </div>
       <button>Logoff</button>
     </div>

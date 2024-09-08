@@ -5,7 +5,6 @@ import { useState, useEffect } from 'react';
 import DropDownMenu from './DropDownMenu/DropDownMenu';
 import UserPreferencesMenu from './UserPreferencesMenu/UserPreferencesMenu';
 import SearchField from '../../uiComponents/SearchField/SearchField';
-
 import MenuMobile from './MenuMobile/MenuMobile';
 
 const Nav = () => {

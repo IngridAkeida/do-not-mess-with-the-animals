@@ -1,15 +1,11 @@
 import React from 'react';
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
-import { NavigationInfo } from '../../components/uiComponents/MenuList/MenuList';
-import { useTheme } from 'next-themes';
+import { NavigationInfo, NavigationUser } from '../../components/uiComponents/MenuList/MenuList';
 import Link from 'next/link';
+import { useTheme } from 'next-themes';
 
 const Footer = () => {
-  const { theme, setTheme } = useTheme();
-
-  const handleThemeToggle = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark');
-  };
+  const { theme } = useTheme();
 
   return (
     <footer className={`p-6 ${theme === 'dark' ? 'bg-dark-primary-a40 text-white' : 'bg-light-primary-100 text-dark-primary-a40'}`}>
@@ -50,8 +46,6 @@ const Footer = () => {
             ))}
           </ul>
         </div>
-
-        {/* Social Media Section */}
         <div className='flex space-x-4'>
           <Link href='https://facebook.com' target='_blank' rel='noopener noreferrer' className='text-2xl'>
             <FaFacebook />
@@ -64,12 +58,11 @@ const Footer = () => {
           </Link>
         </div>
       </div>
-      <button
-        onClick={handleThemeToggle}
-        className='mt-4 px-4 py-2 rounded border border-gray-300 hover:bg-gray-200'
-      >
-        Toggle {theme === 'dark' ? 'Light' : 'Dark'} Mode
-      </button>
+      <div className='mt-4'>
+        <ul className='flex space-x-4'>
+          <NavigationUser />
+        </ul>
+      </div>
     </footer>
   );
 };

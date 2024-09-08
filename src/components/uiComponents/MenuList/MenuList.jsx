@@ -4,6 +4,8 @@ import { MdDarkMode } from "react-icons/md";
 import { MdLightMode } from "react-icons/md";
 import { FaFilm, FaStar, FaCalendarAlt, FaThList } from 'react-icons/fa';
 import { MdPeople, MdPerson, MdMovieCreation } from 'react-icons/md';
+import { useTheme } from "next-themes";
+import Link from "next/link";
 
 
 export const NavigationInfo = [
@@ -35,8 +37,45 @@ export const NavigationInfo = [
   },
 ];
 
-export const NavigationUser = [
-  { name: <FaUser />, href: '/user' },
-  // { name: <FaLanguage />, href: '/' },
-  { name: <MdDarkMode /> || <MdLightMode /> , href: '/' }
-];
+const SwitchDarkMode = () => {
+  const { theme, setTheme } = useTheme();
+  const handleThemeToggle = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
+  };
+  return(
+  <button
+        onClick={handleThemeToggle}
+        className=''
+      >
+        {theme === 'dark' ? <MdLightMode /> : <MdDarkMode />}
+  </button>
+)}
+
+
+export const NavigationUser = () => {
+  const navigationMenu = [
+    { name: <FaUser />, href: '/user' },
+    { name: <FaLanguage />, href: '/' },
+    { name: <SwitchDarkMode/>, href: '#' },
+  ];
+
+  return(
+    <ul className='flex space-x-4'>
+      {navigationMenu.map((item, index) => (
+        <li key={index}>
+          {item.href ? (
+            <Link href={item.href} className='flex items-center hover:underline'>
+              {item.name}
+            </Link>
+          ) : (
+            item.name
+          )}
+        </li>
+      ))}
+    </ul>
+  )
+};
+
+
+
+
