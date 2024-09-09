@@ -31,12 +31,12 @@ export default async function handler(req, res) {
 const getListMovieNew = async () => [
   {
     slug: 'trending-movies-day',
-    title: 'Trending Movies',
+    title: 'Trending Movies Day',
     items: await listFetch(`trending/movie/day`),
   },
   {
     slug: 'trending-movies-week',
-    title: 'Trending Movies',
+    title: 'Trending Movies Week',
     items: await listFetch(`trending/movie/week`),
   },
   {
