@@ -32,12 +32,27 @@ const getListTvshowNew = async () => [
   {
     slug: 'trending-tv',
     title: 'Trending TV Shows',
+    items: await listFetch(`trending/tv/day`),
+  },
+  {
+    slug: 'trending-tv',
+    title: 'Trending TV Shows',
     items: await listFetch(`trending/tv/week`),
   },
   {
     slug: 'toprated-tv',
     title: 'Top Rated TV Shows',
     items: await listFetch(`tv/top_rated`),
+  },
+  {
+    slug: 'ontheair-tv',
+    title: 'On The Air TV Shows',
+    items: await listFetch(`tv/on_the_air`),
+  },
+  {
+    slug: 'airingtoday-tv',
+    title: 'Airing Today TV Shows',
+    items: await listFetch(`tv/airing_today`),
   },
 ];
 

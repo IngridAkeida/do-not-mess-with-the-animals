@@ -44,6 +44,16 @@ const getListMovieNew = async () => [
     title: 'Top Rated Movies',
     items: await listFetch(`movie/top_rated`),
   },
+  {
+    slug: 'upcoming-movies',
+    title: 'Upcoming Movies',
+    items: await listFetch(`movie/upcoming`),
+  },
+  {
+    slug: 'nowplaying-movies',
+    title: 'Now Playing Movies',
+    items: await listFetch(`movie/now_playing`),
+  },
 ];
 
 export { getListMovieNew };
