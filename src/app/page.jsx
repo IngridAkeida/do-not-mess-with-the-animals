@@ -5,6 +5,7 @@ import Banner from '../components/Header/Banner/Banner';
 import ComponentList from '../components/Main/GenreList.jsx/GenreList';
 import Footer from '../components/Footer/Footer';
 import { getListMovieNew } from '@/pages/api/dataTMDBMovieNew';
+import Layout from '../components/uiComponents/LayoutPages/LayoutPages';
 
 export default function Home() {
   const [list, setList] = useState([]);
@@ -117,12 +118,10 @@ export default function Home() {
 
   return (
     <Fragment>
-      <div className='max-w-7xl mx-auto h-96'>
-        <Nav />
+      <Layout>
         <Banner randomItem={randomItem} addVideo={addVideo} matchFound={matchFoundResult} />
         <ComponentList list={list} matchFound={matchFoundResult} />
-        <Footer />
-      </div>
+      </Layout>
     </Fragment>
   );
 }
