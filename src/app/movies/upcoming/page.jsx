@@ -1,8 +1,7 @@
 'use client';
 import { useEffect, useState } from "react";
 import { getListMovieNew } from '@/pages/api/dataTMDBMovieNew';
-import Nav from '@/components/Header/Nav/Nav';
-import Footer from '@/components/Footer/Footer';
+import Layout from '../components/uiComponents/LayoutPages/LayoutPages';
 
 const MoviesUpComingPage = () => {
   const [list, setList] = useState([]);
@@ -37,8 +36,7 @@ const MoviesUpComingPage = () => {
     return <div className='text-white'>Error: {error}</div>;
   }
   return (
-    <div className='max-w-7xl mx-auto bg-gradient-to-br from-dark-primary-a40 via-dark-primary-a20 to-dark-primary-a30'>
-    <Nav />
+    <Layout>
       {list.map((popular, index) => (
           <div key={index} className=''>
           {/* <Link href={`/${content}/genres/genre/${genre.slug}`} passHref>  */}
@@ -52,8 +50,7 @@ const MoviesUpComingPage = () => {
           {/* </Link> */}
           </div>
         ))}
-    <Footer />
-    </div>
+    </Layout>
   );
 }
 

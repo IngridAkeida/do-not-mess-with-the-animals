@@ -1,8 +1,7 @@
 'use client'
-import Nav from '../../../components/Header/Nav/Nav';
 import { useCombineData } from '../../../components/Main/CombineDatas/CombineDatas';
 import BannerResult from '../../../components/Main/BannerResult/BannerResult';
-import Footer from '../../../components/Footer/Footer';
+import Layout from '../components/uiComponents/LayoutPages/LayoutPages';
 
 const Movie = () => {
   const fetchpath ='serverDataTMDBMovie';
@@ -22,13 +21,11 @@ const Movie = () => {
   console.log('item:', item);
 
   return (
-    <div className='max-w-7xl mx-auto bg-dark-neutral-a50 text-white'>
-      <Nav/>
+    <Layout>
       <main>
         <BannerResult item={item} triggers={triggers}/>
       </main>
-      <Footer/>
-    </div>
+    </Layout>
   );
 }
 

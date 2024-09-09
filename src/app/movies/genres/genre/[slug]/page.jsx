@@ -2,8 +2,8 @@
 import { useState } from 'react';
 import GenreDataFetch from '@/components/Main/GenresMenu/GenreDataFetch/GenreDataFetch';
 import { getListMovie } from '../../../../../pages/api/dataTMDBGenreMovie';
-import Nav from '@/components/Header/Nav/Nav';
 import GenreContentCard from '@/components/Main/GenresMenu/GenreContentCard/GenreContentCard';
+import Layout from '../components/uiComponents/LayoutPages/LayoutPages';
 
 
 const GenreMovie = () => {
@@ -25,11 +25,9 @@ const GenreMovie = () => {
   }
   console.log(genreData);
   return (
-    <div className='max-w-7xl mx-auto bg-gradient-to-br from-dark-primary-a40 via-dark-primary-a20 to-dark-primary-a30'>
-      <Nav />
+    <Layout>
       <GenreContentCard genreData={genreData} currentPage={currentPage} totalPages={totalPages} setCurrentPage={setCurrentPage} />
-      
-    </div>
+    </Layout>
   );
 };
 

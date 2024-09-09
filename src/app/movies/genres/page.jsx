@@ -4,6 +4,7 @@ import { getListMovie } from '../../../pages/api/dataTMDBGenreMovie';
 import Nav from '@/components/Header/Nav/Nav';
 import GenreIcon from '@/components/uiComponents/GenreIcon/GenreIcon';
 import GenreMenu from '@/components/Main/GenresMenu/GenreMenu';
+import Layout from '../components/uiComponents/LayoutPages/LayoutPages';
 
 const GenresMovie = () => {
   const [list, setList] = useState([]);
@@ -41,10 +42,9 @@ const GenresMovie = () => {
   const content = 'movies';
 
   return (
-    <div className='max-w-7xl mx-auto bg-gradient-to-br from-dark-primary-a40 via-dark-primary-a20 to-dark-primary-a30'>
-      <Nav />
+    <Layout>
       <GenreMenu list={list} content={content} getGenreIcon={getGenreIcon} />
-    </div>
+    </Layout>
   );
 };
 
