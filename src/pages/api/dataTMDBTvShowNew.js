@@ -28,7 +28,7 @@ export default async function handler(req, res) {
   res.status(200).json(data);
 }
 
-const getListTvshowNew = async () => [
+const getListTvShowNew = async () => [
   {
     slug: 'trending-tv',
     title: 'Trending TV Shows',
@@ -56,4 +56,4 @@ const getListTvshowNew = async () => [
   },
 ];
 
-export { getListTvshowNew };
+export { getListTvShowNew };

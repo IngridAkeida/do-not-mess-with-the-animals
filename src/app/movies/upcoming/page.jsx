@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from "react";
-import { getListMovieNew } from '@/pages/api/dataTMDBGenreMovieNew';
+import { getListMovieNew } from '@/pages/api/dataTMDBMovieNew';
 import Nav from '@/components/Header/Nav/Nav';
 import Footer from '@/components/Footer/Footer';
 

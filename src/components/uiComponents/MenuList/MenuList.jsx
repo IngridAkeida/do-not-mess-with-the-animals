@@ -21,7 +21,7 @@ export const NavigationInfo = [
   {
     name: 'TV Shows',
     subMenu: [
-      { name: 'Popular', href: '/tvshow/popular', icon: <FaFilm className='h-20 w-20'/> },
+      { name: 'Popular', href: '/tvshows/popular', icon: <FaFilm className='h-20 w-20'/> },
       { name: 'Top Rated', href: '/tvshows/toprated', icon: <FaStar className='h-20 w-20'/> },
       { name: 'Upcoming', href: '/tvshows/upcoming', icon: <FaCalendarAlt className='h-20 w-20'/> },
       { name: 'Genres', href: '/tvshows/genres', icon: <FaThList className='h-20 w-20'/> },
