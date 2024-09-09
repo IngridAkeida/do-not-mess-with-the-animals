@@ -44,7 +44,7 @@ const MoviesPopularPage = () => {
     <Layout>
       <div className='bg-gradient-to-br from-dark-primary-a40 via-dark-primary-a30 to-dark-primary-a40'>
         <div className='relative'>
-          <div className='absolute top-2 right-2'>
+          <div className='absolute top-6 right-24'>
             <label className='inline-flex items-center cursor-pointer'>
               <input
                 type='checkbox'
@@ -52,23 +52,23 @@ const MoviesPopularPage = () => {
                 checked={toggle}
                 onChange={() => setToggle(!toggle)}
               />
-              <div className='block border border-dark-primary-a20 bg-dark-menu-y10 w-14 h-8 rounded-full'></div>
+              <div className='block border border-dark-primary-a20 bg-dark-menu-y10 w-20 h-8 rounded-full'></div>
               <div
-                className={`dot absolute left-1 top-1 bg-dark-primary-a20  w-6 h-6 rounded-full duration-300 transition ${
-                  toggle ? 'transform translate-x-6' : ''
+                className={`dot absolute left-1 top-1 bg-dark-primary-a20  w-14 h-6 px-2 rounded-full duration-300 transition ${
+                  toggle ? 'transform translate-x-4' : ''
                 }`}
-              ></div>
+              >{toggle ? 'Week':'Day'}</div>
             </label>
           </div>
           <div key={list[toggle ? 1 : 0]?.title}>
-            <h1 className='text-center text-2xl mb-4 text-white font-semibold'>
-              {list[toggle ? 1 : 0]?.title}
+            <h1 className='text-center text-2xl p-4 text-white font-semibold'>
+              {toggle ? 'Trending Movies' : 'Trending Movies'}
             </h1>
             <div className='flex flex-wrap flex-row gap-4 justify-center items-center my-4 pb-4'>
               {list[toggle ? 1 : 0].items.results.map((item, index) => (
-                  <div key={index} className='h-80 w-52 border rounded-md flex flex-col items-center justify-center bg-dark-accent-a40 hover:bg-dark-accent-a30 transition duration-300 cursor-pointer text-white hover:text-dark-accent-a0 '>
-                    {item.title}
-                  </div>
+                <div key={index} className='h-80 w-52 border rounded-md flex flex-col items-center justify-center bg-dark-accent-a40 hover:bg-dark-accent-a30 transition duration-300 cursor-pointer text-white hover:text-dark-accent-a0 '>
+                  {item.title}
+                </div>
               ))}
             </div>
           </div>
