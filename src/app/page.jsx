@@ -1,5 +1,4 @@
 'use client';
-
 import { Fragment, useEffect, useState } from 'react';
 import Nav from '../components/Header/Nav/Nav';
 import Banner from '../components/Header/Banner/Banner';
