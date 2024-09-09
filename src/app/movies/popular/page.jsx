@@ -44,7 +44,7 @@ const MoviesPopularPage = () => {
     <Layout>
       <div className='bg-gradient-to-br from-dark-primary-a40 via-dark-primary-a30 to-dark-primary-a40'>
         <div className='relative'>
-          <div className='absolute top-6 right-24'>
+          <div className='absolute top-4 right-24'>
             <label className='inline-flex items-center cursor-pointer'>
               <input
                 type='checkbox'
@@ -64,7 +64,7 @@ const MoviesPopularPage = () => {
             <h1 className='text-center text-2xl p-4 text-white font-semibold'>
               {toggle ? 'Trending Movies' : 'Trending Movies'}
             </h1>
-            <div className='flex flex-wrap flex-row gap-4 justify-center items-center my-4 pb-4'>
+            <div className='flex flex-wrap flex-row gap-4 justify-center items-center pb-4'>
               {list[toggle ? 1 : 0].items.results.map((item, index) => (
                 <div key={index} className='h-80 w-52 border rounded-md flex flex-col items-center justify-center bg-dark-accent-a40 hover:bg-dark-accent-a30 transition duration-300 cursor-pointer text-white hover:text-dark-accent-a0 '>
                   {item.title}
