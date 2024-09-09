@@ -1,8 +1,8 @@
 'use client';
 import { useEffect, useState } from 'react';
-import Nav from '../../../components/Header/Nav/Nav';
 import Image from 'next/image';
 import Link from 'next/link';
+import Layout from '@/components/uiComponents/LayoutPages/LayoutPages';
 
 const PeoplePage = () => {
   const [data, setData] = useState(null);
@@ -38,8 +38,7 @@ const PeoplePage = () => {
   console.log(data);
 
   return (
-    <div className='max-w-7xl mx-auto'>
-      <Nav />
+    <Layout>
       <div className='flex'>
         <div className='hidden sm:block w-2/12'>Coluna 1</div>
         <div className='flex flex-col sm:w-10/12'>
@@ -61,7 +60,7 @@ const PeoplePage = () => {
           </ul>
         </div>
       </div>
-    </div>
+    </Layout>
   );
 }
 

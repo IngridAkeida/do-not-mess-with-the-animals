@@ -3,7 +3,7 @@ import { useState } from 'react';
 import GenreDataFetch from '@/components/Main/GenresMenu/GenreDataFetch/GenreDataFetch';
 import { getListMovie } from '../../../../../pages/api/dataTMDBGenreMovie';
 import GenreContentCard from '@/components/Main/GenresMenu/GenreContentCard/GenreContentCard';
-import Layout from '../components/uiComponents/LayoutPages/LayoutPages';
+import Layout from '@/components/uiComponents/LayoutPages/LayoutPages';
 
 
 const GenreMovie = () => {

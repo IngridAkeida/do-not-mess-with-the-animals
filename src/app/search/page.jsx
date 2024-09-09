@@ -1,10 +1,8 @@
 'use client';
-
-import Nav from '../../components/Header/Nav/Nav';
-import Footer from '../../components/Footer/Footer';
 import SearchResults from '../../components/Main/SearchResults/SearchResults';
 import { useSearchParams } from 'next/navigation';
 import { useState, useEffect } from 'react';
+import Layout from '@/components/uiComponents/LayoutPages/LayoutPages';
 
 const SearchPage = () => {
   const searchParams = useSearchParams();
@@ -65,8 +63,7 @@ const SearchPage = () => {
   }
 
   return (
-    <div className='max-w-7xl mx-auto bg-dark-neutral-a50'>
-      <Nav />
+    <Layout>
       <div>
         {error && <div>Error: {error}</div>}
 
@@ -78,8 +75,7 @@ const SearchPage = () => {
           <p>No results found.</p>
         )}
       </div>
-      <Footer />
-    </div>
+    </Layout>
   );
 }
 

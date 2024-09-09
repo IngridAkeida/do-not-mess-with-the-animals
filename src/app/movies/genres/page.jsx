@@ -1,10 +1,9 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { getListMovie } from '../../../pages/api/dataTMDBGenreMovie';
-import Nav from '@/components/Header/Nav/Nav';
 import GenreIcon from '@/components/uiComponents/GenreIcon/GenreIcon';
 import GenreMenu from '@/components/Main/GenresMenu/GenreMenu';
-import Layout from '../components/uiComponents/LayoutPages/LayoutPages';
+import Layout from '@/components/uiComponents/LayoutPages/LayoutPages';
 
 const GenresMovie = () => {
   const [list, setList] = useState([]);

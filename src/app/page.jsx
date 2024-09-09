@@ -3,7 +3,7 @@ import { Fragment, useEffect, useState } from 'react';
 import Banner from '../components/Header/Banner/Banner';
 import ComponentList from '../components/Main/GenreList.jsx/GenreList';
 import { getListMovieNew } from '@/pages/api/dataTMDBMovieNew';
-import Layout from '../components/uiComponents/LayoutPages/LayoutPages';
+import Layout from '@/components/uiComponents/LayoutPages/LayoutPages';
 
 export default function Home() {
   const [list, setList] = useState([]);
