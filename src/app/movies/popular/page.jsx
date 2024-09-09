@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { getListMovieNew } from '@/pages/api/dataTMDBGenreMovieNew';
 import Nav from '@/components/Header/Nav/Nav';
+import Footer from '@/components/Footer/Footer';
 
 const MoviesPopularPage = () => {
   const [list, setList] = useState([]);
@@ -51,6 +52,7 @@ const MoviesPopularPage = () => {
           {/* </Link> */}
           </div>
         ))}
+        <Footer />
     </div>
   );
 }
