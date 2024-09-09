@@ -53,10 +53,10 @@ const MoviesPopularPage = () => {
                 checked={toggle}
                 onChange={() => setToggle(!toggle)}
               />
-              <div className='block border border-dark-primary-a20 bg-dark-menu-y10 w-20 h-8 rounded-full'></div>
+              <div className='block border border-dark-primary-a20 bg-dark-menu-y10 w-28 h-8 rounded-full'></div>
               <div
-                className={`dot absolute left-1 top-1 bg-dark-primary-a20  w-14 h-6 px-2 rounded-full duration-300 transition ${
-                  toggle ? 'transform translate-x-4' : ''
+                className={`dot absolute left-1 top-1 bg-dark-primary-a20 w-14 h-6 px-2 text-center rounded-full duration-300 transition ${
+                  toggle ? 'transform translate-x-12' : ''
                 }`}
               >{toggle ? 'Week':'Day'}</div>
             </label>
