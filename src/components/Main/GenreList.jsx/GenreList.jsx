@@ -25,17 +25,17 @@ const List = () => {
                   checked={toggle}
                   onChange={() => setToggle(!toggle)}
                 />
-                <div className='block border border-dark-primary-a20 bg-dark-menu-y10 w-14 h-8 rounded-full'></div>
+                <div className='block border border-dark-primary-a20 bg-dark-menu-y10 w-36 h-8 rounded-full'></div>
                 <div
-                  className={`dot absolute left-1 top-1 bg-dark-primary-a20  w-6 h-6 rounded-full duration-300 transition ${
-                    toggle ? 'transform translate-x-6' : ''
+                  className={`dot absolute left-1 top-1 bg-dark-primary-a20  w-18 h-6 px-2 text-center rounded-full duration-300 transition shadow-2xl ${
+                    toggle ? 'transform translate-x-14' : ''
                   }`}
-                ></div>
+                >{toggle ? 'Tv Show':'Movie'}</div>
               </label>
             </div>
             <div key={navigationInfo[toggle ? 1 : 0].name}>
               <h1 className='text-center text-2xl mb-4 text-white font-semibold'>
-                {navigationInfo[toggle ? 1 : 0].name}
+                The Main Content About {navigationInfo[toggle ? 1 : 0].name}
               </h1>
               <div className='flex flex-wrap flex-row gap-4 justify-center items-center my-4 pb-4'>
                 {navigationInfo[toggle ? 1 : 0].subMenu.map((subItem) => (
