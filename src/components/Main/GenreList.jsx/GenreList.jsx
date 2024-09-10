@@ -27,15 +27,15 @@ const List = () => {
                 />
                 <div className='block border border-dark-primary-a20 bg-dark-menu-y10 w-36 h-8 rounded-full'></div>
                 <div
-                  className={`dot absolute left-1 top-1 bg-dark-primary-a20  w-18 h-6 px-2 text-center rounded-full duration-300 transition shadow-2xl ${
+                  className={`dot absolute left-1 top-1 bg-dark-primary-a20  w-18 h-6 px-2 text-center rounded-full duration-300 transition ${
                     toggle ? 'transform translate-x-14' : ''
                   }`}
                 >{toggle ? 'Tv Show':'Movie'}</div>
               </label>
             </div>
             <div key={navigationInfo[toggle ? 1 : 0].name}>
-              <h1 className='text-center text-2xl mb-4 text-white font-semibold'>
-                The Main Content About {navigationInfo[toggle ? 1 : 0].name}
+              <h1 className='text-center text-2xl mb-4 text-white font-semibold flex justify-center items-center gap-x-2'>
+                The Main Content About: <span className='text-dark-menu-y10 '> {navigationInfo[toggle ? 1 : 0].name}</span>
               </h1>
               <div className='flex flex-wrap flex-row gap-4 justify-center items-center my-4 pb-4'>
                 {navigationInfo[toggle ? 1 : 0].subMenu.map((subItem) => (
