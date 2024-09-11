@@ -1,17 +1,13 @@
 import Image from 'next/image';
 import { useState } from 'react';
-import { FaRegHeart, FaHeart, FaPlus, FaCheck, FaPlay } from 'react-icons/fa';
+import {FaPlus, FaCheck, FaPlay } from 'react-icons/fa';
+import IsFavoriteComponent from '@/components/uiComponents/IsFavorite/IsFavorite';
 
 const Carousel = ({ index, item }) => {
   const [isAdded, setIsAdded] = useState(false);
-  const [isFavorited, setIsFavorited] = useState(false);
 
   const handleAddClick = () => {
     setIsAdded(!isAdded);
-  };
-
-  const handleFavoriteClick = () => {
-    setIsFavorited(!isFavorited);
   };
 
   return (
@@ -27,9 +23,7 @@ const Carousel = ({ index, item }) => {
               <span onClick={handleAddClick} className='cursor-pointer'>
                 {isAdded ? <FaCheck /> : <FaPlus />}
               </span>
-              <span onClick={handleFavoriteClick} className='cursor-pointer'>
-                {isFavorited ? <FaHeart /> : <FaRegHeart />}
-              </span>
+              <IsFavoriteComponent itemId={item.id} />
               <FaPlay />
             </div>
           </div>

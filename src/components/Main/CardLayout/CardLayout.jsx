@@ -1,18 +1,14 @@
 import Image from 'next/image';
-import { FaRegHeart, FaHeart, FaPlus, FaCheck, FaPlay } from 'react-icons/fa';
+import { FaPlus, FaCheck, FaPlay } from 'react-icons/fa';
 import { useState } from 'react';
 import IsFavoriteComponent from '@/components/uiComponents/IsFavorite/IsFavorite';
 
 const CardLayout = ({result}) => {
   const [isAdded, setIsAdded] = useState(false);
-  // const [isFavorited, setIsFavorited] = useState(false);
 
   const handleAddClick = () => {
     setIsAdded(!isAdded);
   };
-  // const handleFavoriteClick = () => {
-  //   setIsFavorited(!isFavorited);
-  // };
 
   return(
     <li className='sm:h-60 sm:w-40 relative sm:cursor-pointer'>

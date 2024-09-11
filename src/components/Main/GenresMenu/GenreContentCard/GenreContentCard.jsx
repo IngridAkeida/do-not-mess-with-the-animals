@@ -1,20 +1,16 @@
-import { FaRegHeart, FaHeart, FaPlus, FaCheck, FaPlay } from 'react-icons/fa';
+import {FaPlus, FaCheck, FaPlay } from 'react-icons/fa';
 import PageButton from '@/components/Main/GenresMenu/PageButton/PageButton';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
+import IsFavoriteComponent from '@/components/uiComponents/IsFavorite/IsFavorite';
 
 const GenreContentCard = ({ genreData, currentPage, totalPages, setCurrentPage }) => {
   const [isAdded, setIsAdded] = useState(false);
-  const [isFavorited, setIsFavorited] = useState(false);
   const [filter, setFilter] = useState('all');
 
   const handleAddClick = () => {
     setIsAdded(!isAdded);
-  };
-
-  const handleFavoriteClick = () => {
-    setIsFavorited(!isFavorited);
   };
 
   const handleFilterChange = (event) => {
@@ -67,9 +63,7 @@ const GenreContentCard = ({ genreData, currentPage, totalPages, setCurrentPage }
                         <span onClick={handleAddClick} className='cursor-pointer'>
                           {isAdded ? <FaCheck /> : <FaPlus />}
                         </span>
-                        <span onClick={handleFavoriteClick} className='cursor-pointer'>
-                          {isFavorited ? <FaHeart /> : <FaRegHeart />}
-                        </span>
+                        <IsFavoriteComponent itemId={content.id} />
                         <FaPlay />
                       </div>
                     </div>

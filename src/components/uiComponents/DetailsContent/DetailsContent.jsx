@@ -1,14 +1,13 @@
 import { useState } from "react";
 import { RiAlarmWarningFill } from 'react-icons/ri';
-import { FaRegHeart, FaHeart, FaPlus, FaCheck} from 'react-icons/fa';
 import { RiPlayLargeFill } from 'react-icons/ri';
 import { MdOutlinePlaylistAdd, MdOutlinePlaylistAddCheck} from "react-icons/md";
 import GenreColors from '../GenreColors/GenreColors';
+import IsFavoriteComponent from '@/components/uiComponents/IsFavorite/IsFavorite';
 
 const DetailsContent = ({ item, handleModalTriggerClick, handleModalVideoClick, showModalTrigger, showModalVideo }) => {
 
   const [isAdded, setIsAdded] = useState(false);
-  const [isFavorited, setIsFavorited] = useState(false);
 
   const firstDate = new Date(item.first_air_date).getFullYear();
   const lastDate = new Date(item.last_air_date).getFullYear();
@@ -20,9 +19,6 @@ const DetailsContent = ({ item, handleModalTriggerClick, handleModalVideoClick, 
 
   const handleAddClick = () => {
     setIsAdded(!isAdded);
-  };
-  const handleFavoriteClick = () => {
-    setIsFavorited(!isFavorited);
   };
 
   const genres = item.genres || item.genre_ids;
@@ -85,12 +81,8 @@ const DetailsContent = ({ item, handleModalTriggerClick, handleModalVideoClick, 
             onClick={handleModalTriggerClick}>
             <RiAlarmWarningFill className={stylesButton}/>
           </div>
-          <div className='w-12 hover:cursor-pointer' 
-            onClick={handleFavoriteClick}>
-              {isFavorited ? 
-                <FaHeart className={stylesButton}/> : 
-                <FaRegHeart className={stylesButton}/>
-              }
+          <div className='w-12 hover:cursor-pointer'>
+            <IsFavoriteComponent itemId={item.id}/>
           </div>
           <div className='w-12 hover:cursor-pointer' 
             onClick={handleAddClick}>
