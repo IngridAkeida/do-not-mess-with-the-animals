@@ -1,4 +1,4 @@
-import Layout from '@/components/uiComponents/LayoutPages/LayoutPages';
+import Layout from '@/components/uiComponents/LayoutContainer/LayoutContainer';
 
 const ActorPage = () => {
   return (

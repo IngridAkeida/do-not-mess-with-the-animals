@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import Layout from '@/components/uiComponents/LayoutPages/LayoutPages';
+import Layout from '@/components/uiComponents/LayoutContainer/LayoutContainer';
 
 const PeoplePage = () => {
   const [data, setData] = useState(null);

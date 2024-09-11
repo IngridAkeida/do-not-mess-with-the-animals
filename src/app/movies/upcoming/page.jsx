@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from "react";
 import { getListMovieNew } from '@/pages/api/dataTMDBMovieNew';
-import Layout from '@/components/uiComponents/LayoutPages/LayoutPages';
+import Layout from '@/components/uiComponents/LayoutContainer/LayoutContainer';
 
 const MoviesUpComingPage = () => {
   const [list, setList] = useState([]);
