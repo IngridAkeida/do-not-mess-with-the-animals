@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
 
-const IsFavoriteComponent = ({ itemId }) => {
+const IsFavoriteComponent = ({ itemId, favoriteStyle }) => {
   const [isFavorited, setIsFavorited] = useState(false);
 
   useEffect(() => {
@@ -29,7 +29,7 @@ const IsFavoriteComponent = ({ itemId }) => {
   console.log('localStorage', localStorage.getItem('favorites'));
 
   return (
-    <span onClick={handleFavoriteClick} className='cursor-pointer'>
+    <span onClick={handleFavoriteClick} className={favoriteStyle}>
       {isFavorited ? <FaHeart /> : <FaRegHeart />}
     </span>
   );

@@ -6,9 +6,7 @@ import GenreColors from '../GenreColors/GenreColors';
 import IsFavoriteComponent from '@/components/uiComponents/IsFavorite/IsFavorite';
 
 const DetailsContent = ({ item, handleModalTriggerClick, handleModalVideoClick, showModalTrigger, showModalVideo }) => {
-
   const [isAdded, setIsAdded] = useState(false);
-
   const firstDate = new Date(item.first_air_date).getFullYear();
   const lastDate = new Date(item.last_air_date).getFullYear();
   const timeAir = `${firstDate} - ${lastDate}`;
@@ -16,13 +14,11 @@ const DetailsContent = ({ item, handleModalTriggerClick, handleModalVideoClick, 
   const year = item.first_air_date ? timeAir : releaseDate;
 
   const stylesButton = 'p-2 text-dark-primary-a10 transition-all size-10 duration-300 bg-dark-menu-y10 rounded-full hover:text-dark-primary-a20';
-
   const handleAddClick = () => {
     setIsAdded(!isAdded);
   };
 
   const genres = item.genres || item.genre_ids;
-
   const genreColors = GenreColors;
 
   return(
@@ -81,9 +77,7 @@ const DetailsContent = ({ item, handleModalTriggerClick, handleModalVideoClick, 
             onClick={handleModalTriggerClick}>
             <RiAlarmWarningFill className={stylesButton}/>
           </div>
-          <div className='w-12 hover:cursor-pointer'>
-            <IsFavoriteComponent itemId={item.id}/>
-          </div>
+          <IsFavoriteComponent itemId={item.id} favoriteStyle={stylesButton}/>
           <div className='w-12 hover:cursor-pointer' 
             onClick={handleAddClick}>
               {isAdded ? 
