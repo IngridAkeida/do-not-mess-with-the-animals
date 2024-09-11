@@ -13,7 +13,7 @@ const List = () => {
     <div className='flex flex-col gap-2 mx-2 my-2 md:mx-0'>
       <h2 className='bg-gradient-to-br from-dark-primary-a40 to-dark-primary-a30 font-semibold text-3xl text-center bg-black rounded-md p-2'> Looking for the main tredings and genres</h2>
         <LayoutSection>
-            <h1 className='text-center text-2xl mb-4 text-white font-semibold'>News</h1>
+            <h1 className='text-center text-2xl mb-4 font-semibold'>News</h1>
             <GuardianNews />
         </LayoutSection>
         <LayoutSection>
@@ -35,7 +35,7 @@ const List = () => {
               </label>
             </div>
             <div key={navigationInfo[toggle ? 1 : 0].name}>
-              <h1 className='text-center text-2xl mb-4 text-white font-semibold flex justify-center items-center gap-x-2'>
+              <h1 className='text-center text-2xl mb-4 font-semibold flex justify-center items-center gap-x-2'>
                 The Main Content About: <span className='text-dark-menu-y10 '> {navigationInfo[toggle ? 1 : 0].name}</span>
               </h1>
               <div className='flex flex-wrap flex-row gap-4 justify-center items-center my-4 pb-4'>
@@ -54,7 +54,7 @@ const List = () => {
         <LayoutSection>
         {navigationInfo.slice(2).map((item) => (
           <div key={item.name}>
-          <h1 className='text-center text-2xl mb-4 text-white font-semibold'>{item.name}</h1>
+          <h1 className='text-center text-2xl mb-4 font-semibold'>{item.name}</h1>
             <div className='flex flex-wrap flex-row gap-4 justify-center items-center my-4 pb-4'>
               {item.subMenu.map((subItem) => (
               <Link key={subItem.name} href={subItem.href} passHref> 
