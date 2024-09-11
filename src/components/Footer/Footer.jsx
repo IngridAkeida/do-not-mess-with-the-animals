@@ -2,13 +2,11 @@ import React from 'react';
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 import { NavigationInfo, NavigationUser } from '../../components/uiComponents/MenuList/MenuList';
 import Link from 'next/link';
-import { useTheme } from 'next-themes';
+import LayoutSection from '../uiComponents/LayoutContainer/LayoutSection';
 
 const Footer = () => {
-  const { theme } = useTheme();
-
   return (
-    <footer className={`p-6 ${theme === 'dark' ? 'bg-dark-primary-a40 text-white' : 'bg-light-primary-100 text-dark-primary-a40'}`}>
+    <LayoutSection>
       <div className='container mx-auto flex flex-col lg:flex-row justify-between items-center'>
         <div className='mb-6 lg:mb-0'>
           <h2 className='text-xl font-bold mb-2'>Newsletter</h2>
@@ -63,7 +61,7 @@ const Footer = () => {
           <NavigationUser />
         </ul>
       </div>
-    </footer>
+    </LayoutSection>
   );
 };
 
