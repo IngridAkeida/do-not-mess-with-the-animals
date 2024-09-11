@@ -13,7 +13,7 @@ const DetailsContent = ({ item, handleModalTriggerClick, handleModalVideoClick, 
   const releaseDate = new Date(item.release_date).getFullYear();
   const year = item.first_air_date ? timeAir : releaseDate;
 
-  const stylesButton = 'p-2 text-dark-primary-a10 transition-all size-10 duration-300 bg-dark-menu-y10 rounded-full hover:text-dark-primary-a20';
+  const stylesButton = 'p-2 text-dark-primary-a10 transition-all size-10 duration-300 bg-dark-menu-y10 rounded-full hover:text-dark-primary-a20 hover:cursor-pointer flex justify-center items-center';
   const handleAddClick = () => {
     setIsAdded(!isAdded);
   };
