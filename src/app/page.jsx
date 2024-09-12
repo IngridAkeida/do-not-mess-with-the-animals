@@ -4,6 +4,7 @@ import Banner from '../components/Header/Banner/Banner';
 import ComponentList from '../components/Main/GenreList.jsx/GenreList';
 import { getListMovieNew } from '@/pages/api/dataTMDBMovieNew';
 import Layout from '@/components/uiComponents/LayoutContainer/LayoutContainer';
+import DDDFetch from '@/components/uiComponents/DDDFetch/DDDFetch';
 
 export default function Home() {
   const [list, setList] = useState([]);
@@ -119,6 +120,7 @@ export default function Home() {
       <Layout>
         <Banner randomItem={randomItem} addVideo={addVideo} matchFound={matchFoundResult} />
         <ComponentList list={list} matchFound={matchFoundResult} />
+        <DDDFetch itemForQuery={randomItem}/>
       </Layout>
     </Fragment>
   );

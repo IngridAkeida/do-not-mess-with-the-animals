@@ -3,7 +3,7 @@ import DetailsContent from '@/components/uiComponents/DetailsContent/DetailsCont
 import Modal from '@/components/uiComponents/Modal/Modal';
 import Image from 'next/image';
 import Link from 'next/link';
-import {FaPlus} from 'react-icons/fa';
+import { FaPlus } from 'react-icons/fa';
 import { useState } from 'react';
 
 const Banner = ({randomItem, matchFound, addVideo}) => {
@@ -28,9 +28,10 @@ const Banner = ({randomItem, matchFound, addVideo}) => {
     setShowModalTrigger(!showModalTrigger)
   };
 
+  console.log(randomItem)
+
   const stylesVideo = 'fixed inset-0 bg-opacity-25 backdrop-blur-sm flex justify-center items-center w-full h-full';
   const stylesVideoContent = 'flex flex-col w-[90%] h-[90%] sm:w-[70%] sm:h-[70%] md:w-[60%] md:h-[60%] lg:w-[50%] lg:h-auto p-1 bg-black bg-opacity-80';
-
   // modal triigger
   const stylesTrigger = 'fixed inset-0 bg-opacity-25 backdrop-blur-sm flex justify-center items-center w-full h-full mt-6';
   const stylesTriggerContent = 'flex flex-col w-[90%] h-[90%] sm:w-[70%] sm:h-[70%] md:w-[60%] md:h-[60%] lg:w-[40%] lg:h-[85%] p-1 bg-dark-neutral-a30 rounded-md';
@@ -39,8 +40,6 @@ const Banner = ({randomItem, matchFound, addVideo}) => {
     return null;
   } 
 
-  console.log('matchFound:', matchFound);
-
   let resultType = '';
 
   if (matchFound.media_type === 16) {
@@ -48,6 +47,8 @@ const Banner = ({randomItem, matchFound, addVideo}) => {
   } else {
     resultType = 'movie';
   }
+
+  console.log('matchFound:', matchFound);
 
   return (
     <div 
