@@ -9,6 +9,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import Settings from '../../uiComponents/Settings/Settings';
 import TriggerResult from '../../Main/TriggerResult/TriggerResult';
 import TriggerMessage from '@/components/TriggerMessage';
+import TriggerFetch from '@/components/uiComponents/DDDFetch/DDDFetch';
 
 const BannerResult = ({ item, triggers }) => {
   const [showModalVideo, setShowModalVideo] = useState(false);
@@ -177,15 +178,13 @@ const BannerResult = ({ item, triggers }) => {
           </div>
         </Modal>
       )}
-      {/* { triggers.length > 0 && (
         <Modal isVisible={showModalTrigger} styleContainer ={stylesTrigger} styleContent= {stylesTriggerContent} onClose={handleModalTriggerClick}>
           <div className='flex items-center justify-center'>
             <div className='relative'>
-              <TriggerResult triggers={triggers} item={item} />
+              <TriggerFetch itemForQuery={item} />
             </div>
           </div>
         </Modal>
-      )} */}
     </Fragment>
   );
 }

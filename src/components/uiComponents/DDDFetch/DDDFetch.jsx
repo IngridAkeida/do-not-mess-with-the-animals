@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
+import TriggerResult from '@/components/Main/TriggerResult/TriggerResult';
 
-const DDDFetch = ({itemForQuery}) => {
+const TriggerFetch = ({itemForQuery}) => {
   const [results, setResults] = useState(null);
   const [resultsFinal, setResultsFinal] = useState(null);
   const [error, setError] = useState(null);
@@ -75,15 +76,11 @@ const DDDFetch = ({itemForQuery}) => {
 
   return (
     <div>
-      {triggers.map((trigger, index) => (
-        <div key={index}>
-          <h2 className='font-bold pl-4 mb-2'>{trigger.name}</h2>
-        </div>
-        ))}
+      <TriggerResult triggers={triggers} />
     </div>
     
   );
 };
 
-export default DDDFetch;
+export default TriggerFetch;
 
