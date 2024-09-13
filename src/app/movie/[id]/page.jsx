@@ -17,8 +17,6 @@ const Movie = () => {
 
   const item = resultData;
 
-  console.log('item:', item);
-
   return (
     <Layout>
       <main>

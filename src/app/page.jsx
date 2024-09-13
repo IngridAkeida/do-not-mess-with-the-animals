@@ -54,8 +54,6 @@ export default function Home() {
           }
           const data = await response.json();
           setAddVideo(data.videos);
-          console.log('data:', data);
-          console.log('addVideo:', addVideo);
         } catch (error) {
           setError(error.message);
         } finally {

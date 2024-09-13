@@ -24,9 +24,6 @@ const IsFavoriteComponent = ({ itemId, favoriteStyle }) => {
 
     setIsFavorited(!isFavorited);
   };
-  console.log('isFavorited', isFavorited);
-  console.log('itemId', itemId);
-  console.log('localStorage', localStorage.getItem('favorites'));
 
   return (
     <span onClick={handleFavoriteClick} className={favoriteStyle}>

@@ -35,8 +35,6 @@ const PeoplePage = () => {
     return <div>Error fetching data: {error}</div>;
   }
 
-  console.log(data);
-
   return (
     <Layout>
       <div className='flex'>

@@ -7,7 +7,6 @@ export default async function handler(req, res) {
   }
 
   const apiUrl = `https://api.themoviedb.org/3/search/multi?query=${query}`;
-  console.log('API URL:', apiUrl);
 
   try {
     const response = await fetch(apiUrl, {

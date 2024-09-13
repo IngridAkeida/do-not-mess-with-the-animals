@@ -24,7 +24,6 @@ const GenreTVShow = () => {
   if (error) {
     return <div className='text-white'>Error: {error}</div>;
   }
-  console.log(genreData);
   return (
     <Layout>
       <GenreContentCard genreData={genreData} currentPage={currentPage} totalPages={totalPages} setCurrentPage={setCurrentPage}/>

@@ -60,10 +60,6 @@ const TriggerFetch = ({itemForQuery}) => {
     handleId();
   }, [ matchFoundResult ]);
 
-  
-
-  console.log('results:', results);
-  console.log('resultsFinal:', resultsFinal);
 
   if (!results) {
     return <p>Carregando...</p>;

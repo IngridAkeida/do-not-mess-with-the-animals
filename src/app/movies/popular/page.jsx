@@ -17,7 +17,6 @@ const MoviesPopularPage = () => {
         const listPopular = await getListMovieNew();
         if (listPopular) {
           setList(listPopular);
-          console.log(listPopular);
         } else {
           setError('Failed to load.');
         }
@@ -38,9 +37,6 @@ const MoviesPopularPage = () => {
   if (error) {
     return <div className='text-white'>Error: {error}</div>;
   }
-
-  console.log(list);
-  console.log(list.slice(0,2));
   return (
     <Layout>
       <div className='bg-gradient-to-br from-dark-primary-a40 via-dark-primary-a30 to-dark-primary-a40'>

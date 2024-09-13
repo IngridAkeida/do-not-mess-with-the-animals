@@ -57,8 +57,6 @@ const GuardianNews = () => {
     arrows: true,
   };
 
-  console.log(articles);
-
   return (
     <div className=''>
       <Slider {...settings} className=''>

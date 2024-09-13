@@ -14,7 +14,6 @@ const TVShowsUpcomingPage = () => {
         const listPopular = await getListTvshowNew();
         if (listPopular) {
           setList(listPopular);
-          console.log(listPopular);
         } else {
           setError('Failed to load.');
         }

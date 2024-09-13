@@ -42,7 +42,6 @@ const PersonPage = () => {
   if (!person) {
     return <div>No data found</div>;
   }
-  console.log(person)
   return (
     <div className='max-w-7xl mx-auto'>
       <Nav />

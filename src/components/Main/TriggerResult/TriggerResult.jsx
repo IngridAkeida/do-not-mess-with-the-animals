@@ -19,10 +19,6 @@ const TriggerResult = ({triggers}) => {
     return { filteredTriggers };
   }, [triggers, filter]);
 
-  console.log('triggers', triggers);
-  console.log('Filter:', filter);
-  console.log('filteredTriggers:', filteredTriggers);
-
   return (
     <div className='flex flex-col my-2'>
       {

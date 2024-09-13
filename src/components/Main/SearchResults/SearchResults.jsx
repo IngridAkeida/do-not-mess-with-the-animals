@@ -3,7 +3,6 @@ import { useState, useMemo } from 'react';
 import CardLayout from '../CardLayout/CardLayout';
 
 const SearchResults = ({results, searchTerm}) => {
-  console.log('results', results);
   const [filter, setFilter] = useState('all');
 
   const handleFilterChange = (event) => {

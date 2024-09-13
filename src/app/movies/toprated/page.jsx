@@ -14,7 +14,6 @@ const MoviesTopRatedPage = () => {
         const listPopular = await getListMovieNew();
         if (listPopular) {
           setList(listPopular);
-          console.log(listPopular);
         } else {
           setError('Failed to load.');
         }
