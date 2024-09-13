@@ -1,11 +1,11 @@
 'use client'
-import { useCombineData } from '../../../components/Main/CombineDatas/CombineDatas';
-import BannerResult from '../../../components/Main/BannerResult/BannerResult';
+import { useDatas } from '@/components/Main/UseDatas/UseDatas';
+import BannerResult from '@/components/Main/BannerResult/BannerResult';
 import Layout from '@/components/uiComponents/LayoutContainer/LayoutContainer';
 
 const Movie = () => {
   const fetchpath ='serverDataTMDBMovie';
-  const { combineData, loading, error } = useCombineData({fetchpath}); 
+  const { resultData, loading, error } = useDatas({fetchpath}); 
 
   if (loading) {
     return <p>Loading...</p>;
@@ -15,15 +15,14 @@ const Movie = () => {
     return <p>Error: {error.message}</p>;
   }
 
-  const item = combineData.tmdbData;
-  const triggers = combineData.allGroups;
+  const item = resultData;
 
   console.log('item:', item);
 
   return (
     <Layout>
       <main>
-        <BannerResult item={item} triggers={triggers}/>
+        <BannerResult item={item}/>
       </main>
     </Layout>
   );

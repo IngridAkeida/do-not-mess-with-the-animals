@@ -23,7 +23,7 @@ const SearchResults = ({results, searchTerm}) => {
 
       if (filter === 'all') return true;
       if (filter === 'movies' && result.media_type === 'movie') return true;
-      if (filter === 'tvshows' && result.media_type !== 'tv') return true;
+      if (filter === 'tvshows' && result.media_type === 'tv') return true;
 
       return false;
     });
