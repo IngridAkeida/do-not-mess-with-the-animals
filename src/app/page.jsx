@@ -10,9 +10,7 @@ export default function Home() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
   const [randomItem, setRandomItem] = useState(null);
-  const [results, setResults] = useState(null);
   const [addVideo, setAddVideo] = useState(null);
-  const [matchFoundResult, setMatchFoundResult] = useState(null);
 
   useEffect(() => {
     const loadAllGenres = async () => {
@@ -41,37 +39,12 @@ export default function Home() {
     }
   };
 
-  // Fetch additional data and video for the random item
   useEffect(() => {
-    if (!randomItem) return;
-
-    const fetchRandomItemDetails = async () => {
-      try {
-        const encodedTerm = encodeURIComponent(randomItem.name || randomItem.title);
-        const response = await fetch(`/api/serverDataDDDQuery?query=${encodedTerm}`);
-
-        if (!response.ok) {
-          throw new Error('Failed to fetch data');
-        }
-
-        const dataId = await response.json();
-        setResults(dataId);
-      } catch (error) {
-        setError(error.message);
-        console.error(error);
-      }
-    };
-
-    fetchRandomItemDetails();
-  }, [randomItem]);
-
-  // Fetch video data based on matched result
-  useEffect(() => {
-    if (matchFoundResult) {
-      const tmdbId = matchFoundResult.tmdbId;
-      const pathChoice = matchFoundResult.itemTypeId === 15
-        ? `api/serverDataTMDBMovie?id=${tmdbId}`
-        : `api/serverDataTMDBTvShow?id=${tmdbId}`;
+    if (randomItem) {
+      const id = randomItem.id;
+      const pathChoice = randomItem.title
+        ? `api/serverDataTMDBMovie?id=${id}`
+        : `api/serverDataTMDBTvShow?id=${id}`;
 
       const fetchDataVideo = async () => {
         try {
@@ -81,6 +54,8 @@ export default function Home() {
           }
           const data = await response.json();
           setAddVideo(data.videos);
+          console.log('data:', data);
+          console.log('addVideo:', addVideo);
         } catch (error) {
           setError(error.message);
         } finally {
@@ -90,21 +65,7 @@ export default function Home() {
 
       fetchDataVideo();
     }
-  }, [matchFoundResult]);
-
-  console.log(addVideo)
-
-  // Find a matching result from the API response
-  useEffect(() => {
-    if (randomItem && results?.items?.length) {
-      const matchingItem = results.items.find(item => item.tmdbId === randomItem.id);
-      if (matchingItem) {
-        setMatchFoundResult(matchingItem);
-      } else {
-        console.log('No match found for randomItem in results.');
-      }
-    }
-  }, [randomItem, results]);
+  }, [randomItem]);
 
   if (loading) {
     return <div className='text-black'>Loading...</div>;
@@ -117,8 +78,8 @@ export default function Home() {
   return (
     <Fragment>
       <Layout>
-        <Banner randomItem={randomItem} addVideo={addVideo} matchFound={matchFoundResult} />
-        <ComponentList list={list} matchFound={matchFoundResult} />
+        <Banner randomItem={randomItem} addVideo={addVideo} />
+        <ComponentList list={list} />
       </Layout>
     </Fragment>
   );

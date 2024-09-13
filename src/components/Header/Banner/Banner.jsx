@@ -7,14 +7,14 @@ import { FaPlus } from 'react-icons/fa';
 import { useState } from 'react';
 import TriggerFetch from '@/components/uiComponents/DDDFetch/DDDFetch';
 
-const Banner = ({randomItem, matchFound, addVideo}) => {
+const Banner = ({randomItem, addVideo}) => {
 
   const [showModalVideo, setShowModalVideo] = useState(false);
   const [showModalTrigger, setShowModalTrigger] = useState(false);
 
   const imagePath = randomItem?.backgroundImage || randomItem?.backdrop_path;
   const backgroundImage = imagePath 
-    ? `https://www.doesthedogdie.com/content/1800/0/${imagePath}` 
+    ? `https://image.tmdb.org/t/p/w780${imagePath}` 
     : '/assets/movie-nf.png';
 
   const nameTitle = randomItem?.name || randomItem?.title;
@@ -43,13 +43,11 @@ const Banner = ({randomItem, matchFound, addVideo}) => {
 
   let resultType = '';
 
-  if (matchFound.media_type === 16) {
+  if (randomItem.media_type === 'tv') {
     resultType = 'tvshow';
   } else {
     resultType = 'movie';
   }
-
-  console.log('matchFound:', matchFound);
 
   return (
     <div 
@@ -74,7 +72,7 @@ const Banner = ({randomItem, matchFound, addVideo}) => {
         </div>
         <div className='w-1/2 h-full flex justify-center items-center'>
           <div className='absolute'>
-            <Image src={`https://www.doesthedogdie.com/content/1800/0/${imagePath}`} alt={nameTitle} className='object-contain rounded-md h-full w-full' width={1800} height={1800} />
+            <Image src={`https://image.tmdb.org/t/p/original${imagePath}`} alt={nameTitle} className='object-contain rounded-md h-full w-full' width={780} height={780} />
           </div>
           <div className='relative from-dark-primary-a30 to-transparent bg-gradient-to-tl w-full h-full rounded-md py-5'>
             <div className='flex justify-end items-center pb-4 flex-col text-center h-full w-auto'>
@@ -87,7 +85,7 @@ const Banner = ({randomItem, matchFound, addVideo}) => {
                   showModalTrigger={showModalTrigger}
                 />
               </div>
-              <Link className='flex justify-center items-center h-10 w-[30%] bg-dark-menu-y10 rounded-md hover:opacity-95 text-dark-primary-a20 mt-2 px-2 py-1' href={`/${resultType}/${matchFound.id}`}>
+              <Link className='flex justify-center items-center h-10 w-[30%] bg-dark-menu-y10 rounded-md hover:opacity-95 text-dark-primary-a20 mt-2 px-2 py-1' href={`/${resultType}/${randomItem.id}`}>
                 <FaPlus/>
               </Link>
             </div>
