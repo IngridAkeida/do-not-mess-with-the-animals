@@ -85,7 +85,7 @@ const BannerResult = ({ item, triggers }) => {
                       showModalVideo={showModalVideo} 
                       showModalTrigger={showModalTrigger}
                     />
-                    <TriggerMessage item={item} triggers={triggers}/>
+                    {/* <TriggerMessage item={item} triggers={triggers}/> */}
                   </div>
                   <div className='flex gap-x-6'>
                     <div className='px-4 pt-1 bg-dark-primary-a40 bg-opacity-70 rounded-md'>
@@ -177,7 +177,7 @@ const BannerResult = ({ item, triggers }) => {
           </div>
         </Modal>
       )}
-      { triggers.length > 0 && (
+      {/* { triggers.length > 0 && (
         <Modal isVisible={showModalTrigger} styleContainer ={stylesTrigger} styleContent= {stylesTriggerContent} onClose={handleModalTriggerClick}>
           <div className='flex items-center justify-center'>
             <div className='relative'>
@@ -185,7 +185,7 @@ const BannerResult = ({ item, triggers }) => {
             </div>
           </div>
         </Modal>
-      )}
+      )} */}
     </Fragment>
   );
 }
