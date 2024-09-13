@@ -1,11 +1,11 @@
 'use client'
-import { useCombineData } from '../../../components/Main/UseDatas/UseDatas';
+import { useDatas } from '@/components/Main/UseDatas/UseDatas';
 import BannerResult from '../../../components/Main/BannerResult/BannerResult';
 import Layout from '@/components/uiComponents/LayoutContainer/LayoutContainer';
 
 const Tvshow = () => {
   const fetchpath ='serverDataTMDBTvShow';
-  const { combineData, loading, error } = useCombineData({fetchpath}); 
+  const { resultData, loading, error } = useDatas({fetchpath}); 
   
 
   if (loading) {
@@ -16,13 +16,12 @@ const Tvshow = () => {
     return <p>Error: {error.message}</p>;
   }
 
-  const item = combineData.tmdbData;
-  const triggers = combineData.allGroups;
+  const item = resultData;
 
   return (
     <Layout>
       <main>
-        <BannerResult item={item} triggers={triggers}/>
+        <BannerResult item={item}/>
       </main>
     </Layout>
   );
