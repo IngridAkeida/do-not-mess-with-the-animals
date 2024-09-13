@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FaPlus } from 'react-icons/fa';
 import { useState } from 'react';
+import TriggerFetch from '@/components/uiComponents/DDDFetch/DDDFetch';
 
 const Banner = ({randomItem, matchFound, addVideo}) => {
 
@@ -111,7 +112,7 @@ const Banner = ({randomItem, matchFound, addVideo}) => {
       <Modal isVisible={showModalTrigger} styleContainer ={stylesTrigger} styleContent= {stylesTriggerContent} onClose={handleModalTriggerClick}>
         <div className='flex items-center justify-center'>
           <div className='relative'>
-            Hello
+            <TriggerFetch itemForQuery={randomItem} />
           </div>
         </div>
       </Modal>
