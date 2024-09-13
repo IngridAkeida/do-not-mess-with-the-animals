@@ -15,15 +15,15 @@ const SearchResults = ({results, searchTerm}) => {
     let tvShowCount = 0;
 
     const filteredResults = results.filter(result => {
-      if (result.tmdbId === null) return false;
-      if (result.ItemTypeId !== 15 && result.ItemTypeId !== 16) return false;
+      // if (result.tmdbId === null) return false;
+      if (result.media_type !== 'movie' && result.media_type !== 'tv') return false;
 
-      if (result.ItemTypeId === 15) movieCount++;
-      if (result.ItemTypeId === 16) tvShowCount++;
+      if (result.media_type === 'movie') movieCount++;
+      if (result.media_type === 'tv') tvShowCount++;
 
       if (filter === 'all') return true;
-      if (filter === 'movies' && result.ItemTypeId === 15) return true;
-      if (filter === 'tvshows' && result.ItemTypeId === 16) return true;
+      if (filter === 'movies' && result.media_type === 'movie') return true;
+      if (filter === 'tvshows' && result.media_type !== 'tv') return true;
 
       return false;
     });
@@ -54,7 +54,7 @@ const SearchResults = ({results, searchTerm}) => {
       {filteredResults.map((result, index) => {
 
         let resultType = '';
-        if (result.ItemTypeId === 16) {
+        if (result.media_type === 'tv' ) {
           resultType = 'tvshow';
         } else {
           resultType = 'movie';
