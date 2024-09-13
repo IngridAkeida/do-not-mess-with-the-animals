@@ -71,24 +71,19 @@ const DDDFetch = ({itemForQuery}) => {
     return <p>Carregando...</p>;
   }
 
-  const allGroups = resultsFinal.allGroups;
-  
+  const triggers = resultsFinal.allGroups;
 
   return (
     <div>
-      {error ? (
-        <div>Error: {error}</div>
-      ) : (
-        <div>
-        {/* {results.allGroups.map((result, index) => (
-          <div key={index}>
-            <h2>{result.name}</h2>
-          </div>
-        ))} */}
+      {triggers.map((trigger, index) => (
+        <div key={index}>
+          <h2 className='font-bold pl-4 mb-2'>{trigger.name}</h2>
         </div>
-      )}
+        ))}
     </div>
+    
   );
 };
 
 export default DDDFetch;
+
