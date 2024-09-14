@@ -1,9 +1,9 @@
 'use client';
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 import { getListTvShowNew } from '@/pages/api/dataTMDBTvShowNew';
 import Layout from '@/components/uiComponents/LayoutContainer/LayoutContainer';
-import Link from "next/link";
-import Image from "next/image";
+import Link from 'next/link';
+import Image from 'next/image';
 
 const MoviesPopularPage = () => {
   const [list, setList] = useState([]);
@@ -57,7 +57,7 @@ const MoviesPopularPage = () => {
               >{toggle ? 'Week':'Day'}</div>
             </label>
           </div>
-          <div key={list[toggle ? 1 : 0]?.title || list[toggle ? 1 : 0]?.name}>
+          <div key={list[toggle ? 1 : 0]?.name}>
             <h1 className='text-center text-2xl p-4 text-white font-semibold'>
               {toggle ? 'Trending Movies' : 'Trending Movies'}
             </h1>
@@ -66,7 +66,7 @@ const MoviesPopularPage = () => {
                 <Link key={index} href={`/movie/${item.id}`}>
                   <div  className='h-80 w-52 border rounded-md flex flex-col items-center justify-center bg-dark-accent-a40 hover:bg-dark-accent-a30 transition duration-300 cursor-pointer text-white hover:text-dark-accent-a0 '>
                     <Image src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} className='rounded-md h-80' alt={item.title} width={400} height={500}/>
-                    <div className="absolute">{item.title || item.name}</div>
+                    <div className='absolute w-48'>{item.title || item.name}</div>
                   </div>
                 </Link>
               ))}
