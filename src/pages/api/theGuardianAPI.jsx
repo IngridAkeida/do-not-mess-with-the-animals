@@ -9,7 +9,7 @@ import 'slick-carousel/slick/slick-theme.css';
 
 const apiKey = process.env.NEXT_PUBLIC_GUARDIAN_API_KEY;
 
-const guardianKey = new Guardian(apiKey, false);
+const guardianKey = new Guardian(apiKey, true);
 
 const truncateText = (text, maxLength) => {
   if (text.length <= maxLength) {
