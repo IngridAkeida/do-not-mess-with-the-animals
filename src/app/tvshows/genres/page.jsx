@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { getListTvShow } from '../../../pages/api/dataTMDBGenreTvShow';
 import GenreIcon from '@/components/uiComponents/GenreIcon/GenreIcon';
 import GenreMenu from '@/components/Main/GenresMenu/GenreMenu';
-import Layout from '@/components/uiComponents/LayoutPages/LayoutPages';
+import Layout from '@/components/uiComponents/ConainerLayout/ContainerLayout';
 
 const GenresTVShow = () => {
   const [list, setList] = useState([]);

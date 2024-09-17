@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from "react";
-import { getListTvshowNew } from '@/pages/api/dataTMDBGenreTvShowNew';
-import Layout from '@/components/uiComponents/LayoutPages/LayoutPages';
+import { getListTvshowNew } from '@/pages/api/dataTMDBTvShowNew';
+import Layout from '@/components/uiComponents/ConainerLayout/ContainerLayout';
 
 const TVShowsTopRatedPage = () => {
   const [list, setList] = useState([]);
