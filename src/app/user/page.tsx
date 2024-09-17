@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import { useAuth } from '../../context/AuthContext';
 import { storage, firestore, auth } from '../../pages/firebaseData';
 import { ref, uploadBytes, getDownloadURL, deleteObject } from 'firebase/storage';
-import { doc, updateDoc } from 'firebase/firestore';
+import { doc, updateDoc} from 'firebase/firestore';
 import Image from 'next/image';
 import { v4 } from 'uuid';
 
@@ -13,7 +13,7 @@ import Footer from '../../components/Footer/Footer';
 import withAuth from '../../hoc/withAuth'; 
 
 const User = () => {
-  const { user, loading } = useAuth(); 
+  const { user, loading, updateUserProfile } = useAuth(); 
   const [profileImage, setProfileImage] = useState('');
   const [uploading, setUploading] = useState(false);
   const router = useRouter();
@@ -52,7 +52,7 @@ const User = () => {
       await uploadBytes(storageRef, file);
       const downloadURL = await getDownloadURL(storageRef);
 
-      await updateUserProfile({ photoURL: downloadURL });
+      await updateUserProfile({ displayName: user.displayName, photoURL: downloadURL });
       await updateDoc(doc(firestore, 'users', user.uid), { photoURL: downloadURL });
 
       if (oldImageUrl) {
@@ -76,7 +76,7 @@ const User = () => {
 
     try {
       await deleteObject(storageRef);
-      await updateUserProfile({ photoURL: null });
+      await updateUserProfile({ displayName: user.displayName, photoURL: null });
       await updateDoc(doc(firestore, 'users', user.uid), { photoURL: null });
 
       setProfileImage('');

@@ -7,7 +7,7 @@ import { auth } from '../pages/firebaseData';
 interface AuthContextType {
   user: User | null;
   loading: boolean;
-  updateUserProfile: (profileData: { displayName?: string; photoURL?: string | null }) => Promise<void>;
+  updateUserProfile: (profileData: { displayName: string | null; photoURL?: string | null }) => Promise<void>;
 
 }
 
@@ -26,7 +26,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     return () => unsubscribe();
   }, []);
 
-  const updateUserProfile = async (profileData: { displayName?: string; photoURL?: string | null }) => {
+  const updateUserProfile = async (profileData: { displayName: string | null; photoURL?: string | null }) => {
     if (user) {
       try {
         await firebaseUpdateProfile(user, profileData);
