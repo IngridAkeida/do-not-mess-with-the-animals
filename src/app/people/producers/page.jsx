@@ -1,10 +1,8 @@
-import Layout from '@/components/uiComponents/LayoutContainer/LayoutContainer';
-
 const ProducerPage = () => {
   return (
-    <Layout>
+    <div>
       <h1>Producers</h1>
-    </Layout>
+    </div>
   );
 }
 

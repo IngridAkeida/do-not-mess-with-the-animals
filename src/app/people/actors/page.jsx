@@ -1,10 +1,8 @@
-import Layout from '@/components/uiComponents/LayoutContainer/LayoutContainer';
-
 const ActorPage = () => {
   return (
-    <Layout>
+    <div>
       <h1>Actor</h1>
-    </Layout>
+    </div>
   );
 } 
 
