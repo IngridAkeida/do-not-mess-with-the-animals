@@ -10,7 +10,7 @@ import { v4 } from 'uuid';
 
 import Nav from '../../components/Header/Nav/Nav';
 import Footer from '../../components/Footer/Footer';
-import withAuth from '../../hoc/withAuth'; // Importa o HOC
+import withAuth from '../../hoc/withAuth'; 
 
 const User = () => {
   const { user, loading } = useAuth(); // Pegue o estado de loading aqui também
