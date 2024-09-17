@@ -1,10 +1,10 @@
 'use client';
 import SearchResults from '../../components/Main/SearchResults/SearchResults';
 import { useSearchParams } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import Layout from '@/components/uiComponents/LayoutContainer/LayoutContainer';
 
-const SearchPage = () => {
+const SearchPageContent = () => {
   const searchParams = useSearchParams();
   const searchTerm = searchParams.get('term');
   const [results, setResults] = useState(null);
@@ -45,6 +45,14 @@ const SearchPage = () => {
         )}
       </div>
     </Layout>
+  );
+};
+
+const SearchPage = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <SearchPageContent />
+    </Suspense>
   );
 };
 
