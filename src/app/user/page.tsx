@@ -13,7 +13,7 @@ import Footer from '../../components/Footer/Footer';
 import withAuth from '../../hoc/withAuth'; 
 
 const User = () => {
-  const { user, loading } = useAuth(); // Pegue o estado de loading aqui também
+  const { user, loading } = useAuth(); 
   const [profileImage, setProfileImage] = useState('');
   const [uploading, setUploading] = useState(false);
   const router = useRouter();
