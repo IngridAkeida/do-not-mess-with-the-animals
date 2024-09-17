@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useState } from "react";
-import { getListTvshowNew } from '@/pages/api/dataTMDBTvShowNew';
+import { getListTvShowNew } from '@/pages/api/dataTMDBTvShowNew';
 import Layout from '@/components/uiComponents/LayoutContainer/LayoutContainer';
 
 const TVShowsTopRatedPage = () => {
@@ -11,7 +11,7 @@ const TVShowsTopRatedPage = () => {
   useEffect(() => {
     const loadAllGenres = async () => {
       try {
-        const listPopular = await getListTvshowNew();
+        const listPopular = await getListTvShowNew();
         if (listPopular) {
           setList(listPopular);
           console.log(listPopular);
