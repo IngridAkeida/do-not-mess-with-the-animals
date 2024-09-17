@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import { auth } from '../../pages/firebaseData';
+import { auth } from '../../lib/firebaseData';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import Nav from '../../components/Header/Nav/Nav';
 import Link from 'next/link';
