@@ -62,10 +62,10 @@ const TriggerFetch = ({itemForQuery}) => {
 
 
   if (!results) {
-    return <p>Carregando...</p>;
+    return <p>Loading...</p>;
   }
   if (!resultsFinal) {
-    return <p>Carregando...</p>;
+    return <p>Loading...</p>;
   }
 
   const triggers = resultsFinal.allGroups;

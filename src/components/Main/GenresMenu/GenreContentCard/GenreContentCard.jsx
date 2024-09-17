@@ -37,7 +37,7 @@ const GenreContentCard = ({ genreData, currentPage, totalPages, setCurrentPage }
       <div className='w-3/12'>
         <div className='p-4 rounded-md shadow-md'>
           <h3 className='text-lg font-semibold mb-2'>Filter by:</h3>
-          <select id='filter' className='p-2 rounded-md w-full text-black' onChange={handleFilterChange}>
+          <select id='filter' className='p-2 rounded-md w-full text-white' onChange={handleFilterChange}>
             <option value='all'>All</option>
             <option value='titleAZ'>Title (A-Z)</option>
             <option value='titleZA'>Title (Z-A)</option>

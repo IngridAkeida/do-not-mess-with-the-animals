@@ -44,8 +44,8 @@ const GuardianNews = () => {
     fetchArticles();
   }, []);
 
-  if (loading) return <p>Carregando...</p>;
-  if (error) return <p>Erro: {error}</p>;
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
 
   const settings = {
     infinite: true,

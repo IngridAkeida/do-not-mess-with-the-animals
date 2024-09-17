@@ -9,7 +9,7 @@ import Link from 'next/link';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState<string | null>(null); // Estado para mensagens de erro
+  const [error, setError] = useState<string | null>(null); 
   const router = useRouter();
 
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value);
@@ -77,7 +77,7 @@ const Login = () => {
                 type='password'
                 value={password}
                 onChange={handlePasswordChange}
-                className='w-full px-3 py-2 border rounded text-black'
+                className='w-full px-3 py-2 border rounded text-white'
                 placeholder='password'
                 required
               />

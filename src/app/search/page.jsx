@@ -30,7 +30,7 @@ const SearchPage = () => {
   }, [searchTerm]);
 
   if (!results) {
-    return <p>Carregando...</p>;
+    return <p>Loading...</p>;
   }
   return (
     <Layout>
