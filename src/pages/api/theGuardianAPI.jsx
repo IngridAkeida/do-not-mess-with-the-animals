@@ -11,10 +11,11 @@ const apiKey = process.env.NEXT_PUBLIC_GUARDIAN_API_KEY;
 
 const guardianKey = new Guardian(apiKey, true);
 
-const truncateText = (text, maxLength) => {
+const truncateText = (text ) => {
+  const maxLength = window.innerWidth < 768 ? 300 : 150;
   if (text.length <= maxLength) {
     return text;
-  }
+  } 
   return text.slice(0, maxLength) + '...';
 };
 
@@ -44,6 +45,7 @@ const GuardianNews = () => {
     fetchArticles();
   }, []);
 
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 
@@ -55,27 +57,39 @@ const GuardianNews = () => {
     autoplay: true,
     autoplaySpeed: 5000,
     arrows: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+        }
+      }
+    ]
   };
 
   return (
-    <div className=''>
-      <Slider {...settings} className=''>
+    <div className='px-4 md:px-8'>
+      <Slider {...settings}>
         {articles.map((article) => (
           <div className='p-2' key={article.id}>
-          <div className='bg-dark-primary-a40 rounded-md p-2 h-[330px]'>
-            <h2 className='text-lg font-semibold h-14'>
-              {article.webTitle}
-            </h2>
-            <p className='text-sm font-thin'>Published on: {new Date(article.webPublicationDate).toLocaleDateString()}</p>
-            <div>
-              <div className='flex gap-1'>
-                <Image src={article.fields.thumbnail} alt={article.webTitle} width={300} height={200} className='rounded-md w-[300px] h-[216px]'/>
-                <p>{truncateText(article.fields.bodyText, 300)}</p>
+            <div className='bg-dark-primary-a40 rounded-md p-4 h-auto md:h-[330px]'>
+              <h2 className='md:text-sm xl:text-lg font-semibold h-auto md:h-14'>
+                {article.webTitle}
+              </h2>
+              <p className='text-sm font-thin'>Published on: {new Date(article.webPublicationDate).toLocaleDateString()}</p>
+              <div className='flex flex-col md:flex-row gap-2'>
+                <Image src={article.fields.thumbnail} alt={article.webTitle} width={300} height={200} className='rounded-md lg:auto xl:w-[300px] h-auto'/>
+                <p className='text-sm'>{truncateText(article.fields.bodyText)}</p>
               </div>
-              <p className='text-sm font-thin bottom-0'>
-                See more at <a href={article.webUrl} target="_blank" rel="noopener noreferrer">The Guardian</a>
+              <p className='text-sm font-thin mt-2'>
+                See more at <a href={article.webUrl} target="_blank" rel="noopener noreferrer" className="text-blue-500 underline">The Guardian</a>
               </p>
-            </div>
             </div>
           </div>
         ))}
