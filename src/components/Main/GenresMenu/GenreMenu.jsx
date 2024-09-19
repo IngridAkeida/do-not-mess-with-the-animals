@@ -1,8 +1,7 @@
 import Link from 'next/link';
 
 const GenreMenu = ({ list, content, getGenreIcon }) => {
-    
-  
+
   return(
     <div className='flex flex-wrap flex-row gap-4 justify-center items-center my-4 pb-4'>
         {list.map((genre, index) => (

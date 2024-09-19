@@ -63,7 +63,7 @@ const MoviesPopularPage = () => {
             </h1>
             <div className='flex flex-wrap flex-row gap-4 justify-center text-center items-center pb-4'>
               {list[toggle ? 1 : 0].items.results.map((item, index) => (
-                <Link key={index} href={`/movie/${item.id}`}>
+                <Link key={index} href={`/tvshow/${item.id}`}>
                   <div  className='h-80 w-52 border rounded-md flex flex-col items-center justify-center bg-dark-accent-a40 hover:bg-dark-accent-a30 transition duration-300 cursor-pointer text-white hover:text-dark-accent-a0 '>
                     <Image src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} className='rounded-md h-80' alt={item.title} width={400} height={500}/>
                     <div className='absolute w-48'>{item.title || item.name}</div>
