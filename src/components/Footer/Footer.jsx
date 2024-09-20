@@ -1,8 +1,8 @@
 import React from 'react';
 import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
-import { NavigationInfo, NavigationUser } from '../../components/uiComponents/MenuList/MenuList';
+import { NavigationInfo, NavigationUser } from '@/components/uiComponents/MenuList/MenuList';
 import Link from 'next/link';
-import LayoutSection from '../uiComponents/LayoutContainer/LayoutSection';
+import LayoutSection from '@/components/uiComponents/LayoutContainer/LayoutSection';
 
 const Footer = () => {
   return (
