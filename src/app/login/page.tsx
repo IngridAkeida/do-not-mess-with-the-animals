@@ -1,9 +1,9 @@
 "use client";
 import { useState } from "react";
-import { auth } from "../../lib/firebaseData";
+import { auth } from "@/lib/firebaseData";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useRouter } from "next/navigation";
-import Nav from "../../components/Header/Nav/Nav";
+import Nav from "@/components/Header/Nav/Nav";
 import Link from "next/link";
 
 const Login = () => {
