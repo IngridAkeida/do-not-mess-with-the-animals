@@ -1,4 +1,4 @@
-import { NextArrow, PrevArrow } from '../ArrowCarousel/ArrowCarousel';
+import { NextArrow, PrevArrow } from '@/components/uiComponents/ArrowCarousel/ArrowCarousel';
 
 
 const settings = {
