@@ -4,6 +4,7 @@ import GenreDataFetch from '@/components/Main/GenresMenu/GenreDataFetch/GenreDat
 import { getListMovie } from '@/pages/api/dataTMDBGenreMovie';
 import GenreContentCard from '@/components/Main/GenresMenu/GenreContentCard/GenreContentCard';
 import Layout from '@/components/uiComponents/LayoutContainer/LayoutContainer';
+import LayoutSection from '@/components/uiComponents/LayoutContainer/LayoutSection';
 
 
 const GenreMovie = () => {
@@ -25,7 +26,9 @@ const GenreMovie = () => {
   }
   return (
     <Layout>
-      <GenreContentCard genreData={genreData} currentPage={currentPage} totalPages={totalPages} setCurrentPage={setCurrentPage} />
+      <LayoutSection>
+        <GenreContentCard genreData={genreData} currentPage={currentPage} totalPages={totalPages} setCurrentPage={setCurrentPage} />
+      </LayoutSection>
     </Layout>
   );
 };

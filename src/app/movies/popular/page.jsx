@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import { getListMovieNew } from '@/pages/api/dataTMDBMovieNew';
 import Layout from '@/components/uiComponents/LayoutContainer/LayoutContainer';
+import LayoutSection from '@/components/uiComponents/LayoutContainer/LayoutSection';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -39,7 +40,7 @@ const MoviesPopularPage = () => {
   }
   return (
     <Layout>
-      <div className='bg-gradient-to-br from-dark-primary-a40 via-dark-primary-a30 to-dark-primary-a40'>
+      <LayoutSection>
         <div className='relative'>
           <div className='absolute top-4 right-24'>
             <label className='inline-flex items-center cursor-pointer'>
@@ -73,7 +74,7 @@ const MoviesPopularPage = () => {
             </div>
           </div>
         </div>
-      </div>
+      </LayoutSection>
     </Layout>
   );
 }

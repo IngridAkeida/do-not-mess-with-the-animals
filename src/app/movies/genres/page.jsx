@@ -4,6 +4,7 @@ import { getListMovie } from '@/pages/api/dataTMDBGenreMovie';
 import GenreIcon from '@/components/uiComponents/GenreIcon/GenreIcon';
 import GenreMenu from '@/components/Main/GenresMenu/GenreMenu';
 import Layout from '@/components/uiComponents/LayoutContainer/LayoutContainer';
+import LayoutSection from '@/components/uiComponents/LayoutContainer/LayoutSection';
 
 const GenresMovie = () => {
   const [list, setList] = useState([]);
@@ -42,7 +43,9 @@ const GenresMovie = () => {
 
   return (
     <Layout>
-      <GenreMenu list={list} content={content} getGenreIcon={getGenreIcon} />
+      <LayoutSection>
+        <GenreMenu list={list} content={content} getGenreIcon={getGenreIcon} />
+      </LayoutSection>
     </Layout>
   );
 };
