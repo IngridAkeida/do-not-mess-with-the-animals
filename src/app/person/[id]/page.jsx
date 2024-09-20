@@ -1,8 +1,9 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
-import Nav from '@/components/Header/Nav/Nav';
 import Image from 'next/image';
+import LayoutSection from '@/components/uiComponents/LayoutContainer/LayoutSection';
+import Layout from '@/components/uiComponents/LayoutContainer/LayoutContainer';
 
 const PersonPage = () => {
   const [person, setPerson] = useState(null);
@@ -43,26 +44,26 @@ const PersonPage = () => {
     return <div>No data found</div>;
   }
   return (
-    <div className='max-w-7xl mx-auto'>
-      <Nav />
-      <div className='flex'>
-        <div>
-          <h1 className='text-3xl'>{person.name}</h1>
-          <p>{person.known_for_department}</p>
-          <p>{person.place_of_birth}</p>
-          <Image 
-            src={`https://image.tmdb.org/t/p/w500${person.profile_path}`} 
-            alt={person.name} 
-            width={500}
-                              height={750}
-                              priority={true}
-          />
+    <Layout>
+      <LayoutSection>
+        <div className='flex gap-2'>
+          <div>
+            <h1 className='text-3xl'>{person.name}</h1>
+            <p>{person.known_for_department}</p>
+            <p>{person.place_of_birth}</p>
+            <Image 
+              src={`https://image.tmdb.org/t/p/w500${person.profile_path}`} 
+              alt={person.name} 
+              width={500}
+                                height={750}
+                                priority={true}
+            />
+          </div>
+        
+        <p className='text-justify '>{person.biography}</p>
         </div>
-      
-      <p className='text-justify '>{person.biography}</p>
-      </div>
-      
-    </div>
+      </LayoutSection>
+    </Layout>
   );
 }
 
