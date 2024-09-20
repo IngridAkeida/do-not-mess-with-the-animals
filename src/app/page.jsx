@@ -1,7 +1,7 @@
 'use client';
 import { Fragment, useEffect, useState } from 'react';
-import Banner from '../components/Header/Banner/Banner';
-import ComponentList from '../components/Main/GenreList.jsx/GenreList';
+import Banner from '@/components/Header/Banner/Banner';
+import ComponentList from '@/components/Main/GenreList.jsx/GenreList';
 import { getListMovieNew } from '@/pages/api/dataTMDBMovieNew';
 import Layout from '@/components/uiComponents/LayoutContainer/LayoutContainer';
 

@@ -34,7 +34,7 @@ body {
     text-wrap: balance;
   }
   .bg-custom {
-    background-image: url('../../public/assets/bg.svg');
+    background-image: url('@/public/assets/bg.svg');
     background-repeat: repeat;
     background-position: center;
   }
