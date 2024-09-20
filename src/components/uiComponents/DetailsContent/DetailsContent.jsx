@@ -13,7 +13,7 @@ const DetailsContent = ({ item, handleModalTriggerClick, handleModalVideoClick, 
   const releaseDate = new Date(item.release_date).getFullYear();
   const year = item.first_air_date ? timeAir : releaseDate;
 
-  const stylesButton = 'p-2 text-dark-primary-a10 transition-all size-10 duration-300 bg-dark-menu-y10 rounded-full hover:text-dark-primary-a20 hover:cursor-pointer flex justify-center items-center';
+  const stylesButton = 'p-1 md:p-2 text-dark-primary-a10 transition-all size-6 md:size-10 duration-300 bg-dark-menu-y10 rounded-full hover:text-dark-primary-a20 hover:cursor-pointer flex justify-center items-center';
   const handleAddClick = () => {
     setIsAdded(!isAdded);
   };
@@ -67,17 +67,19 @@ const DetailsContent = ({ item, handleModalTriggerClick, handleModalVideoClick, 
           </div>
         )}
         <div className='flex items-center justify-center h-12'>
-          <div className={`transition-opacity w-12 duration-300 hover:cursor-pointer
+          <div className={`transition-opacity md:w-12 duration-300 hover:cursor-pointer
             ${showModalVideo ? 'opacity-0' : 'opacity-100'}`} 
             onClick={handleModalVideoClick}>
               <RiPlayLargeFill className={stylesButton}/>
           </div>
-          <div className={`transition-opacity w-12 duration-300 hover:cursor-pointer
+          <div className={`transition-opacity md:w-12 duration-300 hover:cursor-pointer
             ${showModalTrigger ? 'opacity-0' : 'opacity-100'}`} 
             onClick={handleModalTriggerClick}>
             <RiAlarmWarningFill className={stylesButton}/>
           </div>
+          <div className='w-12 hover:cursor-pointer'>
           <IsFavoriteComponent itemId={item.id} favoriteStyle={stylesButton}/>
+          </div>
           <div className='w-12 hover:cursor-pointer' 
             onClick={handleAddClick}>
               {isAdded ? 
