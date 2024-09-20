@@ -1,11 +1,11 @@
-import { FaUser } from "react-icons/fa";
-import { FaLanguage } from "react-icons/fa";
-import { MdDarkMode } from "react-icons/md";
-import { MdLightMode } from "react-icons/md";
+import { FaUser } from 'react-icons/fa';
+import { FaLanguage } from 'react-icons/fa';
+import { MdDarkMode } from 'react-icons/md';
+import { MdLightMode } from 'react-icons/md';
 import { FaFilm, FaStar, FaCalendarAlt, FaThList } from 'react-icons/fa';
 import { MdPeople, MdPerson, MdMovieCreation } from 'react-icons/md';
-import { useTheme } from "next-themes";
-import Link from "next/link";
+import { useTheme } from 'next-themes';
+import Link from 'next/link';
 
 
 export const NavigationInfo = [

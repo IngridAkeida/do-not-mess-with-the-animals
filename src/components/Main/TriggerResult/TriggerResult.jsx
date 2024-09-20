@@ -1,5 +1,5 @@
 'use client';
-import { useMemo, useState } from "react";
+import { useMemo, useState } from 'react';
 
 const TriggerResult = ({triggers}) => {
   const [filter, setFilter] = useState('all');

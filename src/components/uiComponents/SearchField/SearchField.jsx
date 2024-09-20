@@ -1,6 +1,6 @@
 import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
-import { FaMagnifyingGlass } from "react-icons/fa6";
+import { FaMagnifyingGlass } from 'react-icons/fa6';
 
 const SearchField = ({ wrapStyle, buttonStyle, inputStyle, buttonDisabledStyle }) => {
   const [searchTerm, setSearchTerm] = useState(''); 

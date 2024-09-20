@@ -5,9 +5,9 @@ import { MdAnimation } from 'react-icons/md';
 import { IoIosRocket } from 'react-icons/io';
 import { RiPoliceCarFill } from 'react-icons/ri';
 import { FaSurprise } from 'react-icons/fa';
-import { TbBalloonFilled } from "react-icons/tb";
-import { GiDramaMasks } from "react-icons/gi";
-import { IoChatbubbles } from "react-icons/io5";
+import { TbBalloonFilled } from 'react-icons/tb';
+import { GiDramaMasks } from 'react-icons/gi';
+import { IoChatbubbles } from 'react-icons/io5';
 
 
 const ACTION = ['action', 'action-adventure-tv'];

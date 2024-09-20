@@ -13,7 +13,7 @@ const listFetch = async (keyPass) => {
     const json = await response.json();
     return json;
   } catch (error) {
-    console.error("Fetch error: ", error.message);
+    console.error('Fetch error: ', error.message);
     return null;
   }
 };

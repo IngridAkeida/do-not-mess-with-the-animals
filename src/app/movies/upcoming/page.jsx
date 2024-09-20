@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 import { getListMovieNew } from '@/pages/api/dataTMDBMovieNew';
 import Layout from '@/components/uiComponents/LayoutContainer/LayoutContainer';
 import Link from 'next/link';

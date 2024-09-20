@@ -1,4 +1,4 @@
-import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowBack } from 'react-icons/io';
 
 
 const TriggerMessage = ({item, triggers}) => {

@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
   createContext,
@@ -6,13 +6,13 @@ import {
   useEffect,
   useState,
   ReactNode,
-} from "react";
+} from 'react';
 import {
   onAuthStateChanged,
   User,
   updateProfile as firebaseUpdateProfile,
-} from "firebase/auth";
-import { auth } from "@/lib/firebaseData";
+} from 'firebase/auth';
+import { auth } from '@/lib/firebaseData';
 
 interface AuthContextType {
   user: User | null;
@@ -51,10 +51,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
           photoURL: profileData.photoURL || user.photoURL,
         });
       } catch (error) {
-        console.error("Erro ao atualizar o perfil: ", error);
+        console.error('Erro ao atualizar o perfil: ', error);
       }
     } else {
-      throw new Error("No user is currently signed in.");
+      throw new Error('No user is currently signed in.');
     }
   };
 
@@ -68,7 +68,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (context === undefined) {
-    throw new Error("useAuth must be used within an AuthProvider");
+    throw new Error('useAuth must be used within an AuthProvider');
   }
   return context;
 };

@@ -25,7 +25,7 @@ export default async function handler(req, res) {
     const data = await response.json();
     res.status(200).json(data);
   } catch (error) {
-  console.error("Fetch error:", error);
+  console.error('Fetch error:', error);
   res.status(500).json({ error: `Server error: ${error.message}` });
 }
 }
