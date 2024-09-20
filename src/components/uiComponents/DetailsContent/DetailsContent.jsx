@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useState } from 'react';
 import { RiAlarmWarningFill } from 'react-icons/ri';
 import { RiPlayLargeFill } from 'react-icons/ri';
-import { MdOutlinePlaylistAdd, MdOutlinePlaylistAddCheck} from "react-icons/md";
-import GenreColors from '../GenreColors/GenreColors';
+import { MdOutlinePlaylistAdd, MdOutlinePlaylistAddCheck} from 'react-icons/md';
+import GenreColors from '@/components/uiComponents/GenreColors/GenreColors';
 import IsFavoriteComponent from '@/components/uiComponents/IsFavorite/IsFavorite';
 
 const DetailsContent = ({ item, handleModalTriggerClick, handleModalVideoClick, showModalTrigger, showModalVideo }) => {
