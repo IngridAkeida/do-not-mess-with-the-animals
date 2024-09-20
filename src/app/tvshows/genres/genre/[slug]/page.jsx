@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import GenreDataFetch from '@/components/Main/GenresMenu/GenreDataFetch/GenreDataFetch';
-import { getListTvShow } from '../../../../../pages/api/dataTMDBGenreTvShow';
+import { getListTvShow } from '@/pages/api/dataTMDBGenreTvShow';
 import GenreContentCard from '@/components/Main/GenresMenu/GenreContentCard/GenreContentCard';
 import PageButton from '@/components/Main/GenresMenu/PageButton/PageButton';
 import Layout from '@/components/uiComponents/LayoutContainer/LayoutContainer';
