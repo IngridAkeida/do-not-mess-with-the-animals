@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '@/context/AuthContext';
 
 const withAuth = (WrappedComponent: React.ComponentType) => {
   const ComponentWithAuth = (props: any) => {

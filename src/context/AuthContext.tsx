@@ -12,7 +12,7 @@ import {
   User,
   updateProfile as firebaseUpdateProfile,
 } from "firebase/auth";
-import { auth } from "../lib/firebaseData";
+import { auth } from "@/lib/firebaseData";
 
 interface AuthContextType {
   user: User | null;
