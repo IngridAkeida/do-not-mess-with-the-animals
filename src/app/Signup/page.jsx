@@ -1,8 +1,8 @@
 'use client';
 import React, { useState } from 'react';
-import { auth } from '../../lib/firebaseData';
+import { auth } from '@/lib/firebaseData';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
-import Nav from '../../components/Header/Nav/Nav';
+import Nav from '@/components/Header/Nav/Nav';
 import Link from 'next/link';
 
 const SignUp = () => {

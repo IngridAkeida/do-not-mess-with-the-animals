@@ -1,12 +1,12 @@
 import { Fragment, useState } from 'react';
 import Image from 'next/image';
 import { RiPlayLargeFill } from 'react-icons/ri';
-import DetailContent from '../../uiComponents/DetailsContent/DetailsContent';
-import Modal from '../../uiComponents/Modal/Modal';
-import CustomSlider from '../../uiComponents/CustomSlider/CustomSlider';
+import DetailContent from '@/components/uiComponents/DetailsContent/DetailsContent';
+import Modal from '@/components/uiComponents/Modal/Modal';
+import CustomSlider from '@/components/uiComponents/CustomSlider/CustomSlider';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import Settings from '../../uiComponents/Settings/Settings';
+import Settings from '@/components/uiComponents/Settings/Settings';
 import TriggerFetch from '@/components/uiComponents/DDDFetch/DDDFetch';
 
 const BannerResult = ({ item, triggers }) => {
