@@ -2,8 +2,9 @@
 import { getListTvShowNew } from '@/pages/api/dataTMDBTvShowNew';
 import { useEffect, useState } from 'react';
 import Layout from '@/components/uiComponents/LayoutContainer/LayoutContainer';
+import LayoutSection from '@/components/uiComponents/LayoutContainer/LayoutSection';
 import Link from 'next/link';
-import Image from 'next/image';
+import Image from 'next/image'
 
 const TVShowsUpcomingPage = () => {
   const [list, setList] = useState([]);
@@ -38,7 +39,7 @@ const TVShowsUpcomingPage = () => {
   }
   return (
     <Layout>
-      <div className='bg-gradient-to-br from-dark-primary-a40 via-dark-primary-a30 to-dark-primary-a40'>
+      <LayoutSection>
         <div className='relative'>
           <div key={list[3]?.name}>
             <h1 className='text-center text-2xl p-4 text-white font-semibold'>
@@ -56,7 +57,7 @@ const TVShowsUpcomingPage = () => {
             </div>
           </div>
         </div>
-      </div>
+      </LayoutSection>
     </Layout>
   );
 }
