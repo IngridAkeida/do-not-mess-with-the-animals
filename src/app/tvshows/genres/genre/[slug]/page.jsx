@@ -5,6 +5,7 @@ import { getListTvShow } from '@/pages/api/dataTMDBGenreTvShow';
 import GenreContentCard from '@/components/Main/GenresMenu/GenreContentCard/GenreContentCard';
 import PageButton from '@/components/Main/GenresMenu/PageButton/PageButton';
 import Layout from '@/components/uiComponents/LayoutContainer/LayoutContainer';
+import LayoutSection from '@/components/uiComponents/LayoutContainer/LayoutSection';
 
 const GenreTVShow = () => {
   const specificPath = getListTvShow;
@@ -26,7 +27,9 @@ const GenreTVShow = () => {
   }
   return (
     <Layout>
-      <GenreContentCard genreData={genreData} currentPage={currentPage} totalPages={totalPages} setCurrentPage={setCurrentPage}/>
+      <LayoutSection>
+        <GenreContentCard genreData={genreData} currentPage={currentPage} totalPages={totalPages} setCurrentPage={setCurrentPage}/>
+      </LayoutSection>
     </Layout>
   );
 };

@@ -4,6 +4,7 @@ import { getListTvShow } from '@/pages/api/dataTMDBGenreTvShow';
 import GenreIcon from '@/components/uiComponents/GenreIcon/GenreIcon';
 import GenreMenu from '@/components/Main/GenresMenu/GenreMenu';
 import Layout from '@/components/uiComponents/LayoutContainer/LayoutContainer';
+import LayoutSection from '@/components/uiComponents/LayoutContainer/LayoutSection';
 
 const GenresTVShow = () => {
   const [list, setList] = useState([]);
@@ -43,7 +44,9 @@ const GenresTVShow = () => {
 
   return (
     <Layout>
-      <GenreMenu list={list} content={content} getGenreIcon={getGenreIcon} />
+      <LayoutSection>
+        <GenreMenu list={list} content={content} getGenreIcon={getGenreIcon} />
+      </LayoutSection>
     </Layout>
   );
 };
