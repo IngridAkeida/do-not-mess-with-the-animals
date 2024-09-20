@@ -78,7 +78,7 @@ const SignUp = () => {
             type='text'
             value={name}
             onChange={handleNameChange}
-            className='w-full px-3 py-2 border rounded'
+            className='w-full px-3 py-2 border rounded bg-black text-white'
             required
           />
         </div>
@@ -88,7 +88,7 @@ const SignUp = () => {
             type='email'
             value={email}
             onChange={handleEmailChange}
-            className='w-full px-3 py-2 border rounded'
+            className='w-full px-3 py-2 border rounded bg-black text-white'
             required
           />
         </div>
@@ -98,7 +98,7 @@ const SignUp = () => {
             type='password'
             value={password}
             onChange={handlePasswordChange}
-            className='w-full px-3 py-2 border rounded'
+            className='w-full px-3 py-2 border rounded bg-black text-white'
             required
           />
         </div>
@@ -108,7 +108,7 @@ const SignUp = () => {
             type='password'
             value={confPassword}
             onChange={handleConfirmPasswordChange}
-            className='w-full px-3 py-2 border rounded'
+            className='w-full px-3 py-2 border rounded bg-black text-white'
             required
           />
         </div>
