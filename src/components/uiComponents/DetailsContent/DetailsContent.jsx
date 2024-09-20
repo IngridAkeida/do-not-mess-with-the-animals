@@ -21,6 +21,9 @@ const DetailsContent = ({ item, handleModalTriggerClick, handleModalVideoClick, 
   const genres = item.genres || item.genre_ids;
   const genreColors = GenreColors;
 
+  console.log('genres', genres);
+  console.log('genreColors', genreColors);
+
   return(
     <div className='w-60 flex flex-col gap-1'>
       <p className='flex justify-center items-center gap-1'>
