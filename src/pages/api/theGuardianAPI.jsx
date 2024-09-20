@@ -12,7 +12,8 @@ const apiKey = process.env.NEXT_PUBLIC_GUARDIAN_API_KEY;
 const guardianKey = new Guardian(apiKey, true);
 
 const truncateText = (text ) => {
-  const maxLength = window.innerWidth < 768 ? 300 : 150;
+  const maxLength = window.innerWidth < 1024 ? 500 : 300;
+
   if (text.length <= maxLength) {
     return text;
   } 
@@ -82,7 +83,7 @@ const GuardianNews = () => {
               <h2 className='md:text-sm xl:text-lg font-semibold h-auto md:h-14'>
                 {article.webTitle}
               </h2>
-              <p className='text-sm font-thin'>Published on: {new Date(article.webPublicationDate).toLocaleDateString()}</p>
+              <p className='text-sm font-thin text-justify '>Published on: {new Date(article.webPublicationDate).toLocaleDateString()}</p>
               <div className='flex flex-col md:flex-row gap-2'>
                 <Image src={article.fields.thumbnail} alt={article.webTitle} width={300} height={200} className='rounded-md lg:auto xl:w-[300px] h-auto'/>
                 <p className='text-sm'>{truncateText(article.fields.bodyText)}</p>
