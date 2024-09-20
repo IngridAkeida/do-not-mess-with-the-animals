@@ -60,7 +60,7 @@ export const NavigationUser = () => {
   ];
 
   return(
-    <ul className='flex space-x-4'>
+    <ul className='flex space-x-4 justify-center items-center'>
       {navigationMenu.map((item, index) => (
         <li key={index}>
           {item.href ? (
