@@ -1,25 +1,25 @@
-"use client";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-import { useAuth } from "../../context/AuthContext";
-import { storage, firestore, auth } from "../../lib/firebaseData";
+'use client';
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { useAuth } from '@/context/AuthContext';
+import { storage, firestore, auth } from '@/lib/firebaseData';
 import {
   ref,
   uploadBytes,
   getDownloadURL,
   deleteObject,
-} from "firebase/storage";
-import { doc, updateDoc } from "firebase/firestore";
-import Image from "next/image";
-import { v4 } from "uuid";
+} from 'firebase/storage';
+import { doc, updateDoc } from 'firebase/firestore';
+import Image from 'next/image';
+import { v4 } from 'uuid';
 
-import Nav from "../../components/Header/Nav/Nav";
-import Footer from "../../components/Footer/Footer";
-import withAuth from "../../hoc/withAuth";
+import Nav from '@/components/Header/Nav/Nav';
+import Footer from '@/components/Footer/Footer';
+import withAuth from '@/hoc/withAuth';
 
 const User = () => {
   const { user, loading, updateUserProfile } = useAuth();
-  const [profileImage, setProfileImage] = useState("");
+  const [profileImage, setProfileImage] = useState('');
   const [uploading, setUploading] = useState(false);
   const router = useRouter();
 
@@ -37,9 +37,9 @@ const User = () => {
         displayName: user.displayName,
         photoURL: profileImage,
       });
-      console.log("Profile updated successfully!");
+      console.log('Profile updated successfully!');
     } catch (error) {
-      console.error("Error updating profile:", error);
+      console.error('Error updating profile:', error);
     }
   };
 
@@ -61,7 +61,7 @@ const User = () => {
         displayName: user.displayName,
         photoURL: downloadURL,
       });
-      await updateDoc(doc(firestore, "users", user.uid), {
+      await updateDoc(doc(firestore, 'users', user.uid), {
         photoURL: downloadURL,
       });
 
@@ -72,7 +72,7 @@ const User = () => {
 
       setProfileImage(downloadURL);
     } catch (error) {
-      console.error("Error uploading image:", error);
+      console.error('Error uploading image:', error);
     } finally {
       setUploading(false);
     }
@@ -90,11 +90,11 @@ const User = () => {
         displayName: user.displayName,
         photoURL: null,
       });
-      await updateDoc(doc(firestore, "users", user.uid), { photoURL: null });
+      await updateDoc(doc(firestore, 'users', user.uid), { photoURL: null });
 
-      setProfileImage("");
+      setProfileImage('');
     } catch (error) {
-      console.error("Error removing image:", error);
+      console.error('Error removing image:', error);
     } finally {
       setUploading(false);
     }
@@ -103,39 +103,39 @@ const User = () => {
   const handleSignOut = async () => {
     try {
       await auth.signOut();
-      router.push("/"); // Redireciona para a página inicial após o logout
+      router.push('/'); 
     } catch (error) {
-      console.error("Error signing out:", error);
+      console.error('Error signing out:', error);
     }
   };
 
   if (loading) {
-    return <div>Loading...</div>; // Mostra um indicador de carregamento enquanto o usuário está sendo carregado
+    return <div>Loading...</div>; 
   }
 
   return (
-    <div className="max-w-7xl mx-auto bg-dark-primary-a40">
+    <div className='max-w-7xl mx-auto bg-dark-primary-a40'>
       <Nav />
-      <div className="max-w-5xl h-auto mx-auto bg-gradient-to-br from-dark-primary-a30 via-dark-primary-a0 to-dark-primary-a20 flex flex-col justify-start items-center">
-        <div className="flex flex-col p-6 w-full gap-y-2">
-          <div className="flex flex-col bg-black bg-opacity-20 rounded-md p-2">
-            <div className="flex">
-              <div className="w-28 h-28 rounded-md">
+      <div className='max-w-5xl h-auto mx-auto bg-gradient-to-br from-dark-primary-a30 via-dark-primary-a0 to-dark-primary-a20 flex flex-col justify-start items-center'>
+        <div className='flex flex-col p-6 w-full gap-y-2'>
+          <div className='flex flex-col bg-black bg-opacity-20 rounded-md p-2'>
+            <div className='flex'>
+              <div className='w-28 h-28 rounded-md'>
                 {profileImage ? (
                   <Image
                     src={profileImage}
-                    alt="Profile"
-                    className="w-full h-full rounded-md"
+                    alt='Profile'
+                    className='w-full h-full rounded-md'
                     width={300}
                     height={300}
-                    layout="fixed"
+                    layout='fixed'
                   />
                 ) : (
                   <span>No Image</span>
                 )}
               </div>
-              <div className="ml-4">
-                <h1 className="text-base">
+              <div className='ml-4'>
+                <h1 className='text-base'>
                   Welcome, {user?.displayName || user?.email}!
                 </h1>
                 {/* <p>User since {user?.metadata.creationTime}</p>
@@ -144,42 +144,42 @@ const User = () => {
             </div>
             <div>Edit Profile</div>
             <button
-              type="button"
+              type='button'
               onClick={handleSignOut}
-              className="mt-2 text-left"
+              className='mt-2 text-left'
             >
               Sign Out
             </button>
-            <label htmlFor="fileInput">Upload Image:</label>
+            <label htmlFor='fileInput'>Upload Image:</label>
             <input
-              id="fileInput"
-              type="file"
+              id='fileInput'
+              type='file'
               onChange={handleUpload}
               disabled={uploading}
-              className="mt-2"
+              className='mt-2'
             />
             <button
-              type="button"
+              type='button'
               onClick={handleRemoveImage}
               disabled={uploading || !profileImage}
-              className="mt-2"
+              className='mt-2'
             >
               Remove Image
             </button>
             <button
-              type="button"
+              type='button'
               onClick={handleUpdateProfile}
-              className="mt-2"
+              className='mt-2'
             >
               Update Profile
             </button>
           </div>
-          <div className="flex flex-col gap-y-2">
-            <div className="bg-black h-40 rounded-md">Your List</div>
-            <div className="bg-black h-40 rounded-md">Favorites</div>
-            <div className="bg-black h-40 rounded-md">Watchlist</div>
-            <div className="bg-black h-40 rounded-md">Watchedlist</div>
-            <div className="bg-black h-40 rounded-md">Blocklist</div>
+          <div className='flex flex-col gap-y-2'>
+            <div className='bg-black h-40 rounded-md'>Your List</div>
+            <div className='bg-black h-40 rounded-md'>Favorites</div>
+            <div className='bg-black h-40 rounded-md'>Watchlist</div>
+            <div className='bg-black h-40 rounded-md'>Watchedlist</div>
+            <div className='bg-black h-40 rounded-md'>Blocklist</div>
           </div>
         </div>
       </div>
