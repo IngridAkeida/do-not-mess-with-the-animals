@@ -42,7 +42,7 @@ const SearchResults = ({results, searchTerm}) => {
       <div className='hidden sm:block w-3/12'>
         <div className='p-4  rounded-md shadow-md'>
           <h3 className='text-lg font-semibold mb-2'>Filter by:</h3>
-          <select id='filter' value={filter} onChange={handleFilterChange} className='p-2 rounded-md w-full text-black'>
+          <select id='filter' value={filter} onChange={handleFilterChange} className='p-2 rounded-md w-full text-white'>
             <option value='all'>All</option>
             <option value='movies'>Movies</option>
             <option value='tvshows'>TV Shows</option>
