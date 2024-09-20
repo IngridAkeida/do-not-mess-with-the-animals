@@ -1,6 +1,6 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { getListMovie } from '../../../pages/api/dataTMDBGenreMovie';
+import { getListMovie } from '@/pages/api/dataTMDBGenreMovie';
 import GenreIcon from '@/components/uiComponents/GenreIcon/GenreIcon';
 import GenreMenu from '@/components/Main/GenresMenu/GenreMenu';
 import Layout from '@/components/uiComponents/LayoutContainer/LayoutContainer';
