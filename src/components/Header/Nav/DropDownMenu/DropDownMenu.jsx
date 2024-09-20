@@ -1,4 +1,4 @@
-import { NavigationInfo } from '../../../uiComponents/MenuList/MenuList';
+import { NavigationInfo } from '@/components/uiComponents/MenuList/MenuList';
 import Link from 'next/link';
 
 const DropDownMenu = () => {

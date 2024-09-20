@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { NavigationInfo, NavigationUser } from '../../../uiComponents/MenuList/MenuList';
+import { NavigationInfo, NavigationUser } from '@/components/uiComponents/MenuList/MenuList';
 import { useEffect } from 'react';
 import LayoutSection from '@/components/uiComponents/LayoutContainer/LayoutSection';
 

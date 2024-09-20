@@ -1,6 +1,6 @@
 'use client'
 import { useDatas } from '@/components/Main/UseDatas/UseDatas';
-import BannerResult from '../../../components/Main/BannerResult/BannerResult';
+import BannerResult from '@/components/Main/BannerResult/BannerResult';
 import Layout from '@/components/uiComponents/LayoutContainer/LayoutContainer';
 
 const Tvshow = () => {

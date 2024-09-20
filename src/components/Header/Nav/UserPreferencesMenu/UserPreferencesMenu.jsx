@@ -1,4 +1,4 @@
-import { NavigationUser } from '../../../uiComponents/MenuList/MenuList';
+import { NavigationUser } from '@/components/uiComponents/MenuList/MenuList';
 
 const UserPreferencesMenu = () => {
 

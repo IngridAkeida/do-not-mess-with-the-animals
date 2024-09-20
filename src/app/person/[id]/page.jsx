@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
-import Nav from '../../../components/Header/Nav/Nav';
+import Nav from '@/components/Header/Nav/Nav';
 import Image from 'next/image';
 
 const PersonPage = () => {

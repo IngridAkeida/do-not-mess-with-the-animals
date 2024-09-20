@@ -1,8 +1,8 @@
 'use client';
 import LayoutSection from '@/components/uiComponents/LayoutContainer/LayoutSection';
-import GuardianNews from '../../../pages/api/theGuardianAPI';
+import GuardianNews from '@/pages/api/theGuardianAPI';
 import Link from 'next/link';
-import { NavigationInfo } from '../../uiComponents/MenuList/MenuList';
+import { NavigationInfo } from '@/components/uiComponents/MenuList/MenuList';
 import { useState } from 'react';
 
 const List = () => {
