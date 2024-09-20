@@ -85,7 +85,7 @@ const GuardianNews = () => {
               </h2>
               <p className='text-sm font-thin text-justify '>Published on: {new Date(article.webPublicationDate).toLocaleDateString()}</p>
               <div className='flex flex-col md:flex-row gap-2'>
-                <Image src={article.fields.thumbnail} alt={article.webTitle} width={300} height={200} className='rounded-md lg:auto xl:w-[300px] h-auto'/>
+                <Image src={article.fields.thumbnail} alt={article.webTitle} width={300} height={200} className='rounded-md lg:auto xl:w-[300px] h-auto object-contain'/>
                 <p className='text-sm'>{truncateText(article.fields.bodyText)}</p>
               </div>
               <p className='text-sm font-thin mt-2'>
