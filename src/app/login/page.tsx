@@ -66,7 +66,7 @@ const Login = () => {
             type='email'
             value={email}
             onChange={handleEmailChange}
-            className='w-full px-3 py-2 border rounded'
+            className='w-full px-3 py-2 border rounded bg-black text-white'
             placeholder='e-mail'
             required
           />
@@ -87,7 +87,7 @@ const Login = () => {
             type='password'
             value={password}
             onChange={handlePasswordChange}
-            className='w-full px-3 py-2 border rounded text-white'
+            className='w-full px-3 py-2 border rounded bg-black text-white'
             placeholder='password'
             required
           />
