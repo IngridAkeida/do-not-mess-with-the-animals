@@ -9,8 +9,10 @@ import { TbBalloonFilled } from 'react-icons/tb';
 import { GiDramaMasks } from 'react-icons/gi';
 import { IoChatbubbles } from 'react-icons/io5';
 
+const styleIcon = 'h-20 w-20';
 
-const ACTION = ['action', 'action-adventure-tv'];
+const ACTION = ['action'];
+const ACTION2 = ['action-adventure-tv'];
 const ADVENTURE = ['adventure'];
 const ANIMATION = ['animation', 'animation-tv'];
 const COMEDY = ['comedy', 'comedy-tv'];
@@ -37,30 +39,31 @@ const TALK = ['talk-tv'];
 
 
 const icons = {
-  [ACTION]: <GiSwordman className='h-20 w-20' />,
-  [ADVENTURE]: <IoIosRocket className='h-20 w-20' />,
-  [ANIMATION]: <MdAnimation className='h-20 w-20' />,
-  [COMEDY]: <FaLaugh className='h-20 w-20' />,
-  [CRIME]: <RiPoliceCarFill className='h-20 w-20' />,
-  [DOCUMENTARY]: <FaTv className='h-20 w-20' />,
-  [DRAMA]: <FaTheaterMasks className='h-20 w-20' />,
-  [FAMILY]: <GiFamilyHouse className='h-20 w-20' />,
-  [FANTASY]: <FaDragon className='h-20 w-20' />,
-  [HISTORY]: <FaHistory className='h-20 w-20' />,
-  [HORROR]: <FaSkull className='h-20 w-20' />,
-  [MUSIC]: <FaMusic className='h-20 w-20' />,
-  [MYSTERY]: <GiWesternHat className='h-20 w-20' />,
-  [ROMANCE]: <FaHeart className='h-20 w-20' />,
-  [SCIFI]: <FaRobot className='h-20 w-20' />,
-  [TV_MOVIE]: <FaTv className='h-20 w-20' />,
-  [THRILLER]: <FaSurprise className='h-20 w-20' />,
-  [WAR]: <GiWarAxe className='h-20 w-20' />,
-  [WESTERN]: <GiWesternHat className='h-20 w-20' />,
-  [NEWS]: <FaTv className='h-20 w-20' />,
-  [REALITY]: <GiLifeInTheBalance className='h-20 w-20' />,
-  [KIDS]: <TbBalloonFilled className='h-20 w-20' />,
-  [SOAP]: <GiDramaMasks className='h-20 w-20' />,
-  [TALK]: <IoChatbubbles className='h-20 w-20' />,
+  [ACTION]: <GiSwordman className={styleIcon} />,
+  [ACTION2]: <FaDragon className={styleIcon} />,
+  [ADVENTURE]: <IoIosRocket className={styleIcon} />,
+  [ANIMATION]: <MdAnimation className={styleIcon} />,
+  [COMEDY]: <FaLaugh className={styleIcon} />,
+  [CRIME]: <RiPoliceCarFill className={styleIcon} />,
+  [DOCUMENTARY]: <FaTv className={styleIcon} />,
+  [DRAMA]: <FaTheaterMasks className={styleIcon} />,
+  [FAMILY]: <GiFamilyHouse className={styleIcon} />,
+  [FANTASY]: <FaDragon className={styleIcon} />,
+  [HISTORY]: <FaHistory className={styleIcon} />,
+  [HORROR]: <FaSkull className={styleIcon} />,
+  [MUSIC]: <FaMusic className={styleIcon} />,
+  [MYSTERY]: <GiWesternHat className={styleIcon} />,
+  [ROMANCE]: <FaHeart className={styleIcon} />,
+  [SCIFI]: <FaRobot className={styleIcon} />,
+  [TV_MOVIE]: <FaTv className={styleIcon} />,
+  [THRILLER]: <FaSurprise className={styleIcon} />,
+  [WAR]: <GiWarAxe className={styleIcon} />,
+  [WESTERN]: <GiWesternHat className={styleIcon} />,
+  [NEWS]: <FaTv className={styleIcon} />,
+  [REALITY]: <GiLifeInTheBalance className={styleIcon} />,
+  [KIDS]: <TbBalloonFilled className={styleIcon} />,
+  [SOAP]: <GiDramaMasks className={styleIcon} />,
+  [TALK]: <IoChatbubbles className={styleIcon} />,
 };
 
 // Função para obter o ícone com base no slug
@@ -70,7 +73,7 @@ const getGenreIcon = (slug) => {
       return icons[key];
     }
   }
-  return <MdTheaters className='h-20 w-20' />; // Ícone padrão
+  return <MdTheaters className={styleIcon} />; // Ícone padrão
 };
 
 export default getGenreIcon;
