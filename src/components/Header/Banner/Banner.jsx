@@ -48,12 +48,12 @@ const Banner = ({randomItem, addVideo}) => {
 
   return (
     <div 
-      className='relative flex-col flex gap-2 items-center justify-center md:justify-start w-auto h-[120%] md:h-full bg-cover bg-center'
+      className='relative flex-col flex gap-2 items-center justify-center md:justify-start w-auto h-[120%] bg-cover bg-center -mt-14'
       style={{ backgroundImage: `url(${backgroundImage})` }}
     > 
       <div className='absolute inset-0 bg-gradient-to-br from-dark-primary-a40 via-dark-primary-a20 to-dark-neutral-a50 opacity-80'></div>
 
-      <div className='relative text-center mx-2 md:mx-0 md:h-96 sm:h-96 sm:flex items-center justify-center md:gap-4 rounded-b-md text-white'>
+      <div className='relative text-center mx-2 md:mx-0 md:h-96 sm:h-96 sm:flex items-center justify-center md:gap-4 rounded-b-md text-white mt-16'>
         <div className='md:w-1/2 flex flex-col justify-center items-center md:gap-y-2'>
           <h1 className='text-center font-bold text-lg pb-2 md:text-4xl xl:text-5xl bg-gradient-to-br from-dark-menu-y10 via-dark-primary-a0 to-dark-menu-y10 bg-clip-text text-transparent'
           style={{ WebkitTextStroke: '0.1px white' }}>
