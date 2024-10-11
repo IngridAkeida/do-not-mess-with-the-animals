@@ -51,27 +51,27 @@ const Banner = ({randomItem, addVideo}) => {
       className='relative flex-col flex gap-2 items-center justify-center md:justify-start w-auto h-[120%] bg-cover bg-center -mt-14'
       style={{ backgroundImage: `url(${backgroundImage})` }}
     > 
-      <div className='absolute inset-0 bg-gradient-to-br from-dark-primary-a40 via-dark-primary-a20 to-dark-neutral-a50 opacity-80'></div>
+      <div className='absolute inset-0 bg-gradient-to-br to-dark-neutral-a50 via-dark-accent-a40   from-dark-neutral-a50  opacity-65'></div>
 
       <div className='relative text-center mx-2 md:mx-0 md:h-96 sm:h-96 sm:flex items-center justify-center md:gap-4 rounded-b-md text-white mt-16'>
         <div className='md:w-1/2 flex flex-col justify-center items-center md:gap-y-2'>
-          <h1 className='text-center font-bold text-lg pb-2 md:text-4xl xl:text-5xl bg-gradient-to-br from-dark-menu-y10 via-dark-primary-a0 to-dark-menu-y10 bg-clip-text text-transparent'
+          {/* <h1 className='text-center font-bold text-lg pb-2 md:text-4xl xl:text-5xl bg-gradient-to-br from-white via-dark-menu-y10  to-white bg-clip-text text-transparent'
           style={{ WebkitTextStroke: '0.1px white' }}>
             Welcome to Watch Safe Cinema
-          </h1>
+          </h1> 
           <p className='text-xs md:text-xl'>
             Explore movies and TV shows with confidence, and know if they&apos;re free from unwanted <span className='text-dark-primary-a0 font-semibold bg-dark-menu-y10 p-0.5 md:py-0.5 md:px-1 rounded-md'>triggers</span>.
           </p>
           <p className='text-xs md:text-xl'>
             Create an account to save your <span className='text-dark-menu-y10 font-semibold'>favorites</span>, <span className='text-dark-menu-y10 font-semibold'>wish list</span>, <span className='text-dark-menu-y10 font-semibold'>watched</span>, or <span className='text-dark-menu-y10 font-semibold'>unwanted</span> content.
           </p>
-          <p className='text-xs md:text-xl'>Discover everything about movies and so much more.</p>
+          <p className='text-xs md:text-xl'>Discover everything about movies and so much more.</p>*/}
         </div>
         <div className='md:w-1/2 md:h-full flex justify-center items-center'>
-          <div className='absolute'>
-            <Image src={`https://image.tmdb.org/t/p/original${imagePath}`} alt={nameTitle} className='object-contain rounded-md h-96 md:h-full md:w-full' width={780} height={780} />
-          </div>
-          <div className='relative md:from-dark-primary-a30 md:to-transparent md:bg-gradient-to-tl md:w-full md:h-full md:p-10 rounded-md'>
+          {/* <div className='absolute'>
+            <Image src={`https://image.tmdb.org/t/p/original${imagePath}`} alt={nameTitle} className='object-contain rounded-md h-96 md:h-full md:w-full opacity-85' width={780} height={780} />
+          </div> */}
+          <div className='relative md:w-full md:h-full md:p-10 rounded-md'>
             <div className='flex justify-end items-center pb-4 flex-col text-center h-full w-auto'>
               <div className='text-lg font-semibold'>{nameTitle}</div>
               <div className=''>
