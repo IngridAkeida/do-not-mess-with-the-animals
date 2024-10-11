@@ -14,7 +14,7 @@ const BannerResult = ({ item, triggers }) => {
   const [showModalTrigger, setShowModalTrigger] = useState(false);
 
   const backgroundImage = item.backdrop_path
-    ? `https://www.doesthedogdie.com/content/1800/0/${item.backdrop_path}`
+    ? `https://image.tmdb.org/t/p/original${item.backdrop_path}`
     : '/assets/movie-nf.png';
 
   const stylesPoster = 'w-24 sm:w-32 md:w-48 lg:w-60 object-contain rounded-md shadow-md'; 
@@ -44,7 +44,7 @@ const BannerResult = ({ item, triggers }) => {
         > 
           <div className='bg-black bg-opacity-60'>
             <div className='flex flex-col'>
-              <div className='flex flex-wrap gap-2 items-center bg-dark-neutral-a30 bg-opacity-85 py-2'>
+              <div className='flex flex-wrap gap-2 items-center bg-dark-primary-a40 bg-opacity-85 py-2'>
                 <h1 className='py-1 ml-4 font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl'>{item.name || item.title}</h1>
                 <p className='font-light ml-2 text-xl sm:text-2xl md:text-3xl lg:text-4xl'>
                   {item.seasons && item.seasons.length > 0 ? '(TV Show)' : '(Movie)'}
@@ -64,7 +64,7 @@ const BannerResult = ({ item, triggers }) => {
                   <Image
                     className={stylesPoster}
                     src={item.poster_path
-                      ? `https://www.doesthedogdie.com/content/1200/0/${item.poster_path}`
+                      ? `https://image.tmdb.org/t/p/original${item.poster_path}`
                       : '/assets/movie-nf.png'}
                     width={300}
                     height={300}

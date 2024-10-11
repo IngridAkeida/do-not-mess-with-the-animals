@@ -19,7 +19,7 @@ const CustomSlider = ({ title, items, settings, isSeason }) => {
               return null;
             }
             const posterPath = item.poster_path
-              ? `https://www.doesthedogdie.com/content/1200/0/${item.poster_path}`
+              ? `https://image.tmdb.org/t/p/original${item.poster_path}`
               : '/assets/movie-nf.png';
 
             return (
