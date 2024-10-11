@@ -12,6 +12,9 @@ const Login = () => {
   const [error, setError] = useState<string | null>(null);
   const router = useRouter();
 
+  const inputLabel = 'block font-bold text-dark-menu-y10';
+  const inputStyle = 'w-full px-3 py-2 border rounded bg-black text-white';
+
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) =>
     setEmail(e.target.value);
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) =>
@@ -59,21 +62,21 @@ const Login = () => {
       </h2>
       <form onSubmit={handleLogin}>
         <div className='mb-4'>
-          <label className='block font-bold text-dark-menu-y10'>
+          <label className={inputLabel}>
             Email
           </label>
           <input
             type='email'
             value={email}
             onChange={handleEmailChange}
-            className='w-full px-3 py-2 border rounded bg-black text-white'
+            className={inputStyle}
             placeholder='e-mail'
             required
           />
         </div>
         <div className='mb-4'>
           <div className='flex justify-between items-end'>
-            <label className='block font-bold text-dark-menu-y10'>
+            <label className={inputLabel}>
               Password
             </label>
             <button
@@ -87,7 +90,7 @@ const Login = () => {
             type='password'
             value={password}
             onChange={handlePasswordChange}
-            className='w-full px-3 py-2 border rounded bg-black text-white'
+            className={inputStyle}
             placeholder='password'
             required
           />

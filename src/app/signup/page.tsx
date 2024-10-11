@@ -12,6 +12,9 @@ const SignUp = () => {
   const [confPassword, setConfPassword] = useState('');
   const [error, setError] = useState('');
 
+  const inputLabel ='block font-bold text-dark-menu-y10';
+  const inputStyle = 'w-full px-3 py-2 border rounded bg-black text-white';
+
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value);
   const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value);
   const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value);
@@ -73,45 +76,45 @@ const SignUp = () => {
       <h2 className='text-2xl mb-4 text-center font-extrabold text-dark-menu-y10'>Sign Up</h2>
       <form onSubmit={handleSignup}>
         <div className='mb-4'>
-          <label className='block font-bold text-dark-menu-y10'>Name</label>
+          <label className={inputLabel}>Name</label>
           <input
             type='text'
             value={name}
             onChange={handleNameChange}
-            className='w-full px-3 py-2 border rounded bg-black text-white'
+            className={inputStyle}
             required
             title='Name'
           />
         </div>
         <div className='mb-4'>
-          <label className='block font-bold text-dark-menu-y10'>Email</label>
+          <label className={inputLabel}>Email</label>
           <input
             type='email'
             value={email}
             onChange={handleEmailChange}
-            className='w-full px-3 py-2 border rounded bg-black text-white'
+            className={inputStyle}
             required
             title='Email'
           />
         </div>
         <div className='mb-4'>
-          <label className='block font-bold text-dark-menu-y10'>Password</label>
+          <label className={inputLabel}>Password</label>
           <input
             type='password'
             value={password}
             onChange={handlePasswordChange}
-            className='w-full px-3 py-2 border rounded bg-black text-white'
+            className={inputStyle}
             required
             title='Password'
           />
         </div>
         <div className='mb-4'>
-          <label className='block font-bold text-dark-menu-y10'>Re-enter password</label>
+          <label className={inputLabel}>Re-enter password</label>
           <input
             type='password'
             value={confPassword}
             onChange={handleConfirmPasswordChange}
-            className='w-full px-3 py-2 border rounded bg-black text-white'
+            className={inputStyle}
             required
             title='Re-enter password'
           />
