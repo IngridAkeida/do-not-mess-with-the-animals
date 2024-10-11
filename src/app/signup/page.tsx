@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { auth } from '@/lib/firebaseData';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import LayoutForm from '@/components/uiComponents/LayoutContainer/LayoutForm';
@@ -12,23 +12,23 @@ const SignUp = () => {
   const [confPassword, setConfPassword] = useState('');
   const [error, setError] = useState('');
 
-  const handleNameChange = (e) => setName(e.target.value);
-  const handleEmailChange = (e) => setEmail(e.target.value);
-  const handlePasswordChange = (e) => setPassword(e.target.value);
-  const handleConfirmPasswordChange = (e) => setConfPassword(e.target.value);
+  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value);
+  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value);
+  const handlePasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value);
+  const handleConfirmPasswordChange = (e: React.ChangeEvent<HTMLInputElement>) => setConfPassword(e.target.value);
 
-  const validateEmail = (email) => {
+  const validateEmail = (email: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
 
-  const validatePassword = (password) => {
+  const validatePassword = (password: string) => {
     const hasUpperCase = /[A-Z]/.test(password);
     const hasSpecialChar = /[!@#$%^&*(),.?":{}|<>]/.test(password);
     return hasUpperCase && hasSpecialChar;
   };
 
-  const handleSignup = (e) => {
+  const handleSignup = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!validateEmail(email)) {
@@ -80,6 +80,7 @@ const SignUp = () => {
             onChange={handleNameChange}
             className='w-full px-3 py-2 border rounded bg-black text-white'
             required
+            title='Name'
           />
         </div>
         <div className='mb-4'>
@@ -90,6 +91,7 @@ const SignUp = () => {
             onChange={handleEmailChange}
             className='w-full px-3 py-2 border rounded bg-black text-white'
             required
+            title='Email'
           />
         </div>
         <div className='mb-4'>
@@ -100,6 +102,7 @@ const SignUp = () => {
             onChange={handlePasswordChange}
             className='w-full px-3 py-2 border rounded bg-black text-white'
             required
+            title='Password'
           />
         </div>
         <div className='mb-4'>
@@ -110,6 +113,7 @@ const SignUp = () => {
             onChange={handleConfirmPasswordChange}
             className='w-full px-3 py-2 border rounded bg-black text-white'
             required
+            title='Re-enter password'
           />
         </div>
         {error && (
