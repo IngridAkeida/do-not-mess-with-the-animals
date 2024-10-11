@@ -12,7 +12,7 @@ const Nav = () => {
   const [activeHeader, setActiveHeader] = useState(false);
 
   const SearchWrapStyle = 'hidden sm:block text-base relative m-2';
-  const SearchInputStyle = 'p-1 sm:pl-4 sm:w-80 max-w-md bg-dark-accent-a40 opacity-80 rounded-2xl text-white outline-none border border-dark-accent-a40 focus:border-dark-accent-a30';
+  const SearchInputStyle = 'p-1 sm:pl-4 sm:w-80 max-w-md bg-dark-accent-a40 opacity-80 rounded-2xl text-white outline-none border border-dark-accent-a40';
   const SearchButtonStyle = 'p-2 sm:pl-6 bg-dark-accent-a40 hover:bg-dark-accent-a40 rounded-r-3xl absolute right-0 text-white';
   const SearchButtonDisabledStyle = 'text-dark-neutral-a0 cursor-none';
 
@@ -25,7 +25,7 @@ const Nav = () => {
     
   
   return (
-    <header className={`sticky top-0 z-50 mx-auto bg-opacity-100 shadow-sm ${activeHeader ? 'bg-dark-neutral-a40' : ''}`}>
+    <header className={`sticky top-0 z-50 mx-auto bg-opacity-100 ${activeHeader ? 'bg-dark-neutral-a40 shadow-sm' : ''}`}>
       <nav className='flex items-center justify-between px-4 lg:px-10' aria-label='Global'>
         <div className='flex'>
           <Link href='/' className=''>
