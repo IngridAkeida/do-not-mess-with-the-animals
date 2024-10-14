@@ -89,7 +89,7 @@ const GuardianNews = () => {
                 <p className='text-sm'>{truncateText(article.fields.bodyText)}</p>
               </div>
               <p className='text-sm font-thin mt-2'>
-                See more at <a href={article.webUrl} target='_blank' rel='noopener noreferrer' className='text-blue-400 underline font-bold'>The Guardian</a>
+                See more at <a href={article.webUrl} target='_blank' rel='noopener noreferrer' className='text-dark-menu-y10  underline font-bold'>The Guardian</a>
               </p>
             </div>
           </div>
