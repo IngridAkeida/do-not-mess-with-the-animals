@@ -9,7 +9,7 @@ const DropDownMenu = () => {
       {navigationInfo.map((item) => (
         <div key={item.name} className='relative my-auto group'>
           <button
-            className='text-sm font-semibold leading-6 text-alert-danger-100 hover:text-dark-menu-y10'
+            className='text-sm font-semibold leading-6 text-white hover:text-dark-menu-y10'
           >
             {item.name}
           </button>
@@ -18,7 +18,7 @@ const DropDownMenu = () => {
               ? item.subMenu.map((subItem) => (
                   <Link
                     key={subItem.name}
-                    className='block cursor-pointer px-4 py-2 text-sm font-semibold text-alert-danger-100 hover:bg-dark-menu-y10 hover:text-dark-neutral-a40'
+                    className='block cursor-pointer px-4 py-2 text-sm font-semibold text-white hover:bg-dark-menu-y10 hover:text-dark-neutral-a40'
                     href={subItem.href}
                   >
                     {subItem.name}
@@ -26,7 +26,7 @@ const DropDownMenu = () => {
                 ))
               : (
                 <div
-                  className='cursor-pointer px-4 py-2 text-sm font-semibold text-alert-danger-100 hover:bg-dark-menu-y10'>
+                  className='cursor-pointer px-4 py-2 text-sm font-semibold text-white hover:bg-dark-menu-y10'>
                   not found
                 </div>
               )}
