@@ -53,9 +53,9 @@ const Banner = ({randomItem, addVideo}) => {
     > 
       <div className='absolute inset-0 bg-gradient-to-br to-dark-neutral-a50 via-dark-accent-a40 from-dark-neutral-a50 opacity-65'></div>
 
-      <div className='relative text-center mx-2 md:mx-0 md:h-96 sm:h-96 sm:flex items-center justify-center md:gap-4 rounded-b-md text-white mt-16'>
-        <div className='md:w-1/2 flex flex-col justify-center items-center md:gap-y-2'>
-          {/* <h1 className='text-center font-bold text-lg pb-2 md:text-4xl xl:text-5xl bg-gradient-to-br from-white via-dark-menu-y10  to-white bg-clip-text text-transparent'
+      <div className='relative text-center mx-2 md:mx-0 md:h-96 sm:h-96 sm:flex items-end justify-center md:gap-4 rounded-b-md text-white w-full'>
+        {/* <div className='md:w-1/2 flex flex-col justify-center items-center md:gap-y-2'>
+          <h1 className='text-center font-bold text-lg pb-2 md:text-4xl xl:text-5xl bg-gradient-to-br from-white via-dark-menu-y10  to-white bg-clip-text text-transparent'
           style={{ WebkitTextStroke: '0.1px white' }}>
             Welcome to Watch Safe Cinema
           </h1> 
@@ -65,15 +65,15 @@ const Banner = ({randomItem, addVideo}) => {
           <p className='text-xs md:text-xl'>
             Create an account to save your <span className='text-dark-menu-y10 font-semibold'>favorites</span>, <span className='text-dark-menu-y10 font-semibold'>wish list</span>, <span className='text-dark-menu-y10 font-semibold'>watched</span>, or <span className='text-dark-menu-y10 font-semibold'>unwanted</span> content.
           </p>
-          <p className='text-xs md:text-xl'>Discover everything about movies and so much more.</p>*/}
-        </div>
-        <div className='md:w-1/2 md:h-full flex justify-center items-center'>
+          <p className='text-xs md:text-xl'>Discover everything about movies and so much more.</p>
+        </div>*/}
+        <div className='flex'>
           {/* <div className='absolute'>
             <Image src={`https://image.tmdb.org/t/p/original${imagePath}`} alt={nameTitle} className='object-contain rounded-md h-96 md:h-full md:w-full opacity-85' width={780} height={780} />
           </div> */}
-          <div className='relative md:w-full md:h-full md:p-10 rounded-md'>
-            <div className='flex justify-end items-center pb-4 flex-col text-center h-full w-auto'>
-              <div className='text-lg font-semibold'>{nameTitle}</div>
+          <div className='rounded-md -my-20 w-80'>
+            <div className='flex items-center pr-4 pb-4 flex-col text-center h-full w-auto gap-2'>
+              <div className='text-5xl font-bold'>{nameTitle}</div>
               <div className=''>
                 <DetailsContent 
                   item={randomItem} 
