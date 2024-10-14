@@ -12,7 +12,7 @@ const apiKey = process.env.NEXT_PUBLIC_GUARDIAN_API_KEY;
 const guardianKey = new Guardian(apiKey, true);
 
 const truncateText = (text ) => {
-  const maxLength = window.innerWidth < 1024 ? 500 : 300;
+  const maxLength = window.innerWidth < 1024 ? 480 : 280;
 
   if (text.length <= maxLength) {
     return text;
@@ -79,7 +79,7 @@ const GuardianNews = () => {
       <Slider {...settings}>
         {articles.map((article) => (
           <div className='p-2' key={article.id}>
-            <div className='bg-dark-primary-a40 rounded-md p-4 h-auto md:h-[330px]'>
+            <div className='bg-dark-primary-a30  rounded-md p-4 h-auto md:h-[330px] flex flex-col justify-between'>
               <h2 className='md:text-sm xl:text-lg font-semibold h-auto md:h-14'>
                 {article.webTitle}
               </h2>
@@ -89,7 +89,7 @@ const GuardianNews = () => {
                 <p className='text-sm'>{truncateText(article.fields.bodyText)}</p>
               </div>
               <p className='text-sm font-thin mt-2'>
-                See more at <a href={article.webUrl} target='_blank' rel='noopener noreferrer' className='text-blue-500 underline'>The Guardian</a>
+                See more at <a href={article.webUrl} target='_blank' rel='noopener noreferrer' className='text-blue-400 underline font-bold'>The Guardian</a>
               </p>
             </div>
           </div>
