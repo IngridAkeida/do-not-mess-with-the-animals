@@ -51,7 +51,7 @@ const Banner = ({randomItem, addVideo}) => {
       className='relative flex-col flex gap-2 items-center justify-center md:justify-start w-auto h-[120%] bg-cover bg-center -mt-14'
       style={{ backgroundImage: `url(${backgroundImage})` }}
     > 
-      <div className='absolute inset-0 bg-gradient-to-br to-dark-neutral-a50 via-dark-accent-a40   from-dark-neutral-a50  opacity-65'></div>
+      <div className='absolute inset-0 bg-gradient-to-br to-dark-neutral-a50 via-dark-accent-a40 from-dark-neutral-a50 opacity-65'></div>
 
       <div className='relative text-center mx-2 md:mx-0 md:h-96 sm:h-96 sm:flex items-center justify-center md:gap-4 rounded-b-md text-white mt-16'>
         <div className='md:w-1/2 flex flex-col justify-center items-center md:gap-y-2'>

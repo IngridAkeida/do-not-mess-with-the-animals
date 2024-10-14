@@ -1,83 +1,85 @@
+const genreColorStyle = 'bg-dark-neutral-a30 text-white border border-dark-neutral-a10 bg-opacity-80 rounded-md p-2';
+
 const genreColors = {
   28: {
     name: 'Action',
-    color: 'bg-orange-500 text-black'
+    color: genreColorStyle
   },
   12: {
     name: 'Adventure',
-    color: 'bg-yellow-500 text-black'
+    color: genreColorStyle
   },
   16: {
     name: 'Animation',
-    color: 'bg-orange-500 text-black'
+    color: genreColorStyle
   },
   35: {
     name: 'Comedy',
-    color: 'bg-red-600'
+    color: genreColorStyle
   },
   80: {
     name: 'Crime',
-    color: 'bg-red-800'
+    color: genreColorStyle
   },
   99: {
     name: 'Documentary',
-    color: 'bg-purple-800'
+    color: genreColorStyle
   },
   18: {
     name: 'Drama',
-    color: 'bg-blue-800'
+    color: genreColorStyle
   },
   10751: {
     name: 'Family',
-    color: 'bg-blue-600'
+    color: genreColorStyle
   },
   14: {
     name: 'Fantasy',
-    color: 'bg-teal-600'
+    color: genreColorStyle
   },
   36: {
     name: 'History',
-    color: 'bg-alert-info-600 text-black'
+    color: genreColorStyle
   },
   27: {
     name: 'Horror',
-    color: 'bg-yellow-600 text-black'
+    color: genreColorStyle
   },
   10402: {
     name: 'Music',
-    color: 'bg-green-600'
+    color: genreColorStyle
   },
   9648: {
     name: 'Mystery',
-    color: 'bg-purple-600'
+    color: genreColorStyle
   },
   10749: {
     name: 'Romance',
-    color: 'bg-pink-600 text-black'
+    color: genreColorStyle
   },
   878: {
     name: 'Science Fiction',
-    color: 'bg-indigo-600'
+    color: genreColorStyle
   },
   10770: {
     name: 'TV Movie',
-    color: 'bg-gray-600'
+    color: genreColorStyle
   },
   53: {
     name: 'Thriller',
-    color: 'bg-gray-800'
+    color: genreColorStyle
   },
   10752: {
     name: 'War',
-    color: 'bg-red-700'
+    color: genreColorStyle
   },
   37: {
     name: 'Western',
-    color: 'bg-yellow-800 text-black'
+    color: genreColorStyle
   },
   10765: {
     name: 'Sci-Fi & Fantasy',
-    color: 'bg-blue-700'
+    color: genreColorStyle
   }
 };
 

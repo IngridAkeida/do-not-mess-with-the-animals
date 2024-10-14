@@ -32,7 +32,7 @@ const DetailsContent = ({ item, handleModalTriggerClick, handleModalVideoClick, 
             return(
               <span
                 key={genre.id}
-                className={`py-0.5 px-1 text-xs font-semibold rounded-lg ${genreColors[genre.id].color}`}
+                className={`text-xs font-semibold ${genreColors[genre.id].color}`}
               >
                 {genre.name}
               </span>
