@@ -71,9 +71,9 @@ const Banner = ({randomItem, addVideo}) => {
           {/* <div className='absolute'>
             <Image src={`https://image.tmdb.org/t/p/original${imagePath}`} alt={nameTitle} className='object-contain rounded-md h-96 md:h-full md:w-full opacity-85' width={780} height={780} />
           </div> */}
-          <div className='rounded-md -my-20 w-80'>
+          <div className='rounded-md -my-20 w-auto'>
             <div className='flex items-center pr-4 pb-4 flex-col text-center h-full w-auto gap-2'>
-              <div className='text-5xl font-bold'>{nameTitle}</div>
+              <div className='text-5xl font-bold border'>{nameTitle}</div>
               <div className=''>
                 <DetailsContent 
                   item={randomItem} 
