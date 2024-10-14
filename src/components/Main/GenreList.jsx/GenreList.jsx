@@ -34,12 +34,12 @@ const List = () => {
                 >{toggle ? 'Tv Show':'Movie'}</div>
               </label>
             </div>
-            <div key={navigationInfo[toggle ? 1 : 0].name}>
+            <div key={navigationInfo[toggle ? 2 : 1].name}>
               <h1 className='text-center text-2xl mb-4 font-semibold flex justify-center items-center gap-x-2'>
-                The Main Content About: <span className='text-dark-menu-y10 '> {navigationInfo[toggle ? 1 : 0].name}</span>
+                The Main Content About: <span className='text-dark-menu-y10 '> {navigationInfo[toggle ? 2 : 1].name}</span>
               </h1>
               <div className='flex flex-wrap flex-row gap-4 justify-center items-center my-4 pb-4'>
-                {navigationInfo[toggle ? 1 : 0].subMenu.map((subItem) => (
+                {navigationInfo[toggle ? 2 : 1].subMenu.map((subItem) => (
                   <Link key={subItem.name} href={subItem.href} passHref>
                     <div className='h-80 w-52 border rounded-md flex flex-col items-center justify-center bg-dark-accent-a40 hover:bg-dark-accent-a30 transition duration-300 cursor-pointer text-white hover:text-dark-accent-a0 hover:animate-jump animate-once animate-duration-1000 animate-ease-in-out'>
                       <span>{subItem.icon}</span>
@@ -52,7 +52,7 @@ const List = () => {
           </div>
         </LayoutSection>
         <LayoutSection>
-        {navigationInfo.slice(2).map((item) => (
+        {navigationInfo.slice(3).map((item) => (
           <div key={item.name}>
           <h1 className='text-center text-2xl mb-4 font-semibold'>{item.name}</h1>
             <div className='flex flex-wrap flex-row gap-4 justify-center items-center my-4 pb-4'>

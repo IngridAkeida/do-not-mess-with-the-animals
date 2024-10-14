@@ -8,13 +8,13 @@ const LayoutSection = ({ children, adicionalStyle }) => {
       document.body.style.backgroundColor = '#000000'; 
       document.body.style.color = '#FFFFFF'; 
     } else {
-      document.body.style.backgroundColor = '#ffffff'; 
-      document.body.style.color = '#000000'; 
+      document.body.style.backgroundColor = '#f8f8f8'; 
+      document.body.style.color = '#ffffff'; 
     }
   }, [theme]);
 
   return (
-    <div className={`${adicionalStyle} p-6 ${theme === 'dark' ? 'bg-dark-neutral-a40  text-white' : 'bg-dark-neutral-a0 text-dark-neutral-a40 '}`}>
+    <div className={`${adicionalStyle} p-6 ${theme === 'dark' ? 'bg-dark-neutral-a40  text-white' : 'bg-white  text-dark-neutral-a40 '}`}>
       {children}
     </div>
   );
