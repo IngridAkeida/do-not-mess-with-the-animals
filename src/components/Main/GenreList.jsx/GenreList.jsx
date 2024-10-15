@@ -18,8 +18,8 @@ const List = () => {
         <h2 className='font-semibold text-3xl text-center'> Looking for the main tredings and genres</h2>
       </LayoutSection>
       <LayoutSection>
-          <h1 className='text-center text-2xl mb-4 font-semibold'>News</h1>
-          <GuardianNews />
+        <h1 className='text-center text-2xl mb-4 font-semibold'>News</h1>
+        <GuardianNews />
       </LayoutSection>
       <LayoutSection>
         <div className='relative'>
