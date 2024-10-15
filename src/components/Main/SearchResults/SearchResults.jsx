@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useState, useMemo } from 'react';
 import CardLayout from '@/components/Main/CardLayout/CardLayout';
+import LayoutSection from '@/components/uiComponents/LayoutContainer/LayoutSection';
 
 const SearchResults = ({results, searchTerm}) => {
   const [filter, setFilter] = useState('all');
@@ -35,8 +36,10 @@ const SearchResults = ({results, searchTerm}) => {
   }
 
   return (
-    <div className='bg-dark-neutral-a30 flex flex-col px-2 py-4 sm:px-0 gap-2'>
-      <h2 className='bg-gradient-to-br from-dark-primary-a20 to-dark-primary-a40 font-semibold text-xl text-center bg-black rounded-md p-2 mx-2 '>You searched for the term <span className='font-bold text-dark-menu-y10'>{searchTerm}</span>, we found <span className='font-bold text-dark-menu-y10'>{filteredResults.length}</span> contents with that keyword, of which <span className='font-bold text-dark-menu-y10'>{movieCount}</span> are films and <span className='font-bold text-dark-menu-y10'>{tvShowCount}</span> are tv shows</h2>
+    <LayoutSection>
+    <div className='flex flex-col px-2 py-4 sm:px-0 gap-2 -mt-24'>
+    <div className='bg-dark-primary-a40 h-16 '></div>
+      <h2 className=' bg-gradient-to-br from-dark-primary-a20 to-dark-primary-a40 font-semibold text-xl text-center bg-black rounded-md p-2 mx-2 '>You searched for the term <span className='font-bold text-dark-menu-y10'>{searchTerm}</span>, we found <span className='font-bold text-dark-menu-y10'>{filteredResults.length}</span> contents with that keyword, of which <span className='font-bold text-dark-menu-y10'>{movieCount}</span> are films and <span className='font-bold text-dark-menu-y10'>{tvShowCount}</span> are tv shows</h2>
 
     <div className='flex justify-center'>
       <div className='hidden sm:block w-3/12'>
@@ -67,6 +70,7 @@ const SearchResults = ({results, searchTerm}) => {
     </div>
     
   </div>
+  </LayoutSection>
   );
 
 };
