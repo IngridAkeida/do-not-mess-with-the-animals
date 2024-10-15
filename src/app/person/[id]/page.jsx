@@ -2,8 +2,8 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import Image from 'next/image';
-import LayoutSection from '@/components/uiComponents/LayoutContainer/LayoutSection';
-import Layout from '@/components/uiComponents/LayoutContainer/LayoutContainer';
+import LayoutSection from '@/components/uiComponents/Layouts/LayoutSection';
+import Layout from '@/components/uiComponents/Layouts/LayoutContainer';
 
 const PersonPage = () => {
   const [person, setPerson] = useState(null);

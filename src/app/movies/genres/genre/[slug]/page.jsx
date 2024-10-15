@@ -3,8 +3,8 @@ import { useState } from 'react';
 import GenreDataFetch from '@/components/Main/GenresMenu/GenreDataFetch/GenreDataFetch';
 import { getListMovie } from '@/pages/api/dataTMDBGenreMovie';
 import GenreContentCard from '@/components/Main/GenresMenu/GenreContentCard/GenreContentCard';
-import Layout from '@/components/uiComponents/LayoutContainer/LayoutContainer';
-import LayoutSection from '@/components/uiComponents/LayoutContainer/LayoutSection';
+import Layout from '@/components/uiComponents/Layouts/LayoutContainer';
+import LayoutSection from '@/components/uiComponents/Layouts/LayoutSection';
 
 
 const GenreMovie = () => {

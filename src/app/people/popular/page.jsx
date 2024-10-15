@@ -2,8 +2,8 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import Layout from '@/components/uiComponents/LayoutContainer/LayoutContainer';
-import LayoutSection from '@/components/uiComponents/LayoutContainer/LayoutSection';
+import Layout from '@/components/uiComponents/Layouts/LayoutContainer';
+import LayoutSection from '@/components/uiComponents/Layouts/LayoutSection';
 
 const PeoplePage = () => {
   const [data, setData] = useState(null);

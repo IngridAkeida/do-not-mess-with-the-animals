@@ -2,7 +2,7 @@
 import SearchResults from '@/components/Main/SearchResults/SearchResults';
 import { useSearchParams } from 'next/navigation';
 import { useState, useEffect, Suspense } from 'react';
-import Layout from '@/components/uiComponents/LayoutContainer/LayoutContainer';
+import Layout from '@/components/uiComponents/Layouts/LayoutContainer';
 
 const SearchPageContent = () => {
   const searchParams = useSearchParams();

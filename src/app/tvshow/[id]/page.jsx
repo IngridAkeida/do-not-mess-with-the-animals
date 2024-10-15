@@ -1,7 +1,7 @@
 'use client'
 import { useDatas } from '@/components/Main/UseDatas/UseDatas';
 import BannerResult from '@/components/Main/BannerResult/BannerResult';
-import Layout from '@/components/uiComponents/LayoutContainer/LayoutContainer';
+import Layout from '@/components/uiComponents/Layouts/LayoutContainer';
 
 const Tvshow = () => {
   const fetchpath ='serverDataTMDBTvShow';

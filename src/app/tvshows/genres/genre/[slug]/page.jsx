@@ -4,8 +4,8 @@ import GenreDataFetch from '@/components/Main/GenresMenu/GenreDataFetch/GenreDat
 import { getListTvShow } from '@/pages/api/dataTMDBGenreTvShow';
 import GenreContentCard from '@/components/Main/GenresMenu/GenreContentCard/GenreContentCard';
 import PageButton from '@/components/Main/GenresMenu/PageButton/PageButton';
-import Layout from '@/components/uiComponents/LayoutContainer/LayoutContainer';
-import LayoutSection from '@/components/uiComponents/LayoutContainer/LayoutSection';
+import Layout from '@/components/uiComponents/Layouts/LayoutContainer';
+import LayoutSection from '@/components/uiComponents/Layouts/LayoutSection';
 
 const GenreTVShow = () => {
   const specificPath = getListTvShow;

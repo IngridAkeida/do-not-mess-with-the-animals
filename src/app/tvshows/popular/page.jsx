@@ -1,8 +1,8 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { getListTvShowNew } from '@/pages/api/dataTMDBTvShowNew';
-import Layout from '@/components/uiComponents/LayoutContainer/LayoutContainer';
-import LayoutSection from '@/components/uiComponents/LayoutContainer/LayoutSection';
+import Layout from '@/components/uiComponents/Layouts/LayoutContainer';
+import LayoutSection from '@/components/uiComponents/Layouts/LayoutSection';
 import Link from 'next/link';
 import Image from 'next/image';
 
