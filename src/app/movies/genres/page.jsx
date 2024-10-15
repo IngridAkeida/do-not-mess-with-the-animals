@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react';
 import { getListMovie } from '@/pages/api/dataTMDBGenreMovie';
 import GenreIcon from '@/components/uiComponents/GenreIcon/GenreIcon';
 import GenreMenu from '@/components/Main/GenresMenu/GenreMenu';
-import Layout from '@/components/uiComponents/LayoutContainer/LayoutContainer';
-import LayoutSection from '@/components/uiComponents/LayoutContainer/LayoutSection';
+import Layout from '@/components/uiComponents/Layouts/LayoutContainer';
+import LayoutSection from '@/components/uiComponents/Layouts/LayoutSection';
 
 const GenresMovie = () => {
   const [list, setList] = useState([]);
@@ -49,5 +49,4 @@ const GenresMovie = () => {
     </Layout>
   );
 };
-
 export default GenresMovie;

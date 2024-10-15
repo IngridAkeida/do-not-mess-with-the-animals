@@ -1,5 +1,6 @@
 'use client';
 import LayoutSection from '@/components/uiComponents/Layouts/LayoutSection';
+import LayoutCards from '@/components/uiComponents/Layouts/LayoutCards';
 import GuardianNews from '@/pages/api/theGuardianAPI';
 import Link from 'next/link';
 import { NavigationInfo } from '@/components/uiComponents/MenuList/MenuList';
@@ -41,10 +42,10 @@ const List = () => {
               <div className='flex flex-wrap flex-row gap-4 justify-center items-center my-4 pb-4'>
                 {navigationInfo[toggle ? 2 : 1].subMenu.map((subItem) => (
                   <Link key={subItem.name} href={subItem.href} passHref>
-                    <div className='h-80 w-52 border rounded-md flex flex-col items-center justify-center bg-dark-accent-a40 hover:bg-dark-accent-a30 transition duration-300 cursor-pointer text-white hover:text-dark-accent-a0 hover:animate-jump animate-once animate-duration-1000 animate-ease-in-out'>
+                    <LayoutCards>
                       <span>{subItem.icon}</span>
                       <div className='text-center mt-4'>{subItem.name}</div>
-                    </div>
+                    </LayoutCards>
                   </Link>
                 ))}
               </div>
@@ -58,14 +59,12 @@ const List = () => {
             <div className='flex flex-wrap flex-row gap-4 justify-center items-center my-4 pb-4'>
               {item.subMenu.map((subItem) => (
               <Link key={subItem.name} href={subItem.href} passHref> 
-                <div 
-                  className='h-80 w-52 border rounded-md flex flex-col items-center justify-center bg-dark-accent-a40 hover:bg-dark-accent-a30 transition duration-300 cursor-pointer text-white hover:text-dark-accent-a0 hover:animate-jump animate-once animate-duration-1000 animate-ease-in-out' 
-                >
+                <LayoutCards>
                   <span>{subItem.icon}</span>
                   <div className='text-center mt-4'>
                     {subItem.name}
                   </div>
-                </div>
+                </LayoutCards>
               </Link>
               ))}
             </div>
