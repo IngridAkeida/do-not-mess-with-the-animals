@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { getListMovieNew } from '@/pages/api/dataTMDBMovieNew';
 import Layout from '@/components/uiComponents/Layouts/LayoutContainer';
 import LayoutSection from '@/components/uiComponents/Layouts/LayoutSection';
+import LayoutCards from '@/components/uiComponents/Layouts/LayoutCards';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -48,10 +49,10 @@ const MoviesUpComingPage = () => {
             <div className='flex flex-wrap flex-row gap-4 justify-center text-center items-center pb-4'>
               {list[3].items.results.map((item, index) => (
                 <Link key={index} href={`/movie/${item.id}`}>
-                  <div  className='h-80 w-52 border rounded-md flex flex-col items-center justify-center bg-dark-accent-a40 hover:bg-dark-accent-a30 transition duration-300 cursor-pointer text-white hover:text-dark-accent-a0 '>
+                  <LayoutCards>
                     <Image src={`https://image.tmdb.org/t/p/w500${item.poster_path}`} className='rounded-md h-80' alt={item.title} width={400} height={500}/>
                     <div className='absolute w-48'>{item.title}</div>
-                  </div>
+                  </LayoutCards>
                 </Link>
               ))}
             </div>
