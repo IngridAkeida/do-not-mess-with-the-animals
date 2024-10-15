@@ -1,5 +1,5 @@
 'use client';
-import LayoutSection from '@/components/uiComponents/LayoutContainer/LayoutSection';
+import LayoutSection from '@/components/uiComponents/Layouts/LayoutSection';
 import GuardianNews from '@/pages/api/theGuardianAPI';
 import Link from 'next/link';
 import { NavigationInfo } from '@/components/uiComponents/MenuList/MenuList';

@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { NavigationInfo, NavigationUser } from '@/components/uiComponents/MenuList/MenuList';
 import { useEffect } from 'react';
-import LayoutSection from '@/components/uiComponents/LayoutContainer/LayoutSection';
+import LayoutSection from '@/components/uiComponents/Layouts/LayoutSection';
 
 const MenuMobile = ({setMobileMenuOpen}) => {
   // const [openMenu, setOpenMenu] = useState(null);

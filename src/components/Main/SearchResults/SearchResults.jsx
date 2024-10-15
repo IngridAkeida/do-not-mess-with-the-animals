@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { useState, useMemo } from 'react';
 import CardLayout from '@/components/Main/CardLayout/CardLayout';
-import LayoutSection from '@/components/uiComponents/LayoutContainer/LayoutSection';
+import LayoutSection from '@/components/uiComponents/Layouts/LayoutSection';
 
 const SearchResults = ({results, searchTerm}) => {
   const [filter, setFilter] = useState('all');
