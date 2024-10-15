@@ -82,7 +82,7 @@ const GuardianNews = () => {
         {articles.map((article) => (
           <div className='p-2' key={article.id}>
             <div className={`text-white ${theme === 'dark' ? 'bg-dark-accent-a40' : 'bg-dark-primary-a30'} rounded-md p-4 h-auto md:h-[330px] flex flex-col justify-between`}>
-              <h2 className='md:text-sm xl:text-lg font-semibold h-auto md:h-14'>
+              <h2 className='md:text-sm xl:text-lg font-medium h-auto md:h-14 xl:leading-tight'>
                 {article.webTitle}
               </h2>
               <p className='text-sm font-thin text-justify '>Published on: {new Date(article.webPublicationDate).toLocaleDateString()}</p>
