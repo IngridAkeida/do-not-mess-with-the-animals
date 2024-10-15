@@ -1,5 +1,5 @@
-// src/GuardianNews.js
 
+import { useTheme } from 'next-themes';
 import { useState, useEffect } from 'react';
 import Guardian from 'guardian-js';
 import Image from 'next/image';
@@ -24,6 +24,8 @@ const GuardianNews = () => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const { theme } = useTheme();
 
   useEffect(() => {
     const fetchArticles = async () => {
@@ -79,7 +81,7 @@ const GuardianNews = () => {
       <Slider {...settings}>
         {articles.map((article) => (
           <div className='p-2' key={article.id}>
-            <div className='bg-dark-primary-a30  rounded-md p-4 h-auto md:h-[330px] flex flex-col justify-between'>
+            <div className={`text-white ${theme === 'dark' ? 'bg-dark-accent-a40' : 'bg-dark-primary-a30'} rounded-md p-4 h-auto md:h-[330px] flex flex-col justify-between`}>
               <h2 className='md:text-sm xl:text-lg font-semibold h-auto md:h-14'>
                 {article.webTitle}
               </h2>
@@ -89,7 +91,7 @@ const GuardianNews = () => {
                 <p className='text-sm'>{truncateText(article.fields.bodyText)}</p>
               </div>
               <p className='text-sm font-thin mt-2'>
-                See more at <a href={article.webUrl} target='_blank' rel='noopener noreferrer' className='text-dark-menu-y10  underline font-bold'>The Guardian</a>
+                See more at <a href={article.webUrl} target='_blank' rel='noopener noreferrer' className={`${theme === 'dark' ? 'text-dark-accent-a10 hover:text-dark-accent-a0' : 'text-dark-menu-y10 hover:text-white'}  underline font-bold`}>The Guardian</a>
               </p>
             </div>
           </div>
