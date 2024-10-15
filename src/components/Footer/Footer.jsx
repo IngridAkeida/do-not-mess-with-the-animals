@@ -53,7 +53,7 @@ const Footer = () => {
           </div>
         </div>
         <div className='mt-2'>
-          <hr className='border-t-2 pt-2 border-gray-300 dark:border-gray-950'/>
+          <hr className='border-t-2 pt-2 border-gray-300'/>
           <ul className='flex space-x-4 justify-between'>
             <NavigationUser />
             <div className='text-sm py-1'> © {new Date().getFullYear()} All rights reserved. </div>
