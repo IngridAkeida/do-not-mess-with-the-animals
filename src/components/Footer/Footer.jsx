@@ -10,16 +10,22 @@ const Footer = () => {
       <div className='container mx-auto flex flex-col lg:flex-row justify-between items-center'>
         <div className='mb-6 lg:mb-0'>
           <h2 className='text-xl font-bold mb-2'>Newsletter</h2>
-          <form className='flex flex-col sm:flex-row'>
+          <form className='flex flex-col gap-y-2'>
+            <input
+              type='name'
+              placeholder='Your name'
+              className='px-3 py-2 border rounded mb-2 sm:mb-0'
+              required
+            />
             <input
               type='email'
-              placeholder='Enter your email'
-              className='px-3 py-2 border rounded mb-2 sm:mb-0 sm:mr-2'
+              placeholder='Your best email'
+              className='px-3 py-2 border rounded mb-2 sm:mb-0'
               required
             />
             <button
               type='submit'
-              className='bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600'
+              className='bg-dark-accent-a30  text-white px-3 py-2 rounded hover:bg-dark-accent-a40 '
             >
               Subscribe
             </button>
@@ -44,21 +50,23 @@ const Footer = () => {
             ))}
           </ul>
         </div>
-        <div className='flex space-x-4'>
-          <Link href='https://facebook.com' target='_blank' rel='noopener noreferrer' className='text-2xl'>
-            <FaFacebook />
-          </Link>
-          <Link href='https://twitter.com' target='_blank' rel='noopener noreferrer' className='text-2xl'>
-            <FaTwitter />
-          </Link>
-          <Link href='https://instagram.com' target='_blank' rel='noopener noreferrer' className='text-2xl'>
-            <FaInstagram />
-          </Link>
-        </div>
       </div>
       <div className='mt-4'>
-        <ul className='flex space-x-4'>
+        <hr className='border-t-2 pt-2 border-gray-300'/>
+        <ul className='flex space-x-4 justify-between'>
           <NavigationUser />
+          <div className='text-sm py-1'> © {new Date().getFullYear()} All rights reserved. </div>
+          <div className='flex space-x-4 justify-end items-end'>
+            <Link href='https://facebook.com' target='_blank' rel='noopener noreferrer' className='text-2xl'>
+              <FaFacebook />
+            </Link>
+            <Link href='https://twitter.com' target='_blank' rel='noopener noreferrer' className='text-2xl'>
+              <FaTwitter />
+            </Link>
+            <Link href='https://instagram.com' target='_blank' rel='noopener noreferrer' className='text-2xl'>
+              <FaInstagram />
+            </Link>
+          </div>
         </ul>
       </div>
     </LayoutSection>

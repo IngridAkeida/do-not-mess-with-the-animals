@@ -73,7 +73,7 @@ const Banner = ({randomItem, addVideo}) => {
           </div> */}
           <div className='rounded-md -my-20 w-auto'>
             <div className='flex items-center pr-4 pb-4 flex-col text-center h-full w-auto gap-2'>
-              <div className='text-5xl font-bold border'>{nameTitle}</div>
+              <div className='text-5xl font-bold'>{nameTitle}</div>
               <div className=''>
                 <DetailsContent 
                   item={randomItem} 
