@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Layout from '@/components/uiComponents/Layouts/LayoutContainer';
 import LayoutSection from '@/components/uiComponents/Layouts/LayoutSection';
+import PeopleCards from '@/components/uiComponents/Layouts/LayoutPeopleCards';
 
 const PeoplePage = () => {
   const [data, setData] = useState(null);
@@ -44,8 +45,10 @@ const PeoplePage = () => {
           <div className='flex flex-col sm:w-10/12'>
             <h1>Popular People</h1>
             <ul className='flex flex-wrap gap-2 justify-center items-center'>
-              {data.results.map((person) => (
-                <li className='max-w-48 bg-dark-neutral-a40 p-2' key={person.id}>
+              {data.results.map((person) => { 
+                const key = person.id;
+                return(
+                <PeopleCards key={key}>
                   <Link href={`/person/${person.id}`}>
                     <div>
                       <h2>{person.name}</h2>
@@ -55,8 +58,8 @@ const PeoplePage = () => {
                       <p className='flex text-xs'>{person.known_for.map((content) => content.title || content.name).join(', ')}</p>
                     </div>
                   </Link>
-                </li>
-              ))}
+                </PeopleCards>
+              )})}
             </ul>
           </div>
         </div>
