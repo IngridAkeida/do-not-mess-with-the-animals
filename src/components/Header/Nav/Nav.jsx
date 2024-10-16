@@ -6,10 +6,13 @@ import DropDownMenu from './DropDownMenu/DropDownMenu';
 import UserPreferencesMenu from './UserPreferencesMenu/UserPreferencesMenu';
 import SearchField from '@/components/uiComponents/SearchField/SearchField';
 import MenuMobile from './MenuMobile/MenuMobile';
+import { useTheme } from 'next-themes';
 
 const Nav = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeHeader, setActiveHeader] = useState(false);
+
+  const { theme } = useTheme();
 
   const SearchWrapStyle = 'hidden sm:block text-base relative m-2';
   const SearchInputStyle = 'p-1 sm:pl-4 sm:w-80 max-w-md bg-dark-accent-a40 opacity-80 rounded-2xl text-white outline-none border border-dark-accent-a40';
@@ -25,7 +28,7 @@ const Nav = () => {
     
   
   return (
-    <header className={`sticky top-0 z-50 mx-auto bg-opacity-100 ${activeHeader ? 'bg-dark-neutral-a40 shadow-sm' : ''}`}>
+    <header className={`sticky top-0 z-50 mx-auto bg-opacity-100 ${activeHeader ? 'bg-dark-neutral-a40 shadow-sm' : (theme === 'dark' ? '' : 'bg-dark-primary-a30')}`}>
       <nav className='flex items-center justify-between px-4 lg:px-10' aria-label='Global'>
         <div className='flex'>
           <Link href='/' className=''>
