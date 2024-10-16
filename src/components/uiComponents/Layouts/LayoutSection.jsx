@@ -5,7 +5,7 @@ const LayoutSection = ({ children, adicionalStyle }) => {
   const { theme } = useTheme();
   useEffect(() => {
     if (theme === 'dark') {
-      document.body.style.backgroundColor = '#201e1e'; 
+      document.body.style.backgroundColor = '#162b2b'; 
       document.body.style.color = '#FFFFFF'; 
     } else {
       document.body.style.backgroundColor = '#fabd15'; 

@@ -12,7 +12,7 @@ const apiKey = process.env.NEXT_PUBLIC_GUARDIAN_API_KEY;
 const guardianKey = new Guardian(apiKey, true);
 
 const truncateText = (text ) => {
-  const maxLength = window.innerWidth < 1024 ? 480 : 280;
+  const maxLength = window.innerWidth < 1024 ? 440 : 280;
 
   if (text.length <= maxLength) {
     return text;
