@@ -6,6 +6,16 @@ import Layout from '@/components/uiComponents/Layouts/LayoutContainer';
 import LayoutSection from '@/components/uiComponents/Layouts/LayoutSection';
 import PeopleCards from '@/components/uiComponents/Layouts/LayoutPeopleCards';
 
+
+const truncateText = (text ) => {
+  const maxLength = window.innerWidth < 1024 ? 40 : 40;
+
+  if (text.length <= maxLength) {
+    return text;
+  } 
+  return text.slice(0, maxLength) + '...';
+};
+
 const PeoplePage = () => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
@@ -50,12 +60,10 @@ const PeoplePage = () => {
                 return(
                 <PeopleCards key={key}>
                   <Link href={`/person/${person.id}`}>
-                    <div>
-                      <h2>{person.name}</h2>
-                      <Image src={`https://image.tmdb.org/t/p/w500${person.profile_path}`} alt={person.name} width={500}
-                                height={750}
-                                priority={true} />
-                      <p className='flex text-xs'>{person.known_for.map((content) => content.title || content.name).join(', ')}</p>
+                    <div className='flex flex-col items-center text-center gap-y-1 p-2'>
+                      <h2 className=''>{person.name}</h2>
+                      <Image src={`https://image.tmdb.org/t/p/w500${person.profile_path}`} alt={person.name} width={500} height={750} priority={true}  className='h-60 w-auto rounded-md'/>
+                      <p className='text-xs h-10 '>{truncateText(person.known_for.map((content) => content.title || content.name).join(', '))}</p>
                     </div>
                   </Link>
                 </PeopleCards>
