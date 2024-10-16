@@ -12,9 +12,9 @@ export const NavigationInfo = [
   {
     name: 'About Us',
     subMenu: [
-      { name: 'Popular', href: '/people/popular', icon: <MdPeople className='h-20 w-20'/> },
-      { name: 'Actors', href: '/people/actors', icon: <MdPerson className='h-20 w-20'/> },
-      { name: 'Producers', href: '/people/producers', icon: <MdMovieCreation className='h-20 w-20'/> },
+      { name: 'Vision', href: '#', icon: <MdPeople className='h-20 w-20'/> },
+      { name: 'Mission', href: '#', icon: <MdPerson className='h-20 w-20'/> },
+      { name: 'Documentation', href: '#', icon: <MdMovieCreation className='h-20 w-20'/> },
     ],
   },
   {
