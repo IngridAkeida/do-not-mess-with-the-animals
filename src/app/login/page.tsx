@@ -4,7 +4,7 @@ import { auth } from '@/lib/firebaseData';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import LayoutForm from '@/components/uiComponents/LayoutContainer/LayoutForm';
+import LayoutForm from '@/components/uiComponents/Layouts/LayoutForm';
 
 const Login = () => {
   const [email, setEmail] = useState('');

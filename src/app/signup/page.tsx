@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { auth } from '@/lib/firebaseData';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
-import LayoutForm from '@/components/uiComponents/LayoutContainer/LayoutForm';
+import LayoutForm from '@/components/uiComponents/Layouts/LayoutForm';
 import Link from 'next/link';
 
 const SignUp = () => {
