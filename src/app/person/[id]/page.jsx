@@ -56,9 +56,9 @@ const PersonPage = () => {
                 width={500}
                 height={750}
                 priority={true}
-                className='rounded-md w-52  '
+                className='rounded-md w-56'
               />
-              <div className='mb-4'>
+              <div className='my-4'>
                 <h1 className='text-3xl'>{person.name}</h1>
                 <p>{person.known_for_department}</p>
                 <p>{person.place_of_birth}</p>
