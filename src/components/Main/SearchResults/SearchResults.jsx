@@ -60,7 +60,6 @@ const SearchResults = ({results, searchTerm}) => {
       </div>
       <GeneralComponent additionalStyles={additionalStylesComponent}>
         {filteredResults.map((result, index) => {
-
           let resultType = '';
           if (result.media_type === 'tv' ) {
             resultType = 'tvshow';
