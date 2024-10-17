@@ -14,7 +14,7 @@ const LayoutSection = ({ children, adicionalStyle }) => {
   }, [theme]);
 
   return (
-    <div className={`${adicionalStyle} py-6 ${theme === 'dark' ? 'bg-dark-primary-a40 text-white' : 'bg-[#f0e2bc]  text-dark-neutral-a40 '}`}>
+    <div className={`${adicionalStyle} py-4 rounded-md mb-2 ${theme === 'dark' ? 'bg-dark-primary-a40 text-white' : 'bg-[#f0e2bc]  text-dark-neutral-a40 '}`}>
       {children}
     </div>
   );
