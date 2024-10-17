@@ -15,7 +15,7 @@ const SearchResults = ({results, searchTerm}) => {
   const { theme } = useTheme();
 
   const additionalStylesTitle = 'mb-2 font-bold text-xl text-center py-2 mx-2 flex justify-center rounded-md items-center';
-  const additionalStylesComponent = 'flex flex-wrap justify-center p-2 gap-4 bg-gradient-to-br w-[100%] sm:w-[900px] rounded-md sm:py-4 mx-2';
+  const additionalStylesComponent = 'flex flex-wrap justify-center p-2 gap-4 bg-gradient-to-br w-[100%] sm:w-[360px] md:w-[600px] lg:w-[800px] xl:w-[900px] rounded-md sm:py-4 mx-2';
 
 
   const { filteredResults, movieCount, tvShowCount } = useMemo(() => {
