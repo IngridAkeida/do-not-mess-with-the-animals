@@ -47,7 +47,7 @@ const SearchResults = ({results, searchTerm}) => {
     <LayoutSection>
     <div className='flex flex-col px-2 py-4 sm:px-0 gap-2'>
       <GeneralComponent additionalStyles={additionalStylesTitle} >
-        <span>You searched for the term <span className='font-bold text-dark-menu-y10'>{searchTerm}</span>, we found <span className='font-bold text-dark-menu-y10'>{filteredResults.length}</span> contents with that keyword, of which <span className='font-bold text-dark-menu-y10'>{movieCount}</span> are films and <span className='font-bold text-dark-menu-y10'>{tvShowCount}</span> are tv shows</span> 
+        <span className='text-white'>You searched for the term <span className='font-bold text-dark-menu-y10'>{searchTerm}</span>, we found <span className='font-bold text-dark-menu-y10'>{filteredResults.length}</span> contents with that keyword, of which <span className='font-bold text-dark-menu-y10'>{movieCount}</span> are films and <span className='font-bold text-dark-menu-y10'>{tvShowCount}</span> are tv shows</span> 
       </GeneralComponent>
 
     <div className='flex justify-center'>
