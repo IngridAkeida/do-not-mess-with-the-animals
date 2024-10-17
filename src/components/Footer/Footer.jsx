@@ -28,7 +28,7 @@ const Footer = () => {
               />
               <button
                 type='submit'
-                className={` text-white px-3 py-2 rounded ${theme === 'dark' ? 'bg-dark-accent-a30  hover:bg-dark-accent-a40' : 'bg-dark-primary-a40   hover:bg-dark-primary-a30 '}`}
+                className={` text-white px-3 py-2 rounded ${theme === 'dark' ? 'bg-dark-accent-a30  hover:bg-dark-accent-a40' : 'bg-dark-primary-a30   hover:bg-dark-primary-a40 '}`}
               >
                 Subscribe
               </button>
@@ -55,7 +55,7 @@ const Footer = () => {
           </div>
         </div>
         <div className='mt-2'>
-          <hr className='border-t-2 pt-2 border-gray-300'/>
+          <hr className={`border-t-2 pt-2 ${theme === 'dark' ? 'border-dark-accent-a20 ' : 'border-dark-primary-a30'}`}/>
           <ul className='flex space-x-4 justify-between'>
             <NavigationUser />
             <div className='text-sm py-1'> © {new Date().getFullYear()} All rights reserved. </div>
