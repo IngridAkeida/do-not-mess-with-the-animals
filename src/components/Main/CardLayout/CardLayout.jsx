@@ -57,16 +57,16 @@ const CardLayout = ({result}) => {
             <Image className='rounded-xl' src='/assets/movie-nf-hor.png' width={300} height={300} alt={result.name || result.title} />
           ) : (
             <Image className='rounded-xl' src={`https://image.tmdb.org/t/p/w500/${result.backdrop_path}`} width={500}
-                              height={750}
-                              priority={true} alt={result.name || result.title} />
+            height={750}
+            priority={true} alt={result.name || result.title} />
           )}
         </div>
       <div className='hidden sm:flex h-[100%]'>{result.poster_path=== null ? (
           <Image className='rounded-xl' src='/assets/movie-nf.png' width={500} height={500} alt={result.name || result.title} />
         ) : (
           <Image className='rounded-xl' src={`https://image.tmdb.org/t/p/w500/${result.poster_path}`} width={500}
-                              height={750}
-                              priority={true} alt={result.name || result.title} />
+          height={750}
+          priority={true} alt={result.name || result.title} />
         )}
       </div>
     </div>
