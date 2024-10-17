@@ -4,7 +4,7 @@ const GeneralComponent = ({ children, additionalStyles }) => {
   const { theme } = useTheme();
 
   return (
-    <div className={`${additionalStyles} ${theme === 'dark' ? 'bg-[#f0e2bc]  text-dark-neutral-a40'  : 'bg-dark-primary-a30 text-white'}`}>
+    <div className={`${additionalStyles} ${theme === 'dark' ? 'bg-dark-accent-a30  text-dark-neutral-a40'  : 'bg-dark-primary-a30 text-white'}`}>
       {children}
     </div>
   );
