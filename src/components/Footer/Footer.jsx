@@ -3,11 +3,13 @@ import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
 import { NavigationInfo, NavigationUser } from '@/components/uiComponents/MenuList/MenuList';
 import Link from 'next/link';
 import LayoutSection from '@/components/uiComponents/Layouts/LayoutSection';
+import { useTheme } from 'next-themes';
 
 const Footer = () => {
+  const { theme } = useTheme();
   return (
     <LayoutSection>
-      <div className='mx-4'>
+      <div className='mx-6'>
         <div className='container flex flex-col md:flex-row justify-center  md:justify-between items-center'>
           <div className='mb-6 lg:mb-0'>
             <h2 className='text-xl font-bold'>Newsletter</h2>
@@ -26,7 +28,7 @@ const Footer = () => {
               />
               <button
                 type='submit'
-                className='bg-dark-accent-a30  text-white px-3 py-2 rounded hover:bg-dark-accent-a40 '
+                className={` text-white px-3 py-2 rounded ${theme === 'dark' ? 'bg-dark-accent-a30  hover:bg-dark-accent-a40' : 'bg-dark-primary-a40   hover:bg-dark-primary-a30 '}`}
               >
                 Subscribe
               </button>
