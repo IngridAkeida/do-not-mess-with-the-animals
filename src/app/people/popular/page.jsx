@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Layout from '@/components/uiComponents/Layouts/LayoutContainer';
 import LayoutSection from '@/components/uiComponents/Layouts/LayoutSection';
+import Subtitles from '@/components/uiComponents/Layouts/LayoutSubtitles';
 import PeopleCards from '@/components/uiComponents/Layouts/LayoutPeopleCards';
 
 
@@ -53,7 +54,7 @@ const PeoplePage = () => {
         <div className='flex'>
           <div className='hidden sm:block w-2/12'>Coluna 1</div>
           <div className='flex flex-col sm:w-10/12'>
-            <h1>Popular People</h1>
+            <Subtitles>Popular People</Subtitles>
             <ul className='flex flex-wrap gap-2 justify-center items-center'>
               {data.results.map((person) => { 
                 const key = person.id;
