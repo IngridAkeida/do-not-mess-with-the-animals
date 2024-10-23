@@ -5,16 +5,16 @@ const LayoutSection = ({ children, adicionalStyle }) => {
   const { theme } = useTheme();
   useEffect(() => {
     if (theme === 'dark') {
-      document.body.style.backgroundColor = '#162b2b'; 
+      document.body.style.backgroundColor = '#201e1e'; 
       document.body.style.color = '#FFFFFF'; 
     } else {
-      document.body.style.backgroundColor = '#fabd15'; 
+      document.body.style.backgroundColor = '#f7f7f7'; 
       document.body.style.color = '#ffffff'; 
     }
   }, [theme]);
 
   return (
-    <div className={`${adicionalStyle} py-4 rounded-md mb-2 ${theme === 'dark' ? 'bg-dark-primary-a40 text-white' : 'bg-[#f0e2bc]  text-dark-neutral-a40 '}`}>
+    <div className={`${adicionalStyle} py-4 rounded-md mb-2 ${theme === 'dark' ? 'bg-dark-neutral-a30 text-white' : 'bg-light-neutral-400   text-dark-neutral-a40 '}`}>
       {children}
     </div>
   );

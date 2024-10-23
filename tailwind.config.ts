@@ -41,27 +41,27 @@ const config: Config = {
             a0: '#868585',
             a10: '#6b6969',
             a20: '#504e4e',
-            a30: '#373535',
-            a40: '#201e1e',
+            a30: '#373535', //used
+            a40: '#201e1e', //used
             a50: '#040000',
           },
         },
         light: {
           primary: {
-            100: '#ffdad4', // Lightest tone
+            100: '#ffdad4', 
             200: '#ffc4b8',
             300: '#ffad9b',
             400: '#ff977e',
             500: '#ff8162',
-            600: '#ff6b46', // Darkest tone
+            600: '#ff6b46', 
           },
           neutral: {
-            100: '#ffffff', // Lightest tone
-            200: '#f7f7f7',
-            300: '#efefef',
-            400: '#e7e7e7',
+            100: '#ffffff', 
+            200: '#f7f7f7', //used
+            300: '#efefef', 
+            400: '#e7e7e7', //used
             500: '#dfdfdf',
-            600: '#d7d7d7', // Darkest tone
+            600: '#d7d7d7', 
           },
         },
         alert:{
@@ -71,7 +71,7 @@ const config: Config = {
             300: '#ea8993',
             400: '#e46370',
             500: '#dc3d4d',
-            600: '#b41c2b', // Base color
+            600: '#b41c2b', 
           },
           success: {
             100: '#d6f5e3',
@@ -79,7 +79,7 @@ const config: Config = {
             300: '#85e4ad',
             400: '#5cd992',
             500: '#34ce77',
-            600: '#009f42', // Base color
+            600: '#009f42', 
           },
           warning: {
             100: '#fff3cd',
@@ -87,7 +87,7 @@ const config: Config = {
             300: '#ffd667',
             400: '#ffc834',
             500: '#ffba00',
-            600: '#cc8800', // Base color
+            600: '#cc8800', 
           },
           info: {
             100: '#dbeeff',
@@ -95,7 +95,7 @@ const config: Config = {
             300: '#92cbff',
             400: '#6dbaff',
             500: '#47a8ff',
-            600: '#388cfa', // Base color
+            600: '#388cfa', 
           },
         },
       },
