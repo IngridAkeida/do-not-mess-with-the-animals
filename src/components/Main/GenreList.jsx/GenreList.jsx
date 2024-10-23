@@ -1,6 +1,7 @@
 'use client';
 import LayoutSection from '@/components/uiComponents/Layouts/LayoutSection';
 import LayoutCards from '@/components/uiComponents/Layouts/LayoutCards';
+import Subtitle from '@/components/uiComponents/Layouts/LayoutSubtitles';
 import GuardianNews from '@/pages/api/theGuardianAPI';
 import Link from 'next/link';
 import { NavigationInfo } from '@/components/uiComponents/MenuList/MenuList';
@@ -18,7 +19,7 @@ const List = () => {
         <h2 className='font-semibold text-3xl text-center'> Looking for the main tredings and genres</h2>
       </LayoutSection>
       <LayoutSection>
-        <h1 className='text-center text-2xl mb-4 font-semibold'>News</h1>
+        <Subtitle>News</Subtitle>
         <GuardianNews />
       </LayoutSection>
       <LayoutSection>
@@ -40,9 +41,9 @@ const List = () => {
             </label>
           </div>
           <div key={navigationInfo[toggle ? 2 : 1].name}>
-            <h1 className='text-center text-2xl mb-4 font-semibold flex justify-center items-center gap-x-2'>
-              The Main Content About: <span className='text-dark-menu-y10 '> {navigationInfo[toggle ? 2 : 1].name}</span>
-            </h1>
+            <Subtitle>
+              The Main Content About: <span className='font-bold'> {navigationInfo[toggle ? 2 : 1].name}</span>
+            </Subtitle>
             <div className='flex flex-wrap flex-row gap-4 justify-center items-center my-4 pb-4'>
               {navigationInfo[toggle ? 2 : 1].subMenu.map((subItem) => (
                 <Link key={subItem.name} href={subItem.href} passHref>
@@ -59,7 +60,7 @@ const List = () => {
       <LayoutSection>
       {navigationInfo.slice(3).map((item) => (
         <div key={item.name}>
-        <h1 className='text-center text-2xl mb-4 font-semibold'>{item.name}</h1>
+        <Subtitle>{item.name}</Subtitle>
           <div className='flex flex-wrap flex-row gap-4 justify-center items-center my-4 pb-4'>
             {item.subMenu.map((subItem) => (
             <Link key={subItem.name} href={subItem.href} passHref> 
