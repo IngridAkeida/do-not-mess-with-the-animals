@@ -9,7 +9,7 @@ const LayoutSection = ({ children, adicionalStyle }) => {
       document.body.style.color = '#FFFFFF'; 
     } else {
       document.body.style.backgroundColor = '#f7f7f7'; 
-      document.body.style.color = '#ffffff'; 
+      document.body.style.color = '#000'; 
     }
   }, [theme]);
 
