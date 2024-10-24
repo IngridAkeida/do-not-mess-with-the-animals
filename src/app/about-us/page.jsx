@@ -50,7 +50,7 @@ const AboutUs = () => {
   return (
     <Layout>
       <div className='mx-auto'>
-        <section className='h-[85vh] flex flex-col justify-center font-serif pl-4'>
+        <section className='h-[85vh] flex flex-col justify-center font-serif pl-4 text-dark-menu-y10 '>
           <h1 className='text-left font-light text-7xl md:text-8xl mb-4'>I really love watching movies,</h1>
           <p className='text-xl mb-4'>
             But I hate when I see an animal. It makes me feel bad, and even if I try, I can&apos;t continue watching, which ruins my experience completely. 
