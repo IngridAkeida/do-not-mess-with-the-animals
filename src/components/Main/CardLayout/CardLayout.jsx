@@ -17,32 +17,33 @@ const CardLayout = ({result}) => {
   console.log(result)
   return(
     <div className='sm:h-60 sm:w-40 relative sm:cursor-pointer'>
-      <div className='absolute bg-black opacity-0 hover:opacity-80 sm:h-60 sm:w-40 rounded-xl flex justify-center items-center'>
+      <div className='absolute bg-black opacity-0 hover:opacity-80 sm:h-60 sm:w-40 rounded-xl flex  items-center justify-center'>
         <div className='block sm:text-transparent sm:hover:text-white px-2 h-[80%] w-[100%]'>
           <div className='flex sm:flex-col gap-2 sm:gap-0'>
             <p className='font-bold'>{result.name || result.title}</p>
             <p className='font-thin text-sm'>({result.media_type})</p>
+            <p className='text-xs pb-1'>{new Date(result.release_date).getFullYear()}</p>
           </div>
-          <p className='text-xs pb-1'>{result.releaseYear}</p>
-          {result.genre_ids && (
-            <p>
-              Genre:{" "}
-              {result.genre_ids.map((genre) => {
-                if (genreColors[genre]) {
-                  return (
-                    <span
-                      key={genre}
-                      className={`py-0.5 px-1 text-xs font-semibold rounded-lg ${genreColors[genre].color}`}
-                    >
-                      {genreColors[genre].name}
-                    </span>
-                  );
-                } else {
-                  return <span key={genre} className='py-0.5 px-1 text-xs font-semibold rounded-lg'>Unknown</span>;
-                }
-              })}
-            </p>
-          )}
+          <div>
+            {result.genre_ids && (
+              <p className='flex flex-wrap gap-y-2 justify-center items-baseline bottom-0'>
+                {result.genre_ids.map((genre) => {
+                  if (genreColors[genre]) {
+                    return (
+                      <span
+                        key={genre}
+                        className={`flex-wrap py-0.5 mx-2 px-1 text-xs font-semibold rounded-lg ${genreColors[genre].color}`}
+                      >
+                        {genreColors[genre].name}
+                      </span>
+                    );
+                  } else {
+                    return <span key={genre} className='py-0.5 px-1 text-xs font-semibold rounded-lg'>Unknown</span>;
+                  }
+                })}
+              </p>
+            )}
+          </div>
           {/* <div className='text-sm flex gap-2 absolute bottom-2 sm:bottom-4 sm:left-12'>
             <span onClick={handleAddClick} className='cursor-pointer'>
               {isAdded ? <FaCheck /> : <FaPlus />}
