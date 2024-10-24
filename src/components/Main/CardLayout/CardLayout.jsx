@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { FaPlus, FaCheck, FaPlay } from 'react-icons/fa';
 import { useState } from 'react';
 import IsFavoriteComponent from '@/components/uiComponents/IsFavorite/IsFavorite';
+import GenreColors from '@/components/uiComponents/GenreColors/GenreColors';
 
 const CardLayout = ({result}) => {
   const [isAdded, setIsAdded] = useState(false);
@@ -10,6 +11,10 @@ const CardLayout = ({result}) => {
     setIsAdded(!isAdded);
   };
 
+  const genreColors = GenreColors;
+  console.log('genreColors', genreColors);
+  console.log(result.genre_ids);
+  console.log(result)
   return(
     <div className='sm:h-60 sm:w-40 relative sm:cursor-pointer'>
       <div className='absolute bg-black opacity-0 hover:opacity-80 sm:h-60 sm:w-40 rounded-xl flex justify-center items-center'>
@@ -19,7 +24,25 @@ const CardLayout = ({result}) => {
             <p className='font-thin text-sm'>({result.media_type})</p>
           </div>
           <p className='text-xs pb-1'>{result.releaseYear}</p>
-          {result.genre_ids && <p>Genre: {result.genre_ids}</p>}
+          {result.genre_ids && (
+            <p>
+              Genre:{" "}
+              {result.genre_ids.map((genre) => {
+                if (genreColors[genre]) {
+                  return (
+                    <span
+                      key={genre}
+                      className={`py-0.5 px-1 text-xs font-semibold rounded-lg ${genreColors[genre].color}`}
+                    >
+                      {genreColors[genre].name}
+                    </span>
+                  );
+                } else {
+                  return <span key={genre} className='py-0.5 px-1 text-xs font-semibold rounded-lg'>Unknown</span>;
+                }
+              })}
+            </p>
+          )}
           {/* <div className='text-sm flex gap-2 absolute bottom-2 sm:bottom-4 sm:left-12'>
             <span onClick={handleAddClick} className='cursor-pointer'>
               {isAdded ? <FaCheck /> : <FaPlus />}
