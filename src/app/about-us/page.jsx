@@ -5,20 +5,20 @@ import Subtitles from '@/components/uiComponents/Layouts/LayoutSubtitles';
 
 const contentSections = [
   {
-    title: "Mission Statement",
+    title: 'Mission Statement',
     content: `Our mission is to create an inclusive platform that offers comprehensive insights into movies and series, 
     specifically highlighting potential triggers such as animal violence and other sensitive content. 
     We aim to empower viewers by providing the necessary information to make informed choices about their viewing experiences, 
     ensuring they can enjoy entertainment without unexpected surprises.`
   },
   {
-    title: "Vision Statement",
+    title: 'Vision Statement',
     content: `We envision a world where every viewer can enjoy films and series with confidence, knowing they have access to detailed information 
     about the content they are consuming. Our platform will be the leading resource for individuals seeking knowledge about entertainment, 
     fostering a safe and enjoyable viewing environment for all.`
   },
   {
-    title: "Core Values",
+    title: 'Core Values',
     content: (
       <ul className='list-disc pl-10 space-y-2'>
         <li><strong>Transparency:</strong> We believe in offering clear and precise information about the content of movies and series, including potential triggers.</li>
@@ -30,7 +30,7 @@ const contentSections = [
     )
   },
   {
-    title: "Technology Stack",
+    title: 'Documentation',
     content: (
       <p>
         <strong>APIs:</strong> We integrate multiple APIs, including The Does Dog Die, The Guardian, and TMDB, to provide rich content and detailed insights about films and series.
@@ -40,7 +40,7 @@ const contentSections = [
     )
   },
   {
-    title: "Personal Motivation",
+    title: 'Personal Motivation',
     content: `The inspiration behind this application stems from my personal experiences of encountering unexpected triggers while watching films and series. 
     Having faced distressing moments, such as scenes involving animal violence, I recognized the need for a resource that provides clear information about content warnings.`
   }

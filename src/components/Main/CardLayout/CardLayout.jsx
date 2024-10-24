@@ -20,13 +20,13 @@ const CardLayout = ({result}) => {
           </div>
           <p className='text-xs pb-1'>{result.releaseYear}</p>
           {result.genre_ids && <p>Genre: {result.genre_ids}</p>}
-          <div className='text-sm flex gap-2 absolute bottom-2 sm:bottom-4 sm:left-12'>
+          {/* <div className='text-sm flex gap-2 absolute bottom-2 sm:bottom-4 sm:left-12'>
             <span onClick={handleAddClick} className='cursor-pointer'>
               {isAdded ? <FaCheck /> : <FaPlus />}
             </span>
             <IsFavoriteComponent itemId={result.id} />
             <FaPlay />
-          </div> 
+          </div>  */}
           {/* ajustar esse componente asap */}
           {/* <div className=''>
             {result.additionalData && result.additionalData.length > 0 && 
