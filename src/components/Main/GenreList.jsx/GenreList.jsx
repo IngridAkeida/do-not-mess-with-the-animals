@@ -15,9 +15,9 @@ const List = () => {
 
   return (
     <div className='flex flex-col gap-2 mx-2 my-2 md:mx-0'>
-      <LayoutSection adicionalStyle={adicionalStyle} >
+      {/* <LayoutSection adicionalStyle={adicionalStyle} >
         <h2 className='font-semibold text-3xl text-center'> Looking for the main tredings and genres</h2>
-      </LayoutSection>
+      </LayoutSection> */}
       <LayoutSection>
         <Subtitle>News</Subtitle>
         <GuardianNews />
