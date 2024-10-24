@@ -19,10 +19,6 @@ const List = () => {
         <h2 className='font-semibold text-3xl text-center'> Looking for the main tredings and genres</h2>
       </LayoutSection> */}
       <LayoutSection>
-        <Subtitle>News</Subtitle>
-        <GuardianNews />
-      </LayoutSection>
-      <LayoutSection>
         <div className='relative'>
           <div className='absolute top-2 right-2'>
             <label className='inline-flex items-center cursor-pointer'>
@@ -56,6 +52,10 @@ const List = () => {
             </div>
           </div>
         </div>
+      </LayoutSection>
+      <LayoutSection>
+        <Subtitle>News</Subtitle>
+        <GuardianNews />
       </LayoutSection>
       <LayoutSection>
       {navigationInfo.slice(3).map((item) => (
